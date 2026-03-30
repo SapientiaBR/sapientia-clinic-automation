@@ -1,33 +1,33 @@
-import { PhoneOff, MessageSquareX, FileText, CalendarX, Clock, BarChart3 } from "lucide-react";
+import { MessageSquareX, UserX, CalendarX, Clock, Users, HelpCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const problems = [
-  { icon: PhoneOff, text: "Pacientes ligam fora do horário e ninguém atende" },
-  { icon: MessageSquareX, text: "Sua secretária não dá conta do volume de WhatsApp" },
-  { icon: FileText, text: "Prontuários e fichas ainda são preenchidos em papel" },
-  { icon: CalendarX, text: "Pacientes esquecem consultas e você perde faturamento com faltas" },
-  { icon: Clock, text: "Você perde tempo com tarefas administrativas em vez de atender" },
-  { icon: BarChart3, text: "Não sabe quantos leads chegam e quantos viram pacientes" },
+  { icon: MessageSquareX, text: "Mensagens no WhatsApp que ficam horas sem resposta" },
+  { icon: UserX, text: "Pacientes que pedem informações e nunca mais voltam" },
+  { icon: CalendarX, text: "Agendamentos que começam mas não são concluídos" },
+  { icon: Clock, text: "Consultas esquecidas — faltas que custam seu tempo e dinheiro" },
+  { icon: Users, text: "Recepcionista sobrecarregada que não consegue responder todo mundo" },
+  { icon: HelpCircle, text: "Você não sabe quantos pacientes perdeu essa semana" },
 ];
 
 const Problems = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="dores" className="py-20 lg:py-32 relative">
+    <section id="problema" className="py-20 lg:py-32 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <h2
           className={`font-display text-3xl sm:text-4xl font-bold text-center mb-4 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Isso acontece no seu{" "}
-          <span className="gradient-text">consultório?</span>
+          O problema não é falta de pacientes.{" "}
+          <span className="gradient-text">É perda de pacientes.</span>
         </h2>
         <p className={`text-muted-foreground text-center mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}>
-          Se você se identificou com ao menos uma dessas situações, sua clínica está deixando dinheiro na mesa.
+          Seu consultório já recebe contatos. Mas quantos deles viram consulta de verdade?
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

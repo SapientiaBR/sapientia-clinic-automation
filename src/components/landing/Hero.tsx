@@ -16,11 +16,11 @@ const Hero = () => {
           {/* Left content */}
           <div className="max-w-2xl">
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Sua clínica perde pacientes{" "}
-              <span className="gradient-text">fora do horário comercial?</span>
+              Seu consultório está perdendo pacientes todos os dias…{" "}
+              <span className="gradient-text">e você nem percebe.</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Automatize o atendimento, agendamento e follow-up da sua clínica com IA — 24 horas por dia, 7 dias por semana, sem contratar mais ninguém.
+              Enquanto você atende, mensagens ficam sem resposta, agendamentos travam e pacientes escolhem outro médico. Isso já está custando dinheiro ao seu consultório.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -30,13 +30,13 @@ const Hero = () => {
                 className="gradient-bg inline-flex items-center justify-center gap-2 text-foreground font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
               >
                 <MessageSquare size={20} />
-                Quero Automatizar Minha Clínica
+                Quero Parar de Perder Pacientes
               </a>
               <a
-                href="#dores"
+                href="#problema"
                 className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground border border-border/50 px-6 py-4 rounded-xl transition-colors"
               >
-                Veja como funciona
+                Entenda o problema
                 <ArrowDown size={16} />
               </a>
             </div>
@@ -53,7 +53,7 @@ const Hero = () => {
                       IA
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-foreground">Sapient.IA</p>
+                      <p className="text-sm font-semibold text-foreground">Secretária IA</p>
                       <p className="text-xs text-foreground/70">Online agora</p>
                     </div>
                   </div>
@@ -80,7 +80,7 @@ const Hero = () => {
                       </div>
                     </div>
                     <p className="text-center text-xs text-muted-foreground pt-2">
-                      23:47 — Atendimento automático
+                      23:47 — Resposta automática em 3 segundos
                     </p>
                   </div>
                 </div>

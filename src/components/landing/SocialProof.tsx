@@ -1,11 +1,11 @@
-import { ShieldCheck, Cpu, Puzzle, HeadphonesIcon, Quote } from "lucide-react";
+import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const credentials = [
-  { icon: ShieldCheck, text: "Especialistas em automação para a área da saúde" },
-  { icon: Cpu, text: "Tecnologia proprietária — sem depender de ferramentas genéricas" },
-  { icon: Puzzle, text: "Projetos sob medida — não vendemos pacote pronto" },
-  { icon: HeadphonesIcon, text: "Suporte contínuo — não entregamos e sumimos" },
+  { icon: TrendingUp, text: "Consultórios que recuperaram até 30 pacientes/mês que estavam sendo perdidos" },
+  { icon: Fingerprint, text: "Sistema personalizado — não é chatbot genérico" },
+  { icon: Settings, text: "Implementação completa — você não precisa fazer nada" },
+  { icon: HeadphonesIcon, text: "Suporte contínuo — estamos junto do começo ao fim" },
 ];
 
 const SocialProof = () => {
@@ -52,7 +52,7 @@ const SocialProof = () => {
         >
           <Quote size={32} className="mx-auto mb-4 text-accent opacity-50" />
           <p className="text-foreground/90 italic mb-4 leading-relaxed">
-            "Desde que implementamos a Sapient.IA, reduzimos as faltas em 40% e minha secretária finalmente consegue focar no que importa. O atendimento automático pelo WhatsApp é impecável."
+            "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
           </p>
           <p className="text-sm text-muted-foreground">
             <strong className="text-foreground">Dr. Ricardo Mendes</strong> — Clínica Dermatológica, São Paulo
