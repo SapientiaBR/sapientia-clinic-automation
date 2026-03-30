@@ -18,15 +18,15 @@ const FinalCTA = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Pare de perder pacientes.{" "}
-          <span className="gradient-text">Comece a automatizar.</span>
+          Quantos pacientes você vai perder{" "}
+          <span className="gradient-text">até tomar uma decisão?</span>
         </h2>
         <p
           className={`text-lg text-muted-foreground mb-8 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Agende uma conversa sem compromisso e descubra o que a IA pode fazer pela sua clínica.
+          Cada dia sem automação é dinheiro saindo do seu consultório. Fale com a gente — é rápido, sem compromisso.
         </p>
         <div className={`transition-all duration-700 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
@@ -38,7 +38,7 @@ const FinalCTA = () => {
             className="gradient-bg inline-flex items-center gap-3 text-foreground font-semibold px-10 py-5 rounded-2xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
           >
             <MessageSquare size={22} />
-            Falar com um Especialista
+            Quero Automatizar Meu Atendimento
           </a>
           <p className="text-sm text-muted-foreground mt-4">
             Atendimento em até 2 horas em horário comercial

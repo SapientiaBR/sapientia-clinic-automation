@@ -2,9 +2,9 @@ import { Video, Cog, Rocket } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const steps = [
-  { icon: Video, num: "01", title: "Conversamos sobre sua clínica", desc: "Entendemos seu fluxo, suas dores e seus objetivos em uma conversa rápida." },
-  { icon: Cog, num: "02", title: "Desenhamos sua automação sob medida", desc: "Criamos um projeto personalizado com as soluções certas para a sua realidade." },
-  { icon: Rocket, num: "03", title: "Sua clínica funciona no automático", desc: "Implementamos, treinamos sua equipe e acompanhamos os resultados de perto." },
+  { icon: Video, num: "01", title: "Conversamos sobre seu consultório", desc: "Em 30 minutos, entendemos seu fluxo e suas dores." },
+  { icon: Cog, num: "02", title: "Montamos seu sistema sob medida", desc: "Configuramos tudo — sem você precisar entender de tecnologia." },
+  { icon: Rocket, num: "03", title: "Seu atendimento funciona no automático", desc: "Em poucos dias, seus pacientes são respondidos 24h. Sem falha." },
 ];
 
 const HowItWorks = () => {
@@ -23,11 +23,10 @@ const HowItWorks = () => {
         <p className={`text-muted-foreground text-center mb-16 max-w-xl mx-auto transition-all duration-700 delay-100 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}>
-          Três passos para transformar o atendimento da sua clínica.
+          Três passos para seu consultório nunca mais perder paciente.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connector line desktop */}
           <div className="hidden md:block absolute top-16 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-[hsl(270_80%_40%)] to-[hsl(190_100%_50%)]" />
 
           {steps.map((step, i) => (

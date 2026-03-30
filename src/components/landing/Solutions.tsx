@@ -1,36 +1,36 @@
-import { MessageCircle, CalendarCheck, FileDigit, Users, Brain, FileSignature } from "lucide-react";
+import { Zap, CalendarCheck, Bell, LayoutList, Heart, MessageCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const solutions = [
   {
-    icon: MessageCircle,
-    title: "Atendimento 24/7 por WhatsApp",
-    desc: "Um assistente com IA responde seus pacientes a qualquer hora, tira dúvidas, e agenda consultas automaticamente.",
+    icon: Zap,
+    title: "Responde em segundos",
+    desc: "Cada mensagem é respondida em segundos — 24h por dia, 7 dias por semana. Seu paciente nunca mais fica esperando.",
   },
   {
     icon: CalendarCheck,
-    title: "Agendamento Inteligente",
-    desc: "Confirmação automática, lembretes por WhatsApp, e reagendamento sem sua secretária precisar ligar.",
+    title: "Agenda automaticamente",
+    desc: "Consultas agendadas sem você ou sua equipe precisar fazer nada. O sistema cuida de tudo.",
   },
   {
-    icon: FileDigit,
-    title: "Digitalização de Processos",
-    desc: "Fichas de anamnese, pré-natal, formulários de retorno — tudo digital, preenchido pelo paciente antes da consulta.",
+    icon: Bell,
+    title: "Envia lembretes",
+    desc: "Lembretes e confirmações automáticas que reduzem faltas drasticamente. Menos buraco na agenda.",
   },
   {
-    icon: Users,
-    title: "Captação de Pacientes",
-    desc: "Funil inteligente que transforma curiosos do Instagram e Google em pacientes agendados.",
+    icon: LayoutList,
+    title: "Organiza o fluxo",
+    desc: "Todo o fluxo de atendimento organizado — sem depender de planilha, caderno ou memória.",
   },
   {
-    icon: Brain,
-    title: "CRM com IA",
-    desc: "Saiba exatamente de onde vêm seus pacientes, quem retorna, quem sumiu, e reative automaticamente.",
+    icon: Heart,
+    title: "Atendimento humanizado",
+    desc: "Se adapta ao seu jeito de atender — sem parecer robótico. Seus pacientes nem percebem a diferença.",
   },
   {
-    icon: FileSignature,
-    title: "Propostas e Contratos Automáticos",
-    desc: "Para clínicas com procedimentos estéticos ou pacotes: envio, assinatura e cobrança no piloto automático.",
+    icon: MessageCircle,
+    title: "Funciona no WhatsApp",
+    desc: "Opera direto no WhatsApp — onde seus pacientes já estão. Sem app novo, sem complicação.",
   },
 ];
 
@@ -49,13 +49,13 @@ const Solutions = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          O que a Sapient.IA faz pela{" "}
-          <span className="gradient-text">sua clínica</span>
+          Uma secretária de IA que nunca dorme,{" "}
+          <span className="gradient-text">nunca falta e nunca esquece.</span>
         </h2>
         <p className={`text-muted-foreground text-center mb-12 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}>
-          Soluções sob medida para automatizar cada etapa da jornada do paciente.
+          Imagine ter alguém respondendo cada paciente em segundos. Todos os dias. Inclusive de madrugada.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

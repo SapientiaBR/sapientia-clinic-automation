@@ -8,24 +8,24 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   {
-    q: "Quanto custa?",
-    a: "Cada projeto é precificado sob medida, de acordo com a complexidade da sua clínica. Agende uma conversa para receber uma proposta personalizada.",
+    q: "\"Isso não vai parecer robótico para meus pacientes?\"",
+    a: "Não. O sistema é treinado com o tom de voz da sua clínica. Seus pacientes conversam de forma natural, como se estivessem falando com uma secretária de verdade. Sem respostas engessadas, sem parecer máquina.",
   },
   {
-    q: "Quanto tempo leva para implementar?",
-    a: "Em média, de 3 a 4 semanas, dependendo do escopo.",
+    q: "\"Vou perder o controle do meu atendimento?\"",
+    a: "De jeito nenhum. Você mantém controle total. O sistema segue suas regras, seus horários, seus critérios. E você acompanha tudo em tempo real. A IA trabalha para você, não no lugar de você.",
   },
   {
-    q: "Funciona com meu sistema de prontuário atual?",
-    a: "Sim. Integramos com os principais sistemas do mercado e adaptamos ao que você já usa.",
+    q: "\"É difícil de implementar? Preciso entender de tecnologia?\"",
+    a: "Zero complicação. Nós cuidamos de tudo — da configuração ao treinamento da sua equipe. Você não precisa instalar nada nem entender de tecnologia. Em poucos dias, está funcionando.",
   },
   {
-    q: "Preciso entender de tecnologia?",
-    a: "Não. Cuidamos de tudo — da configuração ao treinamento da sua equipe.",
+    q: "\"E se eu não gostar, fico preso em contrato?\"",
+    a: "Sem fidelidade, sem multa, sem burocracia. Se não fizer sentido, você cancela quando quiser. Simples assim.",
   },
   {
-    q: "E se eu quiser cancelar?",
-    a: "Sem fidelidade. Se não fizer sentido, você pode cancelar a qualquer momento.",
+    q: "\"Quanto custa?\"",
+    a: "Pense assim: quanto custa perder 10, 20, 30 pacientes por mês por falta de resposta? O investimento se paga já nas primeiras semanas com os pacientes que você deixaria de perder. Agende uma conversa e receba uma proposta sob medida para o seu consultório.",
   },
 ];
 
@@ -40,7 +40,7 @@ const FAQ = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Perguntas <span className="gradient-text">Frequentes</span>
+          Você pode estar <span className="gradient-text">pensando...</span>
         </h2>
 
         <Accordion type="single" collapsible className="space-y-3">
