@@ -1,10 +1,12 @@
 import { MessageSquare } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const Aggravation = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const count = useCountUp(82, 2000, isVisible);
 
   return (
     <section className="py-20 lg:py-32 relative">
@@ -41,13 +43,15 @@ const Aggravation = () => {
           ))}
         </div>
 
-        {/* Impact stat */}
+        {/* Impact stat with animated counter */}
         <div
           className={`glass-card rounded-2xl p-8 text-center gradient-border max-w-lg mx-auto mb-12 transition-all duration-700 delay-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <p className="text-5xl sm:text-6xl font-bold gradient-text mb-3">82%</p>
+          <p className="text-5xl sm:text-7xl font-bold text-destructive mb-3">
+            {count}%
+          </p>
           <p className="text-muted-foreground text-sm sm:text-base">
             dos pacientes esperam resposta em até 1 hora — e vão embora se não recebem.
           </p>
