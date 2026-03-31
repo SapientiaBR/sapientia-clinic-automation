@@ -44,6 +44,9 @@ const FinalCTA = () => {
           <p className="text-sm text-muted-foreground mt-4">
             Atendimento em até 2 horas em horário comercial
           </p>
+          <p className="text-xs text-accent font-semibold mt-2">
+            ⚡ Vagas limitadas — atendemos no máximo 5 novos consultórios por mês
+          </p>
         </div>
       </div>
     </section>

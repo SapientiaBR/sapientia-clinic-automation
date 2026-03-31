@@ -1,10 +1,10 @@
-import { MessageSquare, ArrowDown } from "lucide-react";
+import { MessageSquare, ArrowDown, AlertTriangle } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(270_80%_24%)] opacity-20 blur-[120px]" />
@@ -16,6 +16,14 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
           <div className="max-w-2xl">
+            {/* Impact badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 mb-6 animate-fade-in">
+              <AlertTriangle size={14} className="text-destructive" />
+              <span className="text-xs sm:text-sm font-semibold text-destructive">
+                7 em cada 10 consultórios perdem pacientes por falta de resposta rápida
+              </span>
+            </div>
+
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Seu consultório está perdendo pacientes todos os dias…{" "}
               <span className="gradient-text">e você nem percebe.</span>
@@ -24,15 +32,20 @@ const Hero = () => {
               Enquanto você atende, mensagens ficam sem resposta, agendamentos travam e pacientes escolhem outro médico. Isso já está custando dinheiro ao seu consultório.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gradient-bg inline-flex items-center justify-center gap-2 text-foreground font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
-              >
-                <MessageSquare size={20} />
-                Quero Parar de Perder Pacientes
-              </a>
+              <div className="flex flex-col items-center sm:items-start">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gradient-bg inline-flex items-center justify-center gap-2 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
+                >
+                  <MessageSquare size={22} />
+                  Quero Parar de Perder Pacientes
+                </a>
+                <span className="text-xs text-muted-foreground mt-2">
+                  Resposta em até 2h · Sem compromisso
+                </span>
+              </div>
               <a
                 href="#problema"
                 className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground border border-border/50 px-6 py-4 rounded-xl transition-colors"

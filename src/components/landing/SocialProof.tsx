@@ -1,5 +1,6 @@
 import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const credentials = [
   { icon: TrendingUp, text: "Consultórios que recuperaram até 30 pacientes/mês que estavam sendo perdidos" },
@@ -8,8 +9,18 @@ const credentials = [
   { icon: HeadphonesIcon, text: "Suporte contínuo — estamos junto do começo ao fim" },
 ];
 
+const metrics = [
+  { value: 2400, suffix: "", prefix: "+", label: "pacientes recuperados" },
+  { value: 60, suffix: "%", prefix: "-", label: "faltas reduzidas" },
+  { value: 24, suffix: "/7", prefix: "", label: "atendimento automático" },
+];
+
 const SocialProof = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const count0 = useCountUp(metrics[0].value, 2000, isVisible);
+  const count1 = useCountUp(metrics[1].value, 2000, isVisible);
+  const count2 = useCountUp(metrics[2].value, 1500, isVisible);
+  const counts = [count0, count1, count2];
 
   return (
     <section className="py-20 lg:py-32 relative">
@@ -28,6 +39,24 @@ const SocialProof = () => {
           <span className="gradient-text">Sapient.IA</span>
         </h2>
 
+        {/* Big metrics */}
+        <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-16 max-w-3xl mx-auto">
+          {metrics.map((m, i) => (
+            <div
+              key={i}
+              className={`text-center transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
+              style={{ transitionDelay: `${100 + i * 100}ms` }}
+            >
+              <p className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text">
+                {m.prefix}{counts[i].toLocaleString("pt-BR")}{m.suffix}
+              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1">{m.label}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {credentials.map((c, i) => (
             <div
@@ -35,7 +64,7 @@ const SocialProof = () => {
               className={`glass-card rounded-xl p-5 text-center transition-all duration-500 hover:border-accent/30 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
-              style={{ transitionDelay: `${150 + i * 80}ms` }}
+              style={{ transitionDelay: `${350 + i * 80}ms` }}
             >
               <div className="w-12 h-12 mx-auto rounded-xl gradient-bg flex items-center justify-center mb-4">
                 <c.icon size={22} className="text-foreground" />
@@ -45,7 +74,7 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* Testimonial placeholder */}
+        {/* Testimonial */}
         <div
           className={`max-w-2xl mx-auto glass-card rounded-2xl p-8 text-center gradient-border transition-all duration-700 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
