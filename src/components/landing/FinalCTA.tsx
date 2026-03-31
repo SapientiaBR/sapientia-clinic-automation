@@ -10,6 +10,7 @@ const FinalCTA = () => {
     <section className="py-20 lg:py-32 relative">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(270_80%_24%)] opacity-15 blur-[150px]" />
+        <div className="logo-watermark" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" ref={ref}>
