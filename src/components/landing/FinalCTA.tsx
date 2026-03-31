@@ -1,52 +1,71 @@
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Shield, Clock, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583";
+const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20meu%20consult%C3%B3rio.";
 
 const FinalCTA = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-20 lg:py-32 relative">
+    <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(270_80%_24%)] opacity-15 blur-[150px]" />
-        <div className="logo-watermark" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[180px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[120px]" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" ref={ref}>
-        <h2
-          className={`font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 transition-all duration-700 ${
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl" ref={ref}>
+        <div
+          className={`glass-card rounded-3xl p-8 sm:p-12 lg:p-16 text-center gradient-border transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Quantos pacientes você vai perder{" "}
-          <span className="gradient-text">até tomar uma decisão?</span>
-        </h2>
-        <p
-          className={`text-lg text-muted-foreground mb-8 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          Cada dia sem automação é dinheiro saindo do seu consultório. Fale com a gente — é rápido, sem compromisso.
-        </p>
-        <div className={`transition-all duration-700 delay-200 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-        }`}>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
+            Pronto para ver sua clínica{" "}
+            <span className="gradient-text">funcionar no automático?</span>
+          </h2>
+
+          <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+            Agende um diagnóstico gratuito. Em 30 minutos, mapeamos o que pode ser automatizado no seu consultório — sem compromisso.
+          </p>
+
+          {/* Benefits checklist */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 text-sm text-foreground/80">
+            <span className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-success" />
+              Diagnóstico gratuito
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-success" />
+              Implementação em dias
+            </span>
+            <span className="flex items-center gap-2">
+              <CheckCircle size={16} className="text-success" />
+              Zero conhecimento técnico
+            </span>
+          </div>
+
+          {/* Main CTA */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="gradient-bg inline-flex items-center gap-3 text-foreground font-semibold px-10 py-5 rounded-2xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
+            className="gradient-bg-vibrant inline-flex items-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
           >
             <MessageSquare size={22} />
-            Quero Automatizar Meu Atendimento
+            Agendar Meu Diagnóstico Gratuito
           </a>
-          <p className="text-sm text-muted-foreground mt-4">
-            Atendimento em até 2 horas em horário comercial
-          </p>
-          <p className="text-xs text-accent font-semibold mt-2">
-            ⚡ Vagas limitadas — atendemos no máximo 5 novos consultórios por mês
-          </p>
+
+          {/* Trust badges */}
+          <div className="flex items-center justify-center gap-6 mt-6 text-xs text-muted-foreground/60">
+            <span className="flex items-center gap-1.5">
+              <Shield size={12} />
+              Conversa sigilosa
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Clock size={12} />
+              Resposta em até 2h
+            </span>
+          </div>
         </div>
       </div>
     </section>
