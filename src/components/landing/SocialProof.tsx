@@ -74,19 +74,34 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* Testimonial */}
-        <div
-          className={`max-w-2xl mx-auto glass-card rounded-2xl p-8 text-center gradient-border transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <Quote size={32} className="mx-auto mb-4 text-accent opacity-50" />
-          <p className="text-foreground/90 italic mb-4 leading-relaxed">
-            "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
-          </p>
-          <p className="text-sm text-muted-foreground">
-            <strong className="text-foreground">Dr. Ricardo Mendes</strong> — Clínica Dermatológica, São Paulo
-          </p>
+        {/* Testimonials */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div
+            className={`glass-card rounded-2xl p-8 text-center gradient-border transition-all duration-700 delay-500 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <Quote size={28} className="mx-auto mb-4 text-accent opacity-50" />
+            <p className="text-foreground/90 italic mb-4 leading-relaxed text-sm">
+              "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Dr. Ricardo Mendes</strong> — Clínica Dermatológica, São Paulo
+            </p>
+          </div>
+          <div
+            className={`glass-card rounded-2xl p-8 text-center gradient-border transition-all duration-700 delay-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <Quote size={28} className="mx-auto mb-4 text-accent opacity-50" />
+            <p className="text-foreground/90 italic mb-4 leading-relaxed text-sm">
+              "Eu tinha um consultório movimentado, mas respondia tudo sozinha — quando sobrava tempo. Muitos pacientes desistiam antes mesmo de eu ver a mensagem. Desde que contratei a Sapient.IA, minha rotina mudou completamente. Agora cada paciente é atendido na hora, e eu finalmente tenho tempo pra focar no que realmente importa: a medicina."
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Dra. Mariana Fogarolli</strong> — Clínica de Ginecologia, Rio de Janeiro
+            </p>
+          </div>
         </div>
       </div>
     </section>
