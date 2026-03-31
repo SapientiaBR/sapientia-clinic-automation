@@ -86,7 +86,7 @@ const SocialProof = () => {
               "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
             </p>
             <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">Dr. Ricardo Mendes</strong> — Clínica Dermatológica, São Paulo
+              <strong className="text-foreground">Dr. Ricardo Mendes</strong> - Dermatologista
             </p>
           </div>
           <div
