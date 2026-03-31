@@ -30,7 +30,7 @@ const Footer = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5511920795583"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"

@@ -20,8 +20,8 @@ const faqs = [
     a: "Zero complicação. Nós cuidamos de tudo — da configuração ao treinamento da sua equipe. Você não precisa instalar nada nem entender de tecnologia. Em poucos dias, está funcionando.",
   },
   {
-    q: "\"E se eu não gostar, fico preso em contrato?\"",
-    a: "Sem fidelidade, sem multa, sem burocracia. Se não fizer sentido, você cancela quando quiser. Simples assim.",
+    q: "\"Como funciona o contrato?\"",
+    a: "Todas as condições contratuais — prazo, recorrência e regras — são apresentadas com total clareza antes do início. Você entra sabendo exatamente o que esperar, sem surpresas.",
   },
   {
     q: "\"Quanto custa?\"",

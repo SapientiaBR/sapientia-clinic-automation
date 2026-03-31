@@ -1,7 +1,7 @@
 import { MessageSquare } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999";
+const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const FinalCTA = () => {
   const { ref, isVisible } = useScrollAnimation();
