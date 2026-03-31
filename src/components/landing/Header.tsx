@@ -29,7 +29,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2">
-            <img src={logo} alt="Sapient.IA" className="h-[120px] md:h-[168px] w-auto" />
+            <img src={logo} alt="Sapient.IA" className="h-10 md:h-14 w-auto" />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
