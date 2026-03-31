@@ -1,20 +1,19 @@
 
 
-# Logo: Aumentar no Header + Background Sutil
+# Watermark em Todas as Seções
 
-## Alterações
+Adicionar `<div className="logo-watermark" />` dentro de um container `absolute inset-0 pointer-events-none` em todas as seções que ainda não possuem. Também garantir `relative` na tag `<section>`.
 
-### 1. Header — Logo maior (`src/components/landing/Header.tsx`)
-- Aumentar de `h-8 md:h-10` para `h-10 md:h-14`
+## Seções que já têm
+- Aggravation, Visualization, FinalCTA
 
-### 2. Background sutil com logo em seções (`src/index.css`)
-- Criar uma classe utilitária `.logo-watermark` que usa o logo como background com opacidade muito baixa (~3-5%), tamanho grande, centralizado, sem repetição
-- Aplicar como elemento decorativo em 2-3 seções chave (Aggravation, Visualization, FinalCTA) para reforço subliminar da marca
+## Seções a adicionar
+1. **Hero.tsx** — adicionar dentro do div de background effects existente
+2. **Problems.tsx** — adicionar wrapper de background + watermark (seção precisa de `relative`)
+3. **Solutions.tsx** — adicionar wrapper de background + watermark
+4. **HowItWorks.tsx** — adicionar wrapper de background + watermark
+5. **FAQ.tsx** — adicionar wrapper de background + watermark
+6. **SocialProof.tsx** — adicionar wrapper de background + watermark
 
-### 3. Aplicar watermark nas seções
-- `Aggravation.tsx` — adicionar div com logo watermark no background
-- `Visualization.tsx` — adicionar div com logo watermark
-- `FinalCTA.tsx` — adicionar div com logo watermark
-
-O logo aparece sutil, quase invisível, mas presente o suficiente para fixar a marca enquanto o visitante rola a página.
+Cada seção recebe um `<div className="absolute inset-0 pointer-events-none"><div className="logo-watermark" /></div>` e a section tag ganha `relative` se ainda não tiver.
 
