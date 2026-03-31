@@ -41,7 +41,7 @@ const Founder = () => {
               </p>
 
               <a
-                href="https://www.linkedin.com/in/leofigueiredo"
+                href="https://www.linkedin.com/in/figueiredo-leonardo/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-colors group"
