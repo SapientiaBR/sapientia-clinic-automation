@@ -32,23 +32,18 @@ const Hero = () => {
               Enquanto você atende, mensagens ficam sem resposta, agendamentos travam e pacientes escolhem outro médico. Isso já está custando dinheiro ao seu consultório.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex flex-col items-center sm:items-start">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="gradient-bg inline-flex items-center justify-center gap-2 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
-                >
-                  <MessageSquare size={22} />
-                  Quero Parar de Perder Pacientes
-                </a>
-                <span className="text-xs text-muted-foreground mt-2">
-                  Resposta em até 2h · Sem compromisso
-                </span>
-              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gradient-bg inline-flex items-center justify-center gap-2 text-foreground font-bold px-8 py-3 rounded-xl hover:opacity-90 transition-opacity text-lg animate-pulse-glow"
+              >
+                <MessageSquare size={20} />
+                Quero Parar de Perder Pacientes
+              </a>
               <a
                 href="#problema"
-                className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground border border-border/50 px-6 py-4 rounded-xl transition-colors"
+                className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground border border-border/50 px-6 py-3 rounded-xl transition-colors"
               >
                 Entenda o problema
                 <ArrowDown size={16} />
