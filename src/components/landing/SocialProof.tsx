@@ -99,7 +99,7 @@ const SocialProof = () => {
               "Eu tinha um consultório movimentado, mas respondia tudo sozinha — quando sobrava tempo. Muitos pacientes desistiam antes mesmo de eu ver a mensagem. Desde que contratei a Sapient.IA, minha rotina mudou completamente. Agora cada paciente é atendido na hora, e eu finalmente tenho tempo pra focar no que realmente importa: a medicina."
             </p>
             <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">Dra. Mariana Fogarolli</strong> — Clínica de Ginecologia, Rio de Janeiro
+              <strong className="text-foreground">Dra. Mariana Fogarolli</strong> - Endocrinologista
             </p>
           </div>
         </div>
