@@ -93,4 +93,15 @@
   .glass-card {
     @apply bg-card/50 backdrop-blur-xl border border-border/50;
   }
+
+  .logo-watermark {
+    position: absolute;
+    inset: 0;
+    background-image: url('/src/assets/sapient-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
 }
