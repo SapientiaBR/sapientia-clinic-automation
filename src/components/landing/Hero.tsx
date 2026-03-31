@@ -9,6 +9,7 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(270_80%_24%)] opacity-20 blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(190_100%_50%)] opacity-10 blur-[120px]" />
+        <div className="logo-watermark" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

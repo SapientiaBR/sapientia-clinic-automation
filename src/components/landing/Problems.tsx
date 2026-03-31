@@ -15,7 +15,10 @@ const Problems = () => {
 
   return (
     <section id="problema" className="py-20 lg:py-32 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="logo-watermark" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <h2
           className={`font-display text-3xl sm:text-4xl font-bold text-center mb-4 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
