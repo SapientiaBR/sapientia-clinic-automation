@@ -1,7 +1,7 @@
 import { CalendarCheck, UserMinus, Stethoscope, Smile, MessageSquare } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999";
+const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const items = [
   { icon: CalendarCheck, text: "Sua agenda lotada sem precisar correr atrás de paciente" },

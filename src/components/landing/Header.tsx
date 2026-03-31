@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/sapient-logo.png";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999";
+const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);

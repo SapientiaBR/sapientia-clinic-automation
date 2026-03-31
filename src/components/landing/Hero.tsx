@@ -1,6 +1,6 @@
 import { MessageSquare, ArrowDown } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999";
+const WHATSAPP_URL = "https://wa.me/5511920795583";
 
 const Hero = () => {
   return (
