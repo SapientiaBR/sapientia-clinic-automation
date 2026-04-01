@@ -1,7 +1,7 @@
 import { MessageSquare, Shield, Clock, CheckCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20meu%20consult%C3%B3rio.";
+const CTA_HREF = "#formulario";
 
 const FinalCTA = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -46,9 +46,7 @@ const FinalCTA = () => {
 
           {/* Main CTA */}
           <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CTA_HREF}
             className="gradient-bg-vibrant inline-flex items-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
           >
             <MessageSquare size={22} />

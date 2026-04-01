@@ -9,8 +9,8 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import Founder from "@/components/landing/Founder";
 import FAQ from "@/components/landing/FAQ";
 import FinalCTA from "@/components/landing/FinalCTA";
+import { LeadForm } from "@/components/landing/LeadForm";
 import Footer from "@/components/landing/Footer";
-import WhatsAppFloat from "@/components/landing/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -26,8 +26,8 @@ const Index = () => {
       <Founder />
       <FAQ />
       <FinalCTA />
+      <LeadForm />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

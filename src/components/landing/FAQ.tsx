@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20Sapient.IA.";
+const CTA_HREF = "#formulario";
 
 const faqs = [
   {
@@ -79,9 +79,7 @@ const FAQ = () => {
         >
           <p className="text-muted-foreground text-sm mb-3">Ainda tem dúvidas?</p>
           <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CTA_HREF}
             className="inline-flex items-center gap-2 text-accent hover:text-accent/80 text-sm font-medium transition-colors"
           >
             <MessageSquare size={16} />

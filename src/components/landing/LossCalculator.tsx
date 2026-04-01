@@ -3,7 +3,7 @@ import { MessageSquare, Calculator } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20fiz%20a%20calculadora%20e%20gostaria%20de%20entender%20como%20recuperar%20esses%20pacientes.";
+const CTA_HREF = "#formulario";
 
 const LossCalculator = () => {
   const [contacts, setContacts] = useState(30);
@@ -105,9 +105,7 @@ const LossCalculator = () => {
 
           <div className="text-center mt-8">
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CTA_HREF}
               className="gradient-bg-vibrant inline-flex items-center gap-2.5 text-foreground font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
             >
               <MessageSquare size={20} />

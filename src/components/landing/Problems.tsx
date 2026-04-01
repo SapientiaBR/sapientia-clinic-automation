@@ -2,12 +2,12 @@ import { MessageSquareX, UserX, CalendarX, Clock, Users, HelpCircle } from "luci
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const problems = [
-  { icon: MessageSquareX, text: "Mensagens no WhatsApp que ficam horas sem resposta", color: "from-red-500/20 to-red-500/5" },
-  { icon: UserX, text: "Pacientes que pedem informações e nunca mais voltam", color: "from-orange-500/20 to-orange-500/5" },
-  { icon: CalendarX, text: "Agendamentos que começam mas não são concluídos", color: "from-amber-500/20 to-amber-500/5" },
-  { icon: Clock, text: "Consultas esquecidas — faltas que custam tempo e dinheiro", color: "from-rose-500/20 to-rose-500/5" },
-  { icon: Users, text: "Recepcionista sobrecarregada que não dá conta de tudo", color: "from-pink-500/20 to-pink-500/5" },
-  { icon: HelpCircle, text: "Sem visibilidade de quantos pacientes foram perdidos na semana", color: "from-purple-500/20 to-purple-500/5" },
+  { icon: MessageSquareX, text: "Domingos e feriados: mensagens acumulando enquanto você descansa", color: "from-red-500/20 to-red-500/5" },
+  { icon: UserX, text: "Pacientes fechando com a concorrência por não terem resposta rápida (menos de 5 min)", color: "from-orange-500/20 to-orange-500/5" },
+  { icon: CalendarX, text: "Agendamentos que esfriam porque demorou para responder qual o valor da consulta", color: "from-amber-500/20 to-amber-500/5" },
+  { icon: Clock, text: "Faltas surpresas na agenda porque não houve confirmação no dia anterior", color: "from-rose-500/20 to-rose-500/5" },
+  { icon: Users, text: "Secretária sobrecarregada tendo que atender balcão e responder WhatsApp ao mesmo tempo", color: "from-pink-500/20 to-pink-500/5" },
+  { icon: HelpCircle, text: "Dúvidas repetitivas sobre localização e convênios ocupando horas da equipe", color: "from-purple-500/20 to-purple-500/5" },
 ];
 
 const Problems = () => {
