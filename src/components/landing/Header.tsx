@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import logo from "@/assets/sapient-logo.png";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20meu%20consult%C3%B3rio.";
+const CTA_HREF = "#formulario";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,9 +50,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CTA_HREF}
               className="gradient-bg-vibrant text-sm font-semibold text-foreground px-5 py-2.5 rounded-lg hover:opacity-90 transition-all duration-200 flex items-center gap-2 group"
             >
               Diagnóstico Gratuito
@@ -84,9 +82,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CTA_HREF}
               className="gradient-bg-vibrant text-center font-semibold text-foreground px-5 py-3 rounded-lg mt-2 flex items-center justify-center gap-2"
               onClick={() => setMenuOpen(false)}
             >

@@ -46,9 +46,7 @@ const Footer = () => {
                 <Linkedin size={18} />
               </a>
               <a
-                href="https://wa.me/5511920795583"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#formulario"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="WhatsApp"
               >

@@ -1,6 +1,6 @@
 import { MessageSquare, ArrowDown, Sparkles } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20meu%20consult%C3%B3rio.";
+const CTA_HREF = "#formulario";
 
 const Hero = () => {
   return (
@@ -24,23 +24,21 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
-              Sua clínica funciona 24h —{" "}
-              <span className="gradient-text">mesmo quando você não está.</span>
+              Sua clínica atende 24 horas —{" "}
+              <span className="gradient-text">até de fim de semana, sem precisar de secretária.</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              A Sapient.IA conecta inteligência artificial ao WhatsApp da sua clínica. Cada mensagem respondida em segundos, cada consulta agendada automaticamente — 24 horas por dia.
+              Pare de perder pacientes para a concorrência após o expediente. A Sapient.IA automatiza seu WhatsApp, respondendo dúvidas instantaneamente e garantindo uma agenda cheia todos os dias.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={CTA_HREF}
                 className="gradient-bg-vibrant inline-flex items-center justify-center gap-2.5 text-foreground font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
               >
                 <MessageSquare size={20} />
-                Agendar Diagnóstico Gratuito
+                Quero acabar com as mensagens não lidas
               </a>
               <a
                 href="#solucoes"
