@@ -15,7 +15,7 @@ const ThankYou = () => {
       <div className="w-full max-w-2xl relative z-10 glass-card p-10 sm:p-14 rounded-3xl gradient-border text-center shadow-2xl flex flex-col items-center animate-slide-up-fade">
         {/* Brand */}
         <div className="mb-8">
-          <img src={logo} alt="Sapient.IA" className="h-10 w-auto opacity-90 mx-auto" />
+          <img src={logo} alt="Sapient.IA" className="h-20 w-auto mx-auto" />
         </div>
 
         {/* Success Icon */}
