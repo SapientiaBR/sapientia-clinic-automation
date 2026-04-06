@@ -51,7 +51,7 @@ const Header = () => {
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant text-sm font-semibold text-foreground px-5 py-2.5 rounded-lg hover:opacity-90 transition-all duration-200 flex items-center gap-2 group"
+              className="cta-gradient text-sm font-semibold text-foreground px-5 py-2.5 rounded-lg hover:opacity-90 transition-all duration-200 flex items-center gap-2 group"
             >
               Diagnóstico Gratuito
               <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
