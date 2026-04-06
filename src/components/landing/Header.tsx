@@ -83,7 +83,7 @@ const Header = () => {
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant text-center font-semibold text-foreground px-5 py-3 rounded-lg mt-2 flex items-center justify-center gap-2"
+              className="cta-gradient text-center font-semibold text-foreground px-5 py-3 rounded-lg mt-2 flex items-center justify-center gap-2"
               onClick={() => setMenuOpen(false)}
             >
               Diagnóstico Gratuito

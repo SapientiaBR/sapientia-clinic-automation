@@ -47,7 +47,7 @@ const FinalCTA = () => {
           {/* Main CTA */}
           <a
             href={CTA_HREF}
-            className="gradient-bg-vibrant inline-flex items-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+            className="cta-gradient inline-flex items-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
           >
             <MessageSquare size={22} />
             Agendar Meu Diagnóstico Gratuito
