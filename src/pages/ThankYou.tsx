@@ -45,7 +45,7 @@ const ThankYou = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="gradient-bg-vibrant flex items-center justify-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] text-lg w-full sm:w-auto animate-pulse-glow shadow-[0_0_30px_hsl(175_85%_45%_/_0.3)]"
+          className="cta-gradient flex items-center justify-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] text-lg w-full sm:w-auto animate-pulse-glow shadow-[0_0_30px_hsl(25_90%_50%_/_0.3)]"
         >
           <MessageSquare size={24} />
           Clique aqui para receber seu atendimento via whatsapp
