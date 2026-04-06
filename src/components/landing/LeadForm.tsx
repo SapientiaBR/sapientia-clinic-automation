@@ -1,13 +1,39 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageSquare, Calendar, Building, CheckCircle } from "lucide-react";
+import { MessageSquare, Calendar, Building, CheckCircle, Loader2 } from "lucide-react";
+
+const WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
 
 export const LeadForm = () => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] = useState({
+    nome: "",
+    email: "",
+    whatsapp: "",
+    empresa: "",
+    instagram: "",
+    site: "",
+    faturamento: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Em um cenário real, enviaria para Hubspot, N8N, Supabase etc.
-    // Direciona imediatamente para a tela de obrigado para o pixel.
+    setIsSubmitting(true);
+
+    // Fire-and-forget: envia ao n8n mas não bloqueia navegação
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    }).catch(() => {
+      // silently ignore – não pode perder a conversão
+    });
+
     navigate("/obrigado");
     window.scrollTo(0, 0);
   };
@@ -74,8 +100,11 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="nome"
+                    name="nome"
                     required
                     type="text"
+                    value={form.nome}
+                    onChange={handleChange}
                     placeholder="Ex: Dr. João Silva"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -86,8 +115,11 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     required
                     type="email"
+                    value={form.email}
+                    onChange={handleChange}
                     placeholder="seu@email.com"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -101,8 +133,11 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="whatsapp"
+                    name="whatsapp"
                     required
                     type="tel"
+                    value={form.whatsapp}
+                    onChange={handleChange}
                     placeholder="(11) 90000-0000"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -113,8 +148,11 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="empresa"
+                    name="empresa"
                     required
                     type="text"
+                    value={form.empresa}
+                    onChange={handleChange}
                     placeholder="Clínica Exemplo"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -128,7 +166,10 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="instagram"
+                    name="instagram"
                     type="text"
+                    value={form.instagram}
+                    onChange={handleChange}
                     placeholder="@clinica"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -139,7 +180,10 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="site"
+                    name="site"
                     type="url"
+                    value={form.site}
+                    onChange={handleChange}
                     placeholder="www.clinica.com.br"
                     className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                   />
@@ -152,9 +196,12 @@ export const LeadForm = () => {
                 </label>
                 <select
                   id="faturamento"
+                  name="faturamento"
+                  value={form.faturamento}
+                  onChange={handleChange}
                   className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent appearance-none cursor-pointer"
                 >
-                  <option value="" disabled selected>Selecione uma faixa</option>
+                  <option value="" disabled>Selecione uma faixa</option>
                   <option value="0-10k">0 a R$ 10.000</option>
                   <option value="10k-50k">R$ 10.000 a R$ 50.000</option>
                   <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
@@ -164,10 +211,20 @@ export const LeadForm = () => {
 
               <button
                 type="submit"
-                className="w-full gradient-bg-vibrant text-foreground font-bold text-lg px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow"
+                disabled={isSubmitting}
+                className="w-full gradient-bg-vibrant text-foreground font-bold text-lg px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Solicitar Diagnóstico
-                <MessageSquare size={20} />
+                {isSubmitting ? (
+                  <>
+                    Enviando...
+                    <Loader2 size={20} className="animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Solicitar Diagnóstico
+                    <MessageSquare size={20} />
+                  </>
+                )}
               </button>
             </form>
           </div>
