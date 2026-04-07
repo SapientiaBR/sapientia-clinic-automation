@@ -89,7 +89,7 @@ export const LeadForm = () => {
           </div>
 
           {/* Form */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10 gradient-border shadow-2xl relative">
+          <div className="glass-card rounded-2xl p-5 sm:p-8 lg:p-10 gradient-border shadow-2xl relative">
             <h3 className="text-xl font-semibold mb-6">Preencha seus dados</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
