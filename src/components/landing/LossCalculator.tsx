@@ -95,7 +95,7 @@ const LossCalculator = () => {
             <p className="text-sm text-muted-foreground mb-1">
               Sem automação, você pode estar deixando de faturar
             </p>
-            <p className="text-5xl sm:text-6xl font-bold text-amber mb-1 tabular-nums">
+            <p className="text-4xl sm:text-6xl font-bold text-amber mb-1 tabular-nums">
               R$ {monthlyLoss.toLocaleString("pt-BR")}
             </p>
             <p className="text-sm text-muted-foreground">
@@ -106,7 +106,7 @@ const LossCalculator = () => {
           <div className="text-center mt-8">
             <a
               href={CTA_HREF}
-              className="cta-gradient inline-flex items-center gap-2.5 text-foreground font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+              className="cta-gradient inline-flex items-center gap-2.5 text-foreground font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-base sm:text-lg animate-pulse-glow"
             >
               <MessageSquare size={20} />
               Quero Recuperar Esses Pacientes

@@ -55,7 +55,7 @@ const SocialProof = () => {
               }`}
               style={{ transitionDelay: `${100 + i * 100}ms` }}
             >
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text tabular-nums">
+              <p className="text-3xl sm:text-5xl lg:text-6xl font-bold gradient-text tabular-nums">
                 {m.prefix}{counts[i].toLocaleString("pt-BR")}{m.suffix}
               </p>
               <p className="text-xs sm:text-sm text-muted-foreground mt-1">{m.label}</p>

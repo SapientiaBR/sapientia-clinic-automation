@@ -4,7 +4,7 @@ const CTA_HREF = "#formulario";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-20 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[140px]" />
@@ -23,7 +23,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
               Sua clínica atende 24 horas —{" "}
               <span className="gradient-text">até de fim de semana, sem precisar de secretária.</span>
             </h1>
@@ -35,7 +35,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={CTA_HREF}
-                className="cta-gradient inline-flex items-center justify-center gap-2.5 text-foreground font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+                className="cta-gradient inline-flex items-center justify-center gap-2.5 text-foreground font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-base sm:text-lg animate-pulse-glow"
               >
                 <MessageSquare size={20} />
                 Quero acabar com as mensagens não lidas
@@ -68,7 +68,7 @@ const Hero = () => {
 
           {/* Right - WhatsApp mockup */}
           <div className="flex justify-center">
-            <div className="w-[300px] sm:w-[340px] animate-float">
+            <div className="w-[260px] sm:w-[340px] animate-float">
               <div className="glass-card rounded-3xl p-1 gradient-border">
                 <div className="bg-card rounded-3xl overflow-hidden">
                   {/* Phone header */}

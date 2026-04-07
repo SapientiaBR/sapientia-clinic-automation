@@ -89,7 +89,7 @@ export const LeadForm = () => {
           </div>
 
           {/* Form */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10 gradient-border shadow-2xl relative">
+          <div className="glass-card rounded-2xl p-5 sm:p-8 lg:p-10 gradient-border shadow-2xl relative">
             <h3 className="text-xl font-semibold mb-6">Preencha seus dados</h3>
             
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -212,7 +212,7 @@ export const LeadForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full cta-gradient text-foreground font-bold text-lg px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full cta-gradient text-foreground font-bold text-base sm:text-lg px-8 py-3 sm:py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
