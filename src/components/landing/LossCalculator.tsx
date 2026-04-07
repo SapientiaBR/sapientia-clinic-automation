@@ -95,7 +95,7 @@ const LossCalculator = () => {
             <p className="text-sm text-muted-foreground mb-1">
               Sem automação, você pode estar deixando de faturar
             </p>
-            <p className="text-5xl sm:text-6xl font-bold text-amber mb-1 tabular-nums">
+            <p className="text-4xl sm:text-6xl font-bold text-amber mb-1 tabular-nums">
               R$ {monthlyLoss.toLocaleString("pt-BR")}
             </p>
             <p className="text-sm text-muted-foreground">
