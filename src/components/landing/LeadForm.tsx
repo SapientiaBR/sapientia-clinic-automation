@@ -212,7 +212,7 @@ export const LeadForm = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full cta-gradient text-foreground font-bold text-lg px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full cta-gradient text-foreground font-bold text-base sm:text-lg px-8 py-3 sm:py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>

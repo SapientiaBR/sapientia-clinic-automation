@@ -68,7 +68,7 @@ const Hero = () => {
 
           {/* Right - WhatsApp mockup */}
           <div className="flex justify-center">
-            <div className="w-[300px] sm:w-[340px] animate-float">
+            <div className="w-[260px] sm:w-[340px] animate-float">
               <div className="glass-card rounded-3xl p-1 gradient-border">
                 <div className="bg-card rounded-3xl overflow-hidden">
                   {/* Phone header */}
