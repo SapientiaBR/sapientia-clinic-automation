@@ -12,7 +12,7 @@ const ThankYou = () => {
         <div className="absolute inset-0 noise-overlay" />
       </div>
 
-      <div className="w-full max-w-2xl relative z-10 glass-card p-10 sm:p-14 rounded-3xl gradient-border text-center shadow-2xl flex flex-col items-center animate-slide-up-fade">
+      <div className="w-full max-w-2xl relative z-10 glass-card p-6 sm:p-14 rounded-3xl gradient-border text-center shadow-2xl flex flex-col items-center animate-slide-up-fade">
         {/* Brand */}
         <div className="mb-8">
           <img src={logo} alt="Sapient.IA" className="h-20 w-auto mx-auto" />
