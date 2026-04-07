@@ -32,7 +32,7 @@ const ThankYou = () => {
           </span>
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+        <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
           Recebemos suas <span className="gradient-text">informações!</span>
         </h1>
 
