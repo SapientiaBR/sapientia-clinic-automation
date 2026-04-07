@@ -23,7 +23,7 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
               Sua clínica atende 24 horas —{" "}
               <span className="gradient-text">até de fim de semana, sem precisar de secretária.</span>
             </h1>
