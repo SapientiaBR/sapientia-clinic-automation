@@ -1,40 +1,65 @@
 
 
-# Botões CTA mais chamativos — Gradiente vermelho-amarelo
+# Otimização Mobile da Landing Page
 
-## Abordagem
+## Problemas identificados
 
-Criar uma nova classe CSS `.cta-button` com um degradê vermelho → laranja → amarelo que contrasta fortemente com a paleta roxo/ciano do site. Atualizar também a animação `pulse-glow` dos CTAs para brilhar em tons quentes.
+Após revisar todos os componentes, a página já usa breakpoints `sm`/`md`/`lg` em muitos lugares, mas há vários pontos que ficam apertados ou desproporcionais em telas pequenas (< 390px):
 
-## Alterações
+1. **Hero**: botão principal com texto longo quebra mal; mockup WhatsApp pode ficar muito grande; `min-h-screen` pode forçar scroll desnecessário
+2. **Header**: logo e menu já ok
+3. **SocialProof**: métricas em `grid-cols-3` ficam espremidas; testimonials em coluna única ok
+4. **Problems**: cards ok com `sm:grid-cols-2`
+5. **Solutions**: cards ok
+6. **Visualization**: colunas before/after ficam apertadas em mobile, bordas arredondadas inconsistentes
+7. **LossCalculator**: resultado com `text-5xl` pode estourar; padding ok
+8. **HowItWorks**: timeline line começa em `left-[27px]` mas cards não têm offset — pode sobrepor
+9. **Founder**: avatar + texto em coluna, ok
+10. **FinalCTA**: botão com `px-10 py-5` muito grande em mobile
+11. **LeadForm**: grid `sm:grid-cols-2` ok; padding pode ser reduzido
+12. **FAQ**: ok
+13. **Footer**: ok
+14. **ThankYou**: botão CTA com texto longo e `px-10 py-5` fica enorme; card padding `p-10` pode ser excessivo
 
-### 1. `src/index.css` — Nova classe de gradiente para CTAs
+## Alterações por arquivo
 
-Substituir `.gradient-bg-vibrant` por um novo gradiente quente **apenas nos botões CTA**, criando uma classe dedicada `.cta-gradient`:
+### 1. `Hero.tsx`
+- Reduzir `text-4xl` para `text-3xl` em mobile no h1
+- Botão principal: texto menor em mobile (`text-base` default, `sm:text-lg`)
+- Reduzir padding do botão em mobile (`px-6 py-3` default, `sm:px-8 sm:py-4`)
+- Mockup: reduzir para `w-[260px]` default, manter `sm:w-[340px]`
+- Adicionar `min-h-[calc(100vh-80px)]` em vez de `min-h-screen` para não forçar scroll
 
-```css
-.cta-gradient {
-  background-image: linear-gradient(135deg, hsl(0 85% 55%), hsl(35 95% 55%));
-}
-```
+### 2. `SocialProof.tsx`
+- Métricas: reduzir font para `text-3xl` default (já tem `sm:text-5xl`)
+- Credentials grid: `grid-cols-2` default em vez de `sm:grid-cols-2` para mobile 2-col
 
-Gradiente de vermelho vivo → amarelo/laranja. Também ajustar o `pulse-glow` para brilhar em tons quentes (laranja) em vez de ciano.
+### 3. `LossCalculator.tsx`
+- Resultado: `text-4xl` default em vez de `text-5xl`
+- Botão CTA: padding responsivo (`px-6 py-3` mobile, `sm:px-8 sm:py-4`)
 
-Manter `.gradient-bg-vibrant` intacta para os elementos decorativos (ícones do HowItWorks, avatar do Founder, cards do Solutions) que devem continuar na paleta do site.
+### 4. `FinalCTA.tsx`
+- Botão: `px-6 py-4` mobile, `sm:px-10 sm:py-5`
+- Card: `p-6` mobile, mantém `sm:p-12 lg:p-16`
 
-### 2. Arquivos dos CTAs — trocar classe nos botões de ação
+### 5. `HowItWorks.tsx`
+- Mobile: remover timeline line (já tem `hidden sm:block`)
+- Cards: garantir padding left em mobile para não sobrepor o número
 
-Substituir `gradient-bg-vibrant` por `cta-gradient` apenas nos botões/links de CTA:
+### 6. `LeadForm.tsx`
+- Card padding: `p-5` mobile, `sm:p-8 lg:p-10`
+- Botão submit: `py-3` mobile, `sm:py-4`
 
-- **`Hero.tsx`** — botão "Quero acabar com as mensagens não lidas"
-- **`Header.tsx`** — botão "Diagnóstico Gratuito" (desktop e mobile)
-- **`FinalCTA.tsx`** — botão "Agendar Meu Diagnóstico Gratuito"
-- **`LeadForm.tsx`** — botão "Solicitar Diagnóstico Gratuito"
-- **`LossCalculator.tsx`** — botão CTA da calculadora
-- **`ThankYou.tsx`** — botão WhatsApp
+### 7. `ThankYou.tsx`
+- Card: `p-6` mobile, `sm:p-14`
+- Botão: texto menor, `px-6 py-4` mobile, `text-base`
+- Título: `text-2xl` mobile
 
-**Não alterar**: HowItWorks (números), Founder (avatar), Solutions (ícones) — esses mantêm `gradient-bg-vibrant`.
+### 8. `Visualization.tsx`
+- Ajustar bordas arredondadas em mobile para separação visual clara
 
-### Resultado
-Botões CTA em vermelho→amarelo que "saltam" visualmente contra o fundo escuro roxo/ciano, aumentando contraste e chamando atenção para a conversão.
+## Resumo
+- 8 arquivos ajustados com classes responsivas
+- Sem mudanças em design, cores, ou conteúdo
+- Foco em padding, font-size e proporções para telas < 400px
 
