@@ -162,11 +162,12 @@ export const LeadForm = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label htmlFor="instagram" className="text-sm font-medium text-foreground/90">
-                    Instagram <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                    Instagram *
                   </label>
                   <input
                     id="instagram"
                     name="instagram"
+                    required
                     type="text"
                     value={form.instagram}
                     onChange={handleChange}
@@ -176,11 +177,12 @@ export const LeadForm = () => {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="site" className="text-sm font-medium text-foreground/90">
-                    Site <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                    Site *
                   </label>
                   <input
                     id="site"
                     name="site"
+                    required
                     type="url"
                     value={form.site}
                     onChange={handleChange}
@@ -192,11 +194,12 @@ export const LeadForm = () => {
 
               <div className="space-y-2 pb-2">
                 <label htmlFor="faturamento" className="text-sm font-medium text-foreground/90">
-                  Faturamento Médio Mensal <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                  Faturamento Médio Mensal *
                 </label>
                 <select
                   id="faturamento"
                   name="faturamento"
+                  required
                   value={form.faturamento}
                   onChange={handleChange}
                   className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent appearance-none cursor-pointer"
