@@ -177,7 +177,7 @@ export const LeadForm = () => {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="site" className="text-sm font-medium text-foreground/90">
-                    Site <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                    Site *
                   </label>
                   <input
                     id="site"
