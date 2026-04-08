@@ -167,6 +167,7 @@ export const LeadForm = () => {
                   <input
                     id="instagram"
                     name="instagram"
+                    required
                     type="text"
                     value={form.instagram}
                     onChange={handleChange}
