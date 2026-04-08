@@ -199,6 +199,7 @@ export const LeadForm = () => {
                 <select
                   id="faturamento"
                   name="faturamento"
+                  required
                   value={form.faturamento}
                   onChange={handleChange}
                   className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent appearance-none cursor-pointer"
