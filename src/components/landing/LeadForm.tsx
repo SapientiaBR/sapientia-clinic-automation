@@ -194,7 +194,7 @@ export const LeadForm = () => {
 
               <div className="space-y-2 pb-2">
                 <label htmlFor="faturamento" className="text-sm font-medium text-foreground/90">
-                  Faturamento Médio Mensal <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                  Faturamento Médio Mensal *
                 </label>
                 <select
                   id="faturamento"
