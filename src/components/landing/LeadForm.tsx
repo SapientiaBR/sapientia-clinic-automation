@@ -183,7 +183,7 @@ export const LeadForm = () => {
                     id="site"
                     name="site"
                     required
-                    type="url"
+                    type="text"
                     value={form.site}
                     onChange={handleChange}
                     placeholder="www.clinica.com.br"
