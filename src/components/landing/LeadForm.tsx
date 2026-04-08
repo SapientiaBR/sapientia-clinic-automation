@@ -162,7 +162,7 @@ export const LeadForm = () => {
               <div className="grid sm:grid-cols-2 gap-5">
                 <div className="space-y-2">
                   <label htmlFor="instagram" className="text-sm font-medium text-foreground/90">
-                    Instagram <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
+                    Instagram *
                   </label>
                   <input
                     id="instagram"
