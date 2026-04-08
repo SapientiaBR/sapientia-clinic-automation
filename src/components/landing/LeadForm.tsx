@@ -182,6 +182,7 @@ export const LeadForm = () => {
                   <input
                     id="site"
                     name="site"
+                    required
                     type="url"
                     value={form.site}
                     onChange={handleChange}
