@@ -1,6 +1,7 @@
-import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote, Star } from "lucide-react";
+import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote, Star, Instagram } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
+import draMarianaFogarolli from "@/assets/dra-mariana-fogarolli.jpg";
 
 const credentials = [
   { icon: TrendingUp, text: "Sistemas que recuperam pacientes que seriam perdidos por falta de resposta" },
