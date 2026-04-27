@@ -16,59 +16,58 @@ const Hero = () => {
           {/* Left content */}
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6 animate-fade-in">
-              <Sparkles size={14} className="text-accent" />
-              <span className="text-xs sm:text-sm font-medium text-accent">
-                Automação inteligente para clínicas em São Paulo
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full neumorphic-dark border-none mb-8 animate-fade-in motion-reduce:animate-none">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
+              </span>
+              <span className="text-xs sm:text-sm font-bold text-accent uppercase tracking-widest">
+                Exclusivo para Clínicas e Consultórios
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-6 text-balance">
-              Sua clínica atende 24 horas —{" "}
-              <span className="gradient-text">até de fim de semana, sem precisar de secretária.</span>
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-6 tracking-tight text-balance">
+              Sua clínica atende 24h.{" "}
+              <span className="gradient-text"><br/>Sem aumentar a folha.</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl">
-              Pare de perder pacientes para a concorrência após o expediente. A Sapient.IA automatiza seu WhatsApp, respondendo dúvidas instantaneamente e garantindo uma agenda cheia todos os dias.
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
+              Pare de perder pacientes que agendam de madrugada. IA inteligente para médicos que agenda, tira dúvidas e qualifica pacientes no WhatsApp.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={CTA_HREF}
-                className="gradient-bg-vibrant inline-flex items-center justify-center gap-2.5 text-foreground font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+                className="gradient-bg-vibrant text-white font-bold px-8 py-4 rounded-xl hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transition-all duration-300 text-lg flex items-center justify-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <MessageSquare size={20} />
-                Quero acabar com as mensagens não lidas
+                Automatizar WhatsApp
               </a>
               <a
                 href="#solucoes"
-                className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground border border-border/50 px-6 py-4 rounded-xl transition-all duration-200 hover:border-accent/30"
+                className="neumorphic-dark neumorphic-hover inline-flex items-center justify-center gap-2 text-foreground font-medium px-8 py-4 rounded-xl transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                Ver como funciona
+                Ver demonstração
                 <ArrowDown size={16} />
               </a>
             </div>
 
             {/* Trust micro-copy */}
-            <div className="flex items-center gap-6 mt-8 text-xs text-muted-foreground/70">
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                Resposta em até 2h
+            <div className="flex items-center gap-6 mt-10 text-sm font-medium text-muted-foreground/80">
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                Adequado à LGPD
               </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                Sem compromisso
-              </span>
-              <span className="flex items-center gap-1.5 hidden sm:flex">
-                <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                100% personalizado
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                Integra com prontuário
               </span>
             </div>
           </div>
 
           {/* Right - WhatsApp mockup */}
           <div className="flex justify-center">
-            <div className="w-[300px] sm:w-[340px] animate-float">
+            <div className="w-[300px] sm:w-[340px] animate-float motion-reduce:animate-none">
               <div className="glass-card rounded-3xl p-1 gradient-border">
                 <div className="bg-card rounded-3xl overflow-hidden">
                   {/* Phone header */}
@@ -108,9 +107,9 @@ const Hero = () => {
                     </div>
                     {/* Typing indicator */}
                     <div className="flex items-center gap-1 px-2">
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing" />
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing" style={{ animationDelay: "0.2s" }} />
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing" style={{ animationDelay: "0.4s" }} />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.2s" }} />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.4s" }} />
                     </div>
                     <p className="text-center text-[10px] text-muted-foreground/60 pt-1">
                       23:47 — Resposta automática em 3 segundos

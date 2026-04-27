@@ -63,11 +63,11 @@ export const LeadForm = () => {
           </div>
 
           {/* Form */}
-          <div className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10 gradient-border shadow-2xl relative">
-            <h3 className="text-xl font-semibold mb-6">Preencha seus dados</h3>
+          <div className="neumorphic-dark rounded-3xl p-8 sm:p-10 lg:p-12 relative">
+            <h3 className="text-2xl font-semibold mb-8 text-foreground">Preencha seus dados</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="nome" className="text-sm font-medium text-foreground/90">
                     Seu Nome *
@@ -77,7 +77,7 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Ex: Dr. João Silva"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -89,12 +89,12 @@ export const LeadForm = () => {
                     required
                     type="email"
                     placeholder="seu@email.com"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="whatsapp" className="text-sm font-medium text-foreground/90">
                     WhatsApp (Com DDD) *
@@ -104,7 +104,7 @@ export const LeadForm = () => {
                     required
                     type="tel"
                     placeholder="(11) 90000-0000"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -116,12 +116,12 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Clínica Exemplo"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="instagram" className="text-sm font-medium text-foreground/90">
                     Instagram <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
@@ -130,7 +130,7 @@ export const LeadForm = () => {
                     id="instagram"
                     type="text"
                     placeholder="@clinica"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -141,18 +141,18 @@ export const LeadForm = () => {
                     id="site"
                     type="url"
                     placeholder="www.clinica.com.br"
-                    className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 placeholder-muted-foreground/50 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2 pb-2">
+              <div className="space-y-2 pb-4">
                 <label htmlFor="faturamento" className="text-sm font-medium text-foreground/90">
                   Faturamento Médio Mensal <span className="text-xs text-muted-foreground font-normal">(opcional)</span>
                 </label>
                 <select
                   id="faturamento"
-                  className="w-full bg-background/50 border border-border/50 rounded-lg px-4 py-3 text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent appearance-none cursor-pointer"
+                  className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer"
                 >
                   <option value="" disabled selected>Selecione uma faixa</option>
                   <option value="0-10k">0 a R$ 10.000</option>
@@ -164,10 +164,10 @@ export const LeadForm = () => {
 
               <button
                 type="submit"
-                className="w-full gradient-bg-vibrant text-foreground font-bold text-lg px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 mt-6 flex justify-center items-center gap-3 animate-pulse-glow"
+                className="w-full gradient-bg-vibrant text-foreground font-bold text-lg px-8 py-5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(45,212,191,0.35)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Solicitar Diagnóstico
-                <MessageSquare size={20} />
+                <MessageSquare size={22} />
               </button>
             </form>
           </div>

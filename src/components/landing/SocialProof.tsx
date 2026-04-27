@@ -64,71 +64,71 @@ const SocialProof = () => {
         </div>
 
         {/* Credentials */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {credentials.map((c, i) => (
             <div
               key={i}
-              className={`glass-card-hover rounded-xl p-5 text-center ${
+              className={`neumorphic-dark neumorphic-hover rounded-2xl p-6 text-center ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${350 + i * 80}ms` }}
             >
-              <div className="w-12 h-12 mx-auto rounded-xl gradient-bg flex items-center justify-center mb-4">
-                <c.icon size={22} className="text-foreground" />
+              <div className="w-14 h-14 mx-auto rounded-xl gradient-bg flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+                <c.icon size={24} className="text-foreground" />
               </div>
-              <p className="text-sm text-foreground/85 leading-relaxed">{c.text}</p>
+              <p className="text-sm font-medium text-foreground/90 leading-relaxed">{c.text}</p>
             </div>
           ))}
         </div>
 
         {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div
-            className={`glass-card rounded-2xl p-8 gradient-border transition-all duration-700 delay-500 ${
+            className={`neumorphic-dark rounded-3xl p-8 md:p-10 transition-all duration-700 delay-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="flex items-center gap-1 mb-4">
+            <div className="flex items-center gap-1.5 mb-5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className="text-amber fill-amber" />
+                <Star key={i} size={16} className="text-amber fill-amber drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
               ))}
             </div>
-            <Quote size={24} className="mb-3 text-accent/30" />
-            <p className="text-foreground/85 italic mb-6 leading-relaxed text-sm">
+            <Quote size={28} className="mb-4 text-accent/40" />
+            <p className="text-foreground/90 italic mb-8 leading-relaxed text-base font-medium">
               "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
             </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-xs font-bold text-foreground">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(45,212,191,0.3)]">
                 RM
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Dr. Ricardo Mendes</p>
-                <p className="text-xs text-muted-foreground">Dermatologista</p>
+                <p className="text-base font-bold text-foreground">Dr. Ricardo Mendes</p>
+                <p className="text-sm text-accent">Dermatologista</p>
               </div>
             </div>
           </div>
 
           <div
-            className={`glass-card rounded-2xl p-8 gradient-border transition-all duration-700 delay-700 ${
+            className={`neumorphic-dark rounded-3xl p-8 md:p-10 transition-all duration-700 delay-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="flex items-center gap-1 mb-4">
+            <div className="flex items-center gap-1.5 mb-5">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className="text-amber fill-amber" />
+                <Star key={i} size={16} className="text-amber fill-amber drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
               ))}
             </div>
-            <Quote size={24} className="mb-3 text-accent/30" />
-            <p className="text-foreground/85 italic mb-6 leading-relaxed text-sm">
+            <Quote size={28} className="mb-4 text-accent/40" />
+            <p className="text-foreground/90 italic mb-8 leading-relaxed text-base font-medium">
               "Minha rotina mudou completamente. Antes, eu respondia tudo sozinha quando sobrava tempo. Muitos pacientes desistiam. Agora cada um é atendido na hora, e eu finalmente foco no que importa: a medicina."
             </p>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-xs font-bold text-foreground">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(45,212,191,0.3)]">
                 MF
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Dra. Mariana Fogarolli</p>
-                <p className="text-xs text-muted-foreground">Endocrinologista</p>
+                <p className="text-base font-bold text-foreground">Dra. Mariana Fogarolli</p>
+                <p className="text-sm text-accent">Endocrinologista</p>
               </div>
             </div>
           </div>

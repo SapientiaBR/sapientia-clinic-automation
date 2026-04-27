@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapient.IA - Automação para Clínicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(228, 16%, 5%)',
+                        foreground: 'hsl(210, 20%, 95%)',
+                        card: 'hsl(228, 14%, 8%)',
+                        primary: 'hsl(265, 75%, 28%)',
+                        accent: 'hsl(175, 85%, 45%)',
+                        success: 'hsl(152, 60%, 42%)',
+                        border: 'hsl(228, 12%, 15%)',
+                        muted: 'hsl(228, 12%, 13%)',
+                        'muted-foreground': 'hsl(215, 15%, 55%)'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '.8', transform: 'scale(1.02)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: hsl(228, 16%, 5%);
+            color: hsl(210, 20%, 95%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, hsl(175, 85%, 60%), hsl(265, 75%, 70%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg-vibrant {
+            background-image: linear-gradient(135deg, hsl(265, 80%, 50%), hsl(175, 90%, 48%));
+        }
+        .glass-card {
+            background: rgba(18, 20, 24, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .medical-cross-bg {
+            position: absolute;
+            opacity: 0.03;
+            background-image: radial-gradient(hsl(175, 85%, 45%) 1px, transparent 1px);
+            background-size: 40px 40px;
+            inset: 0;
+            z-index: 0;
+        }
+        .glow-orb-primary {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: hsl(265, 75%, 28%);
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .glow-orb-accent {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: hsl(175, 85%, 45%);
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased relative overflow-x-hidden selection:bg-accent selection:text-background">
+
+    <!-- Background effects -->
+    <div class="medical-cross-bg"></div>
+    <div class="glow-orb-primary -top-[200px] -left-[100px]"></div>
+    <div class="glow-orb-accent top-[20%] -right-[100px]"></div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 glass-card border-b-0 border-white/5">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <!-- Placeholder Logo -->
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                    S
+                </div>
+                <span class="font-display font-bold text-xl tracking-tight">Sapient<span class="text-accent">.IA</span></span>
+            </div>
+            
+            <nav class="hidden md:flex gap-8 items-center text-sm font-medium text-muted-foreground">
+                <a href="#solucoes" class="hover:text-foreground transition-colors">Soluções Médicas</a>
+                <a href="#como-funciona" class="hover:text-foreground transition-colors">Como Funciona</a>
+                <a href="#resultados" class="hover:text-foreground transition-colors">Resultados</a>
+                <a href="#contato" class="gradient-bg-vibrant text-white px-6 py-2.5 rounded-full hover:opacity-90 transition-all shadow-[0_0_20px_rgba(45,212,191,0.3)]">
+                    Diagnóstico Gratuito
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-32 container mx-auto px-6 z-10 flex flex-col lg:flex-row items-center gap-16">
+        <div class="flex-1 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8 animate-fade-in-up">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                </span>
+                <span class="text-xs sm:text-sm font-semibold text-accent tracking-wide uppercase">
+                    Exclusivo para Clínicas e Consultórios
+                </span>
+            </div>
+
+            <h1 class="font-display text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+                Sua clínica atende 24h. <br/>
+                <span class="gradient-text">Sem aumentar a folha.</span>
+            </h1>
+
+            <p class="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Pare de perder pacientes que agendam de madrugada. A IA inteligente para médicos que agenda consultas, tira dúvidas e qualifica pacientes no WhatsApp, com linguagem humanizada.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style="animation-delay: 0.3s;">
+                <a href="#formulario" class="gradient-bg-vibrant text-white font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform duration-300 text-lg flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(45,212,191,0.4)]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    Automatizar meu WhatsApp
+                </a>
+                <a href="#como-funciona" class="glass-card text-foreground font-medium px-8 py-4 rounded-xl hover:bg-white/5 transition-colors duration-300 flex items-center justify-center gap-2">
+                    Ver demonstração
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start gap-6 mt-10 text-sm font-medium text-muted-foreground animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Integração com prontuários</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Adequado à LGPD</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phone Mockup -->
+        <div class="flex-1 flex justify-center lg:justify-end animate-float">
+            <div class="relative w-[320px] h-[650px] glass-card rounded-[2.5rem] p-3 shadow-2xl border-white/10">
+                <!-- Inner screen -->
+                <div class="w-full h-full bg-background rounded-[2rem] overflow-hidden flex flex-col relative border border-white/5">
+                    
+                    <!-- App Header -->
+                    <div class="px-5 py-4 bg-muted/50 border-b border-white/5 flex items-center gap-3 backdrop-blur-md">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold shadow-lg">
+                            Dra.
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm text-foreground">Clínica Sapient</div>
+                            <div class="text-xs text-accent flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Assistente Online
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Body -->
+                    <div class="flex-1 p-4 flex flex-col gap-4 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] bg-opacity-5">
+                        
+                        <div class="self-end bg-card border border-white/5 rounded-2xl rounded-tr-sm px-4 py-2 max-w-[85%] text-sm shadow-sm text-foreground">
+                            Boa noite, sentindo muita dor de cabeça. Tem vaga pra amanhã cedo?
+                        </div>
+                        
+                        <div class="self-start gradient-bg-vibrant rounded-2xl rounded-tl-sm px-4 py-2 max-w-[85%] text-sm shadow-lg text-white">
+                            Olá! Sinto muito que esteja com dor. O Dr. Carlos tem um encaixe amanhã às 08:30. Posso reservar para você?
+                        </div>
+                        
+                        <div class="self-end bg-card border border-white/5 rounded-2xl rounded-tr-sm px-4 py-2 max-w-[85%] text-sm shadow-sm text-foreground">
+                            Sim, por favor.
+                        </div>
+
+                        <div class="self-start gradient-bg-vibrant rounded-2xl rounded-tl-sm px-4 py-2 max-w-[85%] text-sm shadow-lg text-white">
+                            Consulta confirmada para 08:30 amanhã. 🏥 Acabei de enviar as orientações no seu e-mail. Melhoras!
+                        </div>
+
+                    </div>
+                    
+                    <!-- Chat Input -->
+                    <div class="p-3 bg-muted/50 border-t border-white/5">
+                        <div class="h-10 rounded-full bg-card border border-white/5 px-4 flex items-center text-muted-foreground text-sm">
+                            Mensagem...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-10 border-y border-white/5 bg-black/20 z-10 relative">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-sm font-medium text-muted-foreground mb-6 uppercase tracking-widest">Tecnologia confiável para a saúde</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Logos Placeholders -->
+                <div class="flex items-center gap-2 font-display font-bold text-xl"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> GlobalHealth</div>
+                <div class="flex items-center gap-2 font-display font-bold text-xl"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"/></svg> ClinicPlus</div>
+                <div class="flex items-center gap-2 font-display font-bold text-xl"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> MedTime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="py-24 container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="font-display text-3xl md:text-5xl font-bold mb-6">A secretária não dá conta.<br/> <span class="text-muted-foreground">Sua clínica perde dinheiro.</span></h2>
+            <p class="text-lg text-muted-foreground">Pacientes querem respostas imediatas. Se o seu WhatsApp demora, eles agendam com a clínica vizinha.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-white/10">
+                <div class="w-12 h-12 rounded-xl bg-destructive/20 text-destructive flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Demora no atendimento</h3>
+                <p class="text-muted-foreground text-sm">65% dos pacientes não esperam mais que 15 minutos por uma resposta no WhatsApp antes de procurar outro médico.</p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-white/10 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-50"></div>
+                <div class="relative z-10">
+                    <div class="w-12 h-12 rounded-xl bg-accent/20 text-accent flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">A Solução Sapient.IA</h3>
+                    <p class="text-muted-foreground text-sm">Atendimento instantâneo, empático e qualificado 24 horas por dia, 7 dias por semana. Foco no paciente, sem stress.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border-t border-t-white/10">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Custos Operacionais</h3>
+                <p class="text-muted-foreground text-sm">Contratar plantonistas ou mais recepcionistas custa caro. A IA reduz custos enquanto aumenta seu faturamento.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -32,19 +32,19 @@ const Problems = () => {
           Seu consultório já recebe contatos. Mas quantos deles se tornam consultas de verdade?
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`glass-card-hover rounded-xl p-5 flex items-start gap-4 group cursor-default ${
+              className={`neumorphic-dark neumorphic-hover rounded-2xl p-6 flex items-start gap-5 group cursor-default ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${150 + i * 80}ms` }}
             >
-              <div className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${p.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-                <p.icon size={20} className="text-foreground/80" />
+              <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${p.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-inner`}>
+                <p.icon size={22} className="text-foreground/90" />
               </div>
-              <p className="text-sm text-foreground/85 leading-relaxed">{p.text}</p>
+              <p className="text-sm font-medium text-foreground/90 leading-relaxed pt-1">{p.text}</p>
             </div>
           ))}
         </div>

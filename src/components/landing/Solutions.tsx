@@ -66,20 +66,20 @@ const Solutions = () => {
           Uma secretária de IA que nunca dorme, nunca falta e nunca esquece.
         </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((s, i) => (
             <div
               key={i}
-              className={`glass-card-hover rounded-2xl p-6 group card-glow ${
-                s.featured ? "sm:col-span-1 gradient-border" : ""
+              className={`neumorphic-dark neumorphic-hover rounded-3xl p-8 group ${
+                s.featured ? "sm:col-span-1 shadow-[0_0_20px_rgba(45,212,191,0.15)] border-accent/20" : ""
               } ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${150 + i * 80}ms` }}
             >
-              <div className={`w-12 h-12 rounded-xl ${
-                s.featured ? "gradient-bg-vibrant" : "gradient-bg"
-              } flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110`}>
+              <div className={`w-14 h-14 rounded-2xl ${
+                s.featured ? "gradient-bg-vibrant shadow-[0_0_15px_rgba(45,212,191,0.3)]" : "gradient-bg shadow-inner"
+              } flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
                 <s.icon size={24} className="text-foreground" />
               </div>
               <h3 className="font-display font-semibold text-lg mb-2 text-foreground">{s.title}</h3>

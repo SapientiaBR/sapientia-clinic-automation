@@ -57,8 +57,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -71,15 +70,15 @@
 @layer utilities {
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(265 75% 60%), hsl(175 85% 50%));
+    background-image: linear-gradient(135deg, hsl(265 60% 70%), hsl(175 70% 60%));
   }
 
   .gradient-bg {
-    background-image: linear-gradient(135deg, hsl(265 75% 30%), hsl(175 85% 45%));
+    background-image: linear-gradient(135deg, hsl(265 60% 35%), hsl(175 65% 40%));
   }
 
   .gradient-bg-vibrant {
-    background-image: linear-gradient(135deg, hsl(265 80% 50%), hsl(175 90% 48%));
+    background-image: linear-gradient(135deg, hsl(265 70% 55%), hsl(175 75% 50%));
   }
 
   .gradient-border {
@@ -100,26 +99,47 @@
   }
 
   .glass-card {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50;
+    @apply bg-card/60 backdrop-blur-xl border border-white/5;
   }
 
   .glass-card-hover {
-    @apply bg-card/50 backdrop-blur-xl border border-border/50 transition-all duration-500;
+    @apply bg-card/60 backdrop-blur-xl border border-white/5 transition-all duration-300;
   }
 
   .glass-card-hover:hover {
-    @apply border-accent/30;
-    box-shadow: 0 0 40px hsl(175 85% 45% / 0.06);
+    @apply border-accent/20;
+    box-shadow: 0 0 30px hsl(175 70% 50% / 0.04);
   }
 
   .card-glow {
-    @apply transition-all duration-500;
+    @apply transition-all duration-300;
   }
 
   .card-glow:hover {
     box-shadow:
-      0 0 30px hsl(265 75% 40% / 0.08),
-      0 0 60px hsl(175 85% 45% / 0.04);
+      0 0 20px hsl(265 60% 50% / 0.05),
+      0 0 40px hsl(175 70% 50% / 0.03);
+  }
+
+  /* Neumorphism Dark Utilities */
+  .neumorphism-dark {
+    background: linear-gradient(145deg, hsl(var(--card)/0.8), hsl(var(--card)/0.4));
+    box-shadow: 
+      8px 8px 16px rgba(0, 0, 0, 0.4), 
+      -8px -8px 16px rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius);
+  }
+
+  .neumorphism-dark-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .neumorphism-dark-hover:hover {
+    box-shadow: 
+      12px 12px 20px rgba(0, 0, 0, 0.5), 
+      -4px -4px 12px rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
   }
 
   .shimmer-text {

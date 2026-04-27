@@ -40,17 +40,17 @@ const LossCalculator = () => {
         </div>
 
         <div
-          className={`glass-card rounded-2xl p-8 sm:p-10 gradient-border transition-all duration-700 delay-200 ${
+          className={`neumorphic-dark rounded-3xl p-8 sm:p-12 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           {/* Contacts slider */}
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-3">
+          <div className="mb-10">
+            <div className="flex justify-between items-center mb-4">
               <label className="text-sm text-foreground/90 font-medium">
                 Contatos recebidos por semana
               </label>
-              <span className="text-lg font-bold text-accent tabular-nums">{contacts}</span>
+              <span className="text-xl font-bold text-accent tabular-nums">{contacts}</span>
             </div>
             <Slider
               value={[contacts]}
@@ -58,21 +58,21 @@ const LossCalculator = () => {
               min={5}
               max={100}
               step={5}
-              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent"
+              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent cursor-pointer"
             />
-            <div className="flex justify-between text-xs text-muted-foreground mt-1.5">
+            <div className="flex justify-between text-xs text-muted-foreground mt-2">
               <span>5</span>
               <span>100</span>
             </div>
           </div>
 
           {/* Ticket value slider */}
-          <div className="mb-10">
-            <div className="flex justify-between items-center mb-3">
+          <div className="mb-12">
+            <div className="flex justify-between items-center mb-4">
               <label className="text-sm text-foreground/90 font-medium">
                 Valor médio da consulta
               </label>
-              <span className="text-lg font-bold text-accent tabular-nums">
+              <span className="text-xl font-bold text-accent tabular-nums">
                 R$ {ticketValue}
               </span>
             </div>
@@ -82,33 +82,33 @@ const LossCalculator = () => {
               min={100}
               max={1000}
               step={50}
-              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent"
+              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent cursor-pointer"
             />
-            <div className="flex justify-between text-xs text-muted-foreground mt-1.5">
+            <div className="flex justify-between text-xs text-muted-foreground mt-2">
               <span>R$ 100</span>
               <span>R$ 1.000</span>
             </div>
           </div>
 
           {/* Result */}
-          <div className="text-center p-6 rounded-xl bg-gradient-to-br from-amber/5 to-destructive/5 border border-amber/15">
-            <p className="text-sm text-muted-foreground mb-1">
+          <div className="text-center p-8 rounded-2xl neumorphic-dark-inset border-none">
+            <p className="text-sm text-muted-foreground mb-2">
               Sem automação, você pode estar deixando de faturar
             </p>
-            <p className="text-5xl sm:text-6xl font-bold text-amber mb-1 tabular-nums">
+            <p className="text-5xl sm:text-6xl lg:text-7xl font-bold text-amber mb-2 tabular-nums drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
               R$ {monthlyLoss.toLocaleString("pt-BR")}
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground font-medium">
               por mês ({lostPatients} pacientes × R$ {ticketValue})
             </p>
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant inline-flex items-center gap-2.5 text-foreground font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+              className="gradient-bg-vibrant inline-flex items-center gap-2.5 text-foreground font-bold px-8 py-5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(45,212,191,0.35)] transition-all duration-300 text-lg animate-pulse-glow cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <MessageSquare size={20} />
+              <MessageSquare size={22} />
               Quero Recuperar Esses Pacientes
             </a>
             <p className="text-xs text-muted-foreground/60 mt-3">
