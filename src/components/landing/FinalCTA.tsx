@@ -15,7 +15,7 @@ const FinalCTA = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl" ref={ref}>
         <div
-          className={`glass-card rounded-3xl p-8 sm:p-12 lg:p-16 text-center gradient-border transition-all duration-700 ${
+          className={`glass-card rounded-3xl p-6 sm:p-12 lg:p-16 text-center gradient-border transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -47,7 +47,7 @@ const FinalCTA = () => {
           {/* Main CTA */}
           <a
             href={CTA_HREF}
-            className="gradient-bg-vibrant inline-flex items-center gap-3 text-foreground font-bold px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-lg animate-pulse-glow"
+            className="cta-gradient inline-flex items-center gap-3 text-foreground font-bold px-6 py-4 sm:px-10 sm:py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-base sm:text-lg animate-pulse-glow"
           >
             <MessageSquare size={22} />
             Agendar Meu Diagnóstico Gratuito
