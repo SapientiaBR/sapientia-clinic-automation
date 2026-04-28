@@ -40,8 +40,7 @@ const HowItWorks = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Como funciona na{" "}
-          <span className="gradient-text">prática</span>
+          Como funciona na <em>prática</em>
         </h2>
         <p
           className={`text-muted-foreground text-center mb-16 max-w-xl mx-auto transition-all duration-700 delay-100 ${
@@ -66,7 +65,7 @@ const HowItWorks = () => {
               >
                 {/* Number circle */}
                 <div className="relative z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2 flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl gradient-bg-vibrant flex items-center justify-center shadow-lg shadow-accent/10">
+                  <div className="w-14 h-14 rounded-2xl gradient-brand flex items-center justify-center shadow-[0_0_15px_rgba(124,58,237,0.3)]">
                     <span className="text-foreground font-bold text-lg font-display">{step.number}</span>
                   </div>
                 </div>
@@ -75,7 +74,7 @@ const HowItWorks = () => {
                 <div className={`sm:w-[calc(50%-3rem)] ${
                   i % 2 === 0 ? "sm:mr-auto sm:text-right sm:pr-4" : "sm:ml-auto sm:pl-4"
                 }`}>
-                  <div className="glass-card-hover rounded-xl p-6">
+                  <div className="glass hover:border-border-hover transition-all duration-300 rounded-xl p-6">
                     <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "sm:justify-end" : ""}`}>
                       <step.icon size={18} className="text-accent" />
                       <h3 className="font-display font-semibold text-lg text-foreground">{step.title}</h3>

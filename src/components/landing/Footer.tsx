@@ -3,7 +3,7 @@ import logo from "@/assets/sapient-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border/50 py-12">
+    <footer className="border-t border-white/5 py-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {/* Brand */}
@@ -16,7 +16,7 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-foreground mb-1">Navegação</p>
+            <p className="text-sm font-display font-semibold text-foreground mb-1">Navegação</p>
             <a href="#solucoes" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Soluções</a>
             <a href="#como-funciona" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Como Funciona</a>
             <a href="#depoimentos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Depoimentos</a>
@@ -25,7 +25,7 @@ const Footer = () => {
 
           {/* Contact & Social */}
           <div>
-            <p className="text-sm font-semibold text-foreground mb-3">Contato</p>
+            <p className="text-sm font-display font-semibold text-foreground mb-3">Contato</p>
             <div className="flex items-center gap-4 mb-4">
               <a
                 href="https://instagram.com/sapient.ia"

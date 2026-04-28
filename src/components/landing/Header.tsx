@@ -44,7 +44,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 py-1 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-accent after:transition-all after:duration-300 hover:after:w-full focus-visible:after:w-full cursor-pointer"
+                className="text-sm font-semibold text-foreground/90 hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 py-1 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-accent after:transition-all after:duration-300 hover:after:w-full focus-visible:after:w-full cursor-pointer"
                 aria-label={item.label}
               >
                 {item.label}
@@ -52,7 +52,7 @@ const Header = () => {
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant text-sm font-bold text-foreground px-6 py-2.5 rounded-full hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(45,212,191,0.3)] transition-all duration-300 flex items-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="gradient-vibrant font-display text-sm font-semibold text-foreground px-6 py-2.5 rounded-full hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 flex items-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Diagnóstico Gratuito
               <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -76,7 +76,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors py-2.5 text-base cursor-pointer"
+                className="text-foreground/90 font-medium hover:text-foreground transition-colors py-2.5 text-base cursor-pointer"
                 onClick={() => setMenuOpen(false)}
                 aria-label={item.label}
               >
@@ -85,7 +85,7 @@ const Header = () => {
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant text-center font-semibold text-foreground px-5 py-3 rounded-lg mt-2 flex items-center justify-center gap-2 cursor-pointer neumorphism-dark-hover"
+              className="gradient-vibrant font-display text-center font-semibold text-foreground px-5 py-3 rounded-full mt-2 flex items-center justify-center gap-2 cursor-pointer"
               onClick={() => setMenuOpen(false)}
             >
               Diagnóstico Gratuito

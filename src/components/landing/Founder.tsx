@@ -8,14 +8,14 @@ const Founder = () => {
     <section className="section-padding relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl" ref={ref}>
         <div
-          className={`glass-card rounded-2xl p-8 sm:p-10 lg:p-12 transition-all duration-700 ${
+          className={`glass rounded-2xl p-8 sm:p-10 lg:p-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Avatar */}
             <div className="flex-shrink-0">
-              <div className="w-28 h-28 rounded-2xl gradient-bg-vibrant flex items-center justify-center text-4xl font-bold text-foreground font-display shadow-lg shadow-accent/10">
+              <div className="w-28 h-28 rounded-md gradient-brand flex items-center justify-center text-4xl font-bold text-foreground font-display shadow-[0_0_20px_rgba(124,58,237,0.3)]">
                 LF
               </div>
             </div>

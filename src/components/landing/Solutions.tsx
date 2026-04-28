@@ -55,8 +55,7 @@ const Solutions = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          O que a Sapient.IA faz{" "}
-          <span className="gradient-text">pelo seu consultório</span>
+          O que a Sapient.IA faz <em>pelo seu consultório</em>
         </h2>
         <p
           className={`text-muted-foreground text-center mb-14 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
@@ -70,15 +69,15 @@ const Solutions = () => {
           {solutions.map((s, i) => (
             <div
               key={i}
-              className={`neumorphic-dark neumorphic-hover rounded-3xl p-8 group ${
-                s.featured ? "sm:col-span-1 shadow-[0_0_20px_rgba(45,212,191,0.15)] border-accent/20" : ""
+              className={`glass hover:border-border-hover transition-all duration-300 rounded-3xl p-8 group ${
+                s.featured ? "sm:col-span-1 shadow-[0_0_20px_rgba(6,182,212,0.1)] border-cyan-500/20" : ""
               } ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${150 + i * 80}ms` }}
             >
               <div className={`w-14 h-14 rounded-2xl ${
-                s.featured ? "gradient-bg-vibrant shadow-[0_0_15px_rgba(45,212,191,0.3)]" : "gradient-bg shadow-inner"
+                s.featured ? "gradient-brand shadow-[0_0_15px_rgba(6,182,212,0.2)]" : "gradient-subtle shadow-inner"
               } flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
                 <s.icon size={24} className="text-foreground" />
               </div>

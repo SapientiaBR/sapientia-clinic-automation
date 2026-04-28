@@ -4,60 +4,74 @@
 
 @layer base {
   :root {
-    --background: 228 16% 5%;
-    --foreground: 210 20% 95%;
+    /* Backgrounds */
+    --bg-deep: #080d1a;
+    --bg-primary: #0c1222;
+    --bg-secondary: #111827;
+    --bg-surface: #162032;
+    --bg-card: #1a2540;
+    --bg-elevated: #1f2e4a;
 
-    --card: 228 14% 8%;
-    --card-foreground: 210 20% 95%;
+    /* Purple ramp */
+    --purple-50: #f0eaff;
+    --purple-100: #ddd0ff;
+    --purple-200: #c4adff;
+    --purple-300: #a78bfa;
+    --purple-400: #8b5cf6;
+    --purple-500: #7c3aed;
+    --purple-600: #6d28d9;
+    --purple-700: #5b21b6;
+    --purple-800: #4c1d95;
+    --purple-900: #3b0f7a;
 
-    --popover: 228 14% 8%;
-    --popover-foreground: 210 20% 95%;
+    /* Cyan ramp */
+    --cyan-50: #e8fffe;
+    --cyan-100: #b8fdf8;
+    --cyan-200: #7df8ef;
+    --cyan-300: #4debff;
+    --cyan-400: #22d3ee;
+    --cyan-500: #06b6d4;
+    --cyan-600: #0891b2;
+    --cyan-700: #0e7490;
+    --cyan-800: #155e75;
+    --cyan-900: #134e5e;
 
-    --primary: 265 75% 28%;
-    --primary-foreground: 210 20% 98%;
+    /* Accent palette */
+    --accent-coral: #f87171;
+    --accent-rose: #fb7185;
+    --accent-pink: #f472b6;
+    --accent-amber: #fbbf24;
+    --accent-lime: #a3e635;
+    --accent-emerald: #34d399;
+    --accent-sky: #38bdf8;
+    --accent-indigo: #818cf8;
 
-    --secondary: 228 12% 13%;
-    --secondary-foreground: 210 20% 90%;
+    /* Text */
+    --text-primary: #e8ecf4;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-hint: #475569;
 
-    --muted: 228 12% 13%;
-    --muted-foreground: 215 15% 55%;
+    /* Semantic */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
 
-    --accent: 175 85% 45%;
-    --accent-foreground: 228 16% 5%;
-
-    --destructive: 0 72% 55%;
-    --destructive-foreground: 210 40% 98%;
-
-    --success: 152 60% 42%;
-    --success-foreground: 210 40% 98%;
-
-    --amber: 38 92% 55%;
-    --amber-foreground: 228 16% 5%;
-
-    --border: 228 12% 15%;
-    --input: 228 12% 15%;
-    --ring: 175 85% 45%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 228 14% 6%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 175 85% 45%;
-    --sidebar-primary-foreground: 228 16% 5%;
-    --sidebar-accent: 228 12% 11%;
-    --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 228 12% 15%;
-    --sidebar-ring: 175 85% 45%;
+    /* Borders */
+    --border-subtle: rgba(148,163,184, 0.08);
+    --border-default: rgba(148,163,184, 0.12);
+    --border-hover: rgba(148,163,184, 0.20);
+    --border-glow-purple: rgba(139,92,246, 0.30);
+    --border-glow-cyan: rgba(34,211,238, 0.30);
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
+    background-color: var(--bg-deep);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -65,106 +79,97 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* ASSINATURA DA MARCA: Italic + Gradient em destaque de headings */
+  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--purple-300), var(--cyan-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 0.05em;
+    margin-right: -0.05em;
+  }
 }
 
 @layer utilities {
+  .gradient-brand {
+    background: linear-gradient(135deg, var(--purple-500), var(--cyan-500));
+  }
+
+  .gradient-vibrant {
+    background: linear-gradient(135deg, #e11d48, #ea580c);
+  }
+
+  .gradient-brand-hover {
+    background: linear-gradient(135deg, var(--purple-400), var(--cyan-400));
+  }
+
+  .gradient-vibrant-hover {
+    background: linear-gradient(135deg, #be123c, #c2410c);
+  }
+
   .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(265 60% 70%), hsl(175 70% 60%));
-  }
-
-  .gradient-bg {
-    background-image: linear-gradient(135deg, hsl(265 60% 35%), hsl(175 65% 40%));
-  }
-
-  .gradient-bg-vibrant {
-    background-image: linear-gradient(135deg, hsl(265 70% 55%), hsl(175 75% 50%));
-  }
-
-  .cta-gradient {
-    background-image: linear-gradient(135deg, hsl(0 85% 55%), hsl(35 95% 55%));
-  }
-
-  .gradient-border {
-    position: relative;
-  }
-
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, hsl(265 75% 45%), hsl(175 85% 50%));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-white/5;
-  }
-
-  .glass-card-hover {
-    @apply bg-card/60 backdrop-blur-xl border border-white/5 transition-all duration-300;
-  }
-
-  .glass-card-hover:hover {
-    @apply border-accent/20;
-    box-shadow: 0 0 30px hsl(175 70% 50% / 0.04);
-  }
-
-  .card-glow {
-    @apply transition-all duration-300;
-  }
-
-  .card-glow:hover {
-    box-shadow:
-      0 0 20px hsl(265 60% 50% / 0.05),
-      0 0 40px hsl(175 70% 50% / 0.03);
-  }
-
-  /* Neumorphism Dark Utilities */
-  .neumorphism-dark {
-    background: linear-gradient(145deg, hsl(var(--card)/0.8), hsl(var(--card)/0.4));
-    box-shadow: 
-      8px 8px 16px rgba(0, 0, 0, 0.4), 
-      -8px -8px 16px rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius);
-  }
-
-  .neumorphism-dark-hover {
-    transition: all 0.3s ease;
-  }
-  
-  .neumorphism-dark-hover:hover {
-    box-shadow: 
-      12px 12px 20px rgba(0, 0, 0, 0.5), 
-      -4px -4px 12px rgba(255, 255, 255, 0.03);
-    transform: translateY(-2px);
-  }
-
-  .shimmer-text {
-    background: linear-gradient(
-      110deg,
-      hsl(210 20% 95%) 0%,
-      hsl(175 85% 70%) 45%,
-      hsl(210 20% 95%) 55%,
-      hsl(210 20% 95%) 100%
-    );
-    background-size: 200% 100%;
+    background: linear-gradient(135deg, var(--purple-300), var(--cyan-300));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 3s ease-in-out infinite;
+    background-clip: text;
+    padding-right: 0.05em;
+    margin-right: -0.05em;
   }
 
-  @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+  .gradient-subtle {
+    background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.12));
   }
 
+  .radial-hero-glow {
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124,58,237,0.15), rgba(6,182,212,0.08) 50%, transparent 80%);
+  }
+
+  /* Glassmorphism / Otus */
+  .glass {
+    background: rgba(148, 163, 184, 0.04);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    border-radius: 16px;
+  }
+
+  /* Cards de Feature / Problema */
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* We'll use specific utility classes for the border-top accents */
+  .border-accent-coral { border-top: 3px solid var(--accent-coral); }
+  .border-accent-rose { border-top: 3px solid var(--accent-rose); }
+  .border-accent-pink { border-top: 3px solid var(--accent-pink); }
+  .border-accent-amber { border-top: 3px solid var(--accent-amber); }
+  .border-accent-lime { border-top: 3px solid var(--accent-lime); }
+  .border-accent-emerald { border-top: 3px solid var(--accent-emerald); }
+  .border-accent-sky { border-top: 3px solid var(--accent-sky); }
+  .border-accent-indigo { border-top: 3px solid var(--accent-indigo); }
+
+  .text-accent-coral { color: var(--accent-coral); }
+  .text-accent-rose { color: var(--accent-rose); }
+  .text-accent-pink { color: var(--accent-pink); }
+  .text-accent-amber { color: var(--accent-amber); }
+  .text-accent-lime { color: var(--accent-lime); }
+  .text-accent-emerald { color: var(--accent-emerald); }
+  .text-accent-sky { color: var(--accent-sky); }
+  .text-accent-indigo { color: var(--accent-indigo); }
+
+  /* Utilities to be removed/deprecated smoothly */
+  .glass-card { @apply glass; }
+  .neumorphism-dark { @apply glass; }
+  .neumorphism-dark-hover { transition: all 0.3s ease; }
+  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: var(--border-hover); }
+  
   .text-balance {
     text-wrap: balance;
   }

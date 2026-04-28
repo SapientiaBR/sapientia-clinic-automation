@@ -12,7 +12,7 @@ const ThankYou = () => {
         <div className="absolute inset-0 noise-overlay" />
       </div>
 
-      <div className="w-full max-w-2xl relative z-10 glass-card p-6 sm:p-14 rounded-3xl gradient-border text-center shadow-2xl flex flex-col items-center animate-slide-up-fade">
+      <div className="w-full max-w-2xl relative z-10 glass p-6 sm:p-14 rounded-3xl border border-white/10 text-center shadow-2xl flex flex-col items-center animate-slide-up-fade">
         {/* Brand */}
         <div className="mb-8">
           <img src={logo} alt="Sapient.IA" className="h-20 w-auto mx-auto" />
@@ -33,7 +33,7 @@ const ThankYou = () => {
         </div>
 
         <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold mb-4 text-balance">
-          Recebemos suas <span className="gradient-text">informações!</span>
+          Recebemos suas <em>informações!</em>
         </h1>
 
         <p className="text-lg text-muted-foreground mb-10 leading-relaxed text-balance">
@@ -45,7 +45,7 @@ const ThankYou = () => {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-gradient flex items-center justify-center gap-3 text-foreground font-bold px-6 py-4 sm:px-10 sm:py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] text-base sm:text-lg w-full sm:w-auto animate-pulse-glow shadow-[0_0_30px_hsl(25_90%_50%_/_0.3)]"
+          className="gradient-vibrant font-display font-semibold flex items-center justify-center gap-3 text-foreground px-6 py-4 sm:px-10 sm:py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 text-base sm:text-lg w-full sm:w-auto"
         >
           <MessageSquare size={24} />
           Clique aqui para receber seu atendimento via whatsapp

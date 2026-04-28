@@ -47,8 +47,7 @@ const FAQ = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Você pode estar{" "}
-          <span className="gradient-text">pensando...</span>
+          Você pode estar <em>pensando...</em>
         </h2>
 
         <Accordion type="single" collapsible className="space-y-3">
@@ -56,7 +55,7 @@ const FAQ = () => {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className={`glass-card rounded-xl px-6 border-none transition-all duration-500 ${
+              className={`glass rounded-xl px-6 border-none transition-all duration-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${150 + i * 80}ms` }}

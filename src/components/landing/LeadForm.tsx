@@ -25,7 +25,7 @@ export const LeadForm = () => {
           {/* Text Content */}
           <div className="max-w-xl">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-              Vamos mapear sua automatização <span className="gradient-text">agora.</span>
+              Vamos mapear sua automatização <em>agora.</em>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Descubra exatamente quantas horas e quantos pacientes você pode salvar todos os meses com nosso diagnóstico. Preencha seus dados ao lado para prosseguir.
@@ -63,7 +63,7 @@ export const LeadForm = () => {
           </div>
 
           {/* Form */}
-          <div className="neumorphic-dark rounded-3xl p-8 sm:p-10 lg:p-12 relative">
+          <div className="glass rounded-3xl p-8 sm:p-10 lg:p-12 relative border border-white/10">
             <h3 className="text-2xl font-semibold mb-8 text-foreground">Preencha seus dados</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -77,7 +77,7 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Ex: Dr. João Silva"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -89,7 +89,7 @@ export const LeadForm = () => {
                     required
                     type="email"
                     placeholder="seu@email.com"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -104,7 +104,7 @@ export const LeadForm = () => {
                     required
                     type="tel"
                     placeholder="(11) 90000-0000"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -116,7 +116,7 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Clínica Exemplo"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -130,7 +130,7 @@ export const LeadForm = () => {
                     id="instagram"
                     type="text"
                     placeholder="@clinica"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -141,7 +141,7 @@ export const LeadForm = () => {
                     id="site"
                     type="url"
                     placeholder="www.clinica.com.br"
-                    className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -152,7 +152,7 @@ export const LeadForm = () => {
                 </label>
                 <select
                   id="faturamento"
-                  className="w-full neumorphic-dark-inset border-none rounded-xl px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer"
+                  className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer"
                 >
                   <option value="" disabled selected>Selecione uma faixa</option>
                   <option value="0-10k">0 a R$ 10.000</option>
@@ -164,7 +164,7 @@ export const LeadForm = () => {
 
               <button
                 type="submit"
-                className="w-full gradient-bg-vibrant text-foreground font-bold text-lg px-8 py-5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(45,212,191,0.35)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="w-full gradient-vibrant font-display font-semibold text-foreground text-lg px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Solicitar Diagnóstico
                 <MessageSquare size={22} />

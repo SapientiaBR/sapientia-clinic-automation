@@ -15,13 +15,12 @@ const FinalCTA = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl" ref={ref}>
         <div
-          className={`glass-card rounded-3xl p-6 sm:p-12 lg:p-16 text-center gradient-border transition-all duration-700 ${
+          className={`glass rounded-3xl p-6 sm:p-12 lg:p-16 text-center border border-white/10 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-balance">
-            Pronto para ver sua clínica{" "}
-            <span className="gradient-text">funcionar no automático?</span>
+            Pronto para ver sua clínica <em>funcionar no automático?</em>
           </h2>
 
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto leading-relaxed">
@@ -47,7 +46,7 @@ const FinalCTA = () => {
           {/* Main CTA */}
           <a
             href={CTA_HREF}
-            className="cta-gradient inline-flex items-center gap-3 text-foreground font-bold px-6 py-4 sm:px-10 sm:py-5 rounded-xl hover:opacity-90 transition-all duration-200 text-base sm:text-lg animate-pulse-glow"
+            className="gradient-vibrant font-display font-semibold inline-flex items-center gap-3 text-foreground px-6 py-4 sm:px-10 sm:py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-200 text-base sm:text-lg"
           >
             <MessageSquare size={22} />
             Agendar Meu Diagnóstico Gratuito

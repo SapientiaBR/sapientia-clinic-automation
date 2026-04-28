@@ -34,13 +34,12 @@ const LossCalculator = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            Quantos pacientes você pode{" "}
-            <span className="gradient-text">recuperar</span> por mês?
+            Quantos pacientes você pode <em>recuperar</em> por mês?
           </h2>
         </div>
 
         <div
-          className={`neumorphic-dark rounded-3xl p-8 sm:p-12 transition-all duration-700 delay-200 ${
+          className={`glass hover:border-border-hover rounded-3xl p-8 sm:p-12 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -91,7 +90,7 @@ const LossCalculator = () => {
           </div>
 
           {/* Result */}
-          <div className="text-center p-8 rounded-2xl neumorphic-dark-inset border-none">
+          <div className="text-center p-8 rounded-2xl bg-background/50 border border-white/5 shadow-inner">
             <p className="text-sm text-muted-foreground mb-2">
               Sem automação, você pode estar deixando de faturar
             </p>
@@ -106,7 +105,7 @@ const LossCalculator = () => {
           <div className="text-center mt-10">
             <a
               href={CTA_HREF}
-              className="gradient-bg-vibrant inline-flex items-center gap-2.5 text-foreground font-bold px-8 py-5 rounded-xl hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(45,212,191,0.35)] transition-all duration-300 text-lg animate-pulse-glow cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="gradient-vibrant font-display font-semibold inline-flex items-center gap-2.5 text-foreground px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 text-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <MessageSquare size={22} />
               Quero Recuperar Esses Pacientes

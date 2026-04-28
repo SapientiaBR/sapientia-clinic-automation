@@ -25,8 +25,7 @@ const Visualization = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          A diferença entre perder e{" "}
-          <span className="gradient-text">reter pacientes</span>
+          A diferença entre perder e <em>reter pacientes</em>
         </h2>
 
         {/* Before vs After comparison */}
@@ -61,7 +60,7 @@ const Visualization = () => {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="bg-success/5 border border-success/10 rounded-2xl md:rounded-l-none p-6 sm:p-8 h-full gradient-border">
+            <div className="glass border-success/20 rounded-2xl md:rounded-l-none p-6 sm:p-8 h-full">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-8 h-8 rounded-lg bg-success/15 flex items-center justify-center">
                   <Check size={16} className="text-success" />

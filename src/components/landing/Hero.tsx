@@ -16,7 +16,7 @@ const Hero = () => {
           {/* Left content */}
           <div className="max-w-2xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full neumorphic-dark border-none mb-8 animate-fade-in motion-reduce:animate-none">
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass border-border-default mb-8 animate-fade-in motion-reduce:animate-none">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
@@ -27,8 +27,8 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-6 tracking-tight text-balance">
-              Sua clínica atende 24h.{" "}
-              <span className="gradient-text"><br/>Sem aumentar a folha.</span>
+              Sua clínica atende <em>24h</em>.<br/>
+              Sem aumentar a folha.
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
@@ -38,14 +38,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={CTA_HREF}
-                className="gradient-bg-vibrant text-white font-bold px-8 py-4 rounded-xl hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(45,212,191,0.4)] transition-all duration-300 text-lg flex items-center justify-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="gradient-vibrant text-white font-display font-semibold px-8 py-4 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 text-lg flex items-center justify-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <MessageSquare size={20} />
                 Automatizar WhatsApp
               </a>
               <a
                 href="#solucoes"
-                className="neumorphic-dark neumorphic-hover inline-flex items-center justify-center gap-2 text-foreground font-medium px-8 py-4 rounded-xl transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="bg-transparent border border-border-default hover:border-purple-500 hover:bg-purple-500/5 text-foreground font-display font-semibold px-8 py-4 rounded-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Ver demonstração
                 <ArrowDown size={16} />

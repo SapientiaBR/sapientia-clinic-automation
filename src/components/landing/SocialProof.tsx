@@ -34,8 +34,7 @@ const SocialProof = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Por que médicos escolhem a{" "}
-          <span className="gradient-text">Sapient.IA</span>
+          Por que médicos escolhem a <em>Sapient.IA</em>
         </h2>
         <p
           className={`text-muted-foreground text-center mb-14 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
@@ -68,12 +67,12 @@ const SocialProof = () => {
           {credentials.map((c, i) => (
             <div
               key={i}
-              className={`neumorphic-dark neumorphic-hover rounded-2xl p-6 text-center ${
+              className={`glass hover:border-border-hover transition-all duration-300 rounded-2xl p-6 text-center ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${350 + i * 80}ms` }}
             >
-              <div className="w-14 h-14 mx-auto rounded-xl gradient-bg flex items-center justify-center mb-5 shadow-[0_0_15px_rgba(45,212,191,0.2)]">
+              <div className="w-14 h-14 mx-auto rounded-xl gradient-subtle flex items-center justify-center mb-5 shadow-inner">
                 <c.icon size={24} className="text-foreground" />
               </div>
               <p className="text-sm font-medium text-foreground/90 leading-relaxed">{c.text}</p>
@@ -84,7 +83,7 @@ const SocialProof = () => {
         {/* Testimonials */}
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div
-            className={`neumorphic-dark rounded-3xl p-8 md:p-10 transition-all duration-700 delay-500 ${
+            className={`glass rounded-3xl p-8 md:p-10 transition-all duration-700 delay-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
@@ -98,7 +97,7 @@ const SocialProof = () => {
               "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(45,212,191,0.3)]">
+              <div className="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(124,58,237,0.3)]">
                 RM
               </div>
               <div>
@@ -109,7 +108,7 @@ const SocialProof = () => {
           </div>
 
           <div
-            className={`neumorphic-dark rounded-3xl p-8 md:p-10 transition-all duration-700 delay-700 ${
+            className={`glass rounded-3xl p-8 md:p-10 transition-all duration-700 delay-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
@@ -123,7 +122,7 @@ const SocialProof = () => {
               "Minha rotina mudou completamente. Antes, eu respondia tudo sozinha quando sobrava tempo. Muitos pacientes desistiam. Agora cada um é atendido na hora, e eu finalmente foco no que importa: a medicina."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(45,212,191,0.3)]">
+              <div className="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(124,58,237,0.3)]">
                 MF
               </div>
               <div>
