@@ -81,35 +81,10 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* Testimonial */}
+        <div className="max-w-2xl mx-auto">
           <div
             className={`glass rounded-3xl p-8 md:p-10 transition-all duration-700 delay-500 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <div className="flex items-center gap-1.5 mb-5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} className="text-amber fill-amber drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
-              ))}
-            </div>
-            <Quote size={28} className="mb-4 text-accent/40" />
-            <p className="text-foreground/90 italic mb-8 leading-relaxed text-base font-medium">
-              "Eu não fazia ideia de quantos pacientes estava perdendo por falta de resposta. Depois da Sapient.IA, minha agenda encheu e as faltas caíram pela metade. Foi o melhor investimento que fiz no consultório."
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(124,58,237,0.3)]">
-                RM
-              </div>
-              <div>
-                <p className="text-base font-bold text-foreground">Dr. Ricardo Mendes</p>
-                <p className="text-sm text-accent">Dermatologista</p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            className={`glass rounded-3xl p-8 md:p-10 transition-all duration-700 delay-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
@@ -123,15 +98,18 @@ const SocialProof = () => {
               "Minha rotina mudou completamente. Antes, eu respondia tudo sozinha quando sobrava tempo. Muitos pacientes desistiam. Agora cada um é atendido na hora, e eu finalmente foco no que importa: a medicina."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(124,58,237,0.3)]">
-                MF
-              </div>
+              <img src={draMariana} alt="Dra. Mariana Fogarolli" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30" />
               <div>
                 <p className="text-base font-bold text-foreground">Dra. Mariana Fogarolli</p>
                 <p className="text-sm text-accent">Endocrinologista</p>
+                <a href="https://instagram.com/dramarianafogarolli" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-accent transition-colors mt-0.5">
+                  <Instagram size={14} />
+                  @dramarianafogarolli
+                </a>
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
