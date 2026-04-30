@@ -110,7 +110,6 @@ const SocialProof = () => {
             </div>
           </div>
         </div>
-        </div>
       </div>
     </section>
   );
