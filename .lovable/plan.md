@@ -1,20 +1,12 @@
-# Atualizar seção de depoimentos
+# Atualizar Testimonials — Apenas Dra. Mariana Fogarolli
 
-## Mudanças em `src/components/landing/SocialProof.tsx`
+## Alterações em `src/components/landing/SocialProof.tsx`
 
-1. **Remover** o depoimento do Dr. Ricardo Mendes (Dermatologista).
-2. **Manter apenas** o depoimento da Dra. Mariana Fogarolli, centralizado na página (max-w-2xl mx-auto).
-3. **Substituir o avatar de iniciais "MF"** por uma foto real da doutora, com bordas arredondadas (`rounded-full`), tamanho maior (~14x14 ou 16x16) e `object-cover`.
-4. **Adicionar o Instagram** `@dramarianafogarolli` abaixo do nome/especialidade, como link clicável para `https://instagram.com/dramarianafogarolli` (abre em nova aba), com ícone do Instagram (lucide-react) ao lado.
+1. **Remover** o depoimento do Dr. Ricardo Mendes.
+2. **Centralizar** o card da Dra. Mariana (`max-w-2xl mx-auto`, sem grid de 2 colunas).
+3. **Substituir avatar "MF"** pela foto enviada (salva em `src/assets/dra-mariana-fogarolli.jpg`), com `rounded-full w-14 h-14 object-cover`.
+4. **Adicionar link do Instagram** `@dramarianafogarolli` abaixo do nome, com ícone `Instagram` do lucide-react, abrindo em nova aba.
 
 ## Asset
 
-- Copiar `user-uploads://image-2.png` para `src/assets/dra-mariana-fogarolli.jpg` e importar no componente via ES6 import.
-
-## Layout final do card
-
-- Card único centralizado
-- Foto redonda (esquerda) + nome, especialidade e @instagram (direita) no rodapé
-- Depoimento e estrelas mantidos como estão
-
-Sem mudanças em outras seções, cores ou estilos globais.
+- Copiar `user-uploads://image-3.png` para `src/assets/dra-mariana-fogarolli.jpg` (substitui a imagem anterior).
