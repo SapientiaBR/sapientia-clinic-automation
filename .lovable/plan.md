@@ -1,12 +1,13 @@
-# Atualizar Testimonials — Apenas Dra. Mariana Fogarolli
+# Enfatizar card "Com Sapient.IA"
 
-## Alterações em `src/components/landing/SocialProof.tsx`
+## Arquivo: `src/components/landing/Visualization.tsx`
 
-1. **Remover** o depoimento do Dr. Ricardo Mendes.
-2. **Centralizar** o card da Dra. Mariana (`max-w-2xl mx-auto`, sem grid de 2 colunas).
-3. **Substituir avatar "MF"** pela foto enviada (salva em `src/assets/dra-mariana-fogarolli.jpg`), com `rounded-full w-14 h-14 object-cover`.
-4. **Adicionar link do Instagram** `@dramarianafogarolli` abaixo do nome, com ícone `Instagram` do lucide-react, abrindo em nova aba.
+Ajustes no card da direita ("Com Sapient.IA") para destacá-lo visualmente em relação ao card "Sem Automação":
 
-## Asset
+1. **Borda mais forte** — trocar `border-success/20` por `border-success/40` e adicionar `ring-1 ring-success/20` para glow sutil.
+2. **Background mais visível** — adicionar `bg-success/[0.04]` ao card para leve preenchimento verde.
+3. **Escala levemente maior** — adicionar `md:scale-[1.03]` e `relative z-10` para o card "saltar" visualmente.
+4. **Shadow** — adicionar `shadow-[0_0_30px_rgba(34,197,94,0.08)]` para um brilho sutil.
+5. **Texto mais visível** — trocar `text-foreground/85` dos itens para `text-foreground/95`.
 
-- Copiar `user-uploads://image-3.png` para `src/assets/dra-mariana-fogarolli.jpg` (substitui a imagem anterior).
+O card "Sem Automação" permanece como está, criando contraste natural.
