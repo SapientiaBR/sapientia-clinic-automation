@@ -56,22 +56,22 @@ const Visualization = () => {
 
           {/* After Column */}
           <div
-            className={`transition-all duration-700 delay-400 ${
+            className={`transition-all duration-700 delay-400 relative z-10 md:scale-[1.03] ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="glass border-success/20 rounded-2xl md:rounded-l-none p-6 sm:p-8 h-full">
+            <div className="glass border-success/40 ring-1 ring-success/20 bg-success/[0.04] rounded-2xl md:rounded-l-none p-6 sm:p-8 h-full shadow-[0_0_30px_rgba(34,197,94,0.08)]">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-8 h-8 rounded-lg bg-success/15 flex items-center justify-center">
                   <Check size={16} className="text-success" />
                 </div>
-                <h3 className="font-display font-semibold text-lg text-success/90">Com Sapient.IA</h3>
+                <h3 className="font-display font-semibold text-lg text-success">Com Sapient.IA</h3>
               </div>
               <div className="space-y-4">
                 {comparisons.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check size={16} className="text-success/80 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-foreground/85 leading-relaxed">{item.after}</p>
+                    <p className="text-sm text-foreground/95 leading-relaxed">{item.after}</p>
                   </div>
                 ))}
               </div>
