@@ -180,9 +180,10 @@ export const LeadForm = () => {
                 </label>
                 <select
                   id="faturamento"
-                  className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer"
+                  defaultValue=""
+                  className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer [&>option]:bg-[var(--bg-card)] [&>option]:text-foreground"
                 >
-                  <option value="" disabled selected>Selecione uma faixa</option>
+                  <option value="" disabled>Selecione uma faixa</option>
                   <option value="0-10k">0 a R$ 10.000</option>
                   <option value="10k-50k">R$ 10.000 a R$ 50.000</option>
                   <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
