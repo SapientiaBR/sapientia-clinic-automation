@@ -4,10 +4,38 @@ import { MessageSquare, Calendar, Building, CheckCircle } from "lucide-react";
 export const LeadForm = () => {
   const navigate = useNavigate();
 
+  const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Em um cenário real, enviaria para Hubspot, N8N, Supabase etc.
-    // Direciona imediatamente para a tela de obrigado para o pixel.
+
+    const form = e.currentTarget;
+    const data = {
+      nome: (form.elements.namedItem("nome") as HTMLInputElement)?.value ?? "",
+      email: (form.elements.namedItem("email") as HTMLInputElement)?.value ?? "",
+      whatsapp: (form.elements.namedItem("whatsapp") as HTMLInputElement)?.value ?? "",
+      empresa: (form.elements.namedItem("empresa") as HTMLInputElement)?.value ?? "",
+      instagram: (form.elements.namedItem("instagram") as HTMLInputElement)?.value ?? "",
+      site: (form.elements.namedItem("site") as HTMLInputElement)?.value ?? "",
+      faturamento: (form.elements.namedItem("faturamento") as HTMLSelectElement)?.value ?? "",
+      origem: "landing-sapientia",
+      url: window.location.href,
+      submitted_at: new Date().toISOString(),
+    };
+
+    // Fire-and-forget para o n8n — não bloqueia o redirect.
+    try {
+      fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        keepalive: true,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }).catch(() => {});
+    } catch {
+      // ignora — o redirect e o pixel são prioridade
+    }
+
     navigate("/obrigado");
     window.scrollTo(0, 0);
   };
