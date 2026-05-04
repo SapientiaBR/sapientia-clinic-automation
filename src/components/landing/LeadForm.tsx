@@ -1,46 +1,59 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Calendar, Building, CheckCircle } from "lucide-react";
 
 export const LeadForm = () => {
   const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
 
   const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
 
     const form = e.currentTarget;
-    const data = {
-      nome: (form.elements.namedItem("nome") as HTMLInputElement)?.value ?? "",
-      email: (form.elements.namedItem("email") as HTMLInputElement)?.value ?? "",
-      whatsapp: (form.elements.namedItem("whatsapp") as HTMLInputElement)?.value ?? "",
-      empresa: (form.elements.namedItem("empresa") as HTMLInputElement)?.value ?? "",
-      instagram: (form.elements.namedItem("instagram") as HTMLInputElement)?.value ?? "",
-      site: (form.elements.namedItem("site") as HTMLInputElement)?.value ?? "",
-      faturamento: (form.elements.namedItem("faturamento") as HTMLSelectElement)?.value ?? "",
+    const fd = new FormData(form);
+    const data: Record<string, string> = {
+      nome: String(fd.get("nome") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      whatsapp: String(fd.get("whatsapp") ?? ""),
+      empresa: String(fd.get("empresa") ?? ""),
+      instagram: String(fd.get("instagram") ?? ""),
+      site: String(fd.get("site") ?? ""),
+      faturamento: String(fd.get("faturamento") ?? ""),
       origem: "landing-sapientia",
       url: window.location.href,
       submitted_at: new Date().toISOString(),
     };
 
-    // Fire-and-forget para o n8n via sendBeacon (sobrevive ao redirect).
-    try {
-      const payload = new Blob([JSON.stringify(data)], { type: "application/json" });
-      const sent = navigator.sendBeacon?.(N8N_WEBHOOK_URL, payload);
-      if (!sent) {
-        fetch(N8N_WEBHOOK_URL, {
-          method: "POST",
-          keepalive: true,
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }).catch(() => {});
-      }
-    } catch {
-      // ignora — o redirect e o pixel são prioridade
-    }
+    // Envia como x-www-form-urlencoded (CORS-safelisted, sem preflight)
+    const body = new URLSearchParams(data).toString();
 
-    navigate("/obrigado");
-    window.scrollTo(0, 0);
+    const goNext = () => {
+      navigate("/obrigado");
+      window.scrollTo(0, 0);
+    };
+
+    try {
+      const ctrl = new AbortController();
+      const timeout = setTimeout(() => ctrl.abort(), 4000);
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body,
+        signal: ctrl.signal,
+        keepalive: true,
+      });
+      clearTimeout(timeout);
+      console.log("[LeadForm] webhook status:", res.status);
+    } catch (err) {
+      console.warn("[LeadForm] webhook error:", err);
+    } finally {
+      setSubmitting(false);
+      goNext();
+    }
   };
 
   return (
@@ -105,6 +118,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="nome"
+                    name="nome"
                     required
                     type="text"
                     placeholder="Ex: Dr. João Silva"
@@ -117,6 +131,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     required
                     type="email"
                     placeholder="seu@email.com"
@@ -132,6 +147,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="whatsapp"
+                    name="whatsapp"
                     required
                     type="tel"
                     placeholder="(11) 90000-0000"
@@ -144,6 +160,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="empresa"
+                    name="empresa"
                     required
                     type="text"
                     placeholder="Clínica Exemplo"
@@ -159,6 +176,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="instagram"
+                    name="instagram"
                     type="text"
                     placeholder="@clinica"
                     className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
@@ -170,6 +188,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="site"
+                    name="site"
                     type="url"
                     placeholder="www.clinica.com.br"
                     className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
@@ -183,6 +202,7 @@ export const LeadForm = () => {
                 </label>
                 <select
                   id="faturamento"
+                  name="faturamento"
                   defaultValue=""
                   className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer [&>option]:bg-[var(--bg-card)] [&>option]:text-foreground"
                 >
@@ -196,9 +216,10 @@ export const LeadForm = () => {
 
               <button
                 type="submit"
-                className="w-full gradient-vibrant font-display font-semibold text-foreground text-lg px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                disabled={submitting}
+                className="w-full gradient-vibrant font-display font-semibold text-foreground text-lg px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Solicitar Diagnóstico
+                {submitting ? "Enviando..." : "Solicitar Diagnóstico"}
                 <MessageSquare size={22} />
               </button>
             </form>
