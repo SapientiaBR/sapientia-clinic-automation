@@ -1,41 +1,52 @@
-## Configurar Webhook n8n no Formulário de Diagnóstico
+## Diagnóstico
 
-Atualmente o `LeadForm.tsx` apenas redireciona para `/obrigado` sem enviar os dados para lugar nenhum. Vou conectar o envio ao seu fluxo n8n.
+Testei o webhook do n8n diretamente via `curl`:
 
-### Mudanças
+```
+POST https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e
+→ HTTP 200 {"message":"Workflow was started"}
+```
 
-**`src/components/landing/LeadForm.tsx`**
+**O webhook está saudável.** O problema está no lado do browser.
 
-1. Adicionar constante com a URL do webhook:
-   ```ts
-   const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
-   ```
+A implementação atual usa:
+```ts
+fetch(url, { mode: "no-cors", keepalive: true, ... })
+navigate("/obrigado"); // dispara imediatamente
+```
 
-2. No `handleSubmit`, coletar os dados do formulário via `FormData` e enviar via `fetch` POST em modo **fire-and-forget** (sem `await` bloqueante, com `keepalive: true` e `mode: "no-cors"` para não travar o redirect caso o n8n demore ou tenha CORS restritivo) — alinhado com a regra de memória do projeto.
+Em muitos navegadores, essa combinação `no-cors` + `keepalive` + navegação SPA imediata faz o request ser cancelado antes de sair. O `keepalive` foi pensado para `unload` real, e o `no-cors` com body JSON tem comportamento inconsistente entre Chrome/Safari.
 
-3. Payload JSON enviado:
-   ```json
-   {
-     "nome": "...",
-     "email": "...",
-     "whatsapp": "...",
-     "empresa": "...",
-     "instagram": "...",
-     "site": "...",
-     "faturamento": "...",
-     "origem": "landing-sapientia",
-     "url": "<window.location.href>",
-     "submitted_at": "<ISO timestamp>"
-   }
-   ```
+## Solução
 
-4. Redirecionar imediatamente para `/obrigado` (comportamento atual mantido — disparo do Meta Pixel preservado).
+Trocar por `navigator.sendBeacon`, que é a API nativa exatamente desenhada para "fire-and-forget" antes de uma navegação. Ela é assíncrona, não-bloqueante, e o browser garante a entrega mesmo com navegação subsequente.
 
-### Notas técnicas
+### Mudança em `src/components/landing/LeadForm.tsx`
 
-- Não vamos `await` a resposta: o usuário não espera o n8n. Se o webhook falhar, o lead pode ser perdido — se quiser garantia de entrega, depois podemos mover para uma Edge Function com retry.
-- `mode: "no-cors"` evita erros caso o n8n não retorne headers CORS; o n8n recebe o body normalmente.
-- Nenhum arquivo adicional precisa ser criado; URL é pública (webhook), não é segredo.
+Substituir o bloco do `fetch` por:
+
+```ts
+try {
+  const payload = new Blob([JSON.stringify(data)], { type: "application/json" });
+  const sent = navigator.sendBeacon?.(N8N_WEBHOOK_URL, payload);
+  if (!sent) {
+    // Fallback se o beacon for rejeitado (payload >64KB ou indisponível)
+    fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).catch(() => {});
+  }
+} catch {
+  // segue para o redirect / pixel
+}
+```
+
+Notas:
+- `sendBeacon` envia como `Content-Type: application/json` corretamente quando o Blob é tipado.
+- Removemos `mode: "no-cors"` do fallback — o n8n aceita CORS de qualquer origem em webhooks; o erro de CORS no console é cosmético e não impede a entrega.
+- Mantemos o redirect imediato e o disparo do Meta Pixel.
 
 ### Arquivos editados
 - `src/components/landing/LeadForm.tsx`

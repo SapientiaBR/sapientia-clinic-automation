@@ -23,15 +23,18 @@ export const LeadForm = () => {
       submitted_at: new Date().toISOString(),
     };
 
-    // Fire-and-forget para o n8n — não bloqueia o redirect.
+    // Fire-and-forget para o n8n via sendBeacon (sobrevive ao redirect).
     try {
-      fetch(N8N_WEBHOOK_URL, {
-        method: "POST",
-        mode: "no-cors",
-        keepalive: true,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      }).catch(() => {});
+      const payload = new Blob([JSON.stringify(data)], { type: "application/json" });
+      const sent = navigator.sendBeacon?.(N8N_WEBHOOK_URL, payload);
+      if (!sent) {
+        fetch(N8N_WEBHOOK_URL, {
+          method: "POST",
+          keepalive: true,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        }).catch(() => {});
+      }
     } catch {
       // ignora — o redirect e o pixel são prioridade
     }
