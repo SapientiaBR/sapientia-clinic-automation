@@ -118,6 +118,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="nome"
+                    name="nome"
                     required
                     type="text"
                     placeholder="Ex: Dr. João Silva"
@@ -130,6 +131,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     required
                     type="email"
                     placeholder="seu@email.com"
@@ -145,6 +147,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="whatsapp"
+                    name="whatsapp"
                     required
                     type="tel"
                     placeholder="(11) 90000-0000"
@@ -157,6 +160,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="empresa"
+                    name="empresa"
                     required
                     type="text"
                     placeholder="Clínica Exemplo"
@@ -172,6 +176,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="instagram"
+                    name="instagram"
                     type="text"
                     placeholder="@clinica"
                     className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
@@ -183,6 +188,7 @@ export const LeadForm = () => {
                   </label>
                   <input
                     id="site"
+                    name="site"
                     type="url"
                     placeholder="www.clinica.com.br"
                     className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
@@ -196,6 +202,7 @@ export const LeadForm = () => {
                 </label>
                 <select
                   id="faturamento"
+                  name="faturamento"
                   defaultValue=""
                   className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer [&>option]:bg-[var(--bg-card)] [&>option]:text-foreground"
                 >
@@ -209,9 +216,10 @@ export const LeadForm = () => {
 
               <button
                 type="submit"
-                className="w-full gradient-vibrant font-display font-semibold text-foreground text-lg px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                disabled={submitting}
+                className="w-full gradient-vibrant font-display font-semibold text-foreground text-lg px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 mt-8 flex justify-center items-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Solicitar Diagnóstico
+                {submitting ? "Enviando..." : "Solicitar Diagnóstico"}
                 <MessageSquare size={22} />
               </button>
             </form>
