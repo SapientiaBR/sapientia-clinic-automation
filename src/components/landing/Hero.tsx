@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[140px]" />
         <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[140px]" />
       </div>
