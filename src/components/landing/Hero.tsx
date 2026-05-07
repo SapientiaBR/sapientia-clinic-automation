@@ -18,7 +18,7 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass border-border-default mb-8 animate-fade-in motion-reduce:animate-none">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="hidden md:inline-flex animate-ping absolute h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
               </span>
               <span className="text-xs sm:text-sm font-bold text-accent uppercase tracking-widest">
