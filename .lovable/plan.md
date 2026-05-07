@@ -1,42 +1,41 @@
-## Problema identificado
-O webhook do n8n está saudável, mas o envio atual no browser é o ponto frágil.
+# Otimização Mobile + Remoção do Badge Lovable
 
-Arquivo isolado: `src/components/landing/LeadForm.tsx`
+## 1. Badge "Edit with Lovable" — JÁ REMOVIDO
+Configuração de publish já foi atualizada (`hide_badge: true`). O badge somem do site publicado em ~30s. Nenhuma alteração de código necessária.
 
-Hoje o formulário usa `navigator.sendBeacon()` com `Blob` em `application/json` para uma URL cross-origin (`n8n.sapientiabr.cloud`) e redireciona logo em seguida. Essa combinação é instável em navegadores reais porque `application/json` não é um `Content-Type` CORS-safelisted para beacon cross-origin. Em alguns ambientes o request pode nem sair do navegador, mesmo com o workflow ativo no n8n.
+## 2. Performance Mobile
 
-## Plano de correção
-1. Remover o `sendBeacon` como caminho principal do formulário.
-2. Trocar o envio para um `fetch` explícito com payload simples e compatível entre navegadores:
-   - usar `application/x-www-form-urlencoded` via `URLSearchParams`, ou
-   - usar `text/plain` com JSON serializado, se necessário preservar o formato.
-3. Aguardar o request por um curto intervalo antes do redirecionamento:
-   - sucesso: redireciona para `/obrigado`
-   - falha/timeout curto: ainda redireciona, mas registra o erro no console para diagnóstico
-4. Simplificar a coleta de dados do formulário usando `FormData(form)` em vez de `namedItem(...)`, reduzindo comportamento inconsistente entre browsers.
-5. Adicionar feedback temporário no submit:
-   - botão entra em estado de “Enviando...”
-   - evita clique duplo
-6. Validar no preview que o POST realmente aparece na aba de rede e que o n8n recebe uma execução.
+O viewport mobile atual é 647×1785 com devicePixelRatio 2.8125 — qualquer blur grande é renderizado em ~3x a resolução, o que trava scroll. Encontrei os principais gargalos:
 
-## Resultado esperado
-- O fluxo do n8n passa a disparar de forma consistente quando o usuário envia o formulário.
-- O redirecionamento para `/obrigado` continua funcionando.
-- O envio deixa de depender do comportamento variável do Beacon API em requests cross-origin com JSON.
+### Gargalos identificados
+- **8 "orbs" decorativos** com `blur-[140px]` a `blur-[180px]` em divs de 500-800px (Hero, SocialProof, Solutions, Visualization, LossCalculator, HowItWorks, FinalCTA, LeadForm). Cada um custa caro no compositor.
+- **`.glass` / `.glass-card`** usa `backdrop-filter: blur(24px)` em vários cards (mockup do Hero, badges, etc).
+- **Header fixo** com `backdrop-blur-2xl` (40px) repintado em cada scroll.
+- **Animações infinitas** rodando sempre: `animate-float` (mockup do WhatsApp), `animate-ping` (badge do Hero), `animate-typing` (3 dots).
 
-## Detalhes técnicos
-- Arquivo principal: `src/components/landing/LeadForm.tsx`
-- Estratégia recomendada: `fetch(webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(...) })`
-- Timeout curto sugerido: 800ms–1500ms antes do redirect, sem travar a UX.
-- Logs temporários: status do request, erro capturado e payload básico enviado.
+### Mudanças propostas
 
-## Validação após implementar
-- Preencher o formulário no preview
-- Confirmar que o request ao n8n aparece na rede
-- Confirmar nova execução no workflow ativo
-- Confirmar navegação para `/obrigado`
+**a) Esconder os orbs de blur em telas <md (mobile/tablet pequeno)**
+Adicionar `hidden md:block` em todos os 8 divs decorativos com `blur-[...]`. No mobile o efeito mal aparece e o custo é altíssimo.
 
-<lov-actions>
-  <lov-open-history>View History</lov-open-history>
-  <lov-link url="https://docs.lovable.dev/tips-tricks/troubleshooting">Troubleshooting docs</lov-link>
-</lov-actions>
+**b) Desabilitar backdrop-filter no mobile**
+Em `src/index.css`, dentro de `.glass` e na regra do header, envolver o `backdrop-filter` em `@media (min-width: 768px)`. Manter apenas o background semi-transparente no mobile.
+
+**c) Pausar animações pesadas no mobile**
+- `animate-float` do mockup WhatsApp: adicionar classe condicional para desabilitar abaixo de `md`.
+- `animate-ping` do badge "Exclusivo para Clínicas": idem (manter só o ponto estático).
+- Manter `animate-typing` (custo baixo, é só opacidade).
+
+**d) `will-change` / `transform: translateZ(0)`**
+Adicionar `transform: translateZ(0)` no header fixo para promover a layer e evitar repaint do conteúdo abaixo durante scroll.
+
+### Resultado esperado
+- Scroll fluido no mobile (sem janks ao passar pelas seções com orbs).
+- Header sem lag ao scrollar.
+- Visual desktop permanece idêntico.
+
+## Arquivos alterados
+- `src/index.css` — media query no `.glass` backdrop-filter
+- `src/components/landing/Header.tsx` — backdrop-blur só em md+, translateZ
+- `src/components/landing/Hero.tsx` — orbs `hidden md:block`, float só em md+, ping só em md+
+- `src/components/landing/SocialProof.tsx`, `Solutions.tsx`, `Visualization.tsx`, `LossCalculator.tsx`, `HowItWorks.tsx`, `FinalCTA.tsx`, `LeadForm.tsx` — orbs `hidden md:block`
