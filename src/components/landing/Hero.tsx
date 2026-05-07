@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[140px]" />
         <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[140px]" />
       </div>
@@ -18,7 +18,7 @@ const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass border-border-default mb-8 animate-fade-in motion-reduce:animate-none">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="hidden md:inline-flex animate-ping absolute h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
               </span>
               <span className="text-xs sm:text-sm font-bold text-accent uppercase tracking-widest">
@@ -67,7 +67,7 @@ const Hero = () => {
 
           {/* Right - WhatsApp mockup */}
           <div className="flex justify-center">
-            <div className="w-[300px] sm:w-[340px] animate-float motion-reduce:animate-none">
+            <div className="w-[300px] sm:w-[340px] md:animate-float motion-reduce:animate-none">
               <div className="glass-card rounded-3xl p-1 gradient-border">
                 <div className="bg-card rounded-3xl overflow-hidden">
                   {/* Phone header */}

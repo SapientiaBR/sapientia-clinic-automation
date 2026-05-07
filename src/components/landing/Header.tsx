@@ -23,9 +23,9 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 [transform:translateZ(0)] ${
         scrolled
-          ? "bg-background/85 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-black/10"
+          ? "bg-background/95 md:bg-background/85 md:backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >
@@ -70,7 +70,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-border/50 animate-fade-in">
+        <div className="md:hidden bg-background/98 border-b border-border/50 animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
             {navItems.map((item) => (
               <a

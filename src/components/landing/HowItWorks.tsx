@@ -30,7 +30,7 @@ const HowItWorks = () => {
 
   return (
     <section id="como-funciona" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.05] blur-[150px]" />
       </div>
 
