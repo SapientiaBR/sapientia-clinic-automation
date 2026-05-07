@@ -59,7 +59,7 @@ export const LeadForm = () => {
   return (
     <section id="formulario" className="section-padding relative overflow-hidden bg-background">
       {/* Background blobs */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.05] blur-[120px]" />
       </div>
 

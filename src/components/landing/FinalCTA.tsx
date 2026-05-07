@@ -8,7 +8,7 @@ const FinalCTA = () => {
 
   return (
     <section className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[180px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[120px]" />
       </div>

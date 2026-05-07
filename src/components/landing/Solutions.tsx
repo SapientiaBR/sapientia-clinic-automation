@@ -45,7 +45,7 @@ const Solutions = () => {
 
   return (
     <section id="solucoes" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-0 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.06] blur-[150px]" />
       </div>
 

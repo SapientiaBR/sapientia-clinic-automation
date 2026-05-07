@@ -15,7 +15,7 @@ const LossCalculator = () => {
 
   return (
     <section className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(38_92%_55%)] opacity-[0.04] blur-[150px]" />
       </div>
 

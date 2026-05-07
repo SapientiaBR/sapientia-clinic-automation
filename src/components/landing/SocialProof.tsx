@@ -25,7 +25,7 @@ const SocialProof = () => {
 
   return (
     <section id="depoimentos" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-[0.04] blur-[150px]" />
       </div>
 
