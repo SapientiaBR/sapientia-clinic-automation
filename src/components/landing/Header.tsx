@@ -70,7 +70,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-border/50 animate-fade-in">
+        <div className="md:hidden bg-background/98 border-b border-border/50 animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
             {navItems.map((item) => (
               <a
