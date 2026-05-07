@@ -122,7 +122,7 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Ex: Dr. João Silva"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -135,7 +135,7 @@ export const LeadForm = () => {
                     required
                     type="email"
                     placeholder="seu@email.com"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -151,7 +151,7 @@ export const LeadForm = () => {
                     required
                     type="tel"
                     placeholder="(11) 90000-0000"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -164,7 +164,7 @@ export const LeadForm = () => {
                     required
                     type="text"
                     placeholder="Clínica Exemplo"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -179,7 +179,7 @@ export const LeadForm = () => {
                     name="instagram"
                     type="text"
                     placeholder="@clinica"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div className="space-y-2">
@@ -191,7 +191,7 @@ export const LeadForm = () => {
                     name="site"
                     type="url"
                     placeholder="www.clinica.com.br"
-                    className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 placeholder-muted-foreground/40 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full bg-white border border-white/5 rounded-md px-5 py-4 placeholder-black/40 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
               </div>
@@ -204,7 +204,7 @@ export const LeadForm = () => {
                   id="faturamento"
                   name="faturamento"
                   defaultValue=""
-                  className="w-full bg-background/50 border border-white/5 rounded-md px-5 py-4 text-foreground transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer [&>option]:bg-[var(--bg-card)] [&>option]:text-foreground"
+                  className="w-full bg-white border border-white/5 rounded-md px-5 py-4 text-black transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 appearance-none cursor-pointer [&>option]:bg-white [&>option]:text-black"
                 >
                   <option value="" disabled>Selecione uma faixa</option>
                   <option value="0-10k">0 a R$ 10.000</option>
