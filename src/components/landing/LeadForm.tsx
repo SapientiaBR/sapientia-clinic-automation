@@ -57,7 +57,7 @@ export const LeadForm = () => {
   };
 
   return (
-    <section id="formulario" className="section-padding relative overflow-hidden bg-background">
+    <section className="section-padding relative overflow-hidden bg-background">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.05] blur-[120px]" />
@@ -107,7 +107,7 @@ export const LeadForm = () => {
           </div>
 
           {/* Form */}
-          <div className="glass rounded-3xl p-8 sm:p-10 lg:p-12 relative border border-white/10">
+          <div id="formulario" className="glass rounded-3xl p-8 sm:p-10 lg:p-12 relative border border-white/10 scroll-mt-24">
             <h3 className="text-2xl font-semibold mb-8 text-foreground">Preencha seus dados</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
