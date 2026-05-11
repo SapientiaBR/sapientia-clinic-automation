@@ -1,5 +1,5 @@
 import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote, Star, Instagram } from "lucide-react";
-import draMariana from "@/assets/dra-mariana-fogarolli.jpg";
+import draMariana from "@/assets/dra-mariana-fogarolli.webp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 

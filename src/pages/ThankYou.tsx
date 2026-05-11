@@ -1,5 +1,5 @@
 import { MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
-import logo from "@/assets/sapient-logo.png";
+import logo from "@/assets/sapient-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20acabei%20de%20preencher%20o%20fomul%C3%A1rio%20e%20gostaria%20do%20meu%20diagn%C3%B3stico%20gratuito.";
 

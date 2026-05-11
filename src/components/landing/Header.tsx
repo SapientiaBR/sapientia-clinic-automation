@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "@/assets/sapient-logo.png";
+import logo from "@/assets/sapient-logo.webp";
 
 const CTA_HREF = "#formulario";
 
