@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, MessageCircle, Mail } from "lucide-react";
-import logo from "@/assets/sapient-logo.png";
+import logo from "@/assets/sapient-logo.webp";
 
 const Footer = () => {
   return (
