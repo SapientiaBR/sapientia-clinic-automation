@@ -51,26 +51,36 @@
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- Fonts (only weights actually used) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Meta Pixel Code -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Tracking scripts (deferred until after page load to keep mobile fast) -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1150165570508883');
-    fbq('track', 'PageView');
+      window.addEventListener('load', function () {
+        // Meta Pixel
+        (function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+          n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1150165570508883');
+        fbq('track', 'PageView');
+
+        // Microsoft Clarity
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "wp77kiz728");
+      });
     </script>
-    <!-- End Meta Pixel Code -->
-    
+    <meta property="og:title" content="Sapient.IA - Sua Secretária Invisível 24h" />
+    <meta property="og:description" content="Atendimento 24h via WhatsApp para clínicas médicas. Agendamentos automáticos, menos faltas, mais pacientes." />
+
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
