@@ -98,7 +98,7 @@ const SocialProof = () => {
               "Minha rotina mudou completamente. Antes, eu respondia tudo sozinha quando sobrava tempo. Muitos pacientes desistiam. Agora cada um é atendido na hora, e eu finalmente foco no que importa: a medicina."
             </p>
             <div className="flex items-center gap-4">
-              <img src={draMariana} alt="Dra. Mariana Fogarolli" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30" />
+              <img src={draMariana} alt="Dra. Mariana Fogarolli" loading="lazy" decoding="async" width="56" height="56" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30" />
               <div>
                 <p className="text-base font-bold text-foreground">Dra. Mariana Fogarolli</p>
                 <p className="text-sm text-accent">Endocrinologista</p>
