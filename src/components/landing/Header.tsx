@@ -9,8 +9,21 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    let ticking = false;
+    let lastState = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 20;
+        if (next !== lastState) {
+          lastState = next;
+          setScrolled(next);
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -35,7 +48,6 @@ const Header = () => {
             <img
               src={logo}
               alt="Secretaria Invisível"
-              fetchPriority="high"
               loading="eager"
               decoding="async"
               width="160"

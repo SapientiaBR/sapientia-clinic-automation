@@ -1,37 +1,57 @@
-## Otimizações de CRO — Secretaria Invisível
+## Diagnóstico do novo PageSpeed
 
-### 1. Hero (`src/components/landing/Hero.tsx`)
+| Métrica | Mobile | Desktop |
+|---|---|---|
+| Performance | 74 | 82 |
+| LCP | 4.1s 🔴 | 0.8s ✅ |
+| Speed Index | 7.9s 🔴 | 1.9s 🟡 |
+| CLS | 0.032 ✅ | **0.252 🔴** |
+| TBT | 30ms ✅ | 100ms ✅ |
 
-- **Headline**: "Sua clínica perde R$14.400/mês em pacientes que ficam sem respostas. Isso acaba agora."
-  - Manter `<em>` no destaque "R$14.400/mês" para ativar o estilo gradient já existente.
-- **Subheadline**: "A Secretaria Invisível atende, qualifica e agenda pelo WhatsApp em segundos — às 14h ou às 3h da manhã. Sem secretária extra. Implementação em poucos dias."
-- **CTA primário**: "QUERO PARAR DE PERDER PACIENTES" (mantém ícone MessageSquare e link `#formulario`).
-- **CTA secundário**: "Ver uma conversa real →" (remove o ícone ArrowDown, seta vira parte do texto).
-- **Trust micro-copy** (substitui as duas pílulas LGPD/prontuário existentes):
-  - "Implementação em poucos dias · Compatível com LGPD · Suporte incluído"
-  - Texto único separado por `·`, mantendo o estilo `text-sm font-medium text-muted-foreground/80`.
+Principais culpados apontados pelo relatório:
+- **Render blocking 750ms** → CSS do Google Fonts ainda bloqueia o paint inicial no mobile
+- **LCP breakdown** → o `<h1>` depende da fonte Sora, que chega tarde
+- **Reduce unused JS 240 KiB** → `react-query`, `Toaster`, `Sonner`, `TooltipProvider` carregam no bundle inicial e não são usados na landing
+- **Layout shift 0.252 (desktop)** → swap de fonte (Sora/DM Sans com métricas diferentes do fallback) + animações `translate-y-6` em elementos sem altura reservada
+- **Forced reflow / long tasks** → listener de scroll no `Header` faz `setState` a cada scroll
+- **Image elements sem width/height** → mockup WhatsApp e blocos do Hero
 
-### 2. Depoimentos (`src/components/landing/SocialProof.tsx`)
+## Plano
 
-- **Título da seção** (linha 38): "O que médicos dizem depois de automatizar o atendimento" (remover `<em>Sapient.IA</em>`).
-- **Texto do depoimento** (linha 98): "Antes eu respondia mensagem de paciente às 23h quando lembrava. Muitos desistiam enquanto esperavam. Com a Secretaria Invisível, cada paciente recebe resposta na hora e eu finalmente foco na medicina, não na secretaria."
-- **Autoria**: manter o bloco atual (nome + "Endocrinologista" + handle do Instagram com ícone) — já corresponde ao formato pedido "Dra. Mariana Fogarolli, Endocrinologista · @dramarianafogarolli".
+### 1. Auto-host de UMA fonte crítica e elimina render-blocking (`index.html`)
+- Trocar o CSS do Google Fonts por `<link rel="preload" as="font" type="font/woff2" crossorigin>` direto no arquivo `.woff2` da Sora 700 (peso usado no H1) → corta os 750ms.
+- Manter o resto (DM Sans, Sora 600) atrás do `preload as="style"` já existente, mas adicionar `media="print" onload="this.media='all'"` (técnica mais confiável que `onload=this.rel='stylesheet'` em alguns browsers).
+- Adicionar `@font-face` com `font-display: swap` + `size-adjust`/`ascent-override` aproximados para reduzir o CLS do swap.
 
-### 3. Urgência no formulário (`src/components/landing/LeadForm.tsx`)
+### 2. Reduzir JS inicial (`src/App.tsx` + `src/main.tsx`)
+- Mover `Toaster`, `Sonner` e `TooltipProvider` para dentro de um wrapper `lazy` carregado depois do mount (ou removê-los da landing, já que não são usados em `/`).
+- Manter `QueryClientProvider` (usado por shadcn) mas verificar se realmente precisa nesta página — se não, remover.
+- Resultado esperado: −150 a −240 KiB no bundle inicial.
 
-- Adicionar acima do título "Preencha seus dados" do card do formulário um badge de urgência:
-  - Texto: "**[N] diagnósticos disponíveis esta semana**", onde N é gerado aleatoriamente entre 3 e 6 a cada carga da página (`useMemo` com `Math.floor(Math.random() * 4) + 3`).
-  - Estilo: pílula `inline-flex` com fundo translúcido âmbar/accent, ícone (ex.: `Clock` ou `AlertCircle` do lucide), texto pequeno e em destaque, alinhado ao topo do card.
+### 3. Corrigir CLS desktop (`useScrollAnimation` + Hero)
+- Trocar o padrão `opacity-0 translate-y-6` por **só `opacity`** (translate em elementos block já posicionados pode contar como shift quando o elemento é largo). Animação fica suave igual.
+- Adicionar `min-height` reservado ao container do mockup WhatsApp para que ele não empurre o layout antes do render.
+- Garantir `width`/`height` em todas as `<img>` (logo já tem; checar dra-mariana e mockup — mockup é DOM puro, ok).
 
-### Detalhes técnicos
+### 4. Remover preload do logo (`Header.tsx` + `index.html`)
+- O logo **não é o LCP** (o LCP é o H1). Manter `fetchPriority="high"` no logo está roubando largura de banda do que importa. Voltar para `loading="eager"` simples sem prioridade alta.
 
-- Sem mudanças em rotas, dados, webhook ou estilos globais.
-- Imports a adicionar:
-  - `LeadForm.tsx`: `useMemo` do React e ícone do lucide-react.
-- Remover do `Hero.tsx` o import `ArrowDown` se não for mais usado (CTA secundário passa a usar seta textual).
-- Sem alteração nos badges de cabeçalho ("Exclusivo para Clínicas e Consultórios") nem na seção do mockup do WhatsApp.
+### 5. Throttle do scroll listener (`Header.tsx`)
+- Trocar `setScrolled(window.scrollY > 20)` por versão com `requestAnimationFrame` + early-return se o estado não mudou. Adicionar `{ passive: true }`.
 
-### Fora de escopo (não mexer agora)
+### 6. Cache headers — fora do nosso controle
+- "Use efficient cache lifetimes" depende do CDN da Lovable. Documentar e seguir.
 
-- Prioridade 2 da auditoria não foi enviada — pular.
-- Demais seções (Problems, Solutions, FAQ, etc.) permanecem intactas.
+## Arquivos a editar
+
+- `index.html` — fontes self-hosted críticas, remoção de preload do logo
+- `src/App.tsx` — lazy de Toaster/Sonner/Tooltip
+- `src/components/landing/Header.tsx` — scroll listener com rAF, sem fetchPriority
+- `src/hooks/useScrollAnimation.ts` — animação só com opacity
+- `src/components/landing/Hero.tsx` — min-height no slot do mockup
+
+## Validação
+
+Após publicar, rodar `https://pagespeed.web.dev/` novamente. Metas:
+- Mobile Performance ≥ 90, LCP < 2.5s, Speed Index < 4s
+- Desktop CLS < 0.1
