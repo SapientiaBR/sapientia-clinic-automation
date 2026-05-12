@@ -34,7 +34,12 @@ const Header = () => {
           <a href="#" className="flex items-center gap-2 group">
             <img
               src={logo}
-              alt="Sapient.IA"
+              alt="Secretaria Invisível"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              width="160"
+              height="48"
               className="h-9 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </a>
