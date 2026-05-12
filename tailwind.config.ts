@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
-        display: ["Sora", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        sans: ['"DM Sans"', "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        display: ["system-ui", "-apple-system", "Segoe UI", "Roboto", '"Helvetica Neue"', "Arial", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
         border: "hsl(var(--border-default))",
