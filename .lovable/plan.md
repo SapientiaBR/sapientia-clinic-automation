@@ -1,57 +1,58 @@
-## Diagnóstico do novo PageSpeed
+## Diagnóstico real (Mobile 67, LCP 4.5s, SI 10.5s, TBT 220ms)
 
-| Métrica | Mobile | Desktop |
-|---|---|---|
-| Performance | 74 | 82 |
-| LCP | 4.1s 🔴 | 0.8s ✅ |
-| Speed Index | 7.9s 🔴 | 1.9s 🟡 |
-| CLS | 0.032 ✅ | **0.252 🔴** |
-| TBT | 30ms ✅ | 100ms ✅ |
+O que tentamos antes **piorou** porque:
 
-Principais culpados apontados pelo relatório:
-- **Render blocking 750ms** → CSS do Google Fonts ainda bloqueia o paint inicial no mobile
-- **LCP breakdown** → o `<h1>` depende da fonte Sora, que chega tarde
-- **Reduce unused JS 240 KiB** → `react-query`, `Toaster`, `Sonner`, `TooltipProvider` carregam no bundle inicial e não são usados na landing
-- **Layout shift 0.252 (desktop)** → swap de fonte (Sora/DM Sans com métricas diferentes do fallback) + animações `translate-y-6` em elementos sem altura reservada
-- **Forced reflow / long tasks** → listener de scroll no `Header` faz `setState` a cada scroll
-- **Image elements sem width/height** → mockup WhatsApp e blocos do Hero
+1. **Lazy loading agressivo virou waterfall.** Cada `lazy()` cria um chunk separado. Em 4G lento, baixar 12 chunks em série custa mais que um bundle único. O `Suspense fallback={null}` ainda força o React a montar/desmontar sob demanda durante scroll → "Minimize main-thread work 2.0s" e "6 long tasks".
+2. **Google Fonts continua render-blocking 400ms** mesmo com truque `media="print"` — Lighthouse penaliza qualquer CSS externo no caminho crítico.
+3. **LCP é o `<h1>` que usa Sora 700**, e a fonte chega da rede → 4.5s. Sem a fonte certa, swap atrasa o paint considerado "final".
+4. **Forced reflow + 220ms TBT** vêm de animações no Hero: `animate-ping`, `animate-float`, `animate-typing`, blur de 140px em divs de 600px. Mesmo escondidas em `hidden md:block`, o `animate-ping` no badge e `animate-typing` rodam no mobile.
+5. **Reduce unused JS 220 KiB** — `react-query`, `react-router`, radix-ui (Toast/Tooltip) ainda carregam cedo.
 
-## Plano
+## Plano (mudança de rumo)
 
-### 1. Auto-host de UMA fonte crítica e elimina render-blocking (`index.html`)
-- Trocar o CSS do Google Fonts por `<link rel="preload" as="font" type="font/woff2" crossorigin>` direto no arquivo `.woff2` da Sora 700 (peso usado no H1) → corta os 750ms.
-- Manter o resto (DM Sans, Sora 600) atrás do `preload as="style"` já existente, mas adicionar `media="print" onload="this.media='all'"` (técnica mais confiável que `onload=this.rel='stylesheet'` em alguns browsers).
-- Adicionar `@font-face` com `font-display: swap` + `size-adjust`/`ascent-override` aproximados para reduzir o CLS do swap.
+### 1. Eliminar Google Fonts do caminho crítico — usar font stack do sistema para o LCP
+- Trocar `font-display` family no Tailwind para usar **system-ui / -apple-system / Segoe UI / Roboto** como `font-display`. O H1 renderiza instantaneamente (0ms de fonte) → LCP cai para perto do FCP (~2.7s → ~2.5s).
+- Manter Google Fonts opcional só para o body via `<link>` com `media="print" onload`, mas **sem peso 700 do Sora** (não é mais necessário).
+- Remove os 400ms de render-blocking completamente.
 
-### 2. Reduzir JS inicial (`src/App.tsx` + `src/main.tsx`)
-- Mover `Toaster`, `Sonner` e `TooltipProvider` para dentro de um wrapper `lazy` carregado depois do mount (ou removê-los da landing, já que não são usados em `/`).
-- Manter `QueryClientProvider` (usado por shadcn) mas verificar se realmente precisa nesta página — se não, remover.
-- Resultado esperado: −150 a −240 KiB no bundle inicial.
+### 2. Reverter lazy loading da landing
+- `Index.tsx`: voltar a importar **estaticamente** Problems, Solutions, Visualization, LossCalculator, HowItWorks, Founder, FAQ, FinalCTA, LeadForm, Footer.
+- Motivo: o usuário **vai rolar a página**. 12 chunks em waterfall em 4G = pior que 1 bundle. Vite/Rollup já faz tree-shaking.
+- Mantém lazy só de `ThankYou` e `NotFound` (rotas separadas) e do `DeferredUI`.
 
-### 3. Corrigir CLS desktop (`useScrollAnimation` + Hero)
-- Trocar o padrão `opacity-0 translate-y-6` por **só `opacity`** (translate em elementos block já posicionados pode contar como shift quando o elemento é largo). Animação fica suave igual.
-- Adicionar `min-height` reservado ao container do mockup WhatsApp para que ele não empurre o layout antes do render.
-- Garantir `width`/`height` em todas as `<img>` (logo já tem; checar dra-mariana e mockup — mockup é DOM puro, ok).
+### 3. Cortar animações caras no mobile (`Hero.tsx`)
+- Remover `animate-ping` do badge no mobile (esconder span com `hidden sm:inline-flex`).
+- Remover `animate-typing` (3 dots) no mobile — substituir por dots estáticos.
+- Remover `animate-float` no mobile (já está `md:animate-float`, ok — manter).
+- Reduzir blur dos backgrounds de 140px → 100px e mover para `hidden lg:block` (já está `hidden md:block`, mudar para lg).
 
-### 4. Remover preload do logo (`Header.tsx` + `index.html`)
-- O logo **não é o LCP** (o LCP é o H1). Manter `fetchPriority="high"` no logo está roubando largura de banda do que importa. Voltar para `loading="eager"` simples sem prioridade alta.
+### 4. Throttle / fix forced reflow
+- Verificar `useScrollAnimation` hook — se usa `IntersectionObserver` está ok. Se lê `getBoundingClientRect` em scroll, trocar por IO.
+- (vou ler o hook antes de decidir)
 
-### 5. Throttle do scroll listener (`Header.tsx`)
-- Trocar `setScrolled(window.scrollY > 20)` por versão com `requestAnimationFrame` + early-return se o estado não mudou. Adicionar `{ passive: true }`.
+### 5. Reduzir unused JS
+- Remover `QueryClientProvider` de `App.tsx` se a landing não usa react-query (verificar). Economia ~30 KiB.
+- `DeferredUI` já está lazy — manter.
 
-### 6. Cache headers — fora do nosso controle
-- "Use efficient cache lifetimes" depende do CDN da Lovable. Documentar e seguir.
+### 6. Image sem width/height
+- Lighthouse aponta — checar logo no Header (já tem) e demais `<img>` em Founder, SocialProof.
 
 ## Arquivos a editar
 
-- `index.html` — fontes self-hosted críticas, remoção de preload do logo
-- `src/App.tsx` — lazy de Toaster/Sonner/Tooltip
-- `src/components/landing/Header.tsx` — scroll listener com rAF, sem fetchPriority
-- `src/hooks/useScrollAnimation.ts` — animação só com opacity
-- `src/components/landing/Hero.tsx` — min-height no slot do mockup
+- `tailwind.config.ts` — font stack do sistema para `font-display`
+- `index.html` — simplificar fontes (ou remover completamente)
+- `src/pages/Index.tsx` — reverter lazy loading
+- `src/components/landing/Hero.tsx` — remover animate-ping/typing no mobile, blur lg only
+- `src/App.tsx` — possivelmente remover QueryClientProvider
+- `src/hooks/useScrollAnimation.ts` — verificar/garantir IntersectionObserver
+- Imagens em `Founder.tsx`, `SocialProof.tsx` — adicionar width/height
 
 ## Validação
 
-Após publicar, rodar `https://pagespeed.web.dev/` novamente. Metas:
-- Mobile Performance ≥ 90, LCP < 2.5s, Speed Index < 4s
-- Desktop CLS < 0.1
+Rodar PageSpeed após publicar. Metas realistas desta vez:
+- Mobile Performance ≥ 85
+- LCP < 3.0s (com fonte do sistema, deve ir perto do FCP)
+- Speed Index < 6s
+- TBT < 150ms
+
+Se ainda ruim, próximo passo é **inlinear CSS crítico** e gerar bundle único sem code-splitting.
