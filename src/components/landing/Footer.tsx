@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {/* Brand */}
           <div>
-            <img src={logo} alt="Sapient.IA" className="h-8 w-auto mb-3" />
+            <img src={logo} alt="Sapient.IA" width="120" height="32" loading="lazy" decoding="async" className="h-8 w-auto mb-3" />
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Automação inteligente para clínicas e consultórios. Sua operação funcionando 24h no automático.
             </p>

@@ -5,10 +5,10 @@ const CTA_HREF = "#formulario";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[140px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[140px]" />
+      {/* Background effects (desktop only — heavy blur kills mobile GPU) */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-15 blur-[100px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-8 blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -96,11 +96,11 @@ const Hero = () => {
                         Perfeito! ✅ Consulta agendada para amanhã às 14h. Enviarei um lembrete 1h antes!
                       </div>
                     </div>
-                    {/* Typing indicator */}
+                    {/* Typing indicator (animated only on desktop) */}
                     <div className="flex items-center gap-1 px-2">
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" />
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.2s" }} />
-                      <div className="w-2 h-2 rounded-full bg-accent/60 animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.4s" }} />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 md:animate-typing motion-reduce:animate-none" />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 md:animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.2s" }} />
+                      <div className="w-2 h-2 rounded-full bg-accent/60 md:animate-typing motion-reduce:animate-none" style={{ animationDelay: "0.4s" }} />
                     </div>
                     <p className="text-center text-[10px] text-muted-foreground/60 pt-1">
                       23:47 — Resposta automática em 3 segundos
