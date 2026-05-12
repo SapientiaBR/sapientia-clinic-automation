@@ -35,7 +35,7 @@ const SocialProof = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          Por que médicos escolhem a <em>Sapient.IA</em>
+          O que médicos dizem depois de automatizar o atendimento
         </h2>
         <p
           className={`text-muted-foreground text-center mb-14 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
@@ -95,7 +95,7 @@ const SocialProof = () => {
             </div>
             <Quote size={28} className="mb-4 text-accent/40" />
             <p className="text-foreground/90 italic mb-8 leading-relaxed text-base font-medium">
-              "Minha rotina mudou completamente. Antes, eu respondia tudo sozinha quando sobrava tempo. Muitos pacientes desistiam. Agora cada um é atendido na hora, e eu finalmente foco no que importa: a medicina."
+              "Antes eu respondia mensagem de paciente às 23h quando lembrava. Muitos desistiam enquanto esperavam. Com a Secretaria Invisível, cada paciente recebe resposta na hora e eu finalmente foco na medicina, não na secretaria."
             </p>
             <div className="flex items-center gap-4">
               <img src={draMariana} alt="Dra. Mariana Fogarolli" loading="lazy" decoding="async" width="56" height="56" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30" />

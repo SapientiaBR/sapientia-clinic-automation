@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { MessageSquare, Calendar, Building, CheckCircle } from "lucide-react";
+import { MessageSquare, Calendar, Building, CheckCircle, Clock } from "lucide-react";
 
 export const LeadForm = () => {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false);
+  const vagas = useMemo(() => Math.floor(Math.random() * 4) + 3, []);
 
   const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
 
@@ -108,6 +109,12 @@ export const LeadForm = () => {
 
           {/* Form */}
           <div id="formulario" className="glass rounded-3xl p-8 sm:p-10 lg:p-12 relative border border-white/10 scroll-mt-24">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber/10 border border-amber/30 mb-5">
+              <Clock size={14} className="text-amber" />
+              <span className="text-xs font-bold text-amber uppercase tracking-wider">
+                {vagas} diagnósticos disponíveis esta semana
+              </span>
+            </div>
             <h3 className="text-2xl font-semibold mb-8 text-foreground">Preencha seus dados</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
