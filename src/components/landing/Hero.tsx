@@ -1,4 +1,4 @@
-import { MessageSquare, ArrowDown, Sparkles } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 const CTA_HREF = "#formulario";
 
@@ -27,12 +27,11 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-6 tracking-tight text-balance">
-              Sua clínica atende <em>24h</em>.<br/>
-              Sem aumentar a folha.
+              Sua clínica perde <em>R$14.400/mês</em> em pacientes que ficam sem respostas. Isso acaba agora.
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-              Pare de perder pacientes que agendam de madrugada. IA inteligente para médicos que agenda, tira dúvidas e qualifica pacientes no WhatsApp.
+              A Secretaria Invisível atende, qualifica e agenda pelo WhatsApp em segundos — às 14h ou às 3h da manhã. Sem secretária extra. Implementação em poucos dias.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -41,28 +40,20 @@ const Hero = () => {
                 className="gradient-vibrant text-white font-display font-semibold px-8 py-4 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 text-lg flex items-center justify-center gap-3 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 <MessageSquare size={20} />
-                Automatizar WhatsApp
+                QUERO PARAR DE PERDER PACIENTES
               </a>
               <a
                 href="#solucoes"
                 className="bg-transparent border border-border-default hover:border-purple-500 hover:bg-purple-500/5 text-foreground font-display font-semibold px-8 py-4 rounded-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                Ver demonstração
-                <ArrowDown size={16} />
+                Ver uma conversa real →
               </a>
             </div>
 
             {/* Trust micro-copy */}
-            <div className="flex items-center gap-6 mt-10 text-sm font-medium text-muted-foreground/80">
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-                Adequado à LGPD
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-                Integra com prontuário
-              </span>
-            </div>
+            <p className="mt-10 text-sm font-medium text-muted-foreground/80">
+              Implementação em poucos dias · Compatível com LGPD · Suporte incluído
+            </p>
           </div>
 
           {/* Right - WhatsApp mockup */}

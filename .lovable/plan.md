@@ -1,55 +1,37 @@
-## Diagnóstico
+## Otimizações de CRO — Secretaria Invisível
 
-A queda de 30% entre cliques e visitas no mobile aponta fortemente para **lentidão de carregamento** — em 3G/4G fraco, o navegador desiste antes da página renderizar. Encontrei três gargalos claros no projeto:
+### 1. Hero (`src/components/landing/Hero.tsx`)
 
-### 1. Imagens muito pesadas (principal causa)
-- `sapient-logo.png` → **405 KB** (usado no Header, Footer e página /obrigado — carrega no topo da página)
-- `dra-mariana-fogarolli.jpg` → **517 KB** (foto de testemunho)
-- `og-image.png` → **626 KB** (só para preview de redes sociais, mas está enorme)
+- **Headline**: "Sua clínica perde R$14.400/mês em pacientes que ficam sem respostas. Isso acaba agora."
+  - Manter `<em>` no destaque "R$14.400/mês" para ativar o estilo gradient já existente.
+- **Subheadline**: "A Secretaria Invisível atende, qualifica e agenda pelo WhatsApp em segundos — às 14h ou às 3h da manhã. Sem secretária extra. Implementação em poucos dias."
+- **CTA primário**: "QUERO PARAR DE PERDER PACIENTES" (mantém ícone MessageSquare e link `#formulario`).
+- **CTA secundário**: "Ver uma conversa real →" (remove o ícone ArrowDown, seta vira parte do texto).
+- **Trust micro-copy** (substitui as duas pílulas LGPD/prontuário existentes):
+  - "Implementação em poucos dias · Compatível com LGPD · Suporte incluído"
+  - Texto único separado por `·`, mantendo o estilo `text-sm font-medium text-muted-foreground/80`.
 
-Para um logo, o ideal é ficar abaixo de **20 KB**. Para foto de retrato, abaixo de **80 KB**. Hoje estamos **20x acima do recomendado**.
+### 2. Depoimentos (`src/components/landing/SocialProof.tsx`)
 
-### 2. Scripts de tracking bloqueando a renderização
-- Meta Pixel e Microsoft Clarity estão no `<head>` carregando antes da página aparecer.
-- Em mobile lento, isso atrasa o "primeiro pixel" em 1–3 segundos.
+- **Título da seção** (linha 38): "O que médicos dizem depois de automatizar o atendimento" (remover `<em>Sapient.IA</em>`).
+- **Texto do depoimento** (linha 98): "Antes eu respondia mensagem de paciente às 23h quando lembrava. Muitos desistiam enquanto esperavam. Com a Secretaria Invisível, cada paciente recebe resposta na hora e eu finalmente foco na medicina, não na secretaria."
+- **Autoria**: manter o bloco atual (nome + "Endocrinologista" + handle do Instagram com ícone) — já corresponde ao formato pedido "Dra. Mariana Fogarolli, Endocrinologista · @dramarianafogarolli".
 
-### 3. Google Fonts carregando 3 famílias inteiras
-- `DM Sans` (6 variações), `JetBrains Mono` (2), `Sora` (4) = ~12 arquivos de fonte.
-- Pelo que vi no código, só usamos algumas dessas variações.
+### 3. Urgência no formulário (`src/components/landing/LeadForm.tsx`)
 
----
+- Adicionar acima do título "Preencha seus dados" do card do formulário um badge de urgência:
+  - Texto: "**[N] diagnósticos disponíveis esta semana**", onde N é gerado aleatoriamente entre 3 e 6 a cada carga da página (`useMemo` com `Math.floor(Math.random() * 4) + 3`).
+  - Estilo: pílula `inline-flex` com fundo translúcido âmbar/accent, ícone (ex.: `Clock` ou `AlertCircle` do lucide), texto pequeno e em destaque, alinhado ao topo do card.
 
-## O que vou fazer
+### Detalhes técnicos
 
-1. **Comprimir e converter as 3 imagens para WebP** (formato moderno, ~70% menor)
-   - Logo: 405 KB → ~15 KB
-   - Foto da Dra. Mariana: 517 KB → ~60 KB
-   - OG image: 626 KB → ~120 KB
-   - Atualizar os imports nos componentes
+- Sem mudanças em rotas, dados, webhook ou estilos globais.
+- Imports a adicionar:
+  - `LeadForm.tsx`: `useMemo` do React e ícone do lucide-react.
+- Remover do `Hero.tsx` o import `ArrowDown` se não for mais usado (CTA secundário passa a usar seta textual).
+- Sem alteração nos badges de cabeçalho ("Exclusivo para Clínicas e Consultórios") nem na seção do mockup do WhatsApp.
 
-2. **Adicionar `loading="lazy"`** na foto de testemunho e em qualquer imagem abaixo da dobra
+### Fora de escopo (não mexer agora)
 
-3. **Adiar Meta Pixel e Microsoft Clarity** para depois do `load` da página (sem perder dados — só atrasa em ~1 segundo a inicialização)
-
-4. **Reduzir as fontes Google** para apenas os pesos realmente usados (corte estimado: 60% do peso de fontes)
-
-5. **Adicionar `<link rel="preload">`** no logo do header para garantir prioridade
-
----
-
-## Resultado esperado
-
-- Tempo de carregamento mobile: de ~5–7s para **~1.5–2.5s** em 4G
-- Taxa cliques→visitas deve subir de 70% para **90%+**
-- Pontuação Google PageSpeed mobile: estimo subir 25–40 pontos
-
----
-
-## Detalhes técnicos
-
-- Conversão WebP via `cwebp` (qualidade 82 para foto, lossless para logo)
-- Scripts de tracking movidos para `window.addEventListener('load', ...)` no `index.html`
-- Google Fonts URL reduzida para `Inter:wght@400;500;600;700` apenas (alinhado com o sistema de design)
-- Sem mudanças visuais — somente performance
-
-Não vou alterar layout, copy, formulário, ou comportamento de nenhuma seção. Apenas substituições de assets e ajustes em `index.html`.
+- Prioridade 2 da auditoria não foi enviada — pular.
+- Demais seções (Problems, Solutions, FAQ, etc.) permanecem intactas.
