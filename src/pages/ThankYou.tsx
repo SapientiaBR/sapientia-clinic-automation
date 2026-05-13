@@ -15,6 +15,7 @@ const ThankYou = () => {
         <meta property="og:description" content="Último passo: chame nossa equipe no WhatsApp para escolher o horário do seu diagnóstico gratuito." />
         <meta property="og:url" content="https://secretariainvisivel.com.br/obrigado" />
         <link rel="canonical" href="https://secretariainvisivel.com.br/obrigado" />
+      </Helmet>
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-20 blur-[150px]" />
