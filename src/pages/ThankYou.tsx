@@ -60,7 +60,7 @@ const ThankYou = () => {
           Clique aqui para receber seu atendimento via whatsapp
         </a>
       </div>
-    </div>
+    </main>
   );
 };
 
