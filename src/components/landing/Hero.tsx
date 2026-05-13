@@ -27,7 +27,7 @@ const Hero = () => {
             </div>
 
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-6 tracking-tight text-balance">
-              Sua clínica perde <em>R$14.400/mês</em> em pacientes que ficam sem respostas. Isso acaba agora.
+              Sua clínica pode estar perdendo <em>R$23.000/mês</em> em pacientes que nunca chegam. Isso acaba agora.
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
