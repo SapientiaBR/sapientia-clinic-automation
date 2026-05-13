@@ -1,11 +1,21 @@
 import { MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import logo from "@/assets/sapient-logo.webp";
 
 const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20acabei%20de%20preencher%20o%20fomul%C3%A1rio%20e%20gostaria%20do%20meu%20diagn%C3%B3stico%20gratuito.";
 
 const ThankYou = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col justify-center items-center relative overflow-hidden py-20 px-4">
+    <main className="min-h-screen bg-background text-foreground flex flex-col justify-center items-center relative overflow-hidden py-20 px-4">
+      <Helmet>
+        <title>Obrigado — finalize seu diagnóstico no WhatsApp</title>
+        <meta name="description" content="Recebemos seus dados. Agora chame nossa equipe no WhatsApp para agendar o horário do seu diagnóstico gratuito da Secretaria Invisível." />
+        <meta name="robots" content="noindex, follow" />
+        <meta property="og:title" content="Obrigado — finalize seu diagnóstico no WhatsApp" />
+        <meta property="og:description" content="Último passo: chame nossa equipe no WhatsApp para escolher o horário do seu diagnóstico gratuito." />
+        <meta property="og:url" content="https://secretariainvisivel.com.br/obrigado" />
+        <link rel="canonical" href="https://secretariainvisivel.com.br/obrigado" />
+      </Helmet>
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-20 blur-[150px]" />
@@ -51,7 +61,7 @@ const ThankYou = () => {
           Clique aqui para receber seu atendimento via whatsapp
         </a>
       </div>
-    </div>
+    </main>
   );
 };
 

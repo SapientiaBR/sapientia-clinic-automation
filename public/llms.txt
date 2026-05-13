@@ -1,0 +1,13 @@
+# Secretaria Invisível
+
+> Secretária com IA que atende, qualifica e agenda pacientes pelo WhatsApp 24h por dia, para clínicas e consultórios médicos no Brasil. Um produto Sapient.IA.
+
+A Secretaria Invisível é uma implementação personalizada de IA (não um SaaS) que reduz a perda de pacientes que ficam sem resposta, alivia a equipe atual da clínica e automatiza o agendamento via WhatsApp. Modelo: setup único + mensalidade. Foco em médicos de São Paulo.
+
+## Pages
+
+- [Home](/): Apresentação da Secretaria Invisível, dores, solução, calculadora de perdas, formulário de diagnóstico gratuito, prova social, como funciona, fundador e FAQ.
+
+## Optional
+
+- [Contato via WhatsApp](https://wa.me/5511920795583): Fale diretamente com a equipe.
