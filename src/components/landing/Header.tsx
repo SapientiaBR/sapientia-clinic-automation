@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoSI from "@/assets/logo-secretaria-invisivel.png";
 
 const CTA_HREF = "#formulario";
 
@@ -30,14 +31,13 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-[72px]">
-          <a href="#" className="flex items-center gap-2.5 group" aria-label="Secretária Invisível">
-            <span
-              className="w-2 h-2 rounded-full"
-              style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)", boxShadow: "0 0 12px rgba(124,58,237,0.5)" }}
+          <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
+            <img
+              src={logoSI}
+              alt="Secretária Invisível"
+              className="h-10 md:h-12 w-auto"
+              style={{ mixBlendMode: "screen" }}
             />
-            <span className="font-display italic text-lg md:text-xl text-white tracking-tight">
-              Secretária Invisível
-            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
