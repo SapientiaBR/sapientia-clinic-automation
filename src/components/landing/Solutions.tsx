@@ -6,37 +6,31 @@ const solutions = [
     icon: Zap,
     title: "Responde em segundos",
     desc: "Cada mensagem é respondida em segundos — 24h por dia, 7 dias por semana. Seu paciente nunca mais fica esperando.",
-    featured: true,
   },
   {
     icon: CalendarCheck,
     title: "Agenda automaticamente",
     desc: "Consultas agendadas sem sua equipe precisar fazer nada. O sistema cuida de tudo, inclusive disponibilidade.",
-    featured: true,
   },
   {
     icon: Bell,
     title: "Envia lembretes",
     desc: "Lembretes e confirmações automáticas que reduzem faltas drasticamente. Menos buracos na agenda.",
-    featured: false,
   },
   {
     icon: LayoutList,
     title: "Organiza o fluxo",
     desc: "Todo o fluxo de atendimento organizado — sem depender de planilha, caderno ou memória.",
-    featured: false,
   },
   {
     icon: Heart,
     title: "Atendimento humanizado",
     desc: "Se adapta ao tom de voz da sua clínica — natural e empático. Seus pacientes nem percebem a diferença.",
-    featured: false,
   },
   {
     icon: MessageCircle,
     title: "Funciona no WhatsApp",
     desc: "Opera direto no WhatsApp — onde seus pacientes já estão. Sem app novo, sem complicação.",
-    featured: false,
   },
 ];
 
@@ -69,16 +63,12 @@ const Solutions = () => {
           {solutions.map((s, i) => (
             <div
               key={i}
-              className={`glass hover:border-border-hover transition-all duration-300 rounded-3xl p-8 group ${
-                s.featured ? "sm:col-span-1 shadow-[0_0_20px_rgba(6,182,212,0.1)] border-cyan-500/20" : ""
-              } ${
+              className={`glass hover:border-border-hover transition-all duration-300 rounded-3xl p-8 group shadow-[0_0_20px_rgba(6,182,212,0.1)] border-cyan-500/20 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
               style={{ transitionDelay: `${150 + i * 80}ms` }}
             >
-              <div className={`w-14 h-14 rounded-2xl ${
-                s.featured ? "gradient-brand shadow-[0_0_15px_rgba(6,182,212,0.2)]" : "gradient-subtle shadow-inner"
-              } flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110`}>
+              <div className="w-14 h-14 rounded-2xl gradient-brand shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
                 <s.icon size={24} className="text-foreground" />
               </div>
               <h3 className="font-display font-semibold text-lg mb-2 text-foreground">{s.title}</h3>
