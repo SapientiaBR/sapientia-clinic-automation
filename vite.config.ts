@@ -19,4 +19,8 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
   },
+  build: {
+    target: ["es2020", "chrome80", "firefox78", "safari14"],
+    cssTarget: ["chrome80", "firefox78", "safari14"],
+  },
 }));
