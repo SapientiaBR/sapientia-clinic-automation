@@ -35,8 +35,7 @@ const Header = () => {
             <img
               src={logoSI}
               alt="Secretária Invisível"
-              className="h-10 md:h-12 w-auto"
-              style={{ mixBlendMode: "screen" }}
+              className="h-20 md:h-24 w-auto"
             />
           </a>
 
