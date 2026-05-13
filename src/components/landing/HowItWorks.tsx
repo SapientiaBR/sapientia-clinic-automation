@@ -1,91 +1,84 @@
-import { MessageCircle, Settings, CalendarCheck } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 const steps = [
   {
-    number: "01",
-    icon: MessageCircle,
-    title: "Diagnóstico gratuito",
-    desc: "Conversamos sobre seu consultório, seus pacientes e o que pode ser automatizado. Você entende o potencial sem compromisso.",
-    detail: "30 minutos • Online • Sem custo",
+    n: "01",
+    title: "Paciente envia mensagem",
+    desc: "Qualquer hora, qualquer dia. A Secretária Invisível recebe e entende a intenção em segundos.",
+    chat: [
+      { side: "right", text: "Oi, queria marcar uma consulta", time: "22:47" },
+    ],
   },
   {
-    number: "02",
-    icon: Settings,
-    title: "Configuração sob medida",
-    desc: "Montamos o sistema personalizado com o tom de voz e as regras do seu atendimento. Nós cuidamos de tudo.",
-    detail: "Implementação completa pela equipe",
+    n: "02",
+    title: "IA qualifica e agenda",
+    desc: "Consulta a agenda, sugere horários, confirma dados do paciente. Tudo sem intervenção humana.",
+    chat: [
+      { side: "left", text: "Olá! 😊 Tenho amanhã às 14h ou 16h. Qual prefere?", time: "22:47" },
+      { side: "right", text: "14h", time: "22:48" },
+    ],
   },
   {
-    number: "03",
-    icon: CalendarCheck,
-    title: "Resultados em dias",
-    desc: "Sua IA começa a atender pelo WhatsApp. Você acompanha tudo e ajusta quando quiser.",
-    detail: "Suporte contínuo incluso",
+    n: "03",
+    title: "Consulta confirmada",
+    desc: "Lembrete automático 24h antes. Reagendamento se necessário. Você só aparece para atender.",
+    chat: [
+      { side: "left", text: "✅ Confirmado para amanhã 14h. Lembrete 1h antes.", time: "22:48" },
+    ],
   },
 ];
 
 const HowItWorks = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
     <section id="como-funciona" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.05] blur-[150px]" />
-      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+        <div className="text-center mb-16 max-w-2xl mx-auto">
+          <Eyebrow>// como funciona</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+            Três passos. <em>Zero esforço seu.</em>
+          </h2>
+        </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl" ref={ref}>
-        <h2
-          className={`font-display text-3xl sm:text-4xl font-bold text-center mb-4 text-balance transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          Como funciona na <em>prática</em>
-        </h2>
-        <p
-          className={`text-muted-foreground text-center mb-16 max-w-xl mx-auto transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          Do primeiro contato ao sistema funcionando — em poucos dias.
-        </p>
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+          {steps.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              className="card-base p-7 relative"
+            >
+              <span className="font-display italic text-[80px] leading-none gradient-text opacity-50 absolute -top-2 right-4 select-none">
+                {s.n}
+              </span>
+              <h3 className="font-display text-[22px] font-semibold text-white relative z-10 mt-2">
+                {s.title}
+              </h3>
+              <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-3 mb-6">
+                {s.desc}
+              </p>
 
-        <div className="relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-[27px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-accent/40 via-accent/20 to-transparent hidden sm:block" />
-
-          <div className="space-y-12 sm:space-y-16">
-            {steps.map((step, i) => (
-              <div
-                key={i}
-                className={`relative flex flex-col sm:flex-row items-start gap-6 transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-                style={{ transitionDelay: `${200 + i * 150}ms` }}
-              >
-                {/* Number circle */}
-                <div className="relative z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2 flex-shrink-0">
-                  <div className="w-14 h-14 rounded-2xl gradient-brand flex items-center justify-center shadow-[0_0_15px_rgba(124,58,237,0.3)]">
-                    <span className="text-foreground font-bold text-lg font-display">{step.number}</span>
-                  </div>
-                </div>
-
-                {/* Content card */}
-                <div className={`sm:w-[calc(50%-3rem)] ${
-                  i % 2 === 0 ? "sm:mr-auto sm:text-right sm:pr-4" : "sm:ml-auto sm:pl-4"
-                }`}>
-                  <div className="glass hover:border-border-hover transition-all duration-300 rounded-xl p-6">
-                    <div className={`flex items-center gap-3 mb-3 ${i % 2 === 0 ? "sm:justify-end" : ""}`}>
-                      <step.icon size={18} className="text-accent" />
-                      <h3 className="font-display font-semibold text-lg text-foreground">{step.title}</h3>
+              <div className="bg-[var(--navy-1)] border border-white/5 rounded-xl p-3 space-y-2">
+                {s.chat.map((m, j) => (
+                  <div key={j} className={`flex ${m.side === "right" ? "justify-end" : "justify-start"}`}>
+                    <div
+                      className={`text-xs px-3 py-2 max-w-[85%] rounded-xl ${
+                        m.side === "right"
+                          ? "rounded-tr-sm text-white"
+                          : "rounded-tl-sm text-white border border-white/10 bg-white/5"
+                      }`}
+                      style={m.side === "right" ? { background: "#1f6f4a" } : undefined}
+                    >
+                      {m.text}
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">{step.desc}</p>
-                    <span className="text-xs text-accent/70 font-medium">{step.detail}</span>
                   </div>
-                </div>
+                ))}
+                <p className="font-mono text-[10px] text-cyan-300/40 text-center pt-1">{s.chat[s.chat.length - 1].time}</p>
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,59 +1,43 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "@/assets/sapient-logo.webp";
+import { Menu, X } from "lucide-react";
 
 const CTA_HREF = "#formulario";
+
+const navItems = [
+  { label: "Como funciona", href: "#como-funciona" },
+  { label: "Recursos", href: "#solucoes" },
+  { label: "Depoimentos", href: "#depoimentos" },
+  { label: "FAQ", href: "#faq" },
+];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
-    let lastState = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const next = window.scrollY > 20;
-        if (next !== lastState) {
-          lastState = next;
-          setScrolled(next);
-        }
-        ticking = false;
-      });
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItems = [
-    { label: "Soluções", href: "#solucoes" },
-    { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Depoimentos", href: "#depoimentos" },
-    { label: "FAQ", href: "#faq" },
-  ];
-
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 [transform:translateZ(0)] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 md:bg-background/85 md:backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-black/10"
+          ? "bg-[rgba(8,13,26,0.85)] md:backdrop-blur-xl border-b border-white/5"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-2 group">
-            <img
-              src={logo}
-              alt="Secretaria Invisível"
-              loading="eager"
-              decoding="async"
-              width="160"
-              height="48"
-              className="h-9 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+        <div className="flex items-center justify-between h-16 md:h-[72px]">
+          <a href="#" className="flex items-center gap-2.5 group" aria-label="Secretária Invisível">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)", boxShadow: "0 0 12px rgba(124,58,237,0.5)" }}
             />
+            <span className="font-display italic text-lg md:text-xl text-white tracking-tight">
+              Secretária Invisível
+            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -61,52 +45,48 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm font-semibold text-foreground/90 hover:text-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 py-1 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-accent after:transition-all after:duration-300 hover:after:w-full focus-visible:after:w-full cursor-pointer"
-                aria-label={item.label}
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-white transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-vibrant font-display text-sm font-semibold text-foreground px-6 py-2.5 rounded-full hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 flex items-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="gradient-brand text-white text-[13px] font-semibold px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(124,58,237,0.35)] hover:shadow-[0_0_28px_rgba(124,58,237,0.5)] transition-all"
             >
-              Diagnóstico Gratuito
-              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+              Quero testar
             </a>
           </nav>
 
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-background/98 border-b border-border/50 animate-fade-in">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+        <div className="md:hidden bg-[rgba(8,13,26,0.98)] border-b border-white/5 animate-fade-in">
+          <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground/90 font-medium hover:text-foreground transition-colors py-2.5 text-base cursor-pointer"
+                className="text-white/90 py-2.5 text-base"
                 onClick={() => setMenuOpen(false)}
-                aria-label={item.label}
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-vibrant font-display text-center font-semibold text-foreground px-5 py-3 rounded-full mt-2 flex items-center justify-center gap-2 cursor-pointer"
+              className="gradient-brand text-center text-white font-semibold px-5 py-3 rounded-full mt-2"
               onClick={() => setMenuOpen(false)}
             >
-              Diagnóstico Gratuito
-              <ArrowRight size={14} />
+              Quero testar
             </a>
           </div>
         </div>

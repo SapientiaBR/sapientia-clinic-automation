@@ -1,123 +1,122 @@
-import { useState } from "react";
-import { MessageSquare, Calculator } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Eyebrow from "@/components/ui/Eyebrow";
+import MagneticButton from "@/components/ui/MagneticButton";
 
-const CTA_HREF = "#formulario";
+const useRafCount = (target: number, duration = 700) => {
+  const [v, setV] = useState(target);
+  const fromRef = useRef(target);
+  useEffect(() => {
+    const from = fromRef.current;
+    const start = performance.now();
+    let raf = 0;
+    const step = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setV(Math.round(from + (target - from) * eased));
+      if (p < 1) raf = requestAnimationFrame(step);
+      else fromRef.current = target;
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, duration]);
+  return v;
+};
 
 const LossCalculator = () => {
-  const [contacts, setContacts] = useState(30);
-  const [ticketValue, setTicketValue] = useState(300);
-  const { ref, isVisible } = useScrollAnimation();
+  const [atendimentos, setAtendimentos] = useState(150);
+  const [perda, setPerda] = useState(15); // %
+  const [ticket, setTicket] = useState(250);
 
-  const lostPatients = Math.round(contacts * 4 * 0.4);
-  const monthlyLoss = lostPatients * ticketValue;
+  const raw = Math.round(atendimentos * (perda / 100) * ticket);
+  const cap = atendimentos * ticket; // can't lose more than total revenue
+  const result = Math.min(raw, cap);
+  const animated = useRafCount(result);
 
   return (
     <section className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[hsl(38_92%_55%)] opacity-[0.04] blur-[150px]" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
         <div className="text-center mb-12">
-          <div
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber/10 border border-amber/20 text-amber mb-6 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <Calculator size={16} />
-            <span className="text-sm font-semibold">Calculadora de Oportunidades</span>
-          </div>
-          <h2
-            className={`font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-balance transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            Quantos pacientes você pode <em>recuperar</em> por mês?
+          <Eyebrow>// calculadora</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+            Quanto sua clínica está <em>deixando na mesa?</em>
           </h2>
         </div>
 
-        <div
-          className={`glass hover:border-border-hover rounded-3xl p-8 sm:p-12 transition-all duration-700 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="card-base p-8 sm:p-12"
         >
-          {/* Contacts slider */}
+          <SliderRow
+            label="Quantos atendimentos por mês?"
+            value={atendimentos}
+            display={atendimentos.toString()}
+            onChange={setAtendimentos}
+            min={50} max={500} step={10}
+          />
+          <SliderRow
+            label="Quantas consultas perde por falta de resposta?"
+            value={perda}
+            display={`${perda}%`}
+            onChange={setPerda}
+            min={1} max={30} step={1}
+          />
           <div className="mb-10">
-            <div className="flex justify-between items-center mb-4">
-              <label className="text-sm text-foreground/90 font-medium">
-                Contatos recebidos por semana
-              </label>
-              <span className="text-xl font-bold text-accent tabular-nums">{contacts}</span>
-            </div>
-            <Slider
-              value={[contacts]}
-              onValueChange={(v) => setContacts(v[0])}
-              min={5}
-              max={100}
-              step={5}
-              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent cursor-pointer"
-            />
-            <div className="flex justify-between text-xs text-muted-foreground mt-2">
-              <span>5</span>
-              <span>100</span>
+            <div className="flex justify-between items-center mb-3">
+              <label className="font-sans text-sm text-white/85">Ticket médio por consulta</label>
+              <div className="flex items-center gap-1 font-display text-cyan-300 text-2xl font-semibold">
+                R$
+                <input
+                  type="number"
+                  value={ticket}
+                  min={50}
+                  max={3000}
+                  onChange={(e) => setTicket(Math.max(50, Math.min(3000, Number(e.target.value) || 0)))}
+                  className="w-24 bg-transparent border-b border-cyan-300/30 text-cyan-300 outline-none focus:border-cyan-300 text-right tabular-nums"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Ticket value slider */}
-          <div className="mb-12">
-            <div className="flex justify-between items-center mb-4">
-              <label className="text-sm text-foreground/90 font-medium">
-                Valor médio da consulta
-              </label>
-              <span className="text-xl font-bold text-accent tabular-nums">
-                R$ {ticketValue}
-              </span>
-            </div>
-            <Slider
-              value={[ticketValue]}
-              onValueChange={(v) => setTicketValue(v[0])}
-              min={100}
-              max={1000}
-              step={50}
-              className="[&_[role=slider]]:bg-accent [&_[role=slider]]:border-accent [&_.range]:bg-accent cursor-pointer"
-            />
-            <div className="flex justify-between text-xs text-muted-foreground mt-2">
-              <span>R$ 100</span>
-              <span>R$ 1.000</span>
-            </div>
-          </div>
-
-          {/* Result */}
-          <div className="text-center p-8 rounded-2xl bg-background/50 border border-white/5 shadow-inner">
-            <p className="text-sm text-muted-foreground mb-2">
-              Sem automação, você pode estar deixando de faturar
+          <div className="text-center pt-6 border-t border-white/5">
+            <p className="font-sans text-sm text-[var(--text-muted)] mb-3">
+              Você está deixando na mesa todo mês:
             </p>
-            <p className="text-5xl sm:text-6xl lg:text-7xl font-bold text-amber mb-2 tabular-nums drop-shadow-[0_0_15px_rgba(251,191,36,0.3)]">
-              R$ {monthlyLoss.toLocaleString("pt-BR")}
-            </p>
-            <p className="text-sm text-muted-foreground font-medium">
-              por mês ({lostPatients} pacientes × R$ {ticketValue})
+            <p className="font-display font-bold text-[56px] sm:text-[72px] lg:text-[80px] leading-none gradient-text tabular-nums">
+              R$ {animated.toLocaleString("pt-BR")}
             </p>
           </div>
 
-          <div className="text-center mt-10">
-            <a
-              href={CTA_HREF}
-              className="gradient-vibrant font-display font-semibold inline-flex items-center gap-2.5 text-foreground px-8 py-5 rounded-md hover:shadow-[0_0_20px_rgba(251,113,133,0.3)] transition-all duration-300 text-lg cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <MessageSquare size={22} />
-              Quero Recuperar Esses Pacientes
-            </a>
-            <p className="text-xs text-muted-foreground/60 mt-3">
-              Diagnóstico gratuito • Sem compromisso
-            </p>
+          <div className="flex justify-center mt-8">
+            <MagneticButton href="#formulario" variant="primary" className="animate-pulse">
+              Quero recuperar esse valor →
+            </MagneticButton>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
+
+const SliderRow = ({ label, value, display, onChange, min, max, step }: {
+  label: string; value: number; display: string;
+  onChange: (v: number) => void; min: number; max: number; step: number;
+}) => (
+  <div className="mb-10">
+    <div className="flex justify-between items-center mb-3">
+      <label className="font-sans text-sm text-white/85">{label}</label>
+      <span className="font-display text-2xl text-cyan-300 font-semibold tabular-nums">{display}</span>
+    </div>
+    <Slider value={[value]} onValueChange={(v) => onChange(v[0])} min={min} max={max} step={step}
+      className="[&_[role=slider]]:bg-cyan-300 [&_[role=slider]]:border-cyan-300 cursor-pointer" />
+    <div className="flex justify-between font-mono text-[10px] text-[var(--text-dim)] mt-2 uppercase tracking-widest">
+      <span>{min}</span><span>{max}</span>
+    </div>
+  </div>
+);
 
 export default LossCalculator;

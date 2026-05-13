@@ -2,30 +2,27 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
+import { LeadForm } from "@/components/landing/LeadForm";
 
-// Below-the-fold: lazy-loaded to reduce initial JS and improve mobile LCP
 const Problems = lazy(() => import("@/components/landing/Problems"));
-const Solutions = lazy(() => import("@/components/landing/Solutions"));
-const Visualization = lazy(() => import("@/components/landing/Visualization"));
-const LossCalculator = lazy(() => import("@/components/landing/LossCalculator"));
-const LeadForm = lazy(() =>
-  import("@/components/landing/LeadForm").then((m) => ({ default: m.LeadForm }))
-);
-const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
-const Founder = lazy(() => import("@/components/landing/Founder"));
+const Visualization = lazy(() => import("@/components/landing/Visualization"));
+const Solutions = lazy(() => import("@/components/landing/Solutions"));
+const LossCalculator = lazy(() => import("@/components/landing/LossCalculator"));
+const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const FAQ = lazy(() => import("@/components/landing/FAQ"));
+const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
 const Footer = lazy(() => import("@/components/landing/Footer"));
 
 const Fallback = ({ h = "h-32" }: { h?: string }) => <div className={h} aria-hidden="true" />;
 
-const faqEntities = [
-  ["Isso não vai parecer robótico para meus pacientes?", "Não. O sistema é treinado com o tom de voz da sua clínica. Seus pacientes conversam de forma natural, como se estivessem falando com uma secretária de verdade. Sem respostas engessadas, sem parecer máquina."],
-  ["Vou perder o controle do meu atendimento?", "De jeito nenhum. Você mantém controle total. O sistema segue suas regras, seus horários, seus critérios. E você acompanha tudo em tempo real. A IA trabalha para você, não no lugar de você."],
-  ["É difícil de implementar? Preciso entender de tecnologia?", "Zero complicação. Nós cuidamos de tudo — da configuração ao treinamento da sua equipe. Você não precisa instalar nada nem entender de tecnologia. Em poucos dias, está funcionando."],
-  ["Como funciona o contrato?", "Todas as condições — prazo, recorrência e regras — são apresentadas com total clareza antes do início. Você entra sabendo exatamente o que esperar, sem surpresas."],
-  ["Quanto custa?", "O valor depende do volume e complexidade do seu consultório. Na conversa de diagnóstico (gratuita), entendemos sua realidade e apresentamos uma proposta sob medida. Para referência: o investimento costuma se pagar nas primeiras semanas com os pacientes que deixariam de ser perdidos."],
-  ["E se eu não gostar do resultado?", "Nosso objetivo é que você veja resultados desde o primeiro mês. Acompanhamos de perto e fazemos ajustes contínuos. Se algo não estiver funcionando como esperado, trabalhamos juntos para resolver — transparência e parceria são nossos valores."],
+const faqEntities: [string, string][] = [
+  ["Isso não vai parecer robótico para meus pacientes?", "Não. O sistema aprende o tom de voz da sua clínica e usa o nome do paciente em cada mensagem. Você aprova o fluxo completo antes de ativar."],
+  ["Vou perder o controle do meu atendimento?", "Pelo contrário. Você ganha visibilidade com painel de conversas, alertas e relatório semanal. Você define as regras, a IA executa."],
+  ["É difícil de implementar? Preciso entender de tecnologia?", "Zero configuração da sua parte. Implementação em média de 5 dias úteis. Sem código, sem técnico contratado."],
+  ["Como funciona o contrato?", "Contrato mensal flexível, cancelamento por e-mail com 30 dias de antecedência. Todas as condições apresentadas com clareza antes do início."],
+  ["Quanto custa?", "Investimento calculado com base no volume da sua clínica. Antes de qualquer número, você recebe um diagnóstico gratuito com estimativa de retorno."],
+  ["E se eu não gostar do resultado?", "Acompanhamos de perto e fazemos ajustes contínuos no primeiro mês. Objetivo: redução de faltas e mais agendamentos desde as primeiras semanas."],
 ];
 
 const faqJsonLd = {
@@ -40,25 +37,36 @@ const faqJsonLd = {
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-[var(--navy-0)] text-white overflow-x-hidden">
       <Helmet>
+        <title>Secretária Invisível — IA para agendamento automático no WhatsApp | Sapient.IA</title>
+        <meta
+          name="description"
+          content="A Secretária Invisível atende, qualifica e agenda consultas no WhatsApp 24/7. Implementação em 5 dias. Desenvolvido pela Sapient.IA para clínicas e consultórios."
+        />
+        <meta name="keywords" content="secretária virtual IA, automação WhatsApp clínica, agendamento automático médico, IA para consultório" />
         <link rel="canonical" href="https://secretariainvisivel.com.br/" />
         <meta property="og:url" content="https://secretariainvisivel.com.br/" />
+        <meta property="og:title" content="Secretária Invisível — IA para agendamento automático no WhatsApp" />
+        <meta property="og:description" content="Atende, qualifica e agenda no WhatsApp 24/7. Implementação em 5 dias." />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
+
       <Header />
       <main>
         <Hero />
+        {/* Form right after hero — mobile-first conversion priority */}
+        <LeadForm />
+
         <Suspense fallback={<Fallback h="h-96" />}>
           <Problems />
-          <Solutions />
-          <Visualization />
-          <LossCalculator />
-          <LeadForm />
-          <SocialProof />
           <HowItWorks />
-          <Founder />
+          <Visualization />
+          <Solutions />
+          <LossCalculator />
+          <SocialProof />
           <FAQ />
+          <FinalCTA />
           <Footer />
         </Suspense>
       </main>
