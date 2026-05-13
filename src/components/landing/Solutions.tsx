@@ -1,79 +1,66 @@
-import { Zap, CalendarCheck, Bell, LayoutList, Heart, MessageCircle } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { Clock, CalendarCheck, BellRing, Sparkles } from "lucide-react";
+import Eyebrow from "@/components/ui/Eyebrow";
 
-const solutions = [
+const features = [
   {
-    icon: Zap,
-    title: "Responde em segundos",
-    desc: "Cada mensagem é respondida em segundos — 24h por dia, 7 dias por semana. Seu paciente nunca mais fica esperando.",
+    Icon: Clock,
+    title: "Atendimento 24/7",
+    desc: "Domingo às 23h, feriado, hora do almoço. Responde em segundos — toda vez, todo dia.",
   },
   {
-    icon: CalendarCheck,
-    title: "Agenda automaticamente",
-    desc: "Consultas agendadas sem sua equipe precisar fazer nada. O sistema cuida de tudo, inclusive disponibilidade.",
+    Icon: CalendarCheck,
+    title: "Agendamento inteligente",
+    desc: "Lê sua agenda, sugere os melhores horários, evita choques.",
   },
   {
-    icon: Bell,
-    title: "Envia lembretes",
-    desc: "Lembretes e confirmações automáticas que reduzem faltas drasticamente. Menos buracos na agenda.",
+    Icon: BellRing,
+    title: "Confirmação automática",
+    desc: "Lembrete 24h antes. Reagendamento sem fricção. Faltas em queda.",
   },
   {
-    icon: LayoutList,
-    title: "Organiza o fluxo",
-    desc: "Todo o fluxo de atendimento organizado — sem depender de planilha, caderno ou memória.",
-  },
-  {
-    icon: Heart,
-    title: "Atendimento humanizado",
-    desc: "Se adapta ao tom de voz da sua clínica — natural e empático. Seus pacientes nem percebem a diferença.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Funciona no WhatsApp",
-    desc: "Opera direto no WhatsApp — onde seus pacientes já estão. Sem app novo, sem complicação.",
+    Icon: Sparkles,
+    title: "Reativação de base inativa",
+    desc: "Pacientes que sumiram voltam — em campanhas que parecem conversa, não spam.",
   },
 ];
 
 const Solutions = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
     <section id="solucoes" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute top-1/2 left-0 w-[600px] h-[600px] rounded-full bg-[hsl(265_75%_28%)] opacity-[0.06] blur-[150px]" />
-      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          <Eyebrow>// recursos</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+            Infraestrutura. <em>Não chatbot.</em>
+          </h2>
+          <p className="font-sans text-base text-[var(--text-muted)] mt-5 leading-relaxed">
+            Cada recurso foi desenhado para sumir do seu caminho — e fazer o trabalho que ninguém vê.
+          </p>
+        </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-        <h2
-          className={`font-display text-3xl sm:text-4xl font-bold text-center mb-4 text-balance transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          O que a Sapient.IA faz <em>pelo seu consultório</em>
-        </h2>
-        <p
-          className={`text-muted-foreground text-center mb-14 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          Uma secretária de IA que nunca dorme, nunca falta e nunca esquece.
-        </p>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {solutions.map((s, i) => (
-            <div
+        <div className="grid md:grid-cols-2 gap-6">
+          {features.map((f, i) => (
+            <motion.div
               key={i}
-              className={`glass hover:border-border-hover transition-all duration-300 rounded-3xl p-8 group shadow-[0_0_20px_rgba(6,182,212,0.1)] border-cyan-500/20 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${150 + i * 80}ms` }}
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="card-base p-7 group"
             >
-              <div className="w-14 h-14 rounded-2xl gradient-brand shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110">
-                <s.icon size={24} className="text-foreground" />
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3"
+                style={{
+                  background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.2))",
+                  boxShadow: "0 0 30px rgba(124,58,237,0.2)",
+                }}
+              >
+                <f.Icon size={24} className="text-cyan-300" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-2 text-foreground">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
+              <h3 className="font-display text-xl font-semibold text-white">{f.title}</h3>
+              <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-2">{f.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>

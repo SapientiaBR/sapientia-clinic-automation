@@ -1,115 +1,64 @@
-import { TrendingUp, Fingerprint, Settings, HeadphonesIcon, Quote, Star, Instagram } from "lucide-react";
-import draMariana from "@/assets/dra-mariana-fogarolli.webp";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
-
-const credentials = [
-  { icon: TrendingUp, text: "Sistemas que recuperam pacientes que seriam perdidos por falta de resposta" },
-  { icon: Fingerprint, text: "IA personalizada — não é chatbot genérico de prateleira" },
-  { icon: Settings, text: "Implementação completa — você não precisa configurar nada" },
-  { icon: HeadphonesIcon, text: "Suporte contínuo — ajustes e acompanhamento inclusos" },
-];
-
-const metrics = [
-  { value: 95, suffix: "%", prefix: "", label: "de satisfação dos clientes" },
-  { value: 60, suffix: "%", prefix: "-", label: "de faltas reduzidas" },
-  { value: 24, suffix: "/7", prefix: "", label: "atendimento automático" },
-];
+import { motion } from "framer-motion";
+import Eyebrow from "@/components/ui/Eyebrow";
 
 const SocialProof = () => {
-  const { ref, isVisible } = useScrollAnimation();
-  const count0 = useCountUp(metrics[0].value, 2000, isVisible);
-  const count1 = useCountUp(metrics[1].value, 2000, isVisible);
-  const count2 = useCountUp(metrics[2].value, 1500, isVisible);
-  const counts = [count0, count1, count2];
-
   return (
     <section id="depoimentos" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none hidden md:block">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[hsl(175_85%_45%)] opacity-[0.04] blur-[150px]" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-        <h2
-          className={`font-display text-3xl sm:text-4xl font-bold text-center mb-4 text-balance transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          O que médicos dizem depois de automatizar o atendimento
-        </h2>
-        <p
-          className={`text-muted-foreground text-center mb-14 max-w-2xl mx-auto transition-all duration-700 delay-100 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          Resultados reais de consultórios que decidiram automatizar o atendimento.
-        </p>
-
-        {/* Metrics */}
-        <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-16 max-w-3xl mx-auto">
-          {metrics.map((m, i) => (
-            <div
-              key={i}
-              className={`text-center transition-all duration-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${100 + i * 100}ms` }}
-            >
-              <p className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text tabular-nums">
-                {m.prefix}{counts[i].toLocaleString("pt-BR")}{m.suffix}
-              </p>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-1">{m.label}</p>
-            </div>
-          ))}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
+        <div className="text-center mb-12 max-w-2xl mx-auto">
+          <Eyebrow>// depoimentos</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+            O que médicos dizem depois de <em>automatizar.</em>
+          </h2>
         </div>
 
-        {/* Credentials */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {credentials.map((c, i) => (
-            <div
-              key={i}
-              className={`glass hover:border-border-hover transition-all duration-300 rounded-2xl p-6 text-center ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
-              style={{ transitionDelay: `${350 + i * 80}ms` }}
-            >
-              <div className="w-14 h-14 mx-auto rounded-xl gradient-subtle flex items-center justify-center mb-5 shadow-inner">
-                <c.icon size={24} className="text-foreground" />
-              </div>
-              <p className="text-sm font-medium text-foreground/90 leading-relaxed">{c.text}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonial */}
-        <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="card-base p-8 sm:p-12 relative overflow-hidden"
+        >
+          {/* radial glow */}
           <div
-            className={`glass rounded-3xl p-8 md:p-10 transition-all duration-700 delay-500 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <div className="flex items-center gap-1.5 mb-5">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={16} className="text-amber fill-amber drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
-              ))}
-            </div>
-            <Quote size={28} className="mb-4 text-accent/40" />
-            <p className="text-foreground/90 italic mb-8 leading-relaxed text-base font-medium">
-              "Antes eu respondia mensagem de paciente às 23h quando lembrava. Muitos desistiam enquanto esperavam. Com a Secretaria Invisível, cada paciente recebe resposta na hora e eu finalmente foco na medicina, não na secretaria."
-            </p>
-            <div className="flex items-center gap-4">
-              <img src={draMariana} alt="Dra. Mariana Fogarolli" loading="lazy" decoding="async" width="56" height="56" className="w-14 h-14 rounded-full object-cover border-2 border-accent/30" />
+            className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full pointer-events-none"
+            style={{ background: "rgba(124,58,237,0.06)", filter: "blur(40px)" }}
+          />
+
+          <div className="relative">
+            <p className="text-amber-400 tracking-[3px] text-lg mb-5">★★★★★</p>
+
+            <span
+              className="font-display absolute -top-6 -left-2 text-[120px] leading-none select-none pointer-events-none"
+              style={{ color: "rgba(124,58,237,0.2)" }}
+              aria-hidden="true"
+            >
+              "
+            </span>
+
+            <blockquote className="font-display italic text-[19px] leading-[1.82] text-[#c0cce8] relative">
+              Antes eu respondia mensagem de paciente às 23h quando lembrava. Muitos desistiam enquanto
+              esperavam. Com a Secretária Invisível, cada paciente recebe resposta na hora — eu finalmente
+              foco na medicina, não na secretaria.
+            </blockquote>
+
+            <div className="flex items-center gap-4 mt-8">
+              <div
+                className="w-[46px] h-[46px] rounded-full flex items-center justify-center font-sans font-bold text-sm text-white"
+                style={{ background: "linear-gradient(135deg, #7c3aed, #06b6d4)" }}
+              >
+                MF
+              </div>
               <div>
-                <p className="text-base font-bold text-foreground">Dra. Mariana Fogarolli</p>
-                <p className="text-sm text-accent">Endocrinologista</p>
-                <a href="https://instagram.com/dramarianafogarolli" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-accent transition-colors mt-0.5">
-                  <Instagram size={14} />
-                  @dramarianafogarolli
-                </a>
+                <p className="font-display text-[17px] font-semibold text-[#f0f4ff]">
+                  Dra. Mariana Fogarolli
+                </p>
+                <p className="font-sans text-xs text-[var(--text-dim)]">Endocrinologista</p>
+                <p className="font-mono text-[11px] text-purple-300 mt-0.5">@dramarianafogarolli</p>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
