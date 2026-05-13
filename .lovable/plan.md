@@ -1,35 +1,42 @@
-## Adicionar os logos
+## Mudanças na Calculadora de Perda
 
-Boa ideia — dá identidade visual e reforça a marca. Os dois logos têm fundo preto/transparente e gradiente roxo→ciano, que combina perfeitamente com o tema atual.
+### 1. Atendimentos: mensal → semanal
+- Label: "Quantos atendimentos por semana?"
+- Slider range: 5 a 100, step 5, default 25
+- Cálculo: multiplicar por 4.33 internamente para virar mensal antes da fórmula
 
-### Onde colocar
+### 2. Ticket médio: input → slider
+- Remover o `<input type="number">`
+- Slider de R$ 100 a R$ 2.000, step 50, default R$ 350
+- Mesmo padrão visual dos outros sliders
 
-**1. Header — logo "Secretária Invisível"**
-- Substituir o atual "ponto + texto" por uma marca real: ícone SI (recortado do PNG, só o símbolo) + wordmark "Secretária Invisível" ao lado.
-- Altura ~32px no mobile, ~36px no desktop.
-- Mantém link para o topo da página.
+### 3. Perda: remover slider, fixar em 30%
+- Remover o SliderRow de perda
+- Adicionar bloco informativo acima do resultado:
+  > "Estudos mostram que **54% dos pedidos de agendamento acontecem fora do horário comercial**. Considerando uma perda conservadora de **30%** por falta de resposta imediata, o impacto na sua clínica é:"
+- Fórmula: `atendimentosSemana * 4.33 * 0.30 * ticket`
 
-**2. Footer — logo "Sapient.IA"**
-- Substituir o texto "· Um produto Sapient.IA" por: "Um produto" + logo Sapient.IA (versão horizontal pequena, altura ~24px).
-- Reforça o endosso da empresa-mãe sem competir com a marca principal.
+### 4. Fix do número cortado (R$ 3.050 cortando descendentes)
+Causa: `leading-none` + `gradient-text` com `background-clip: text` corta glifos com descendentes (ex: "5", "0" em algumas fontes display).
+Correção:
+- Trocar `leading-none` por `leading-[1.1]`
+- Adicionar `pb-2` (padding inferior) no `<p>` do valor
+- Garantir `overflow-visible` no container
 
-**3. Hero (opcional, sutil)**
-- Pequeno selo "by Sapient.IA" abaixo da headline, em mono, monocromático — só se quiser reforçar autoridade já no primeiro fold. Posso pular se preferir minimalismo.
+### Arquivo
+- `src/components/landing/LossCalculator.tsx` — única edição
 
-### Arquivos
+### Resultado visual final
+```
+[Slider] Atendimentos por semana: 25
+[Slider] Ticket médio: R$ 350
 
-- Copiar `user-uploads://ChatGPT_Image_5_de_mai._de_2026_10_01_39-2.png` → `src/assets/logo-secretaria-invisivel.png`
-- Copiar `user-uploads://sapient_logo_transparent-2.png` → `src/assets/logo-sapientia.png`
-- Editar `src/components/landing/Header.tsx` — importar logo e renderizar como `<img>` com `alt` apropriado.
-- Editar `src/components/landing/Footer.tsx` — substituir o texto Sapient.IA pelo logo.
-- (Opcional) Editar `src/components/landing/Hero.tsx` para o selo pequeno.
+─────────────────────────────────
+ⓘ 54% dos pedidos chegam fora do
+  horário comercial. Com perda de
+  30% por falta de resposta:
 
-### Detalhes técnicos
-
-- Os PNGs têm fundo preto sólido — vou usar `mix-blend-mode: screen` ou pedir para você confirmar se prefere que eu remova o fundo (gerar versão transparente). Como o site já é dark navy, `mix-blend-mode: lighten` funciona limpo sem reprocessar a imagem.
-- Lazy-load não é necessário (above the fold).
-- Manter os links de navegação e CTA do header intactos.
-
-### Pergunta rápida antes de implementar
-
-Quer o selo extra "by Sapient.IA" no Hero, ou só header + footer?
+Você está deixando na mesa todo mês:
+        R$ 11.366
+   [Quero recuperar esse valor →]
+```

@@ -24,14 +24,14 @@ const useRafCount = (target: number, duration = 700) => {
   return v;
 };
 
-const LossCalculator = () => {
-  const [atendimentos, setAtendimentos] = useState(150);
-  const [perda, setPerda] = useState(15); // %
-  const [ticket, setTicket] = useState(250);
+const PERDA = 0.30;
+const SEMANAS_POR_MES = 4.33;
 
-  const raw = Math.round(atendimentos * (perda / 100) * ticket);
-  const cap = atendimentos * ticket; // can't lose more than total revenue
-  const result = Math.min(raw, cap);
+const LossCalculator = () => {
+  const [atendSemana, setAtendSemana] = useState(25);
+  const [ticket, setTicket] = useState(350);
+
+  const result = Math.round(atendSemana * SEMANAS_POR_MES * PERDA * ticket);
   const animated = useRafCount(result);
 
   return (
@@ -49,44 +49,34 @@ const LossCalculator = () => {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          className="card-base p-8 sm:p-12"
+          className="card-base p-8 sm:p-12 overflow-visible"
         >
           <SliderRow
-            label="Quantos atendimentos por mês?"
-            value={atendimentos}
-            display={atendimentos.toString()}
-            onChange={setAtendimentos}
-            min={50} max={500} step={10}
+            label="Quantos atendimentos por semana?"
+            value={atendSemana}
+            display={atendSemana.toString()}
+            onChange={setAtendSemana}
+            min={5} max={100} step={5}
           />
           <SliderRow
-            label="Quantas consultas perde por falta de resposta?"
-            value={perda}
-            display={`${perda}%`}
-            onChange={setPerda}
-            min={1} max={30} step={1}
+            label="Ticket médio por consulta"
+            value={ticket}
+            display={`R$ ${ticket}`}
+            onChange={setTicket}
+            min={100} max={2000} step={50}
           />
-          <div className="mb-10">
-            <div className="flex justify-between items-center mb-3">
-              <label className="font-sans text-sm text-white/85">Ticket médio por consulta</label>
-              <div className="flex items-center gap-1 font-display text-cyan-300 text-2xl font-semibold">
-                R$
-                <input
-                  type="number"
-                  value={ticket}
-                  min={50}
-                  max={3000}
-                  onChange={(e) => setTicket(Math.max(50, Math.min(3000, Number(e.target.value) || 0)))}
-                  className="w-24 bg-transparent border-b border-cyan-300/30 text-cyan-300 outline-none focus:border-cyan-300 text-right tabular-nums"
-                />
-              </div>
-            </div>
+
+          <div className="mt-2 mb-6 p-5 rounded-xl border border-cyan-300/15 bg-cyan-300/[0.03]">
+            <p className="font-sans text-sm text-white/75 leading-relaxed">
+              Estudos mostram que <span className="text-cyan-300 font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-cyan-300 font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
+            </p>
           </div>
 
-          <div className="text-center pt-6 border-t border-white/5">
+          <div className="text-center pt-6 border-t border-white/5 overflow-visible">
             <p className="font-sans text-sm text-[var(--text-muted)] mb-3">
               Você está deixando na mesa todo mês:
             </p>
-            <p className="font-display font-bold text-[56px] sm:text-[72px] lg:text-[80px] leading-none gradient-text tabular-nums">
+            <p className="font-display font-bold text-[56px] sm:text-[72px] lg:text-[80px] leading-[1.15] pb-3 gradient-text tabular-nums overflow-visible">
               R$ {animated.toLocaleString("pt-BR")}
             </p>
           </div>
