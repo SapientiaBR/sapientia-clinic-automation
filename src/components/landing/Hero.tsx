@@ -26,9 +26,13 @@ const Hero = () => {
               </span>
             </div>
 
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-6 tracking-tight text-balance">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-[4rem] font-extrabold leading-[1.05] mb-3 tracking-tight text-balance">
               Sua clínica pode estar perdendo <em>R$23.000/mês</em> em pacientes que nunca chegam. Isso acaba agora.
             </h1>
+
+            <p className="text-[13px] text-muted-foreground opacity-60 mb-6">
+              Um produto Sapient.IA
+            </p>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
               A Secretaria Invisível atende, qualifica e agenda pelo WhatsApp em segundos — às 14h ou às 3h da manhã. Sem secretária extra. Implementação em poucos dias.
