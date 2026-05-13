@@ -4,6 +4,7 @@ import Index from "./pages/Index.tsx";
 import LenisProvider from "./components/global/LenisProvider";
 import ScrollProgress from "./components/global/ScrollProgress";
 import CustomCursor from "./components/global/CustomCursor";
+import FloatingWhatsApp from "./components/global/FloatingWhatsApp";
 
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -33,6 +34,7 @@ const App = () => (
           }
         />
       </Routes>
+      <FloatingWhatsApp />
       <Suspense fallback={null}>
         <DeferredUI />
       </Suspense>
