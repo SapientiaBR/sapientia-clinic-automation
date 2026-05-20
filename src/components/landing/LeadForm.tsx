@@ -8,6 +8,7 @@ const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c
 
 const schema = z.object({
   nome: z.string().trim().min(2, "Informe seu nome").max(100),
+  email: z.string().trim().email("Informe um e-mail válido").max(255),
   whatsapp: z.string().trim().min(8, "Informe um WhatsApp válido").max(20),
 });
 
