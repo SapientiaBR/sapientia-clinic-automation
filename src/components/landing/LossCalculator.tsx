@@ -28,8 +28,8 @@ const PERDA = 0.30;
 const SEMANAS_POR_MES = 4.33;
 
 const LossCalculator = () => {
-  const [atendSemana, setAtendSemana] = useState(25);
-  const [ticket, setTicket] = useState(350);
+  const [atendSemana, setAtendSemana] = useState(35);
+  const [ticket, setTicket] = useState(500);
 
   const result = Math.round(atendSemana * SEMANAS_POR_MES * PERDA * ticket);
   const animated = useRafCount(result);
