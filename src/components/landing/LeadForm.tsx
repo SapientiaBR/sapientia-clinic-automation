@@ -187,6 +187,14 @@ export const LeadForm = () => {
                     maxLength={100}
                   />
                   <Input
+                    label="E-mail"
+                    value={data.email}
+                    onChange={(v) => setData((d) => ({ ...d, email: v }))}
+                    placeholder="seu@email.com"
+                    type="email"
+                    maxLength={255}
+                  />
+                  <Input
                     label="WhatsApp"
                     value={data.whatsapp}
                     onChange={(v) => setData((d) => ({ ...d, whatsapp: v }))}
