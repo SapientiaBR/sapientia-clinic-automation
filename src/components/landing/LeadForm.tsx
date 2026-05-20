@@ -20,12 +20,12 @@ const desafios = [
 ];
 const volumes = ["Menos de 50", "50 a 150", "150 a 300", "Mais de 300"];
 
-type FormData = { desafio: string; volume: string; nome: string; whatsapp: string };
+type FormData = { desafio: string; volume: string; nome: string; email: string; whatsapp: string };
 
 export const LeadForm = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
-  const [data, setData] = useState<FormData>({ desafio: "", volume: "", nome: "", whatsapp: "" });
+  const [data, setData] = useState<FormData>({ desafio: "", volume: "", nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
