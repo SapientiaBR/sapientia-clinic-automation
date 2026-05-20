@@ -1,42 +1,51 @@
-## Mudanças na Calculadora de Perda
+## Objetivo
 
-### 1. Atendimentos: mensal → semanal
-- Label: "Quantos atendimentos por semana?"
-- Slider range: 5 a 100, step 5, default 25
-- Cálculo: multiplicar por 4.33 internamente para virar mensal antes da fórmula
+Criar uma versão mobile mais curta e direta da landing, mantendo a versão desktop atual exatamente como está.
 
-### 2. Ticket médio: input → slider
-- Remover o `<input type="number">`
-- Slider de R$ 100 a R$ 2.000, step 50, default R$ 350
-- Mesmo padrão visual dos outros sliders
+## Abordagem
 
-### 3. Perda: remover slider, fixar em 30%
-- Remover o SliderRow de perda
-- Adicionar bloco informativo acima do resultado:
-  > "Estudos mostram que **54% dos pedidos de agendamento acontecem fora do horário comercial**. Considerando uma perda conservadora de **30%** por falta de resposta imediata, o impacto na sua clínica é:"
-- Fórmula: `atendimentosSemana * 4.33 * 0.30 * ticket`
+Usar o hook existente `useIsMobile()` (breakpoint 768px) em `src/pages/Index.tsx` para renderizar uma sequência de seções diferente no mobile — sem duplicar componentes, apenas escondendo/encurtando os que pesam mais.
 
-### 4. Fix do número cortado (R$ 3.050 cortando descendentes)
-Causa: `leading-none` + `gradient-text` com `background-clip: text` corta glifos com descendentes (ex: "5", "0" em algumas fontes display).
-Correção:
-- Trocar `leading-none` por `leading-[1.1]`
-- Adicionar `pb-2` (padding inferior) no `<p>` do valor
-- Garantir `overflow-visible` no container
+## Estrutura proposta
 
-### Arquivo
-- `src/components/landing/LossCalculator.tsx` — única edição
+**Desktop (mantém tudo como está):**
+Hero → LeadForm → Problems → HowItWorks → Visualization → Solutions → LossCalculator → SocialProof → FAQ → FinalCTA → Footer
 
-### Resultado visual final
-```
-[Slider] Atendimentos por semana: 25
-[Slider] Ticket médio: R$ 350
+**Mobile (versão enxuta):**
+1. Hero (versão mobile já compacta)
+2. LeadForm (conversão imediata)
+3. Problems (dor — essencial)
+4. Solutions (o que oferecemos — essencial)
+5. LossCalculator (gatilho de ROI — alta conversão)
+6. SocialProof (prova — apenas 2-3 depoimentos)
+7. FAQ compacto (top 3 perguntas)
+8. FinalCTA + Footer
 
-─────────────────────────────────
-ⓘ 54% dos pedidos chegam fora do
-  horário comercial. Com perda de
-  30% por falta de resposta:
+**Removidos no mobile:** HowItWorks e Visualization (seções mais longas/visuais, redundantes com Solutions no contexto mobile).
 
-Você está deixando na mesa todo mês:
-        R$ 11.366
-   [Quero recuperar esse valor →]
-```
+## Mudanças técnicas
+
+1. **`src/pages/Index.tsx`**
+   - Importar `useIsMobile`
+   - Renderizar condicionalmente as seções: no mobile, omitir `HowItWorks` e `Visualization`
+   - Passar prop `compact` (boolean) para `SocialProof` e `FAQ`
+
+2. **`src/components/landing/SocialProof.tsx`** (edição mínima)
+   - Aceitar prop `compact?: boolean`
+   - Quando `compact`, exibir apenas os 2-3 primeiros depoimentos e esconder métricas secundárias
+
+3. **`src/components/landing/FAQ.tsx`** (edição mínima)
+   - Aceitar prop `compact?: boolean`
+   - Quando `compact`, mostrar apenas as 3 perguntas mais importantes
+
+4. **`src/components/landing/Hero.tsx`** (ajustes pontuais)
+   - Esconder o card flutuante "Counter badge" final no mobile (já marginal)
+   - Confirmar que o mockup do WhatsApp tem altura razoável no mobile
+
+Nenhuma duplicação de componentes — só renderização condicional + props `compact`. Desktop não muda visualmente.
+
+## Resultado esperado
+
+- Página mobile ~40% mais curta
+- Mantém todos os gatilhos de conversão (Hero, LeadForm, Calculadora, CTA final)
+- Desktop 100% preservado
