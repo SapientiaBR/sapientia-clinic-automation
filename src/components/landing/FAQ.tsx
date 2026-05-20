@@ -30,8 +30,9 @@ export const faqEntries: [string, string][] = [
   ],
 ];
 
-const FAQ = () => {
+const FAQ = ({ compact = false }: { compact?: boolean }) => {
   const [open, setOpen] = useState<number | null>(0);
+  const entries = compact ? faqEntries.slice(0, 3) : faqEntries;
 
   return (
     <section id="faq" className="section-padding relative">
