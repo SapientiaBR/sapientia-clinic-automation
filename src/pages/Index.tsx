@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import { LeadForm } from "@/components/landing/LeadForm";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Problems = lazy(() => import("@/components/landing/Problems"));
 const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
@@ -36,6 +37,8 @@ const faqJsonLd = {
 };
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen bg-[var(--navy-0)] text-white overflow-x-hidden">
       <Helmet>
@@ -55,17 +58,16 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        {/* Form right after hero — mobile-first conversion priority */}
         <LeadForm />
 
         <Suspense fallback={<Fallback h="h-96" />}>
           <Problems />
-          <HowItWorks />
-          <Visualization />
+          {!isMobile && <HowItWorks />}
+          {!isMobile && <Visualization />}
           <Solutions />
           <LossCalculator />
           <SocialProof />
-          <FAQ />
+          <FAQ compact={isMobile} />
           <FinalCTA />
           <Footer />
         </Suspense>
