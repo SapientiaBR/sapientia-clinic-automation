@@ -8,6 +8,7 @@ const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c
 
 const schema = z.object({
   nome: z.string().trim().min(2, "Informe seu nome").max(100),
+  email: z.string().trim().email("Informe um e-mail válido").max(255),
   whatsapp: z.string().trim().min(8, "Informe um WhatsApp válido").max(20),
 });
 
@@ -19,12 +20,12 @@ const desafios = [
 ];
 const volumes = ["Menos de 50", "50 a 150", "150 a 300", "Mais de 300"];
 
-type FormData = { desafio: string; volume: string; nome: string; whatsapp: string };
+type FormData = { desafio: string; volume: string; nome: string; email: string; whatsapp: string };
 
 export const LeadForm = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
-  const [data, setData] = useState<FormData>({ desafio: "", volume: "", nome: "", whatsapp: "" });
+  const [data, setData] = useState<FormData>({ desafio: "", volume: "", nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,7 +35,7 @@ export const LeadForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    const parsed = schema.safeParse({ nome: data.nome, whatsapp: data.whatsapp });
+    const parsed = schema.safeParse({ nome: data.nome, email: data.email, whatsapp: data.whatsapp });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Verifique os dados");
       return;
@@ -42,6 +43,7 @@ export const LeadForm = () => {
     setSubmitting(true);
     const payload = new URLSearchParams({
       nome: data.nome,
+      email: data.email,
       whatsapp: data.whatsapp,
       desafio: data.desafio,
       volume: data.volume,
@@ -183,6 +185,14 @@ export const LeadForm = () => {
                     placeholder="Seu nome"
                     type="text"
                     maxLength={100}
+                  />
+                  <Input
+                    label="E-mail"
+                    value={data.email}
+                    onChange={(v) => setData((d) => ({ ...d, email: v }))}
+                    placeholder="seu@email.com"
+                    type="email"
+                    maxLength={255}
                   />
                   <Input
                     label="WhatsApp"
