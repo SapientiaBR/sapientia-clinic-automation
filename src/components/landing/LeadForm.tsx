@@ -35,7 +35,7 @@ export const LeadForm = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    const parsed = schema.safeParse({ nome: data.nome, whatsapp: data.whatsapp });
+    const parsed = schema.safeParse({ nome: data.nome, email: data.email, whatsapp: data.whatsapp });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Verifique os dados");
       return;
@@ -43,6 +43,7 @@ export const LeadForm = () => {
     setSubmitting(true);
     const payload = new URLSearchParams({
       nome: data.nome,
+      email: data.email,
       whatsapp: data.whatsapp,
       desafio: data.desafio,
       volume: data.volume,
