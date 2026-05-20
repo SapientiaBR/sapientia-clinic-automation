@@ -45,7 +45,7 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
         </div>
 
         <ul className="space-y-3">
-          {faqEntries.map(([q, a], i) => {
+          {entries.map(([q, a], i) => {
             const isOpen = open === i;
             return (
               <li
