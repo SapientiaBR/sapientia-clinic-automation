@@ -21,7 +21,7 @@ export function countUp(
   target: number,
   onUpdate: (v: number) => void,
   opts: { duration?: number; delay?: number; ease?: string } = {}
-) {
+): () => void {
   const proxy = { val: 0 };
   const tween = gsap.to(proxy, {
     val: target,
@@ -30,7 +30,9 @@ export function countUp(
     ease: opts.ease ?? EASE,
     onUpdate: () => onUpdate(Math.round(proxy.val)),
   });
-  return () => tween.kill();
+  return () => {
+    tween.kill();
+  };
 }
 
 /**
@@ -41,7 +43,7 @@ export function countTo(
   to: number,
   onUpdate: (v: number) => void,
   opts: { duration?: number; ease?: string } = {}
-) {
+): () => void {
   const proxy = { val: from };
   const tween = gsap.to(proxy, {
     val: to,
@@ -49,7 +51,9 @@ export function countTo(
     ease: opts.ease ?? EASE,
     onUpdate: () => onUpdate(Math.round(proxy.val)),
   });
-  return () => tween.kill();
+  return () => {
+    tween.kill();
+  };
 }
 
 export { gsap, ScrollTrigger };
