@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { X, Check } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { gsap, EASE } from "@/lib/animations";
 
 const left = [
   "Mensagens sem resposta por horas",
@@ -18,10 +20,31 @@ const right = [
 ];
 
 const Visualization = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelector("[data-heading]"), {
+        y: 60, opacity: 0, duration: 0.7, ease: EASE,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+      gsap.from(ref.current!.querySelector("[data-left]"), {
+        x: -40, opacity: 0, duration: 0.8, ease: EASE,
+        scrollTrigger: { trigger: ref.current, start: "top 75%" },
+      });
+      gsap.from(ref.current!.querySelector("[data-right]"), {
+        x: 40, opacity: 0, duration: 0.8, ease: EASE, delay: 0.15,
+        scrollTrigger: { trigger: ref.current, start: "top 75%" },
+      });
+    });
+    return () => mm.revert();
+  }, { scope: ref });
+
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-5xl">
-        <div className="text-center mb-14 max-w-3xl mx-auto">
+        <div className="text-center mb-14 max-w-3xl mx-auto" data-heading>
           <Eyebrow>// a diferença invisível</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             O mesmo dia. <em>Dois cenários completamente diferentes.</em>
@@ -29,11 +52,8 @@ const Visualization = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <motion.div
-            initial={{ opacity: 0, x: -30, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
+          <div
+            data-left
             className="card-base p-7 border-rose-500/20"
             style={{ background: "var(--navy-2)" }}
           >
@@ -51,13 +71,10 @@ const Visualization = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+          <div
+            data-right
             className="card-base p-7"
             style={{
               boxShadow: "0 0 40px rgba(16,185,129,0.08)",
@@ -81,7 +98,7 @@ const Visualization = () => {
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-emerald-300/70 mt-6">
               Agenda preenchida
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

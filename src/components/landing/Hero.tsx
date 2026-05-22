@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { gsap, EASE } from "@/lib/animations";
 
 const CTA_HREF = "#formulario";
 
@@ -11,42 +13,88 @@ const messages = [
 ];
 
 const floatCards = [
-  { pos: "top-2 -right-4 md:-right-10",   border: "border-emerald-400/40", label: "AGENDAMENTO",     value: "✅ Confirmado — Dr. Rodrigo · 15h", delay: 0.4 },
-  { pos: "top-1/2 -left-6 md:-left-14",   border: "border-cyan-300/40",    label: "TEMPO RESPOSTA",  value: "⚡ 3 segundos",                    delay: 0.7 },
-  { pos: "bottom-16 -right-4 md:-right-12", border: "border-purple-400/40",  label: "AGENDA HOJE",     value: "📅 +14 consultas",                 delay: 1.0 },
-  { pos: "-bottom-2 left-2 md:-left-10",   border: "border-cyan-400/40",    label: "STATUS",          value: "🤖 Online · 24/7",                 delay: 1.3 },
+  { pos: "top-2 -right-4 md:-right-10",     border: "border-emerald-400/40", label: "AGENDAMENTO",    value: "✅ Confirmado — Dr. Rodrigo · 15h", delay: 0.4, drift: 4 },
+  { pos: "top-1/2 -left-6 md:-left-14",     border: "border-cyan-300/40",    label: "TEMPO RESPOSTA", value: "⚡ 3 segundos",                     delay: 0.7, drift: 5 },
+  { pos: "bottom-16 -right-4 md:-right-12", border: "border-purple-400/40",  label: "AGENDA HOJE",    value: "📅 +14 consultas",                  delay: 1.0, drift: 6 },
+  { pos: "-bottom-2 left-2 md:-left-10",    border: "border-cyan-400/40",    label: "STATUS",         value: "🤖 Online · 24/7",                  delay: 1.3, drift: 7 },
 ];
 
 const Hero = () => {
+  const ref = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    const root = ref.current!;
+
+    // Left side reveal — tensão antes da headline
+    gsap.from(root.querySelector("[data-hero-left]"), {
+      y: 60, opacity: 0, filter: "blur(8px)", duration: 1.0, ease: EASE, delay: 0.7,
+    });
+
+    // Phone mockup
+    gsap.from(root.querySelector("[data-phone]"), {
+      scale: 0.92, opacity: 0, duration: 0.9, ease: EASE, delay: 0.9,
+    });
+
+    // Chat messages stagger
+    gsap.from(root.querySelectorAll("[data-msg]"), {
+      y: 10, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.2, delay: 1.4,
+    });
+
+    // Floating cards
+    floatCards.forEach((c, i) => {
+      const el = root.querySelector<HTMLElement>(`[data-float="${i}"]`);
+      if (!el) return;
+      gsap.from(el, { opacity: 0, y: 10, duration: 0.7, ease: EASE, delay: c.delay + 1.0 });
+      gsap.to(el, {
+        y: -c.drift,
+        duration: 4 + i,
+        ease: "power3.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: c.delay + 1.0,
+      });
+    });
+
+    // Background blobs (desktop)
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+      gsap.to(root.querySelector("[data-blob-1]"), {
+        x: 30, y: -20, duration: 7, ease: "power3.inOut", yoyo: true, repeat: -1,
+      });
+      gsap.to(root.querySelector("[data-blob-2]"), {
+        x: -20, y: 30, duration: 6, ease: "power3.inOut", yoyo: true, repeat: -1,
+      });
+    });
+
+    // Footer line
+    gsap.from(root.querySelector("[data-footnote]"), {
+      opacity: 0, duration: 0.7, ease: EASE, delay: 3.2,
+    });
+
+    return () => mm.revert();
+  }, { scope: ref });
+
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-overlay opacity-40 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        <motion.div
+        <div
+          data-blob-1
           className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full"
           style={{ background: "rgba(124,58,237,0.12)", filter: "blur(90px)" }}
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
+        <div
+          data-blob-2
           className="absolute -bottom-40 -left-40 w-[450px] h-[450px] rounded-full"
           style={{ background: "rgba(6,182,212,0.08)", filter: "blur(90px)" }}
-          animate={{ x: [0, -20, 0], y: [0, 30, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left */}
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(8px)", y: 20 }}
-            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl"
-          >
-            {/* Badge */}
+          <div data-hero-left className="max-w-2xl">
             <div
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-7"
               style={{
@@ -90,19 +138,13 @@ const Hero = () => {
             <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] mt-8">
               Implementação em 5 dias · Compatível com LGPD · Suporte incluído
             </p>
-          </motion.div>
+          </div>
 
-          {/* Right - WhatsApp mockup with floating cards */}
+          {/* Right - WhatsApp mockup */}
           <div className="relative flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-              className="relative w-[300px] sm:w-[340px]"
-            >
+            <div data-phone className="relative w-[300px] sm:w-[340px]">
               <div className="card-base rounded-3xl p-1">
                 <div className="bg-[var(--navy-1)] rounded-3xl overflow-hidden">
-                  {/* Phone header */}
                   <div className="gradient-brand px-4 py-3 flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold text-white">
                       IA
@@ -115,14 +157,11 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-                  {/* Chat */}
                   <div className="p-4 space-y-3 min-h-[300px] bg-[var(--navy-0)]/60">
                     {messages.map((m, i) => (
-                      <motion.div
+                      <div
                         key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 + i * 0.5, duration: 0.45 }}
+                        data-msg
                         className={`flex ${m.side === "right" ? "justify-end" : "justify-start"}`}
                       >
                         <div
@@ -135,30 +174,22 @@ const Hero = () => {
                         >
                           {m.text}
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 3 }}
+                    <p
+                      data-footnote
                       className="text-center font-mono text-[10px] text-cyan-300/60 pt-2"
                     >
                       23:47 · Respondido em 3 segundos
-                    </motion.p>
+                    </p>
                   </div>
                 </div>
               </div>
 
-              {/* Floating notification cards */}
               {floatCards.map((c, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: [0, -6, 0] }}
-                  transition={{
-                    opacity: { duration: 0.6, delay: c.delay },
-                    y: { duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: c.delay },
-                  }}
+                  data-float={i}
                   className={`absolute ${c.pos} bg-[var(--navy-2)] border ${c.border} rounded-xl px-3 py-2 shadow-2xl hidden md:block`}
                 >
                   <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
@@ -167,23 +198,17 @@ const Hero = () => {
                   <p className="font-sans text-xs font-bold text-white whitespace-nowrap mt-0.5">
                     {c.value}
                   </p>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Counter badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.2, duration: 0.6 }}
-          className="mt-12 text-center"
-        >
+        <div className="mt-12 text-center" data-footnote>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-300/50">
             Respondido em 3 segundos. Sua secretária levaria 47 minutos.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

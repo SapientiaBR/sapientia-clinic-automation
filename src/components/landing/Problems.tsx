@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import { Clock, Wallet, CalendarX } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { gsap, ScrollTrigger, EASE, countUp } from "@/lib/animations";
 
 type Stat = {
   value: number;
@@ -31,60 +32,58 @@ const stats: Stat[] = [
   },
 ];
 
-const useCounter = (target: number, run: boolean, duration = 1600) => {
-  const [v, setV] = useState(0);
-  useEffect(() => {
-    if (!run) return;
-    let raf = 0; const start = performance.now();
-    const step = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      setV(Math.round((1 - Math.pow(1 - p, 3)) * target));
-      if (p < 1) raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [target, run, duration]);
-  return v;
-};
-
-const StatCard = ({ s, i, run }: { s: Stat; i: number; run: boolean }) => {
-  const v = useCounter(s.value, run);
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-      animate={run ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-      transition={{ duration: 0.7, delay: i * 0.12 }}
-      className="card-base p-7"
-    >
-      <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-        style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
-      >
-        <s.Icon size={22} className="text-white" />
-      </div>
-      <p className="font-display font-bold text-[52px] leading-none gradient-text tabular-nums">
-        {s.prefix}{v.toLocaleString("pt-BR")}{s.suffix}
-      </p>
-      <p className="font-sans font-bold text-white text-[15px] mt-2">{s.label}</p>
-      <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-3">{s.desc}</p>
-    </motion.div>
-  );
-};
-
 const Problems = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [run, setRun] = useState(false);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setRun(true); io.disconnect(); } }, { threshold: 0.2 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+    });
+
+    mm.add("(max-width: 767px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 90%" },
+      });
+    });
+
+    // Counters
+    const counters = ref.current!.querySelectorAll<HTMLElement>("[data-counter]");
+    const kills: Array<() => void> = [];
+    const st = ScrollTrigger.create({
+      trigger: ref.current,
+      start: "top 75%",
+      once: true,
+      onEnter: () => {
+        counters.forEach((el) => {
+          const target = Number(el.dataset.counter || "0");
+          const prefix = el.dataset.prefix || "";
+          const suffix = el.dataset.suffix || "";
+          kills.push(
+            countUp(target, (v) => {
+              el.textContent = `${prefix}${v.toLocaleString("pt-BR")}${suffix}`;
+            })
+          );
+        });
+      },
+    });
+
+    return () => {
+      st.kill();
+      kills.forEach((k) => k());
+      mm.revert();
+    };
+  }, { scope: ref });
 
   return (
     <section id="problema" className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
+        <div className="text-center mb-14 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// o problema invisível</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Cada mensagem sem resposta é um <em>paciente que não volta.</em>
@@ -95,7 +94,26 @@ const Problems = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {stats.map((s, i) => <StatCard key={i} s={s} i={i} run={run} />)}
+          {stats.map((s, i) => (
+            <div key={i} className="card-base p-7" data-reveal>
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
+              >
+                <s.Icon size={22} className="text-white" />
+              </div>
+              <p
+                className="font-display font-bold text-[52px] leading-none gradient-text tabular-nums"
+                data-counter={s.value}
+                data-prefix={s.prefix ?? ""}
+                data-suffix={s.suffix ?? ""}
+              >
+                {s.prefix}0{s.suffix}
+              </p>
+              <p className="font-sans font-bold text-white text-[15px] mt-2">{s.label}</p>
+              <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-3">{s.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

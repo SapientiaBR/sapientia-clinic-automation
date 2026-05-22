@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { gsap, EASE } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
@@ -33,60 +34,97 @@ export const faqEntries: [string, string][] = [
 const FAQ = ({ compact = false }: { compact?: boolean }) => {
   const [open, setOpen] = useState<number | null>(0);
   const entries = compact ? faqEntries.slice(0, 3) : faqEntries;
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+    });
+    mm.add("(max-width: 767px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 90%" },
+      });
+    });
+    return () => mm.revert();
+  }, { scope: ref });
 
   return (
-    <section id="faq" className="section-padding relative">
+    <section id="faq" className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-reveal>
           <Eyebrow>// perguntas frequentes</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Suas dúvidas, <em>respondidas.</em>
           </h2>
         </div>
 
-        <ul className="space-y-3">
-          {entries.map(([q, a], i) => {
-            const isOpen = open === i;
-            return (
-              <li
-                key={i}
-                className="rounded-2xl overflow-hidden transition-colors"
-                style={{
-                  background: "var(--navy-2)",
-                  border: `1px solid ${isOpen ? "rgba(77,235,255,0.18)" : "rgba(255,255,255,0.06)"}`,
-                }}
-              >
-                <button
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
-                  aria-expanded={isOpen}
-                >
-                  <span className="font-display text-[18px] font-medium text-white">{q}</span>
-                  <span className="text-cyan-300 flex-shrink-0">
-                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                  </span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="overflow-hidden"
-                    >
-                      <p className="font-sans text-sm text-[var(--text-muted)] leading-[1.72] px-6 pb-6">
-                        {a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            );
-          })}
+        <ul className="space-y-3" data-reveal>
+          {entries.map(([q, a], i) => (
+            <FAQItem
+              key={i}
+              q={q}
+              a={a}
+              isOpen={open === i}
+              onToggle={() => setOpen(open === i ? null : i)}
+            />
+          ))}
         </ul>
       </div>
     </section>
+  );
+};
+
+const FAQItem = ({
+  q, a, isOpen, onToggle,
+}: { q: string; a: string; isOpen: boolean; onToggle: () => void }) => {
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+    if (isOpen) {
+      gsap.fromTo(
+        el,
+        { height: 0, opacity: 0 },
+        {
+          height: "auto", opacity: 1, duration: 0.6, ease: EASE,
+          onComplete: () => { el.style.height = "auto"; },
+        }
+      );
+    } else {
+      gsap.to(el, { height: 0, opacity: 0, duration: 0.6, ease: EASE });
+    }
+  }, [isOpen]);
+
+  return (
+    <li
+      className="rounded-2xl overflow-hidden transition-colors"
+      style={{
+        background: "var(--navy-2)",
+        border: `1px solid ${isOpen ? "rgba(77,235,255,0.18)" : "rgba(255,255,255,0.06)"}`,
+      }}
+    >
+      <button
+        onClick={onToggle}
+        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
+        aria-expanded={isOpen}
+      >
+        <span className="font-display text-[18px] font-medium text-white">{q}</span>
+        <span className="text-cyan-300 flex-shrink-0">
+          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        </span>
+      </button>
+      <div ref={panelRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
+        <p className="font-sans text-sm text-[var(--text-muted)] leading-[1.72] px-6 pb-6">
+          {a}
+        </p>
+      </div>
+    </li>
   );
 };
 
