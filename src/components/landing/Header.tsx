@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logoSI from "@/assets/logo-secretaria-invisivel.png";
+import { useLenis } from "@/components/global/LenisProvider";
 
 const CTA_HREF = "#formulario";
 
@@ -12,14 +13,24 @@ const navItems = [
 ];
 
 const Header = () => {
+  const lenis = useLenis();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!lenis) {
+      const onScroll = () => setScrolled(window.scrollY > 20);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+    const handler = ({ scroll }: { scroll: number }) => setScrolled(scroll > 20);
+    setScrolled(window.scrollY > 20);
+    lenis.on("scroll", handler);
+    return () => {
+      lenis.off("scroll", handler);
+    };
+  }, [lenis]);
 
   return (
     <header
