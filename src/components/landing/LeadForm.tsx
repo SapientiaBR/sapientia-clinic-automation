@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { gsap, EASE } from "@/lib/animations";
 
 const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
 
@@ -28,6 +29,9 @@ export const LeadForm = () => {
   const [data, setData] = useState<FormData>({ desafio: "", volume: "", nome: "", email: "", whatsapp: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const stepRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   const pickDesafio = (v: string) => { setData((d) => ({ ...d, desafio: v })); setStep(2); };
   const pickVolume = (v: string) => { setData((d) => ({ ...d, volume: v })); setStep(3); };
@@ -54,7 +58,7 @@ export const LeadForm = () => {
 
     try {
       const ctrl = new AbortController();
-      const t = setTimeout(() => ctrl.abort(), 4500);
+      const t = window.setTimeout(() => ctrl.abort(), 4500);
       await fetch(N8N_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
@@ -62,11 +66,10 @@ export const LeadForm = () => {
         signal: ctrl.signal,
         keepalive: true,
       });
-      clearTimeout(t);
+      window.clearTimeout(t);
       navigate("/obrigado");
       window.scrollTo(0, 0);
     } catch {
-      // Fire-and-forget: still redirect on transport errors per project memory
       navigate("/obrigado");
       window.scrollTo(0, 0);
     } finally {
@@ -76,10 +79,47 @@ export const LeadForm = () => {
 
   const progress = (step / 3) * 100;
 
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+    });
+    mm.add("(max-width: 767px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 90%" },
+      });
+    });
+    return () => mm.revert();
+  }, { scope: ref });
+
+  // Step transition animation
+  useEffect(() => {
+    if (!stepRef.current) return;
+    gsap.fromTo(
+      stepRef.current,
+      { opacity: 0, x: 20 },
+      { opacity: 1, x: 0, duration: 0.6, ease: EASE }
+    );
+  }, [step]);
+
+  // Progress bar animation
+  useEffect(() => {
+    if (!progressRef.current) return;
+    gsap.to(progressRef.current, {
+      width: `${progress}%`,
+      duration: 0.6,
+      ease: EASE,
+    });
+  }, [progress]);
+
   return (
-    <section id="formulario" className="section-padding relative scroll-mt-20">
+    <section id="formulario" className="section-padding relative scroll-mt-20" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10" data-reveal>
           <Eyebrow>// diagnóstico gratuito</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Descubra quanto sua clínica está <em>perdendo.</em>
@@ -95,6 +135,7 @@ export const LeadForm = () => {
             background: "var(--navy-2)",
             border: "1px solid rgba(77,235,255,0.18)",
           }}
+          data-reveal
         >
           {/* Progress */}
           <div className="flex items-center justify-between mb-6">
@@ -102,25 +143,21 @@ export const LeadForm = () => {
               Etapa {step} de 3
             </span>
             <div className="flex-1 mx-4 h-[2px] bg-white/5 rounded-full overflow-hidden">
-              <motion.div
+              <div
+                ref={progressRef}
                 className="h-full"
-                style={{ background: "linear-gradient(90deg, #7c3aed, #4debff)" }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.4 }}
+                style={{
+                  background: "linear-gradient(90deg, #7c3aed, #4debff)",
+                  width: `${progress}%`,
+                }}
               />
             </div>
             <span className="font-mono text-[11px] text-cyan-300/60">{Math.round(progress)}%</span>
           </div>
 
-          <AnimatePresence mode="wait">
+          <div ref={stepRef} key={step}>
             {step === 1 && (
-              <motion.div
-                key="s1"
-                initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, x: -20, filter: "blur(6px)" }}
-                transition={{ duration: 0.35 }}
-              >
+              <>
                 <h3 className="font-display text-[22px] font-semibold text-white mb-6">
                   Qual é o maior desafio do atendimento hoje?
                 </h3>
@@ -129,17 +166,11 @@ export const LeadForm = () => {
                     <Option key={d} label={d} selected={data.desafio === d} onClick={() => pickDesafio(d)} />
                   ))}
                 </div>
-              </motion.div>
+              </>
             )}
 
             {step === 2 && (
-              <motion.div
-                key="s2"
-                initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, x: -20, filter: "blur(6px)" }}
-                transition={{ duration: 0.35 }}
-              >
+              <>
                 <button
                   type="button"
                   onClick={() => setStep(1)}
@@ -155,18 +186,11 @@ export const LeadForm = () => {
                     <Option key={v} label={v} selected={data.volume === v} onClick={() => pickVolume(v)} />
                   ))}
                 </div>
-              </motion.div>
+              </>
             )}
 
             {step === 3 && (
-              <motion.form
-                key="s3"
-                initial={{ opacity: 0, x: 20, filter: "blur(6px)" }}
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, x: -20, filter: "blur(6px)" }}
-                transition={{ duration: 0.35 }}
-                onSubmit={onSubmit}
-              >
+              <form onSubmit={onSubmit}>
                 <button
                   type="button"
                   onClick={() => setStep(2)}
@@ -222,9 +246,9 @@ export const LeadForm = () => {
                     "Receber diagnóstico gratuito →"
                   )}
                 </button>
-              </motion.form>
+              </form>
             )}
-          </AnimatePresence>
+          </div>
 
           <p className="font-mono text-[11px] text-[var(--text-dim)] text-center mt-8">
             🔒 Dados protegidos · Compatível com LGPD · Zero spam

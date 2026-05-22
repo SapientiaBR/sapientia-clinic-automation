@@ -1,25 +1,39 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import Eyebrow from "@/components/ui/Eyebrow";
+import { gsap, EASE } from "@/lib/animations";
 
 const SocialProof = () => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 60, opacity: 0, duration: 0.8, ease: EASE, stagger: 0.2,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+    });
+    mm.add("(max-width: 767px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 90%" },
+      });
+    });
+    return () => mm.revert();
+  }, { scope: ref });
+
   return (
-    <section id="depoimentos" className="section-padding relative">
+    <section id="depoimentos" className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        <div className="text-center mb-12 max-w-2xl mx-auto">
+        <div className="text-center mb-12 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// depoimentos</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             O que médicos dizem depois de <em>automatizar.</em>
           </h2>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-          className="card-base p-8 sm:p-12 relative overflow-hidden"
-        >
-          {/* radial glow */}
+        <div className="card-base p-8 sm:p-12 relative overflow-hidden" data-reveal>
           <div
             className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full pointer-events-none"
             style={{ background: "rgba(124,58,237,0.06)", filter: "blur(40px)" }}
@@ -58,7 +72,7 @@ const SocialProof = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

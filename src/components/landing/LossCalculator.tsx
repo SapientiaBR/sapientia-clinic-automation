@@ -1,56 +1,56 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useGSAP } from "@gsap/react";
 import { Slider } from "@/components/ui/slider";
 import Eyebrow from "@/components/ui/Eyebrow";
 import MagneticButton from "@/components/ui/MagneticButton";
-
-const useRafCount = (target: number, duration = 700) => {
-  const [v, setV] = useState(target);
-  const fromRef = useRef(target);
-  useEffect(() => {
-    const from = fromRef.current;
-    const start = performance.now();
-    let raf = 0;
-    const step = (now: number) => {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setV(Math.round(from + (target - from) * eased));
-      if (p < 1) raf = requestAnimationFrame(step);
-      else fromRef.current = target;
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [target, duration]);
-  return v;
-};
+import { gsap, EASE, countTo } from "@/lib/animations";
 
 const PERDA = 0.30;
 const SEMANAS_POR_MES = 4.33;
 
 const LossCalculator = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const [atendSemana, setAtendSemana] = useState(35);
   const [ticket, setTicket] = useState(500);
 
   const result = Math.round(atendSemana * SEMANAS_POR_MES * PERDA * ticket);
-  const animated = useRafCount(result);
+  const [displayed, setDisplayed] = useState(result);
+  const prevRef = useRef(result);
+
+  useEffect(() => {
+    const kill = countTo(prevRef.current, result, setDisplayed, { duration: 0.7 });
+    prevRef.current = result;
+    return kill;
+  }, [result]);
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+      });
+    });
+    mm.add("(max-width: 767px)", () => {
+      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
+        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
+        scrollTrigger: { trigger: ref.current, start: "top 90%" },
+      });
+    });
+    return () => mm.revert();
+  }, { scope: ref });
 
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-reveal>
           <Eyebrow>// calculadora</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Quanto sua clínica está <em>deixando na mesa?</em>
           </h2>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7 }}
-          className="card-base p-8 sm:p-12 overflow-visible"
-        >
+        <div className="card-base p-8 sm:p-12 overflow-visible" data-reveal>
           <SliderRow
             label="Quantos atendimentos por semana?"
             value={atendSemana}
@@ -77,7 +77,7 @@ const LossCalculator = () => {
               Você está deixando na mesa todo mês:
             </p>
             <p className="font-display font-bold text-[56px] sm:text-[72px] lg:text-[80px] leading-[1.15] pb-3 gradient-text tabular-nums overflow-visible">
-              R$ {animated.toLocaleString("pt-BR")}
+              R$ {displayed.toLocaleString("pt-BR")}
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const LossCalculator = () => {
               Quero recuperar esse valor →
             </MagneticButton>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
