@@ -61,6 +61,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <PositioningStatement />
         <LeadForm />
 
         <Suspense fallback={<Fallback h="h-96" />}>
@@ -68,6 +69,7 @@ const Index = () => {
           {!isMobile && <HowItWorks />}
           {!isMobile && <Visualization />}
           <Solutions />
+          <Method />
           <LossCalculator />
           <SocialProof />
           <FAQ compact={isMobile} />
