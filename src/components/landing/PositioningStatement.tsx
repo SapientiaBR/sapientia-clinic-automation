@@ -13,11 +13,20 @@ const PositioningStatement = () => {
   }, { scope: ref });
 
   return (
-    <section ref={ref} className="py-20 sm:py-28 relative">
+    <section ref={ref} className="py-12 md:py-20 lg:py-28 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
         <p
           data-reveal
-          className="font-display text-2xl sm:text-3xl lg:text-[40px] leading-[1.2] font-semibold text-white text-balance"
+          className="md:hidden font-display text-xl leading-[1.25] font-semibold text-white text-balance"
+        >
+          Pacientes sem resposta escolhem outra clínica. A{" "}
+          <em className="gradient-text not-italic font-bold">Secretária Invisível</em>{" "}
+          responde, qualifica e agenda pelo WhatsApp{" "}
+          <span className="text-cyan-300">24/7</span>.
+        </p>
+        <p
+          data-reveal
+          className="hidden md:block font-display text-2xl sm:text-3xl lg:text-[40px] leading-[1.2] font-semibold text-white text-balance"
         >
           A Secretária Invisível é uma{" "}
           <em className="gradient-text not-italic font-bold">infraestrutura de atendimento</em>{" "}

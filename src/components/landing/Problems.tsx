@@ -16,18 +16,18 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    value: 63, suffix: "%", label: "podem desistir em 5 minutos",
-    desc: "Até 63% dos pacientes não esperam mais que 5 min por uma resposta antes de procurar outra clínica.",
+    value: 63, suffix: "%", label: "pacientes vão embora em 5 min",
+    desc: "63% dos pacientes não esperam mais que 5 minutos por resposta — ligam pra próxima clínica.",
     Icon: Clock, glow: "rgba(124,58,237,0.25)",
   },
   {
-    value: 2800, prefix: "R$ ", label: "/mês de secretária CLT",
-    desc: "Custo médio de uma secretária com encargos. Sem contar férias, faltas e treinamento.",
+    value: 2800, prefix: "R$ ", label: "/mês de secretária sobrecarregada",
+    desc: "Custo médio de uma secretária CLT — e mesmo assim o WhatsApp segue sem resposta fora do horário.",
     Icon: Wallet, glow: "rgba(6,182,212,0.25)",
   },
   {
-    value: 34, suffix: "%", label: "faltas podem chegar a isso",
-    desc: "Sem confirmação automática, faltas em consultas marcadas podem chegar a 34% — cadeira vazia, prejuízo direto.",
+    value: 34, suffix: "%", label: "faltas sem confirmação",
+    desc: "Sem lembrete automático, as faltas podem chegar a 34% — agenda com buracos e dinheiro na mesa.",
     Icon: CalendarX, glow: "rgba(77,235,255,0.25)",
   },
 ];

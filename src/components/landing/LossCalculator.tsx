@@ -41,18 +41,18 @@ const LossCalculator = () => {
   }, { scope: ref });
 
   return (
-    <section id="calculadora" className="section-padding relative" ref={ref}>
+    <section id="calculadora" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        <div className="text-center mb-12" data-reveal>
+        <div className="text-center mb-8 md:mb-12" data-reveal>
           <Eyebrow>// calculadora</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Quanto sua clínica está <em>deixando na mesa?</em>
           </h2>
         </div>
 
-        <div className="card-base p-8 sm:p-12 overflow-visible" data-reveal>
+        <div className="card-base p-6 sm:p-12 overflow-visible" data-reveal>
           <SliderRow
-            label="Quantos atendimentos por semana?"
+            label="Atendimentos por semana"
             value={atendSemana}
             display={atendSemana.toString()}
             onChange={setAtendSemana}
@@ -66,24 +66,30 @@ const LossCalculator = () => {
             min={100} max={2000} step={50}
           />
 
-          <div className="mt-2 mb-6 p-5 rounded-xl border border-cyan-300/15 bg-cyan-300/[0.03]">
+          {/* Desktop: bloco completo de estudo */}
+          <div className="hidden md:block mt-2 mb-6 p-5 rounded-xl border border-cyan-300/15 bg-cyan-300/[0.03]">
             <p className="font-sans text-sm text-white/75 leading-relaxed">
               Estudos mostram que <span className="text-cyan-300 font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-cyan-300 font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
             </p>
           </div>
 
-          <div className="text-center pt-6 border-t border-white/5 overflow-visible">
-            <p className="font-sans text-sm text-[var(--text-muted)] mb-3">
+          {/* Mobile: linha discreta */}
+          <p className="md:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-cyan-300/70 mt-1 mb-4 text-center">
+            Cálculo conservador · 30% de perda
+          </p>
+
+          <div className="text-center pt-5 md:pt-6 border-t border-white/5 overflow-visible">
+            <p className="font-sans text-[13px] md:text-sm text-[var(--text-muted)] mb-2 md:mb-3">
               Você está deixando na mesa todo mês:
             </p>
-            <p className="font-display font-bold text-[56px] sm:text-[72px] lg:text-[80px] leading-[1.15] pb-3 gradient-text tabular-nums overflow-visible">
+            <p className="font-display font-bold text-[44px] sm:text-[72px] lg:text-[80px] leading-[1.15] pb-3 gradient-text tabular-nums overflow-visible">
               R$ {displayed.toLocaleString("pt-BR")}
             </p>
           </div>
 
-          <div className="flex justify-center mt-8">
-            <MagneticButton href="#formulario" variant="primary" className="animate-pulse">
-              Quero recuperar esse valor →
+          <div className="flex justify-center mt-6 md:mt-8">
+            <MagneticButton href="#formulario" variant="primary" className="animate-pulse whitespace-nowrap">
+              <span className="whitespace-nowrap">Quero recuperar esse valor →</span>
             </MagneticButton>
           </div>
         </div>

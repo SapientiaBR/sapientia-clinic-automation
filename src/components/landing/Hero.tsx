@@ -75,7 +75,7 @@ const Hero = () => {
   }, { scope: ref });
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-center pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-overlay opacity-40 pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none hidden lg:block">
@@ -129,16 +129,17 @@ const Hero = () => {
               Um produto Sapient.IA
             </p>
 
-            <p className="font-sans text-base text-[var(--text-muted)] leading-[1.7] max-w-[460px] mt-6 md:mt-0 mb-8 md:mb-10">
-              A Secretária Invisível responde pacientes no WhatsApp, agenda consultas e confirma presença — mesmo fora do horário comercial.
+            <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] leading-[1.6] md:leading-[1.7] max-w-[460px] mt-4 md:mt-0 mb-6 md:mb-10">
+              <span className="md:hidden">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp.</span>
+              <span className="hidden md:inline">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp, mesmo quando sua equipe não está disponível.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <MagneticButton href={CTA_HREF} variant="primary">
-                Quero parar de perder pacientes
+              <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
+                Quero recuperar pacientes
               </MagneticButton>
-              <MagneticButton href="#solucoes" variant="ghost" className="hidden md:inline-flex">
-                Ver uma conversa real →
+              <MagneticButton href="#solucoes" variant="ghost" className="hidden md:inline-flex whitespace-nowrap">
+                Ver conversa real →
               </MagneticButton>
             </div>
 
@@ -149,9 +150,8 @@ const Hero = () => {
               Ver conversa real →
             </a>
 
-            <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] mt-8">
-              <span className="md:hidden">Sem trocar seu WhatsApp. Sem app novo.</span>
-              <span className="hidden md:inline">Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente</span>
+            <p className="hidden md:block font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] mt-8">
+              Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente
             </p>
           </div>
 
@@ -219,7 +219,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center" data-footnote>
+        <div className="hidden md:block mt-12 text-center" data-footnote>
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-300/50">
             Respondido em 3 segundos. Sua secretária levaria 47 minutos.
           </p>
