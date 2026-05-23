@@ -64,6 +64,23 @@ const Index = () => {
         <PositioningStatement />
         <LeadForm />
 
+        <aside className="md:hidden container mx-auto px-4 pb-10">
+          <div className="card-base p-5 max-w-md mx-auto text-center">
+            <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-cyan-300/70 mb-3">
+              // de onde vem esse número?
+            </p>
+            <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">
+              Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento.
+            </p>
+            <a
+              href="#calculadora"
+              className="inline-block mt-4 font-sans text-sm text-cyan-300 hover:underline underline-offset-4"
+            >
+              Calcule a sua →
+            </a>
+          </div>
+        </aside>
+
         <Suspense fallback={<Fallback h="h-96" />}>
           <Problems />
           {!isMobile && <HowItWorks />}

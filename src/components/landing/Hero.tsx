@@ -107,7 +107,8 @@ const Hero = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-300" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-purple-300">
-                ✦ IA conversacional para clínicas — feita por médicos, com a Sapient.ia
+                <span className="md:hidden">IA 24/7 para clínicas</span>
+                <span className="hidden md:inline">✦ IA conversacional para clínicas — feita por médicos, com a Sapient.ia</span>
               </span>
             </div>
 
@@ -119,30 +120,38 @@ const Hero = () => {
 
             <a
               href="#calculadora"
-              className="block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-dim)] hover:text-cyan-300 transition-colors mt-4 max-w-[460px]"
+              className="hidden md:block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-dim)] hover:text-cyan-300 transition-colors mt-4 max-w-[460px]"
             >
               Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento. Calcule a sua ↓
             </a>
 
-            <p className="font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-4 mb-6">
+            <p className="hidden md:block font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-4 mb-6">
               Um produto Sapient.IA
             </p>
 
-            <p className="font-sans text-base text-[var(--text-muted)] leading-[1.7] max-w-[460px] mb-10">
-              Ela responde pacientes no WhatsApp, entende a intenção, sugere horários, agenda consultas e confirma presença automaticamente — mesmo fora do horário comercial.
+            <p className="font-sans text-base text-[var(--text-muted)] leading-[1.7] max-w-[460px] mt-6 md:mt-0 mb-8 md:mb-10">
+              A Secretária Invisível responde pacientes no WhatsApp, agenda consultas e confirma presença — mesmo fora do horário comercial.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
               <MagneticButton href={CTA_HREF} variant="primary">
                 Quero parar de perder pacientes
               </MagneticButton>
-              <MagneticButton href="#solucoes" variant="ghost">
+              <MagneticButton href="#solucoes" variant="ghost" className="hidden md:inline-flex">
                 Ver uma conversa real →
               </MagneticButton>
             </div>
 
+            <a
+              href="#solucoes"
+              className="md:hidden inline-block mt-4 font-sans text-sm text-cyan-300/80 underline-offset-4 hover:underline"
+            >
+              Ver conversa real →
+            </a>
+
             <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] mt-8">
-              Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente
+              <span className="md:hidden">Sem trocar seu WhatsApp. Sem app novo.</span>
+              <span className="hidden md:inline">Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente</span>
             </p>
           </div>
 

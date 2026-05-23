@@ -1,74 +1,60 @@
-# Plano: Refinamentos de Copy & Posicionamento
+# Plano: Hero Mobile Enxuto
 
-Aplicar as melhorias de copy sugeridas, sem mexer em estrutura/animação.
+Aplicar variações **só em mobile** (`< 768px`) usando classes responsivas do Tailwind — desktop continua igual.
 
-## 1. Hero (`src/components/landing/Hero.tsx`)
+## 1. Badge (`Hero.tsx`)
 
-- **Subtítulo** (substituir): 
-  > "Ela responde pacientes no WhatsApp, entende a intenção, sugere horários, agenda consultas e confirma presença automaticamente, mesmo fora do horário comercial."
-- **Linha de prova** logo abaixo dos CTAs (substitui a linha mono atual "Implementação em 5 dias..."):
-  > "Implementação em poucos dias. Sem trocar seu WhatsApp. Sem app novo para o paciente."
-- **Microtexto sob o R$23.000/mês** (novo, discreto, font-mono pequeno):
-  > "Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento. Calcule a sua ↓" (link âncora para `#calculadora`)
+Texto condicional via spans com `hidden md:inline` / `md:hidden`:
+- **Mobile:** `IA 24/7 para clínicas`
+- **Desktop:** `✦ IA conversacional para clínicas — feita por médicos, com a Sapient.ia`
 
-## 2. Problems (`src/components/landing/Problems.tsx`)
+## 2. Headline
+Sem mudança.
 
-Suavizar claims sem fonte:
+## 3. Bloco abaixo da headline
 
-- "63% desistem em 5 minutos" → **"Até 63% podem desistir em 5 minutos"**
-- "34% de faltas sem confirmação" → **"Faltas sem confirmação podem chegar a 34%"**
-- Descrição da secretária CLT: manter (é fato de mercado).
-- Adicionar microtexto no rodapé da seção:
-  > "Estimativas baseadas em benchmarks de mercado de clínicas brasileiras e na operação dos nossos clientes."
+Reorganizar usando classes responsivas, **sem duplicar markup desnecessário**:
 
-## 3. Solutions (`src/components/landing/Solutions.tsx`) — virar "sistema"
+- **Microtexto da estimativa** (`<a href="#calculadora">`): adicionar `hidden md:block` → some no mobile.
+- **"Um produto Sapient.IA"**: adicionar `hidden md:block` → some no mobile.
+- **Subtítulo** (parágrafo principal): trocar o texto por uma versão única que funciona nos dois:
+  > "A Secretária Invisível responde pacientes no WhatsApp, agenda consultas e confirma presença — mesmo fora do horário comercial."
+  
+  (Versão atual mais longa fica como fallback desktop não é necessária; essa frase mais curta já está alinhada com o tom e funciona bem nos dois breakpoints.)
 
-Manter título "Infraestrutura. Não chatbot.", mas:
+## 4. CTAs
 
-- Subtítulo novo:
-  > "Seis camadas que trabalham juntas — WhatsApp, agenda, lembretes, reativação, painel e suporte humano. Não é um bot solto; é uma operação."
-- Expandir de 4 para **6 cards**, adicionando:
-  - **Painel e acompanhamento** — "Veja todas as conversas, métricas de agendamento e relatório semanal. Você no controle, sem operar."
-  - **Suporte humano dedicado** — "Time da Sapient.IA ajustando fluxos, tom de voz e regras toda semana. Você não fica sozinho com a IA."
-- Grid: `md:grid-cols-2 lg:grid-cols-3`.
+- **Botão primário** "Quero parar de perder pacientes": sempre visível.
+- **Botão "Ver uma conversa real →"**: 
+  - No mobile, transformar em **link pequeno** abaixo do botão principal (não um segundo botão grande).
+  - No desktop, manter como `MagneticButton ghost` lado a lado.
+  
+  Implementação: dois elementos — `<MagneticButton variant="ghost" className="hidden md:inline-flex">` para desktop e um `<a class="md:hidden text-sm text-cyan-300/80 underline-offset-4 hover:underline">Ver conversa real →</a>` para mobile.
 
-## 4. Novo bloco: "Método Agenda Invisível"
+## 5. Linha final (mono)
 
-Criar `src/components/landing/Method.tsx` e inserir em `Index.tsx` **entre Solutions e LossCalculator**.
+Trocar texto e simplificar:
+- **Mobile:** `Sem trocar seu WhatsApp. Sem app novo.`
+- **Desktop:** `Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente`
 
-Conteúdo (5 passos numerados em grid horizontal/vertical):
+Usar dois `<span>` com `hidden md:inline` / `md:hidden` dentro do mesmo `<p>`.
 
-1. **Captura a intenção** do paciente assim que ele manda mensagem.
-2. **Qualifica** urgência, tipo de consulta e convênio/particular.
-3. **Agenda** no melhor horário disponível da sua agenda real.
-4. **Confirma** com lembrete automático e reduz faltas.
-5. **Reativa** quem sumiu há semanas com mensagens que parecem conversa.
+## 6. "De onde vem esse número?" (mobile-only)
 
-Visual: cards numerados, mesmo padrão `card-base`, com linha/seta de conexão (desktop) usando GSAP reveal por stagger conforme regras.
+Como a explicação da estimativa some do Hero no mobile, **criar bloco discreto logo após o LeadForm e antes da seção Problems**, visível **apenas no mobile** (`md:hidden`):
 
-Eyebrow: `// método agenda invisível`
-Headline: `Cinco passos. Zero fricção. Agenda cheia.`
+- Pequeno card centralizado em `card-base p-5`
+- Eyebrow: `// de onde vem esse número?`
+- Texto: "Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento."
+- Link âncora: `Calcule a sua →` apontando para `#calculadora`.
 
-## 5. Posicionamento estratégico
-
-Adicionar a frase-âncora como **bloco intermediário** logo após o Hero (antes do LeadForm), em destaque tipográfico (display, ~32px, centralizado, max-w-3xl):
-
-> "A Secretária Invisível é uma **infraestrutura de atendimento** que transforma mensagens perdidas no WhatsApp em consultas **agendadas, confirmadas e lembradas**."
-
-Pode ir num componente leve inline ou um `PositioningStatement.tsx` pequeno.
+Pode ser inline em `Index.tsx` ou um pequeno componente `EstimateNote.tsx`. Vou preferir inline para não criar arquivo a mais.
 
 ## Fora de escopo
-
-- Sem mudança em animações (já seguem regras GSAP+Lenis).
-- Sem mudança em LeadForm, FAQ, Footer, Calculadora.
-- Sem novas imagens.
+- Sem mudanças no desktop além das já listadas (badge, subtítulo unificado, linha final).
+- Sem mexer em animações GSAP — os elementos já existentes mantêm seus `data-` attributes.
+- Sem mexer em Problems, Solutions, Method, Calculadora etc.
 
 ## Arquivos afetados
-
 - `src/components/landing/Hero.tsx` (edit)
-- `src/components/landing/Problems.tsx` (edit)
-- `src/components/landing/Solutions.tsx` (edit — copy + 2 cards)
-- `src/components/landing/Method.tsx` (novo)
-- `src/components/landing/PositioningStatement.tsx` (novo)
-- `src/pages/Index.tsx` (inserir 2 seções)
-- `src/components/landing/LossCalculator.tsx` (adicionar `id="calculadora"` se ainda não tiver, para o link do microtexto do Hero)
+- `src/pages/Index.tsx` (inserir bloco mobile-only "De onde vem esse número?")
