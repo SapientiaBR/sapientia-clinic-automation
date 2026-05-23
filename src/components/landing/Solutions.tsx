@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Clock, CalendarCheck, BellRing, Sparkles, LayoutDashboard, HeartHandshake } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, EASE } from "@/lib/animations";
+import { revealOnScroll } from "@/lib/animations";
 
 const features = [
   {
