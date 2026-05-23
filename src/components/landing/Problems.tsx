@@ -96,15 +96,14 @@ const Problems = () => {
         <div className="grid md:grid-cols-3 gap-3 md:gap-6">
           {stats.map((s, i) => (
             <div key={i} className="card-base p-4 md:p-7" data-reveal>
-              <div className="flex items-center gap-4 md:block">
+              <div className="grid grid-cols-[auto_1fr] items-center gap-4 md:block md:gap-0">
                 <div
-                  className="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-xl flex items-center justify-center md:mb-5"
+                  className="w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center md:mb-5"
                   style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
                 >
-                  <s.Icon size={20} className="text-white md:hidden" />
-                  <s.Icon size={22} className="text-white hidden md:block" />
+                  <s.Icon size={22} className="text-white" />
                 </div>
-                <div className="flex-1 md:contents">
+                <div>
                   <p
                     className="font-display font-bold text-[28px] md:text-[52px] leading-none gradient-text tabular-nums"
                     data-counter={s.value}
