@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, EASE } from "@/lib/animations";
+import { revealOnScroll } from "@/lib/animations";
 
 const steps = [
   {
