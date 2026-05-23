@@ -81,7 +81,7 @@ const Problems = () => {
   }, { scope: ref });
 
   return (
-    <section id="problema" className="py-12 md:section-padding relative" ref={ref}>
+    <section id="problema" className="py-12 pb-16 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-6 md:mb-14 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// o problema invisível</Eyebrow>
@@ -96,28 +96,32 @@ const Problems = () => {
         <div className="grid md:grid-cols-3 gap-3 md:gap-6">
           {stats.map((s, i) => (
             <div key={i} className="card-base p-4 md:p-7" data-reveal>
-              <div
-                className="w-9 h-9 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-2 md:mb-5"
-                style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
-              >
-                <s.Icon size={18} className="text-white md:hidden" />
-                <s.Icon size={22} className="text-white hidden md:block" />
+              <div className="flex items-center gap-4 md:block">
+                <div
+                  className="w-11 h-11 md:w-12 md:h-12 shrink-0 rounded-xl flex items-center justify-center md:mb-5"
+                  style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
+                >
+                  <s.Icon size={20} className="text-white md:hidden" />
+                  <s.Icon size={22} className="text-white hidden md:block" />
+                </div>
+                <div className="flex-1 md:contents">
+                  <p
+                    className="font-display font-bold text-[28px] md:text-[52px] leading-none gradient-text tabular-nums"
+                    data-counter={s.value}
+                    data-prefix={s.prefix ?? ""}
+                    data-suffix={s.suffix ?? ""}
+                  >
+                    {s.prefix}0{s.suffix}
+                  </p>
+                  <p className="font-sans font-bold text-white text-[12px] md:text-[15px] mt-1 md:mt-2 leading-tight">{s.label}</p>
+                </div>
               </div>
-              <p
-                className="font-display font-bold text-[32px] md:text-[52px] leading-none gradient-text tabular-nums"
-                data-counter={s.value}
-                data-prefix={s.prefix ?? ""}
-                data-suffix={s.suffix ?? ""}
-              >
-                {s.prefix}0{s.suffix}
-              </p>
-              <p className="font-sans font-bold text-white text-[13px] md:text-[15px] mt-1 md:mt-2">{s.label}</p>
-              <p className="hidden md:block font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-3">{s.desc}</p>
+              <p className="font-sans text-[13px] md:text-sm text-[var(--text-muted)] leading-snug md:leading-relaxed mt-3">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] text-center mt-5 md:mt-10 max-w-2xl mx-auto" data-reveal>
+        <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] text-center mt-8 md:mt-10 max-w-2xl mx-auto relative z-10" data-reveal>
           Estimativas baseadas em benchmarks de mercado de clínicas brasileiras e na operação dos nossos clientes.
         </p>
       </div>
