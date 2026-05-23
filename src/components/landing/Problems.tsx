@@ -16,8 +16,8 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    value: 63, suffix: "%", label: "desistem em 5 minutos",
-    desc: "Dos pacientes não esperam mais que 5 min por uma resposta antes de procurar outra clínica.",
+    value: 63, suffix: "%", label: "podem desistir em 5 minutos",
+    desc: "Até 63% dos pacientes não esperam mais que 5 min por uma resposta antes de procurar outra clínica.",
     Icon: Clock, glow: "rgba(124,58,237,0.25)",
   },
   {
@@ -26,8 +26,8 @@ const stats: Stat[] = [
     Icon: Wallet, glow: "rgba(6,182,212,0.25)",
   },
   {
-    value: 34, suffix: "%", label: "de faltas sem confirmação",
-    desc: "Consultas marcadas sem confirmação automática viram cadeira vazia e prejuízo direto.",
+    value: 34, suffix: "%", label: "faltas podem chegar a isso",
+    desc: "Sem confirmação automática, faltas em consultas marcadas podem chegar a 34% — cadeira vazia, prejuízo direto.",
     Icon: CalendarX, glow: "rgba(77,235,255,0.25)",
   },
 ];
@@ -115,6 +115,10 @@ const Problems = () => {
             </div>
           ))}
         </div>
+
+        <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] text-center mt-10 max-w-2xl mx-auto" data-reveal>
+          Estimativas baseadas em benchmarks de mercado de clínicas brasileiras e na operação dos nossos clientes.
+        </p>
       </div>
     </section>
   );

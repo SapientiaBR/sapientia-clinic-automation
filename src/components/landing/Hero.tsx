@@ -117,13 +117,19 @@ const Hero = () => {
               em silêncio.
             </h1>
 
+            <a
+              href="#calculadora"
+              className="block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-dim)] hover:text-cyan-300 transition-colors mt-4 max-w-[460px]"
+            >
+              Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento. Calcule a sua ↓
+            </a>
+
             <p className="font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-4 mb-6">
               Um produto Sapient.IA
             </p>
 
             <p className="font-sans text-base text-[var(--text-muted)] leading-[1.7] max-w-[460px] mb-10">
-              A Secretária Invisível atende, qualifica e agenda pelo WhatsApp em menos de 10 segundos
-              — às 14h ou às 3h da manhã. Você só vê a agenda lotando.
+              Ela responde pacientes no WhatsApp, entende a intenção, sugere horários, agenda consultas e confirma presença automaticamente — mesmo fora do horário comercial.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -136,7 +142,7 @@ const Hero = () => {
             </div>
 
             <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] mt-8">
-              Implementação em 5 dias · Compatível com LGPD · Suporte incluído
+              Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente
             </p>
           </div>
 

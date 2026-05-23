@@ -1,29 +1,39 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { Clock, CalendarCheck, BellRing, Sparkles } from "lucide-react";
+import { Clock, CalendarCheck, BellRing, Sparkles, LayoutDashboard, HeartHandshake } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { gsap, EASE } from "@/lib/animations";
 
 const features = [
   {
     Icon: Clock,
-    title: "Atendimento 24/7",
+    title: "Atendimento 24/7 no WhatsApp",
     desc: "Domingo às 23h, feriado, hora do almoço. Responde em segundos — toda vez, todo dia.",
   },
   {
     Icon: CalendarCheck,
-    title: "Agendamento inteligente",
-    desc: "Lê sua agenda, sugere os melhores horários, evita choques.",
+    title: "Agenda integrada",
+    desc: "Lê sua agenda real, sugere os melhores horários, evita choques e marca no calendário.",
   },
   {
     Icon: BellRing,
-    title: "Confirmação automática",
+    title: "Lembretes e confirmação",
     desc: "Lembrete 24h antes. Reagendamento sem fricção. Faltas em queda.",
   },
   {
     Icon: Sparkles,
     title: "Reativação de base inativa",
     desc: "Pacientes que sumiram voltam — em campanhas que parecem conversa, não spam.",
+  },
+  {
+    Icon: LayoutDashboard,
+    title: "Painel e acompanhamento",
+    desc: "Veja todas as conversas, métricas de agendamento e relatório semanal. Você no controle, sem operar.",
+  },
+  {
+    Icon: HeartHandshake,
+    title: "Suporte humano dedicado",
+    desc: "Time da Sapient.IA ajustando fluxos, tom de voz e regras toda semana. Você não fica sozinho com a IA.",
   },
 ];
 
@@ -56,11 +66,11 @@ const Solutions = () => {
             Infraestrutura. <em>Não chatbot.</em>
           </h2>
           <p className="font-sans text-base text-[var(--text-muted)] mt-5 leading-relaxed">
-            Cada recurso foi desenhado para sumir do seu caminho — e fazer o trabalho que ninguém vê.
+            Seis camadas que trabalham juntas — WhatsApp, agenda, lembretes, reativação, painel e suporte humano. Não é um bot solto; é uma operação.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
             <div key={i} className="card-base p-7 group" data-reveal>
               <div
