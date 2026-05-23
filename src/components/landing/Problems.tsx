@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Clock, Wallet, CalendarX } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, ScrollTrigger, EASE, countUp } from "@/lib/animations";
+import { ScrollTrigger, countUp, revealOnScroll } from "@/lib/animations";
 
 type Stat = {
   value: number;
