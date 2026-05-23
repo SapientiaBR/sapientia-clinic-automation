@@ -5,7 +5,10 @@ import Hero from "@/components/landing/Hero";
 import { LeadForm } from "@/components/landing/LeadForm";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+import PositioningStatement from "@/components/landing/PositioningStatement";
+
 const Problems = lazy(() => import("@/components/landing/Problems"));
+const Method = lazy(() => import("@/components/landing/Method"));
 const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
 const Visualization = lazy(() => import("@/components/landing/Visualization"));
 const Solutions = lazy(() => import("@/components/landing/Solutions"));
