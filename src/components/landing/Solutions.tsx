@@ -7,23 +7,33 @@ import { gsap, EASE } from "@/lib/animations";
 const features = [
   {
     Icon: Clock,
-    title: "Atendimento 24/7",
+    title: "Atendimento 24/7 no WhatsApp",
     desc: "Domingo às 23h, feriado, hora do almoço. Responde em segundos — toda vez, todo dia.",
   },
   {
     Icon: CalendarCheck,
-    title: "Agendamento inteligente",
-    desc: "Lê sua agenda, sugere os melhores horários, evita choques.",
+    title: "Agenda integrada",
+    desc: "Lê sua agenda real, sugere os melhores horários, evita choques e marca no calendário.",
   },
   {
     Icon: BellRing,
-    title: "Confirmação automática",
+    title: "Lembretes e confirmação",
     desc: "Lembrete 24h antes. Reagendamento sem fricção. Faltas em queda.",
   },
   {
     Icon: Sparkles,
     title: "Reativação de base inativa",
     desc: "Pacientes que sumiram voltam — em campanhas que parecem conversa, não spam.",
+  },
+  {
+    Icon: LayoutDashboard,
+    title: "Painel e acompanhamento",
+    desc: "Veja todas as conversas, métricas de agendamento e relatório semanal. Você no controle, sem operar.",
+  },
+  {
+    Icon: HeartHandshake,
+    title: "Suporte humano dedicado",
+    desc: "Time da Sapient.IA ajustando fluxos, tom de voz e regras toda semana. Você não fica sozinho com a IA.",
   },
 ];
 
