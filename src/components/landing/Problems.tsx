@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Clock, Wallet, CalendarX } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, ScrollTrigger, EASE, countUp } from "@/lib/animations";
+import { ScrollTrigger, countUp, revealOnScroll } from "@/lib/animations";
 
 type Stat = {
   value: number;
@@ -36,29 +36,17 @@ const Problems = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const mm = gsap.matchMedia();
-
-    mm.add("(min-width: 768px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
-    });
-
-    mm.add("(max-width: 767px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: ref.current, start: "top 90%" },
-      });
-    });
+    const root = ref.current;
+    const cleanupReveal = revealOnScroll(root);
 
     // Counters
-    const counters = ref.current!.querySelectorAll<HTMLElement>("[data-counter]");
+    const counters = root?.querySelectorAll<HTMLElement>("[data-counter]") ?? [];
     const kills: Array<() => void> = [];
     const st = ScrollTrigger.create({
-      trigger: ref.current,
+      trigger: root,
       start: "top 75%",
       once: true,
+      fastScrollEnd: true,
       onEnter: () => {
         counters.forEach((el) => {
           const target = Number(el.dataset.counter || "0");
@@ -76,7 +64,7 @@ const Problems = () => {
     return () => {
       st.kill();
       kills.forEach((k) => k());
-      mm.revert();
+      cleanupReveal();
     };
   }, { scope: ref });
 

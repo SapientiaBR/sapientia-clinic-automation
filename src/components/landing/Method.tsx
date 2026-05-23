@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { MessageSquare, ListChecks, CalendarClock, BellRing, RefreshCw } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, EASE } from "@/lib/animations";
+import { revealOnScroll } from "@/lib/animations";
 
 const steps = [
   {
@@ -35,22 +35,7 @@ const steps = [
 const Method = () => {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 768px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
-    });
-    mm.add("(max-width: 767px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: ref.current, start: "top 90%" },
-      });
-    });
-    return () => mm.revert();
-  }, { scope: ref });
+  useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
     <section id="metodo" className="section-padding relative" ref={ref}>

@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, EASE } from "@/lib/animations";
+import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 const N8N_WEBHOOK_URL = "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
 
@@ -79,22 +79,7 @@ export const LeadForm = () => {
 
   const progress = (step / 3) * 100;
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 768px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 60, opacity: 0, duration: 0.7, ease: EASE, stagger: 0.2,
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
-      });
-    });
-    mm.add("(max-width: 767px)", () => {
-      gsap.from(ref.current!.querySelectorAll("[data-reveal]"), {
-        y: 30, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.1,
-        scrollTrigger: { trigger: ref.current, start: "top 90%" },
-      });
-    });
-    return () => mm.revert();
-  }, { scope: ref });
+  useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   // Step transition animation
   useEffect(() => {
