@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import { gsap, EASE } from "@/lib/animations";
+import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
