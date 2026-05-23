@@ -1,43 +1,44 @@
-# Plano: Compactar cards da seção "Problema" no mobile
+# Plano: Refinar cards mobile da seção "Problema"
 
-Objetivo: caber **3 cards + footnote** em uma única tela mobile (~844px de altura, descontando header).
+Dois ajustes em `Problems.tsx`:
 
-## Mudanças em `Problems.tsx` (só mobile, desktop intacto)
+## 1. Footnote por trás do card
 
-### 1. Seção
-- Reduzir padding vertical: `section-padding` → no mobile `py-12` (desktop mantém via `md:section-padding`).
-- Header: reduzir `mb-14` → `mb-6 md:mb-14`.
-- Headline mobile menor: já é `text-3xl`, ok. Subtítulo: encurtar margem `mt-5` → `mt-3 md:mt-5`.
-- Parágrafo do header: esconder no mobile (`hidden md:block`) — economiza ~80px e o título já comunica.
+O sobreposição acontece porque o padding inferior da seção ficou curto e o `<p>` está colado nos cards. Ajustar:
+- Wrapper da seção: `py-12` → `py-12 pb-16` no mobile (mantém desktop em `md:section-padding`).
+- Footnote: `mt-5` → `mt-8 md:mt-10`.
+- Garantir `position: relative` no `<p>` da footnote (adicionar `relative z-10`) para nunca ficar atrás de qualquer efeito de glow dos cards.
 
-### 2. Grid de cards
-- Gap menor: `gap-6` → `gap-3 md:gap-6`.
+## 2. Layout do card no mobile
 
-### 3. Cada card (compacto no mobile)
-- Padding: `p-7` → `p-4 md:p-7`.
-- Ícone: `w-12 h-12 mb-5` → `w-9 h-9 mb-3 md:w-12 md:h-12 md:mb-5`; ícone size 22 → manter (lucide aceita prop, deixar como está, é OK visualmente).
-- Número grande: `text-[52px]` → `text-[34px] md:text-[52px]`.
-- Label: `text-[15px] mt-2` → `text-[13px] mt-1 md:text-[15px] md:mt-2`.
-- Descrição: esconder no mobile (`hidden md:block`) — é o maior consumidor vertical. O número + label já entregam o ponto.
+Trocar layout vertical empilhado por **layout horizontal compacto**: ícone à esquerda, número + label à direita, descrição embaixo ocupando a largura toda.
 
-### 4. Footnote
-- Margin: `mt-10` → `mt-5 md:mt-10`.
-- Tamanho: já `text-[11px]`, manter.
+Estrutura nova (mobile only, desktop mantém vertical via `md:` resets):
 
-### 5. Layout horizontal alternativo no card (opcional, não vou adotar)
-Considerei colocar ícone + número lado a lado no mobile, mas perde impacto visual. A solução acima (ocultar descrição + reduzir paddings/tamanhos) é mais limpa e mantém hierarquia.
+```
+[ícone]  63%
+         podem desistir em 5 minutos
+Até 63% dos pacientes não esperam mais que 5 min por
+uma resposta antes de procurar outra clínica.
+```
 
-## Estimativa de altura mobile pós-mudança
-- Header (h2 + eyebrow): ~140px
-- 3 cards × ~110px + 2 gaps × 12px = ~354px
-- Footnote: ~50px
-- Padding seção (py-12 = 96px total): 96px
-- **Total ≈ 640px** → cabe folgado em 844px de viewport (sobra para header fixo).
+Detalhes:
+- Card padding: `p-4 md:p-7`.
+- Top row: `flex items-center gap-4 md:block`.
+- Ícone: `w-11 h-11 shrink-0 mb-0 md:mb-5 md:w-12 md:h-12`.
+- Número: `text-[28px] md:text-[52px]` e label: `text-[12px] md:text-[15px]`. Ambos dentro de um `<div className="flex-1 md:contents">` — no mobile ficam empilhados à direita do ícone, no desktop voltam ao fluxo normal abaixo do ícone.
+- **Restaurar descrição** sem `hidden md:block`: `mt-3 text-[13px] md:text-sm leading-snug md:leading-relaxed text-[var(--text-muted)]`. Fica visível em mobile e desktop.
+
+## 3. Estimativa nova de altura mobile
+- Header (compacto, sem subtítulo): ~110px
+- 3 cards × ~140px + 2 gaps × 12px = ~444px
+- Footnote: ~60px
+- Padding seção (py-12 + pb-16): ~112px
+- **Total ≈ 726px** — ainda cabe em 844px com folga.
 
 ## Fora de escopo
-- Sem mudar desktop.
-- Sem mexer em animações GSAP (só altero classes Tailwind nos mesmos nós).
-- Sem mudar copy.
+- Desktop sem mudança visível além do que já estava (vertical, descrição visível).
+- Sem mexer em animações ou copy.
 
 ## Arquivo afetado
 - `src/components/landing/Problems.tsx`
