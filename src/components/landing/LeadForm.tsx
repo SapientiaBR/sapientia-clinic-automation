@@ -117,20 +117,20 @@ export const LeadForm = () => {
   }, [progress]);
 
   return (
-    <section id="formulario" className="section-padding relative scroll-mt-20" ref={ref}>
+    <section id="formulario" className="py-14 md:section-padding relative scroll-mt-20" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">
-        <div className="text-center mb-10" data-reveal>
+        <div className="text-center mb-6 md:mb-10" data-reveal>
           <Eyebrow>// diagnóstico gratuito</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
-            Descubra quanto sua clínica está <em>perdendo.</em>
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+            Veja quanto sua clínica está <em>perdendo no WhatsApp.</em>
           </h2>
-          <p className="font-sans text-[15px] text-[var(--text-muted)] mt-4">
+          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4">
             Diagnóstico gratuito. Sem compromisso. 3 perguntas.
           </p>
         </div>
 
         <div
-          className="rounded-[24px] p-6 sm:p-10 relative"
+          className="rounded-[24px] p-5 sm:p-10 relative"
           style={{
             background: "var(--navy-2)",
             border: "1px solid rgba(77,235,255,0.18)",
@@ -158,7 +158,7 @@ export const LeadForm = () => {
           <div ref={stepRef} key={step}>
             {step === 1 && (
               <>
-                <h3 className="font-display text-[22px] font-semibold text-white mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
                   Qual é o maior desafio do atendimento hoje?
                 </h3>
                 <div className="space-y-3">
@@ -178,7 +178,7 @@ export const LeadForm = () => {
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[22px] font-semibold text-white mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
                   Quantos atendimentos sua clínica faz por mês?
                 </h3>
                 <div className="space-y-3">
@@ -198,7 +198,7 @@ export const LeadForm = () => {
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[22px] font-semibold text-white mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
                   Onde te mandamos o diagnóstico gratuito?
                 </h3>
                 <div className="space-y-4">
@@ -263,7 +263,7 @@ const Option = ({ label, selected, onClick }: { label: string; selected: boolean
   <button
     type="button"
     onClick={onClick}
-    className={`w-full text-left rounded-xl px-5 min-h-[56px] flex items-center justify-between gap-3 font-sans text-[14px] transition-all ${
+    className={`w-full text-left rounded-xl px-4 md:px-5 min-h-[48px] md:min-h-[56px] flex items-center justify-between gap-3 font-sans text-[13px] md:text-[14px] transition-all ${
       selected
         ? "bg-cyan-300/10 border border-cyan-300 text-white"
         : "bg-[var(--navy-3)] border border-white/5 text-white/85 hover:border-cyan-300/40"
