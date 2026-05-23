@@ -66,11 +66,11 @@ const Solutions = () => {
             Infraestrutura. <em>Não chatbot.</em>
           </h2>
           <p className="font-sans text-base text-[var(--text-muted)] mt-5 leading-relaxed">
-            Cada recurso foi desenhado para sumir do seu caminho — e fazer o trabalho que ninguém vê.
+            Seis camadas que trabalham juntas — WhatsApp, agenda, lembretes, reativação, painel e suporte humano. Não é um bot solto; é uma operação.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, i) => (
             <div key={i} className="card-base p-7 group" data-reveal>
               <div
