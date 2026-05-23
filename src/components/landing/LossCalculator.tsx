@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { Slider } from "@/components/ui/slider";
 import Eyebrow from "@/components/ui/Eyebrow";
 import MagneticButton from "@/components/ui/MagneticButton";
-import { gsap, EASE, countTo } from "@/lib/animations";
+import { countTo, revealOnScroll } from "@/lib/animations";
 
 const PERDA = 0.30;
 const SEMANAS_POR_MES = 4.33;
