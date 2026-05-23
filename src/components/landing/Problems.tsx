@@ -115,6 +115,10 @@ const Problems = () => {
             </div>
           ))}
         </div>
+
+        <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] text-center mt-10 max-w-2xl mx-auto" data-reveal>
+          Estimativas baseadas em benchmarks de mercado de clínicas brasileiras e na operação dos nossos clientes.
+        </p>
       </div>
     </section>
   );
