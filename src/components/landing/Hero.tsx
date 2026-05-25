@@ -13,10 +13,10 @@ const messages = [
 ];
 
 const floatCards = [
-  { pos: "top-2 -right-4 md:-right-10",     border: "border-[#BCEFD6]", label: "AGENDAMENTO",    value: "✅ Confirmado — Dr. Rodrigo · 15h", delay: 0.4, drift: 4 },
-  { pos: "top-1/2 -left-6 md:-left-14",     border: "border-[#BEEAF0]", label: "TEMPO RESPOSTA", value: "⚡ 3 segundos",                     delay: 0.7, drift: 5 },
-  { pos: "bottom-16 -right-4 md:-right-12", border: "border-[#D9DEFF]", label: "AGENDA HOJE",    value: "📅 +14 consultas",                  delay: 1.0, drift: 6 },
-  { pos: "-bottom-2 left-2 md:-left-10",    border: "border-[#BEEAF0]", label: "STATUS",         value: "🤖 Online · 24/7",                  delay: 1.3, drift: 7 },
+  { pos: "top-2 -right-4 md:-right-10",     dot: "#8A7CF6", label: "AGENDAMENTO",    value: "Confirmado · Dr. Rodrigo 15h", delay: 0.4, drift: 4 },
+  { pos: "top-1/2 -left-6 md:-left-14",     dot: "#22BFEA", label: "RESPOSTA",       value: "⚡ 3 segundos",                 delay: 0.7, drift: 5 },
+  { pos: "bottom-16 -right-4 md:-right-12", dot: "#D4A76A", label: "AGENDA HOJE",    value: "+14 consultas",                 delay: 1.0, drift: 6 },
+  { pos: "-bottom-2 left-2 md:-left-10",    dot: "#45D89B", label: "STATUS",         value: "Online · 24/7",                 delay: 1.3, drift: 7 },
 ];
 
 const Hero = () => {
@@ -26,15 +26,15 @@ const Hero = () => {
     const root = ref.current!;
 
     gsap.from(root.querySelector("[data-hero-left]"), {
-      y: 60, opacity: 0, filter: "blur(8px)", duration: 1.0, ease: EASE, delay: 0.7,
+      y: 60, opacity: 0, filter: "blur(8px)", duration: 1.0, ease: EASE, delay: 0.6,
     });
 
     gsap.from(root.querySelector("[data-phone]"), {
-      scale: 0.92, opacity: 0, duration: 0.9, ease: EASE, delay: 0.9,
+      scale: 0.94, opacity: 0, duration: 0.9, ease: EASE, delay: 0.85,
     });
 
     gsap.from(root.querySelectorAll("[data-msg]"), {
-      y: 10, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.2, delay: 1.4,
+      y: 10, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.18, delay: 1.3,
     });
 
     floatCards.forEach((c, i) => {
@@ -42,79 +42,56 @@ const Hero = () => {
       if (!el) return;
       gsap.from(el, { opacity: 0, y: 10, duration: 0.7, ease: EASE, delay: c.delay + 1.0 });
       gsap.to(el, {
-        y: -c.drift,
-        duration: 4 + i,
-        ease: "power3.inOut",
-        yoyo: true,
-        repeat: -1,
-        delay: c.delay + 1.0,
+        y: -c.drift, duration: 4 + i, ease: "power3.inOut", yoyo: true, repeat: -1, delay: c.delay + 1.0,
       });
     });
 
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", () => {
-      gsap.to(root.querySelector("[data-blob-1]"), {
-        x: 30, y: -20, duration: 7, ease: "power3.inOut", yoyo: true, repeat: -1,
+      gsap.to(root.querySelector("[data-blob-beige]"), {
+        x: 18, y: -12, rotate: 4, duration: 9, ease: "power3.inOut", yoyo: true, repeat: -1,
       });
-      gsap.to(root.querySelector("[data-blob-2]"), {
-        x: -20, y: 30, duration: 6, ease: "power3.inOut", yoyo: true, repeat: -1,
-      });
-    });
-
-    gsap.from(root.querySelector("[data-footnote]"), {
-      opacity: 0, duration: 0.7, ease: EASE, delay: 3.2,
     });
 
     return () => mm.revert();
   }, { scope: ref });
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center pt-20 pb-10 md:pt-28 md:pb-16 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        <div
-          data-blob-1
-          className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full"
-          style={{ background: "rgba(108,99,255,0.12)", filter: "blur(90px)" }}
-        />
-        <div
-          data-blob-2
-          className="absolute -bottom-40 -left-40 w-[450px] h-[450px] rounded-full"
-          style={{ background: "rgba(24,199,217,0.10)", filter: "blur(90px)" }}
-        />
-      </div>
+    <section ref={ref} className="relative flex items-center pt-16 pb-12 md:pt-24 md:pb-20 overflow-hidden">
+      {/* Subtle grid texture */}
+      <div className="absolute inset-0 grid-overlay opacity-50 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left */}
           <div data-hero-left className="max-w-2xl">
             <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-7"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7"
               style={{
-                background: "#EEF0FF",
-                border: "1px solid #D9DEFF",
+                background: "#F1EEFF",
+                border: "1px solid #DED8FF",
+                boxShadow: "0 4px 14px rgba(138,124,246,0.10)",
               }}
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#6C63FF] opacity-60 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5B6CFF]" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[#8A7CF6] opacity-50 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6F63E8]" />
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#5B6CFF]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#6F63E8]">
                 <span className="md:hidden">IA 24/7 para clínicas</span>
-                <span className="hidden md:inline">✦ IA conversacional para clínicas — feita por médicos, com a Sapient.ia</span>
+                <span className="hidden md:inline">✦ IA conversacional para clínicas — feita por médicos</span>
               </span>
             </div>
 
-            <h1 className="font-display font-bold leading-[1.05] tracking-tight text-balance text-[42px] sm:text-[56px] lg:text-[68px] text-[var(--text)]">
-              Sua clínica perde<br />
-              <em>R$23.000/mês</em><br />
+            <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[72px] text-[#1D1D24]">
+              Sua clínica perde{" "}
+              <em className="gradient-warm">R$23.000/mês</em>{" "}
               em silêncio.
             </h1>
 
             <a
               href="#calculadora"
-              className="hidden md:block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)] hover:text-[#5B6CFF] transition-colors mt-4 max-w-[460px]"
+              className="hidden md:block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)] hover:text-[#6F63E8] transition-colors mt-5 max-w-[460px]"
             >
               Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento. Calcule a sua ↓
             </a>
@@ -123,7 +100,7 @@ const Hero = () => {
               Um produto Sapient.IA
             </p>
 
-            <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] leading-[1.6] md:leading-[1.7] max-w-[460px] mt-4 md:mt-0 mb-6 md:mb-10">
+            <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] leading-[1.6] md:leading-[1.7] max-w-[480px] mt-5 md:mt-0 mb-7 md:mb-10">
               <span className="md:hidden">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp.</span>
               <span className="hidden md:inline">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp, mesmo quando sua equipe não está disponível.</span>
             </p>
@@ -139,7 +116,7 @@ const Hero = () => {
 
             <a
               href="#solucoes"
-              className="md:hidden inline-block mt-4 font-sans text-sm text-[#5B6CFF] underline-offset-4 hover:underline"
+              className="md:hidden inline-block mt-4 font-sans text-sm font-medium text-[#6F63E8] underline-offset-4 hover:underline"
             >
               Ver conversa real →
             </a>
@@ -149,12 +126,35 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* Right - WhatsApp mockup */}
-          <div className="relative flex justify-center">
-            <div data-phone className="relative w-[300px] sm:w-[340px]">
-              <div className="card-base rounded-3xl p-1">
+          {/* Right - Mockup with organic beige blob */}
+          <div className="relative flex justify-center items-center min-h-[520px] md:min-h-[600px]">
+            {/* Organic beige blob */}
+            <div
+              data-blob-beige
+              className="absolute blob-beige pointer-events-none"
+              style={{
+                width: "min(520px, 110%)",
+                height: "min(520px, 110%)",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                filter: "drop-shadow(0 30px 60px rgba(138,99,40,0.18))",
+              }}
+            />
+
+            <div data-phone className="relative w-[290px] sm:w-[340px]">
+              <div
+                className="rounded-3xl p-1 bg-white"
+                style={{
+                  border: "1px solid #EEE7DE",
+                  boxShadow: "0 28px 70px rgba(70,55,35,0.18)",
+                }}
+              >
                 <div className="bg-white rounded-3xl overflow-hidden">
-                  <div className="gradient-brand px-4 py-3 flex items-center gap-3">
+                  <div
+                    className="px-4 py-3 flex items-center gap-3"
+                    style={{ background: "linear-gradient(135deg, #8A7CF6, #6EA8FF)" }}
+                  >
                     <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center text-sm font-bold text-white">
                       IA
                     </div>
@@ -166,7 +166,7 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="p-4 space-y-3 min-h-[300px] bg-[#F8FAFF]">
+                  <div className="p-4 space-y-3 min-h-[300px] bg-[#FBFAF7]">
                     {messages.map((m, i) => (
                       <div
                         key={i}
@@ -175,24 +175,19 @@ const Hero = () => {
                       >
                         <div
                           className={`text-sm px-4 py-2.5 max-w-[220px] ${
-                            m.side === "right"
-                              ? "rounded-2xl rounded-tr-md"
-                              : "rounded-2xl rounded-tl-md"
+                            m.side === "right" ? "rounded-2xl rounded-tr-md" : "rounded-2xl rounded-tl-md border"
                           }`}
                           style={
                             m.side === "right"
-                              ? { background: "#DCFCE7", color: "#0F3D2E" }
-                              : { background: "#EEF3FF", color: "#17213D", border: "1px solid #DDE6F2" }
+                              ? { background: "#E7F8EF", color: "#0F3D2E" }
+                              : { background: "#F0F4FF", color: "#1D1D24", borderColor: "#E4E9F8" }
                           }
                         >
                           {m.text}
                         </div>
                       </div>
                     ))}
-                    <p
-                      data-footnote
-                      className="text-center font-mono text-[10px] text-[#5B6CFF]/70 pt-2"
-                    >
+                    <p className="text-center font-mono text-[10px] text-[#6F63E8]/70 pt-2">
                       23:47 · Respondido em 3 segundos
                     </p>
                   </div>
@@ -203,12 +198,19 @@ const Hero = () => {
                 <div
                   key={i}
                   data-float={i}
-                  className={`absolute ${c.pos} bg-white border ${c.border} rounded-xl px-3 py-2 shadow-[0_12px_28px_rgba(23,33,61,0.10)] hidden md:block`}
+                  className={`absolute ${c.pos} bg-white rounded-2xl px-3.5 py-2.5 hidden md:block`}
+                  style={{
+                    border: "1px solid #EEE7DE",
+                    boxShadow: "0 14px 30px rgba(70,55,35,0.12)",
+                  }}
                 >
-                  <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
-                    {c.label}
-                  </p>
-                  <p className="font-sans text-xs font-bold text-[var(--text)] whitespace-nowrap mt-0.5">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: c.dot }} />
+                    <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--text-muted)]">
+                      {c.label}
+                    </p>
+                  </div>
+                  <p className="font-sans text-xs font-semibold text-[var(--text)] whitespace-nowrap">
                     {c.value}
                   </p>
                 </div>
@@ -217,8 +219,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hidden md:block mt-12 text-center" data-footnote>
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#5B6CFF]/70">
+        <div className="hidden md:block mt-12 text-center">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6F63E8]/80">
             Respondido em 3 segundos. Sua secretária levaria 47 minutos.
           </p>
         </div>

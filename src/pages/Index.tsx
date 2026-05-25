@@ -43,7 +43,7 @@ const Index = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="min-h-screen bg-[var(--navy-0)] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[var(--navy-0)] text-[var(--text)] overflow-x-hidden">
       <Helmet>
         <title>Secretária Invisível — IA para agendamento automático no WhatsApp | Sapient.IA</title>
         <meta
@@ -59,7 +59,7 @@ const Index = () => {
       </Helmet>
 
       <Header />
-      <main>
+      <main className="page-canvas">
         <Hero />
         <LeadForm />
         <PositioningStatement />
@@ -74,9 +74,11 @@ const Index = () => {
           <SocialProof />
           <FAQ compact={isMobile} />
           <FinalCTA />
-          <Footer />
         </Suspense>
       </main>
+      <Suspense fallback={<Fallback h="h-32" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

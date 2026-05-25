@@ -21,15 +21,15 @@ const SocialProof = () => {
         <div className="card-base p-6 sm:p-12 relative overflow-hidden" data-reveal>
           <div
             className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full pointer-events-none"
-            style={{ background: "rgba(108,99,255,0.08)", filter: "blur(40px)" }}
+            style={{ background: "rgba(212,167,106,0.10)", filter: "blur(40px)" }}
           />
 
           <div className="relative">
-            <p className="tracking-[3px] text-lg mb-4 md:mb-5" style={{ color: "#D7B98A" }}>★★★★★</p>
+            <p className="tracking-[3px] text-lg mb-4 md:mb-5" style={{ color: "#D4A76A" }}>★★★★★</p>
 
             <span
               className="font-display absolute -top-6 -left-2 text-[120px] leading-none select-none pointer-events-none"
-              style={{ color: "rgba(108,99,255,0.18)" }}
+              style={{ color: "rgba(138,124,246,0.15)" }}
               aria-hidden="true"
             >
               "
@@ -44,7 +44,7 @@ const SocialProof = () => {
             <div className="flex items-center gap-4 mt-6 md:mt-8">
               <div
                 className="w-[46px] h-[46px] rounded-full flex items-center justify-center font-sans font-bold text-sm text-white"
-                style={{ background: "linear-gradient(135deg, #6C63FF, #18C7D9)" }}
+                style={{ background: "linear-gradient(135deg, #8A7CF6, #22BFEA)" }}
               >
                 MF
               </div>
@@ -53,7 +53,7 @@ const SocialProof = () => {
                   Dra. Mariana Fogarolli
                 </p>
                 <p className="font-sans text-xs text-[var(--text-muted)]">Endocrinologista</p>
-                <p className="font-mono text-[11px] text-[#5B6CFF] mt-0.5">@dramarianafogarolli</p>
+                <p className="font-mono text-[11px] text-[#6F63E8] mt-0.5">@dramarianafogarolli</p>
               </div>
             </div>
           </div>

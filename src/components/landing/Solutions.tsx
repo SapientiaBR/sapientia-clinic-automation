@@ -19,7 +19,7 @@ const Solutions = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="solucoes" className="section-padding relative bg-[#EEF3FF]" ref={ref}>
+    <section id="solucoes" className="section-padding relative bg-[#F7F3EE]" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-14 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// recursos</Eyebrow>
@@ -38,10 +38,10 @@ const Solutions = () => {
                 <div
                   className="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center md:mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3"
                   style={{
-                    background: "linear-gradient(135deg, #EEF0FF, #E0FAFD)",
+                    background: "linear-gradient(135deg, #F1EEFF, #EAF6FB)",
                   }}
                 >
-                  <f.Icon size={22} style={{ color: "#5B6CFF" }} />
+                  <f.Icon size={22} style={{ color: "#6F63E8" }} />
                 </div>
                 <h3 className="font-display text-base md:text-xl font-semibold text-[var(--text)] leading-tight">{f.title}</h3>
               </div>

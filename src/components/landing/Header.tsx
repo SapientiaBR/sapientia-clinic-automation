@@ -27,27 +27,25 @@ const Header = () => {
     const handler = ({ scroll }: { scroll: number }) => setScrolled(scroll > 20);
     setScrolled(window.scrollY > 20);
     lenis.on("scroll", handler);
-    return () => {
-      lenis.off("scroll", handler);
-    };
+    return () => { lenis.off("scroll", handler); };
   }, [lenis]);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(255,255,255,0.82)] md:backdrop-blur-xl border-b border-[#E3EAF5]"
+          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#EEE7DE]"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-28">
+        <div className="flex items-center justify-between h-20 md:h-24">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
-            <div className="rounded-xl bg-[#EEF3FF] px-2.5 py-1.5 border border-[#E3EAF5]">
+            <div className="rounded-xl bg-[#F7F3EE] px-2.5 py-1.5 border border-[#EEE7DE]">
               <img
                 src={logoSI}
                 alt="Secretária Invisível"
-                className="h-14 md:h-16 w-auto"
+                className="h-12 md:h-14 w-auto"
               />
             </div>
           </a>
@@ -57,14 +55,14 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] transition-colors"
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#6F63E8] transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-brand text-white text-[13px] font-semibold px-5 py-2.5 rounded-full shadow-[0_8px_22px_rgba(91,108,255,0.28)] hover:shadow-[0_12px_28px_rgba(91,108,255,0.4)] transition-all"
+              className="gradient-brand text-white text-[12px] font-semibold uppercase tracking-[0.02em] px-5 py-2.5 rounded-full shadow-[0_10px_22px_rgba(138,124,246,0.28)] hover:shadow-[0_14px_28px_rgba(138,124,246,0.38)] transition-all"
             >
               Quero testar
             </a>
@@ -81,7 +79,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E3EAF5] animate-fade-in shadow-[0_10px_30px_rgba(23,33,61,0.08)]">
+        <div className="md:hidden bg-white border-b border-[#EEE7DE] animate-fade-in shadow-[0_10px_30px_rgba(70,55,35,0.10)]">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a

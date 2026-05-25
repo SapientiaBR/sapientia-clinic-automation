@@ -19,17 +19,17 @@ const stats: Stat[] = [
   {
     value: 63, suffix: "%", label: "pacientes vão embora em 5 min",
     desc: "63% dos pacientes não esperam mais que 5 minutos por resposta — ligam pra próxima clínica.",
-    Icon: Clock, bg: "#EEF0FF", iconColor: "#6C63FF",
+    Icon: Clock, bg: "#F1EEFF", iconColor: "#8A7CF6",
   },
   {
     value: 2800, prefix: "R$ ", label: "/mês de secretária sobrecarregada",
     desc: "Custo médio de uma secretária CLT — e mesmo assim o WhatsApp segue sem resposta fora do horário.",
-    Icon: Wallet, bg: "#E0FAFD", iconColor: "#18C7D9",
+    Icon: Wallet, bg: "#EAF6FB", iconColor: "#22BFEA",
   },
   {
     value: 34, suffix: "%", label: "faltas sem confirmação",
     desc: "Sem lembrete automático, as faltas podem chegar a 34% — agenda com buracos e dinheiro na mesa.",
-    Icon: CalendarX, bg: "#E6FBF1", iconColor: "#45D89B",
+    Icon: CalendarX, bg: "#FFF1D9", iconColor: "#D4A76A",
   },
 ];
 
@@ -93,7 +93,7 @@ const Problems = () => {
                 </div>
                 <div>
                   <p
-                    className="font-display font-bold text-[28px] md:text-[52px] leading-none gradient-text tabular-nums"
+                    className="font-display-sans font-extrabold text-[30px] md:text-[52px] leading-none gradient-warm tabular-nums"
                     data-counter={s.value}
                     data-prefix={s.prefix ?? ""}
                     data-suffix={s.suffix ?? ""}

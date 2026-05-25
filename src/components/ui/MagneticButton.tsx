@@ -1,28 +1,37 @@
 import { forwardRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { useMagnetic } from "@/hooks/useMagnetic";
 
 type Variant = "primary" | "ghost";
 type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: Variant;
   asButton?: boolean;
+  /** Hide the circular arrow on the primary variant (e.g. compact header CTA). */
+  noArrow?: boolean;
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[12px] font-sans font-semibold text-[13px] tracking-[0.02em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF]/50";
+  "group inline-flex items-center font-sans font-semibold text-[13px] tracking-[0.01em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8A7CF6]/50";
 
 const variants: Record<Variant, string> = {
   primary:
-    "gradient-brand text-white px-7 py-[15px] shadow-[0_12px_32px_rgba(91,108,255,0.28)] hover:shadow-[0_16px_40px_rgba(91,108,255,0.4)] hover:-translate-y-0.5",
+    "gradient-brand text-white rounded-full pl-6 pr-2 py-2 gap-3 shadow-[0_16px_34px_rgba(138,124,246,0.28)] hover:shadow-[0_20px_42px_rgba(138,124,246,0.38)] hover:-translate-y-0.5",
   ghost:
-    "bg-white border border-[#D8E2F0] text-[#5B6CFF] px-7 py-[15px] hover:bg-[#EEF3FF] hover:border-[#6C63FF]",
+    "bg-white border border-[#E9E0D6] text-[#6F63E8] rounded-full px-6 py-3 gap-2 hover:bg-[#F7F3EE] hover:border-[#DDBB8C]",
 };
 
 export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
-  ({ variant = "primary", className = "", children, ...rest }, _ref) => {
+  ({ variant = "primary", className = "", children, noArrow = false, ...rest }, _ref) => {
     const magnetRef = useMagnetic<HTMLAnchorElement>(0.18);
+    const isPrimary = variant === "primary";
     return (
       <a ref={magnetRef} className={`${base} ${variants[variant]} ${className}`} {...rest}>
-        {children}
+        <span className={isPrimary ? "py-2" : ""}>{children}</span>
+        {isPrimary && !noArrow && (
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(70,55,35,0.10)] transition-transform duration-300 group-hover:rotate-12">
+            <ArrowRight size={16} className="text-[#6F63E8]" />
+          </span>
+        )}
       </a>
     );
   }
