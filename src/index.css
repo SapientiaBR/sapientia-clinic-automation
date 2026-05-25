@@ -93,6 +93,14 @@
     color: inherit;
     padding: 0; margin: 0;
   }
+  .headline-hero em.gradient-hero-value {
+    background: linear-gradient(135deg, #8A7CF6 0%, #6EA8FF 45%, #B58B78 75%, #D4A76A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
 
   .gradient-brand        { background: linear-gradient(135deg, #8A7CF6 0%, #7C6FE8 100%); }
   .gradient-brand-hover  { background: linear-gradient(135deg, #9B8DF8 0%, #8A7CF6 100%); }
