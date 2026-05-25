@@ -15,7 +15,7 @@ export const faqEntries: [string, string][] = [
   ],
   [
     "É difícil de implementar? Preciso entender de tecnologia?",
-    "Zero configuração da sua parte. Nossa equipe cuida de tudo: integração com seu WhatsApp, configuração dos fluxos, treinamento do sistema. Em média, 5 dias úteis. Sem código, sem técnico contratado.",
+    "Zero configuração da sua parte. Nossa equipe cuida de tudo: integração com seu WhatsApp, configuração dos fluxos, treinamento do sistema. Implementação em poucos dias. Sem código, sem técnico contratado.",
   ],
   [
     "Como funciona o contrato?",
