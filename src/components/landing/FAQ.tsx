@@ -43,7 +43,7 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
         <div className="text-center mb-12" data-reveal>
           <Eyebrow>// perguntas frequentes</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Suas dúvidas, <em>respondidas.</em>
           </h2>
         </div>
@@ -90,17 +90,18 @@ const FAQItem = ({
     <li
       className="rounded-2xl overflow-hidden transition-colors"
       style={{
-        background: "var(--navy-2)",
-        border: `1px solid ${isOpen ? "rgba(77,235,255,0.18)" : "rgba(255,255,255,0.06)"}`,
+        background: "#FFFFFF",
+        border: `1px solid ${isOpen ? "#6C63FF" : "#DDE6F2"}`,
+        boxShadow: isOpen ? "0 14px 36px rgba(91,108,255,0.10)" : "0 8px 22px rgba(23,33,61,0.04)",
       }}
     >
       <button
         onClick={onToggle}
-        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
+        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F8FAFF]"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-[18px] font-medium text-white">{q}</span>
-        <span className="text-cyan-300 flex-shrink-0">
+        <span className="font-display text-[18px] font-medium text-[var(--text)]">{q}</span>
+        <span className="text-[#5B6CFF] flex-shrink-0">
           {isOpen ? <Minus size={18} /> : <Plus size={18} />}
         </span>
       </button>

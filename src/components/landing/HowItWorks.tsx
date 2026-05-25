@@ -41,7 +41,7 @@ const HowItWorks = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-16 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// como funciona</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Três passos. <em>Zero esforço seu.</em>
           </h2>
         </div>
@@ -52,29 +52,31 @@ const HowItWorks = () => {
               <span className="font-display italic text-[80px] leading-none gradient-text opacity-50 absolute -top-2 right-4 select-none">
                 {s.n}
               </span>
-              <h3 className="font-display text-[22px] font-semibold text-white relative z-10 mt-2">
+              <h3 className="font-display text-[22px] font-semibold text-[var(--text)] relative z-10 mt-2">
                 {s.title}
               </h3>
               <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed mt-3 mb-6">
                 {s.desc}
               </p>
 
-              <div className="bg-[var(--navy-1)] border border-white/5 rounded-xl p-3 space-y-2">
+              <div className="bg-[#F8FAFF] border border-[#DDE6F2] rounded-xl p-3 space-y-2">
                 {s.chat.map((m, j) => (
                   <div key={j} className={`flex ${m.side === "right" ? "justify-end" : "justify-start"}`}>
                     <div
                       className={`text-xs px-3 py-2 max-w-[85%] rounded-xl ${
-                        m.side === "right"
-                          ? "rounded-tr-sm text-white"
-                          : "rounded-tl-sm text-white border border-white/10 bg-white/5"
+                        m.side === "right" ? "rounded-tr-sm" : "rounded-tl-sm border"
                       }`}
-                      style={m.side === "right" ? { background: "#1f6f4a" } : undefined}
+                      style={
+                        m.side === "right"
+                          ? { background: "#DCFCE7", color: "#0F3D2E" }
+                          : { background: "#EEF3FF", color: "#17213D", borderColor: "#DDE6F2" }
+                      }
                     >
                       {m.text}
                     </div>
                   </div>
                 ))}
-                <p className="font-mono text-[10px] text-cyan-300/40 text-center pt-1">{s.chat[s.chat.length - 1].time}</p>
+                <p className="font-mono text-[10px] text-[#5B6CFF]/60 text-center pt-1">{s.chat[s.chat.length - 1].time}</p>
               </div>
             </div>
           ))}

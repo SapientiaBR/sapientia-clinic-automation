@@ -46,7 +46,7 @@ const Visualization = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-5xl">
         <div className="text-center mb-14 max-w-3xl mx-auto" data-heading>
           <Eyebrow>// a diferença invisível</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             O mesmo dia. <em>Dois cenários completamente diferentes.</em>
           </h2>
         </div>
@@ -54,19 +54,19 @@ const Visualization = () => {
         <div className="grid md:grid-cols-2 gap-6">
           <div
             data-left
-            className="card-base p-7 border-rose-500/20"
-            style={{ background: "var(--navy-2)" }}
+            className="card-base p-7"
+            style={{ borderColor: "rgba(239,111,122,0.30)" }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-rose-500/15 flex items-center justify-center">
-                <X size={18} className="text-rose-400" />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "#FDECEE" }}>
+                <X size={18} style={{ color: "#EF6F7A" }} />
               </div>
-              <h3 className="font-display text-xl font-semibold text-rose-300/90">Sem automação</h3>
+              <h3 className="font-display text-xl font-semibold" style={{ color: "#C44A56" }}>Sem automação</h3>
             </div>
             <ul className="space-y-3">
               {left.map((t, i) => (
-                <li key={i} className="flex items-start gap-3 font-sans text-sm text-white/65">
-                  <X size={15} className="text-rose-400/60 mt-0.5 flex-shrink-0" />
+                <li key={i} className="flex items-start gap-3 font-sans text-sm text-[var(--text-muted)]">
+                  <X size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#EF6F7A" }} />
                   {t}
                 </li>
               ))}
@@ -77,25 +77,25 @@ const Visualization = () => {
             data-right
             className="card-base p-7"
             style={{
-              boxShadow: "0 0 40px rgba(16,185,129,0.08)",
-              borderColor: "rgba(16,185,129,0.25)",
+              boxShadow: "0 16px 44px rgba(69,216,155,0.14)",
+              borderColor: "#BCEFD6",
             }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-emerald-500/15 flex items-center justify-center">
-                <Check size={18} className="text-emerald-400" />
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: "#E6FBF1" }}>
+                <Check size={18} style={{ color: "#16A875" }} />
               </div>
-              <h3 className="font-display text-xl font-semibold text-emerald-300">Com Secretária Invisível</h3>
+              <h3 className="font-display text-xl font-semibold" style={{ color: "#0F3D2E" }}>Com Secretária Invisível</h3>
             </div>
             <ul className="space-y-3">
               {right.map((t, i) => (
-                <li key={i} className="flex items-start gap-3 font-sans text-sm text-white/95">
-                  <Check size={15} className="text-emerald-400/90 mt-0.5 flex-shrink-0" />
+                <li key={i} className="flex items-start gap-3 font-sans text-sm text-[var(--text)]">
+                  <Check size={15} className="mt-0.5 flex-shrink-0" style={{ color: "#16A875" }} />
                   {t}
                 </li>
               ))}
             </ul>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-emerald-300/70 mt-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] mt-6" style={{ color: "#16A875" }}>
               Agenda preenchida
             </p>
           </div>

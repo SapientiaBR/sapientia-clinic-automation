@@ -11,24 +11,25 @@ type Stat = {
   label: string;
   desc: string;
   Icon: typeof Clock;
-  glow: string;
+  bg: string;
+  iconColor: string;
 };
 
 const stats: Stat[] = [
   {
     value: 63, suffix: "%", label: "pacientes vão embora em 5 min",
     desc: "63% dos pacientes não esperam mais que 5 minutos por resposta — ligam pra próxima clínica.",
-    Icon: Clock, glow: "rgba(124,58,237,0.25)",
+    Icon: Clock, bg: "#EEF0FF", iconColor: "#6C63FF",
   },
   {
     value: 2800, prefix: "R$ ", label: "/mês de secretária sobrecarregada",
     desc: "Custo médio de uma secretária CLT — e mesmo assim o WhatsApp segue sem resposta fora do horário.",
-    Icon: Wallet, glow: "rgba(6,182,212,0.25)",
+    Icon: Wallet, bg: "#E0FAFD", iconColor: "#18C7D9",
   },
   {
     value: 34, suffix: "%", label: "faltas sem confirmação",
     desc: "Sem lembrete automático, as faltas podem chegar a 34% — agenda com buracos e dinheiro na mesa.",
-    Icon: CalendarX, glow: "rgba(77,235,255,0.25)",
+    Icon: CalendarX, bg: "#E6FBF1", iconColor: "#45D89B",
   },
 ];
 
@@ -39,7 +40,6 @@ const Problems = () => {
     const root = ref.current;
     const cleanupReveal = revealOnScroll(root);
 
-    // Counters
     const counters = root?.querySelectorAll<HTMLElement>("[data-counter]") ?? [];
     const kills: Array<() => void> = [];
     const st = ScrollTrigger.create({
@@ -73,7 +73,7 @@ const Problems = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-6 md:mb-14 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// o problema invisível</Eyebrow>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Cada mensagem sem resposta é um <em>paciente que não volta.</em>
           </h2>
           <p className="hidden md:block font-sans text-base text-[var(--text-muted)] mt-5 leading-relaxed">
@@ -87,9 +87,9 @@ const Problems = () => {
               <div className="grid grid-cols-[auto_1fr] items-center gap-4 md:block md:gap-0">
                 <div
                   className="w-11 h-11 md:w-12 md:h-12 rounded-xl flex items-center justify-center md:mb-5"
-                  style={{ background: s.glow, boxShadow: `0 0 30px ${s.glow}` }}
+                  style={{ background: s.bg }}
                 >
-                  <s.Icon size={22} className="text-white" />
+                  <s.Icon size={22} style={{ color: s.iconColor }} />
                 </div>
                 <div>
                   <p
@@ -100,7 +100,7 @@ const Problems = () => {
                   >
                     {s.prefix}0{s.suffix}
                   </p>
-                  <p className="font-sans font-bold text-white text-[12px] md:text-[15px] mt-1 md:mt-2 leading-tight">{s.label}</p>
+                  <p className="font-sans font-bold text-[var(--text)] text-[12px] md:text-[15px] mt-1 md:mt-2 leading-tight">{s.label}</p>
                 </div>
               </div>
               <p className="font-sans text-[13px] md:text-sm text-[var(--text-muted)] leading-snug md:leading-relaxed mt-3">{s.desc}</p>

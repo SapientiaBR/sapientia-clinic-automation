@@ -32,12 +32,12 @@ const CustomCursor = () => {
     <>
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 z-[101] w-7 h-7 rounded-full border border-cyan-300/30 pointer-events-none hidden lg:block"
+        className="fixed top-0 left-0 z-[101] w-7 h-7 rounded-full border border-[#6C63FF]/40 pointer-events-none hidden lg:block"
         aria-hidden="true"
       />
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 z-[102] w-1.5 h-1.5 rounded-full bg-cyan-300 pointer-events-none hidden lg:block"
+        className="fixed top-0 left-0 z-[102] w-1.5 h-1.5 rounded-full bg-[#6C63FF] pointer-events-none hidden lg:block"
         aria-hidden="true"
       />
     </>

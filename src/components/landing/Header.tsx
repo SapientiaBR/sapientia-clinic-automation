@@ -36,18 +36,20 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(8,13,26,0.85)] md:backdrop-blur-xl border-b border-white/5"
+          ? "bg-[rgba(255,255,255,0.82)] md:backdrop-blur-xl border-b border-[#E3EAF5]"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-28">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
-            <img
-              src={logoSI}
-              alt="Secretária Invisível"
-              className="h-20 md:h-24 w-auto"
-            />
+            <div className="rounded-xl bg-[#EEF3FF] px-2.5 py-1.5 border border-[#E3EAF5]">
+              <img
+                src={logoSI}
+                alt="Secretária Invisível"
+                className="h-14 md:h-16 w-auto"
+              />
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -55,21 +57,21 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-white transition-colors"
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-brand text-white text-[13px] font-semibold px-5 py-2.5 rounded-full shadow-[0_0_20px_rgba(124,58,237,0.35)] hover:shadow-[0_0_28px_rgba(124,58,237,0.5)] transition-all"
+              className="gradient-brand text-white text-[13px] font-semibold px-5 py-2.5 rounded-full shadow-[0_8px_22px_rgba(91,108,255,0.28)] hover:shadow-[0_12px_28px_rgba(91,108,255,0.4)] transition-all"
             >
               Quero testar
             </a>
           </nav>
 
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-[var(--text)] p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
@@ -79,13 +81,13 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[rgba(8,13,26,0.98)] border-b border-white/5 animate-fade-in">
+        <div className="md:hidden bg-white border-b border-[#E3EAF5] animate-fade-in shadow-[0_10px_30px_rgba(23,33,61,0.08)]">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-white/90 py-2.5 text-base"
+                className="text-[var(--text)] py-2.5 text-base"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}
