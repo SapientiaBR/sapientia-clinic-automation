@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
-import { gsap, EASE } from "@/lib/animations";
+import { gsap, EASE_PREMIUM, parallaxY, prefersReducedMotion } from "@/lib/animations";
 
 const CTA_HREF = "#formulario";
 
@@ -13,10 +13,10 @@ const messages = [
 ];
 
 const floatCards = [
-  { pos: "top-2 -right-4 md:-right-10",     dot: "#8A7CF6", label: "AGENDAMENTO",    value: "Confirmado · Dr. Rodrigo 15h", delay: 0.4, drift: 4 },
-  { pos: "top-1/2 -left-6 md:-left-14",     dot: "#22BFEA", label: "RESPOSTA",       value: "⚡ 3 segundos",                 delay: 0.7, drift: 5 },
-  { pos: "bottom-16 -right-4 md:-right-12", dot: "#D4A76A", label: "AGENDA HOJE",    value: "+14 consultas",                 delay: 1.0, drift: 6 },
-  { pos: "-bottom-2 left-2 md:-left-10",    dot: "#45D89B", label: "STATUS",         value: "Online · 24/7",                 delay: 1.3, drift: 7 },
+  { pos: "top-2 -right-4 md:-right-10",     dot: "#8A7CF6", label: "AGENDAMENTO",    value: "Confirmado · Dr. Rodrigo 15h", delay: 0.4, drift: 4, parallax: -28 },
+  { pos: "top-1/2 -left-6 md:-left-14",     dot: "#22BFEA", label: "RESPOSTA",       value: "⚡ 3 segundos",                 delay: 0.7, drift: 5, parallax: -16 },
+  { pos: "bottom-16 -right-4 md:-right-12", dot: "#D4A76A", label: "AGENDA HOJE",    value: "+14 consultas",                 delay: 1.0, drift: 6, parallax: -22 },
+  { pos: "-bottom-2 left-2 md:-left-10",    dot: "#45D89B", label: "STATUS",         value: "Online · 24/7",                 delay: 1.3, drift: 7, parallax: -12 },
 ];
 
 const Hero = () => {
@@ -24,37 +24,54 @@ const Hero = () => {
 
   useGSAP(() => {
     const root = ref.current!;
+    const reduce = prefersReducedMotion();
 
-    gsap.from(root.querySelector("[data-hero-left]"), {
-      y: 60, opacity: 0, filter: "blur(8px)", duration: 1.0, ease: EASE, delay: 0.6,
-    });
-
-    gsap.from(root.querySelector("[data-phone]"), {
-      scale: 0.94, opacity: 0, duration: 0.9, ease: EASE, delay: 0.85,
-    });
-
-    gsap.from(root.querySelectorAll("[data-msg]"), {
-      y: 10, opacity: 0, duration: 0.6, ease: EASE, stagger: 0.18, delay: 1.3,
-    });
-
-    floatCards.forEach((c, i) => {
-      const el = root.querySelector<HTMLElement>(`[data-float="${i}"]`);
-      if (!el) return;
-      gsap.from(el, { opacity: 0, y: 10, duration: 0.7, ease: EASE, delay: c.delay + 1.0 });
-      gsap.to(el, {
-        y: -c.drift, duration: 4 + i, ease: "power3.inOut", yoyo: true, repeat: -1, delay: c.delay + 1.0,
+    if (!reduce) {
+      gsap.from(root.querySelector("[data-hero-left]"), {
+        y: 24, opacity: 0, filter: "blur(6px)", duration: 0.9, ease: EASE_PREMIUM, delay: 0.4,
       });
+
+      gsap.from(root.querySelector("[data-phone]"), {
+        y: 20, opacity: 0, filter: "blur(6px)", duration: 0.9, ease: EASE_PREMIUM, delay: 0.6,
+      });
+
+      gsap.from(root.querySelectorAll("[data-msg]"), {
+        y: 8, opacity: 0, duration: 0.6, ease: EASE_PREMIUM, stagger: 0.18, delay: 1.1,
+      });
+
+      floatCards.forEach((c, i) => {
+        const el = root.querySelector<HTMLElement>(`[data-float="${i}"]`);
+        if (!el) return;
+        gsap.from(el, { opacity: 0, y: 10, duration: 0.7, ease: EASE_PREMIUM, delay: c.delay + 0.9 });
+        gsap.to(el, {
+          y: -c.drift, duration: 4 + i, ease: "sine.inOut", yoyo: true, repeat: -1, delay: c.delay + 0.9,
+        });
+      });
+    }
+
+    // Parallax — desktop only, subtle
+    const cleanups: Array<() => void> = [];
+    cleanups.push(parallaxY(root.querySelector("[data-blob-beige]"), { y: -40, scrub: 0.8, trigger: root }));
+    cleanups.push(parallaxY(root.querySelector("[data-phone]"), { y: -16, scrub: 0.6, trigger: root }));
+    floatCards.forEach((c, i) => {
+      cleanups.push(parallaxY(root.querySelector(`[data-float="${i}"]`), { y: c.parallax, scrub: 0.8, trigger: root }));
     });
 
     const mm = gsap.matchMedia();
-    mm.add("(min-width: 1024px)", () => {
-      gsap.to(root.querySelector("[data-blob-beige]"), {
-        x: 18, y: -12, rotate: 4, duration: 9, ease: "power3.inOut", yoyo: true, repeat: -1,
+    if (!reduce) {
+      mm.add("(min-width: 1024px)", () => {
+        gsap.to(root.querySelector("[data-blob-beige]"), {
+          x: 18, y: -12, rotate: 2, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1,
+        });
       });
-    });
+    }
 
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+      cleanups.forEach((c) => c());
+    };
   }, { scope: ref });
+
 
   return (
     <section ref={ref} className="relative flex items-center pt-16 pb-12 md:pt-24 md:pb-20 overflow-hidden">
