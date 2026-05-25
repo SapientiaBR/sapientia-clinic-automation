@@ -1,132 +1,176 @@
-# Migração para Tema Claro Premium (Healthtech)
+# Upgrade visual premium — estilo Medxtio
 
-Transformar a landing da Secretária Invisível de dark para **claro, médico, premium e tecnológico**, mantendo 100% da copy, estrutura, seções e fluxo do formulário. Só mudam: cores, fundos, botões, cards, bordas, sombras, inputs, mockups, gradientes e estados.
+Elevar a landing claro atual para uma estética **healthtech premium editorial**: fundo areia, painel branco flutuante com sombra quente, curva bege no hero, headline sans moderna com gradiente lavanda→bege, botão pill com seta circular e mini-cards flutuando ao redor do mockup. Sem mexer na copy nem na estrutura/ordem das seções.
 
-## 1. Tokens globais (`src/index.css` + `tailwind.config.ts`)
+## 1. Tipografia (`index.html` + `tailwind.config.ts` + `index.css`)
 
-Reescrever as CSS variables do `:root` para a nova paleta clara, mantendo os mesmos **nomes de tokens** para evitar refatoração em todos componentes:
+- Importar **Manrope** (700/800) ou **Plus Jakarta Sans** para o hero (sans moderna arredondada). Manter Cormorant para destaques editoriais discretos e DM Sans para body.
+- Em `tailwind.config.ts`, adicionar `display-sans` family apontando para Manrope.
+- No `index.css`, criar utilitário `.headline-hero` com `font-family: Manrope; font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;`.
+- Override do `h1 em … h6 em` global: deixar opcional via classe (não forçar serifada italic no hero). Criar `.gradient-warm` com `linear-gradient(135deg, #8A7CF6 0%, #9B82D8 35%, #B58B78 70%, #D4A76A 100%)` para destaques quentes; manter `.gradient-text` (lavanda→ciano) para outros lugares.
+
+## 2. Tokens globais (`src/index.css`)
+
+Substituir paleta atual:
 
 ```text
---navy-0  (bg base)         → #F6F8FC   (off-white azulado)
---navy-1  (bg seções)       → #FFFFFF
---navy-2  (bg cards)        → #FFFFFF
---navy-3  (bg elevado/alt)  → #EEF3FF   (lavanda névoa)
+--navy-0  (body bg)      → #ECE5DB   (areia clara externa)
+--navy-1  (painel/sec)   → #FFFDFC
+--navy-2  (cards)        → #FFFFFF
+--navy-3  (alt seções)   → #F7F3EE
 
---purple      → #6C63FF
---purple-300  → #5B6CFF
---cyan        → #18C7D9
---cyan-300    → #22D3EE
---neon        → #45D89B   (mint sucesso)
+--purple      → #8A7CF6
+--purple-300  → #6F63E8
+--cyan        → #22BFEA
+--cyan-300    → #6EA8FF
+--neon        → #45D89B
 
---text         → #141B34   (navy profundo)
---text-muted   → #526179
---text-dim     → #94A3B8
+--text        → #1D1D24
+--text-muted  → #6F7280
+--text-dim    → #B6AFA3
 
---border-subtle  → rgba(20,27,52,0.06)
---border-default → #DDE6F2
---border-hover   → #5B6CFF
-
---success → #45D89B
---warning → #D7B98A   (areia/dourado suave)
---danger  → #EF6F7A   (coral suave, não vermelho agressivo)
+--border-subtle  → rgba(70,55,35,0.05)
+--border-default → #EEE7DE
+--border-hover   → #DDBB8C
 ```
 
-Ajustar utilitários no `index.css`:
-- `gradient-brand` → `linear-gradient(135deg, #6C63FF 0%, #18C7D9 100%)`
-- `gradient-text` e o `h1 em … h6 em` → mesmo gradiente lavanda→ciano sobre claro
-- `.card-base` → `background: #FFFFFF; border: 1px solid #DDE6F2; box-shadow: 0 16px 44px rgba(23,33,61,0.08);` e accent superior em gradiente lavanda/ciano com opacidade ~0.7
-- `.glass` → `rgba(255,255,255,0.78)` + border `#E3EAF5` + blur
-- `.grid-overlay` → linhas em `#DDE6F2` com opacidade muito baixa
-- `body` → `background-color: var(--navy-0); color: var(--text);` (continua usando os mesmos tokens)
-- `.eyebrow` → cor `#5B6CFF` em vez de cyan translúcido
+Atualizar utilitários:
+- `.gradient-brand` → `linear-gradient(135deg, #8A7CF6 0%, #7C6FE8 100%)` (botão primário lavanda puro).
+- `.gradient-text` → mantém lavanda→ciano (`#8A7CF6 → #6EA8FF → #22BFEA`).
+- Novo `.gradient-warm` → lavanda→bege/dourado (para headline e destaques).
+- `.card-base` → `background: #FFFFFF; border: 1px solid #EEE7DE; box-shadow: 0 18px 44px rgba(70,55,35,0.08);`. Accent superior 1px com `linear-gradient(135deg,#8A7CF6,#22BFEA)` opacidade 0.5.
+- `.grid-overlay` → remover ou trocar por padrão muito sutil em `rgba(216,208,196,0.18)`.
+- `body` → `background: #ECE5DB;` + textura sutil opcional via SVG noise inline.
+- `.eyebrow` → cor `#6F63E8`.
 
-Em `tailwind.config.ts`: nenhum rename de tokens; só garantir que `border`, `input`, `ring`, `background`, `foreground`, `primary`, `accent`, `card`, `popover` resolvam para os novos valores (já fazem, pois usam as CSS vars).
+## 3. Painel principal flutuante (`src/pages/Index.tsx`)
 
-## 2. Hero (`Hero.tsx`)
+- Envolver o conteúdo (do Hero até o final, ou pelo menos do Hero até FinalCTA) num wrapper:
+  ```
+  <main className="page-canvas">…</main>
+  ```
+- `.page-canvas` (utility no `index.css`):
+  ```
+  background: #FFFDFC;
+  border-radius: 32px;
+  margin: 16px;                  /* mobile */
+  box-shadow: 0 32px 80px rgba(70,55,35,0.14);
+  overflow: hidden;
+  ```
+  Desktop: `margin: 28px 32px; border-radius: 44px;`.
+- Header e Footer ficam **fora** do canvas, sobre o fundo areia, para reforçar o efeito flutuante. Header passa a ser transparente sobre areia e ganha glass `#FFFDFC` ao scroll.
+- Ajustar `FloatingWhatsApp` para offsets `bottom-4 right-4` no mobile (24px) e validar que não cobre o mockup nem o CTA.
 
-- Remover/ajustar `blob-1` e `blob-2`: cores → `rgba(108,99,255,0.10)` (lavanda) e `rgba(24,199,217,0.10)` (ciano), blur mantido.
-- Badge: `background: #EEF0FF; border: 1px solid #D9DEFF; color: #5B6CFF;` ping em lavanda.
-- Headline: cor `text-[var(--text)]` (navy). Manter `em` com gradient via regra global.
-- Mockup do WhatsApp:
-  - Container: `bg-white` com `card-base`
-  - Header do chat: `gradient-brand` (lavanda→ciano), texto branco mantém-se
-  - Fundo das mensagens: `#F8FAFF`
-  - Bolha paciente (right): `background: #DCFCE7; color: #0F3D2E;`
-  - Bolha IA (left): `background: #EEF3FF; color: #17213D; border: 1px solid #DDE6F2;`
-  - Status online dot: `#45D89B`
-- Floating cards: fundo `#FFFFFF`, border colorida em lavanda/ciano/mint discretas, sombra clara, texto navy.
-- Microcopy/footnotes: `text-[var(--text-muted)]`.
+## 4. Hero (`Hero.tsx`)
 
-## 3. Botões (`MagneticButton.tsx`)
+- Substituir os dois blobs roxo/ciano por **uma curva bege orgânica grande** atrás do mockup:
+  - SVG inline ou `div` com `border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%` e `background: linear-gradient(135deg, #E8D1AA 0%, #DDBB8C 60%, #C9A574 100%)`.
+  - Mobile: bloco menor atrás do mockup, mesma forma orgânica.
+- Headline em `.headline-hero`:
+  - "Sua clínica perde" → cor `#1D1D24`.
+  - "R$23.000/mês" → span com `.gradient-warm` (lavanda→bege).
+  - "em silêncio." → `#1D1D24`.
+  - Remover italic/serif no hero; outras seções podem manter a regra global (vou tornar a regra global menos agressiva — só aplicar a `em` que tenham classe `.gradient-text` ou em h2/h3 fora do hero).
+- Badge: `background: #F1EEFF; border: 1px solid #DED8FF; color: #6F63E8;` + ping lavanda suave.
+- CTA primário usa o novo `MagneticButton` (item 5).
+- Link "Ver conversa real →" em `#6F63E8`, peso medium, hover underline.
+- Mini-cards flutuantes: novos textos visuais nos 4 floats já existentes (mantendo conteúdo: "Confirmado", "3 segundos", "+14 consultas", "Online 24/7"), agora com `bg-white border border-[#EEE7DE] rounded-2xl shadow-[0_14px_30px_rgba(70,55,35,0.10)]`. Adicionar ponto colorido por categoria (lavanda/ciano/mint/dourado).
+- Mockup do WhatsApp: container branco com `border-[#EEE7DE]`, header com `linear-gradient(135deg, #8A7CF6, #6EA8FF)` (menos saturado), bolha paciente `#E7F8EF`/texto `#0F3D2E`, bolha IA `#F0F4FF`/texto `#1D1D24`, dot online `#45D89B`.
 
-- `primary`: mantém `gradient-brand` (agora lavanda→ciano), texto branco, sombra `0 12px 32px rgba(91,108,255,0.25)`, hover sobe 1–2px + sombra mais forte.
-- `ghost`: `bg-white border border-[#D8E2F0] text-[#5B6CFF] hover:bg-[#EEF3FF]`.
+## 5. Botão primário pill com seta circular (`MagneticButton.tsx`)
 
-## 4. Header (`Header.tsx`)
+Reformular variant `primary`:
 
-- `bg-white/78 backdrop-blur`, `border-b border-[#E3EAF5]`, links em navy/azul acinzentado, hover em lavanda.
-- Garantir contraste do logo no claro (wrapper claro/azulado se necessário).
+```
+border-radius: 9999px;
+background: linear-gradient(135deg, #8A7CF6, #7C6FE8);
+color: white;
+padding: 8px 8px 8px 24px;
+display: inline-flex; align-items: center; gap: 12px;
+box-shadow: 0 16px 34px rgba(138,124,246,0.28);
+```
 
-## 5. Seções de conteúdo
+Slot interno automático: um `<span>` circular branco 36×36 com ícone seta (`ArrowRight` de `lucide-react`) cor `#6F63E8`, à direita do texto. Hover: `translateY(-2px)` + sombra mais forte; o círculo branco gira 8°.
 
-Aplicar de forma consistente em: `Problems.tsx`, `Solutions.tsx`, `Method.tsx`, `HowItWorks.tsx`, `PositioningStatement.tsx`, `SocialProof.tsx`, `Visualization.tsx`, `FinalCTA.tsx`, `Footer.tsx`.
+Variant `ghost`: mantém branco com borda `#E9E0D6`, texto `#6F63E8`, hover `bg-[#F7F3EE]`.
 
-Para cada uma:
-- Alternar fundo `#FFFFFF` e `#EEF3FF` entre seções (manter a cadência atual mas com cores claras).
-- Cards: `card-base` já passa a ser branco com borda azul clara e sombra leve.
-- Ícones: círculos em `bg-[#EEF0FF]` / `bg-[#E0FAFD]` / `bg-[#E6FBF1]` com ícones em lavanda/ciano/mint.
-- Números grandes (Problems, LossCalculator): aplicar `gradient-text` (lavanda→ciano).
-- Eyebrows: `#5B6CFF` uppercase mono.
-- Textos secundários: `text-[var(--text-muted)]`.
-- Bordas decorativas e dividers: `#DDE6F2`.
-- Sem vermelho agressivo: trocar qualquer destaque de perda por `#EF6F7A` discreto.
+## 6. Cards e seções abaixo
 
-Seção "Infraestrutura. Não chatbot." (Solutions): fundo `#EEF3FF`, cards brancos, ícones ciano/lavanda; "Não chatbot" destacado em itálico com `gradient-text`.
+Aplicar via `.card-base` (já cobre Problems, Solutions, Method, HowItWorks, LossCalculator, SocialProof, Visualization, FinalCTA):
+- Borda `#EEE7DE`, sombra quente `0 18px 44px rgba(70,55,35,0.08)`.
+- Substituir fundos `bg-[#EEF3FF]` das seções alternadas por `bg-[#F7F3EE]` (Solutions, LossCalculator).
+- Ícones em círculos `#F1EEFF` (lavanda), `#EAF6FB` (ciano), `#FFF1D9` (areia), `#E7F8EF` (mint) — diversificar conforme contexto.
+- Eyebrows em `#6F63E8`.
+- Textos secundários em `#6F7280`.
+- LossCalculator: slider track preenchido com `linear-gradient(90deg,#8A7CF6,#22BFEA)`, thumb `#8A7CF6`. Resultado em `.gradient-warm`.
+- SocialProof: estrelas `#D4A76A`. Avatar com `linear-gradient(135deg,#8A7CF6,#22BFEA)`.
+- FinalCTA: bloco de garantia mantém mint (`#ECFDF5/#BCEFD6/#0F3D2E`) — combina bem com o tema quente.
+- Visualization: card "Sem automação" borda coral suave `rgba(239,111,122,0.25)`; "Com Secretária" borda mint `#BCEFD6` (já está bom, só ajustar sombra para quente).
 
-## 6. Formulário/diagnóstico (`LeadForm.tsx`)
+## 7. Formulário (`LeadForm.tsx`)
 
-- Card externo: branco, borda `#DDE6F2`, sombra leve.
-- Inputs: `bg-[#F8FAFF] border-[#DDE6F2] text-[var(--text)] placeholder:text-[var(--text-muted)] focus:ring-2 focus:ring-[#6C63FF]/40 focus:border-[#6C63FF]`.
-- Opções de quiz: card `bg-[#F8FAFF] hover:bg-[#EEF3FF]`, selecionado `border-[#5B6CFF] bg-[#EEF0FF]`.
-- Progress bar: gradiente `#6C63FF → #18C7D9`.
-- Microcopy: `#526179`.
-- **Não mexer em lógica, validação, webhook, redirect.**
+- Card externo: `background:#FFFFFF; border:1px solid #E9E0D6; box-shadow: 0 24px 60px rgba(70,55,35,0.10);`.
+- Inputs: `bg-[#FBFAF7] border-[#E9E0D6]`, focus `border-[#8A7CF6]` + ring `rgba(138,124,246,0.18)`.
+- Opções do quiz:
+  - default: `bg-[#F8F5F0] border-[#EEE7DE] text-[#1D1D24]/85 hover:bg-[#F1EDE5]`
+  - selected: `bg-[#F0EEFF] border-[#8A7CF6] text-[#1D1D24]`
+- Progress bar: `linear-gradient(90deg, #8A7CF6, #22BFEA)`, track `#F1EDE5`.
+- Botão de submit reusa a nova pill primária.
 
-## 7. Calculadora (`LossCalculator.tsx`)
+## 8. Header (`Header.tsx`)
 
-- Card branco com borda `#DDE6F2`.
-- Sliders: track preenchido com gradiente lavanda→ciano, thumb ciano/lavanda.
-- Bloco de resultado: fundo `#F8FAFF` (ou `#EEF3FF`), número em `gradient-text`.
-- CTA: botão primário do design system.
+- Quando scroll=0: transparente sobre areia.
+- Quando scrolled: `bg-[rgba(255,253,252,0.85)] backdrop-blur border-b border-[#EEE7DE]`.
+- Logo: trocar wrapper azul por wrapper areia `bg-[#F7F3EE] border-[#EEE7DE]`.
+- Links: `text-[#6F7280] hover:text-[#6F63E8]`.
+- CTA: pill primária do design system (texto+círculo seta), versão compacta para o header (sem círculo, ou círculo menor).
 
-## 8. Depoimentos / FAQ / Garantia
+## 9. Footer e elementos globais
 
-- `SocialProof.tsx`: cards brancos, estrelas em `#D7B98A`, nomes em navy, citação em `#526179`.
-- `FAQ.tsx`: acordeões brancos com borda `#DDE6F2`, ícone +/− em lavanda, hover sutil em `#EEF3FF`.
-- Se houver bloco de garantia/risco: `bg-[#ECFDF5] border border-[#BCEFD6] text-[#0F3D2E]`.
+- `Footer.tsx`: background `#FFFDFC`, border-top `#EEE7DE`.
+- `ScrollProgress.tsx`: gradiente `#8A7CF6 → #22BFEA` (mantém).
+- `CustomCursor.tsx`: anel `#8A7CF6/40`, dot `#8A7CF6`.
+- `FloatingWhatsApp.tsx`: sombra quente `0 14px 32px rgba(70,55,35,0.20)`, posição `bottom-4 right-4` no mobile.
 
-## 9. WhatsApp flutuante (`FloatingWhatsApp.tsx`)
+## 10. Mobile
 
-- Manter verde WhatsApp do botão.
-- Ajustar sombra: `0 12px 28px rgba(20,27,52,0.18)` para harmonizar com o tema claro.
-- Confirmar que não cobre o CTA no mobile (offsets já existentes).
+- `.page-canvas` margem 12-14px, radius 22px.
+- Hero mobile: copy → mockup com curva bege orgânica menor atrás → CTA full-width pill.
+- Mini-cards do hero só aparecem no md+ (manter `hidden md:block`).
+- Seções: padding lateral 16px, cards com sombra quente sutil.
 
-## 10. Globais menores
+## 11. Headline rule (`index.css`)
 
-- `ScrollProgress.tsx`: barra em gradiente lavanda→ciano.
-- `CustomCursor.tsx`: ajustar mix-blend ou cores para contraste em fundo claro (ou desativar mix-blend-difference se ficar ilegível).
-- `ThankYou.tsx` e `NotFound.tsx`: mesmas substituições de tokens (já herdam por usar variáveis).
+Tornar a regra global `h1 em…h6 em` menos invasiva — aplicar gradiente apenas quando o `<em>` tiver classe explícita. Atualizar componentes existentes (Problems, Solutions, Method, etc.) que dependem de `<em>` para gradient: adicionar `class="gradient-text not-italic font-bold"` onde necessário, ou manter a regra para h2/h3 (não h1). Decisão: manter regra global em h2-h6 com estilo serifado-italic existente (combina com a estética editorial das seções) e **só desativar no hero** via classe `.headline-hero em { font-family: inherit; font-style: normal; }` + gradient warm específico via span.
 
-## 11. QA visual
+## QA
 
-Após aplicar:
-- Verificar contraste AA em todos textos sobre fundo claro.
-- Checar mobile (390x844) e desktop.
-- Validar que mockup do WhatsApp, badge do hero, formulário multi-step, calculadora, cards de Problems/Solutions/Method, FAQ e CTA final ficaram claros, premium e legíveis.
-- Confirmar que nenhuma copy, estrutura, ordem de seções ou comportamento do formulário foi alterado.
+- Verificar mobile 390x844 e desktop 1280+.
+- Checar contraste AA dos textos sobre areia/branco.
+- Confirmar nenhuma mudança em copy, ordem de seções, validação do form, webhook, redirect e Meta Pixel.
 
-## Detalhes técnicos
+## Arquivos a editar
 
-- A estratégia é **substituir os valores das CSS variables existentes** em `index.css`, o que propaga automaticamente para a maioria dos componentes (que já consomem `var(--navy-*)`, `var(--text)`, etc.).
-- Componentes que usam cores **hardcoded** dark (ex.: `bg-[var(--navy-2)]/60`, `border-cyan-300/40`, `text-cyan-300/50`, `bg-white/5`, `text-white`, ping em purple) serão revisados e trocados manualmente por tokens semânticos ou pelos novos hex equivalentes da paleta clara.
-- Nenhuma mudança em rotas, hooks, GSAP, lógica de formulário, webhook n8n, pixel ou redirect.
+- `index.html` (import Manrope)
+- `tailwind.config.ts` (font family)
+- `src/index.css` (tokens, utilities, canvas, headline)
+- `src/pages/Index.tsx` (page canvas wrapper)
+- `src/components/landing/Hero.tsx` (curva bege, headline nova, mini-cards)
+- `src/components/landing/Header.tsx`
+- `src/components/landing/Footer.tsx`
+- `src/components/landing/Solutions.tsx` (bg areia)
+- `src/components/landing/Problems.tsx`
+- `src/components/landing/Method.tsx`
+- `src/components/landing/HowItWorks.tsx`
+- `src/components/landing/LossCalculator.tsx` (bg areia + slider)
+- `src/components/landing/SocialProof.tsx`
+- `src/components/landing/Visualization.tsx`
+- `src/components/landing/FinalCTA.tsx`
+- `src/components/landing/FAQ.tsx`
+- `src/components/landing/LeadForm.tsx`
+- `src/components/ui/MagneticButton.tsx` (pill + círculo seta)
+- `src/components/ui/Eyebrow.tsx`
+- `src/components/global/ScrollProgress.tsx`
+- `src/components/global/CustomCursor.tsx`
+- `src/components/global/FloatingWhatsApp.tsx`
+- `mem://index.md` (atualizar paleta)
