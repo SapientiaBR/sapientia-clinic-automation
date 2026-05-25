@@ -2,13 +2,13 @@ import logoSapientia from "@/assets/logo-sapientia.png";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-[#E3EAF5] py-10 bg-white">
+    <footer className="py-10 bg-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <span
               className="w-2 h-2 rounded-full"
-              style={{ background: "linear-gradient(135deg, #6C63FF, #18C7D9)" }}
+              style={{ background: "linear-gradient(135deg, #8A7CF6, #22BFEA)" }}
             />
             <span className="font-display italic text-base text-[var(--text)]">Secretária Invisível</span>
           </div>

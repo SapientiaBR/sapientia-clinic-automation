@@ -19,9 +19,7 @@ const ScrollProgress = () => {
       setPct(limit > 0 ? (scroll / limit) * 100 : 0);
     };
     lenis.on("scroll", handler);
-    return () => {
-      lenis.off("scroll", handler);
-    };
+    return () => { lenis.off("scroll", handler); };
   }, [lenis]);
 
   return (
@@ -30,7 +28,7 @@ const ScrollProgress = () => {
         className="h-full origin-left"
         style={{
           transform: `scaleX(${pct / 100})`,
-          background: "linear-gradient(90deg, #6C63FF, #18C7D9)",
+          background: "linear-gradient(90deg, #8A7CF6, #22BFEA)",
         }}
       />
     </div>

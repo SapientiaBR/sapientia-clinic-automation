@@ -4,31 +4,30 @@
 
 @layer base {
   :root {
-    /* Light premium healthtech palette (tokens keep same names for backwards compat) */
-    --navy-0: #F6F8FC;   /* page background */
-    --navy-1: #FFFFFF;   /* section background */
-    --navy-2: #FFFFFF;   /* card background */
-    --navy-3: #EEF3FF;   /* alt / elevated background */
+    /* Light premium healthtech — Medxtio inspired (token names kept for compat) */
+    --navy-0: #ECE5DB;   /* body bg — areia */
+    --navy-1: #FFFDFC;   /* painel / seção */
+    --navy-2: #FFFFFF;   /* cards */
+    --navy-3: #F7F3EE;   /* alt sections */
 
-    --purple:     #6C63FF;
-    --purple-300: #5B6CFF;
-    --cyan:       #18C7D9;
-    --cyan-300:   #22D3EE;
+    --purple:     #8A7CF6;
+    --purple-300: #6F63E8;
+    --cyan:       #22BFEA;
+    --cyan-300:   #6EA8FF;
     --neon:       #45D89B;
 
-    --text:       #141B34;   /* deep navy */
-    --text-muted: #526179;
-    --text-dim:   #94A3B8;
+    --text:       #1D1D24;
+    --text-muted: #6F7280;
+    --text-dim:   #B6AFA3;
 
-    --border-subtle:  rgba(20,27,52,0.06);
-    --border-default: #DDE6F2;
-    --border-hover:   #5B6CFF;
+    --border-subtle:  rgba(70,55,35,0.05);
+    --border-default: #EEE7DE;
+    --border-hover:   #DDBB8C;
 
     --success: #45D89B;
-    --warning: #D7B98A;
+    --warning: #D4A76A;
     --danger:  #EF6F7A;
 
-    /* Aliases */
     --bg-deep:      var(--navy-0);
     --bg-primary:   var(--navy-1);
     --bg-secondary: var(--navy-1);
@@ -38,27 +37,27 @@
     --text-primary: var(--text);
     --text-hint:    var(--text-dim);
 
-    --cyan-500:    #18C7D9;
-    --purple-500:  #6C63FF;
-    --accent-amber:#D7B98A;
+    --cyan-500:    #22BFEA;
+    --purple-500:  #8A7CF6;
+    --accent-amber:#D4A76A;
   }
 
   * { @apply border-border; }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-color: var(--navy-0);
+    background-color: #ECE5DB;
     color: var(--text);
     font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
-  /* Brand signature: italic + gradient on emphasized words inside headings */
-  h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+  /* Brand signature: italic + warm gradient on <em> inside h2-h6 (NOT h1 — hero uses sans). */
+  h2 em, h3 em, h4 em, h5 em, h6 em {
     font-style: italic;
     font-family: "Cormorant Garamond", Georgia, serif;
-    background: linear-gradient(135deg, #6C63FF, #18C7D9);
+    background: linear-gradient(135deg, #8A7CF6 0%, #9B82D8 35%, #B58B78 70%, #D4A76A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -68,63 +67,108 @@
 }
 
 @layer utilities {
-  .font-display { font-family: "Cormorant Garamond", Georgia, serif; }
-  .font-mono    { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; }
+  .font-display    { font-family: "Cormorant Garamond", Georgia, serif; }
+  .font-display-sans { font-family: "Manrope", system-ui, -apple-system, sans-serif; }
+  .font-mono       { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; }
 
-  .gradient-brand        { background: linear-gradient(135deg, #6C63FF 0%, #18C7D9 100%); }
-  .gradient-brand-hover  { background: linear-gradient(135deg, #7B61FF 0%, #22D3EE 100%); }
-  .gradient-vibrant      { background: linear-gradient(135deg, #6C63FF 0%, #18C7D9 100%); }
+  /* Hero headline — modern sans, tight tracking */
+  .headline-hero {
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+  }
+  .headline-hero em {
+    font-style: normal;
+    font-family: inherit;
+    font-weight: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+    padding: 0; margin: 0;
+  }
+
+  .gradient-brand        { background: linear-gradient(135deg, #8A7CF6 0%, #7C6FE8 100%); }
+  .gradient-brand-hover  { background: linear-gradient(135deg, #9B8DF8 0%, #8A7CF6 100%); }
+  .gradient-vibrant      { background: linear-gradient(135deg, #8A7CF6 0%, #22BFEA 100%); }
 
   .gradient-text {
-    background: linear-gradient(135deg, #6C63FF, #18C7D9);
+    background: linear-gradient(135deg, #8A7CF6 0%, #6EA8FF 50%, #22BFEA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     padding-right: 0.05em;
   }
 
+  .gradient-warm {
+    background: linear-gradient(135deg, #8A7CF6 0%, #9B82D8 32%, #B58B78 68%, #D4A76A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-right: 0.05em;
+  }
+
+  /* Floating premium canvas */
+  .page-canvas {
+    background: #FFFDFC;
+    border-radius: 22px;
+    margin: 12px;
+    box-shadow: 0 32px 80px rgba(70,55,35,0.14);
+    overflow: hidden;
+    position: relative;
+  }
+  @media (min-width: 1024px) {
+    .page-canvas { margin: 28px 32px; border-radius: 44px; }
+  }
+
   .glass {
-    background: rgba(255,255,255,0.78);
-    border: 1px solid #E3EAF5;
+    background: rgba(255,253,252,0.82);
+    border: 1px solid #EEE7DE;
     border-radius: 20px;
   }
   @media (min-width: 768px) {
-    .glass { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+    .glass { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   }
 
   .card-base {
     background: #FFFFFF;
-    border: 1px solid #DDE6F2;
-    border-radius: 20px;
+    border: 1px solid #EEE7DE;
+    border-radius: 22px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 16px 44px rgba(23,33,61,0.06);
+    box-shadow: 0 18px 44px rgba(70,55,35,0.08);
     transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
   }
   .card-base::before {
     content: "";
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(135deg, #6C63FF, #18C7D9);
-    opacity: 0.7;
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(135deg, #8A7CF6, #22BFEA);
+    opacity: 0.5;
   }
   .card-base:hover {
-    border-color: #C7D4EA;
-    box-shadow: 0 22px 54px rgba(23,33,61,0.10);
+    border-color: #E0D4C2;
+    box-shadow: 0 24px 58px rgba(70,55,35,0.12);
   }
 
   .glass-card { @apply glass; }
   .neumorphism-dark { @apply glass; }
   .neumorphism-dark-hover { transition: all 0.3s ease; }
-  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #C7D4EA; }
+  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #E0D4C2; }
 
   .text-balance { text-wrap: balance; }
   .section-padding { @apply py-20 lg:py-28; }
 
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(20,27,52,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(20,27,52,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
+      linear-gradient(rgba(216,208,196,0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(216,208,196,0.22) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* Organic beige blob behind hero mockup */
+  .blob-beige {
+    background: linear-gradient(135deg, #E8D1AA 0%, #DDBB8C 60%, #C9A574 100%);
+    border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
   }
 
   .eyebrow {
@@ -132,14 +176,14 @@
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #5B6CFF;
+    color: #6F63E8;
   }
 
-  /* Legacy accent classes — repurposed for light theme */
+  /* Legacy accent classes — light theme repurposed */
   .border-accent-coral, .border-accent-rose, .border-accent-pink,
   .border-accent-amber, .border-accent-lime, .border-accent-emerald,
-  .border-accent-sky, .border-accent-indigo { border-top: 2px solid rgba(108,99,255,0.5); }
+  .border-accent-sky, .border-accent-indigo { border-top: 1px solid rgba(138,124,246,0.4); }
   .text-accent-coral, .text-accent-rose, .text-accent-pink,
   .text-accent-amber, .text-accent-lime, .text-accent-emerald,
-  .text-accent-sky, .text-accent-indigo { color: #5B6CFF; }
+  .text-accent-sky, .text-accent-indigo { color: #6F63E8; }
 }

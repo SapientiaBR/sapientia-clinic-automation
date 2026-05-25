@@ -116,33 +116,33 @@ export const LeadForm = () => {
           className="rounded-[24px] p-5 sm:p-10 relative"
           style={{
             background: "#FFFFFF",
-            border: "1px solid #DDE6F2",
-            boxShadow: "0 22px 60px rgba(23,33,61,0.08)",
+            border: "1px solid #E9E0D6",
+            boxShadow: "0 24px 60px rgba(70,55,35,0.10)",
           }}
           data-reveal
         >
           {/* Progress */}
           <div className="flex items-center justify-between mb-6">
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#5B6CFF]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6F63E8]">
               Etapa {step} de 3
             </span>
-            <div className="flex-1 mx-4 h-[3px] bg-[#EEF3FF] rounded-full overflow-hidden">
+            <div className="flex-1 mx-4 h-[3px] bg-[#F1EDE5] rounded-full overflow-hidden">
               <div
                 ref={progressRef}
                 className="h-full"
                 style={{
-                  background: "linear-gradient(90deg, #6C63FF, #18C7D9)",
+                  background: "linear-gradient(90deg, #8A7CF6, #22BFEA)",
                   width: `${progress}%`,
                 }}
               />
             </div>
-            <span className="font-mono text-[11px] text-[#5B6CFF]">{Math.round(progress)}%</span>
+            <span className="font-mono text-[11px] text-[#6F63E8]">{Math.round(progress)}%</span>
           </div>
 
           <div ref={stepRef} key={step}>
             {step === 1 && (
               <>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
+                <h3 className="font-display-sans text-[19px] md:text-[24px] font-bold tracking-[-0.02em] text-[var(--text)] mb-4 md:mb-6">
                   Qual é o maior desafio do atendimento hoje?
                 </h3>
                 <div className="space-y-3">
@@ -158,11 +158,11 @@ export const LeadForm = () => {
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] mb-5 transition-colors"
+                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#6F63E8] mb-5 transition-colors"
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
+                <h3 className="font-display-sans text-[19px] md:text-[24px] font-bold tracking-[-0.02em] text-[var(--text)] mb-4 md:mb-6">
                   Quantos atendimentos sua clínica faz por mês?
                 </h3>
                 <div className="space-y-3">
@@ -178,11 +178,11 @@ export const LeadForm = () => {
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] mb-5 transition-colors"
+                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#6F63E8] mb-5 transition-colors"
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
+                <h3 className="font-display-sans text-[19px] md:text-[24px] font-bold tracking-[-0.02em] text-[var(--text)] mb-4 md:mb-6">
                   Onde te mandamos o diagnóstico gratuito?
                 </h3>
                 <div className="space-y-4">
@@ -219,7 +219,7 @@ export const LeadForm = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full mt-6 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-[12px] h-14 flex items-center justify-center gap-2 shadow-[0_12px_32px_rgba(91,108,255,0.28)] hover:shadow-[0_16px_40px_rgba(91,108,255,0.4)] transition-all disabled:opacity-70"
+                  className="w-full mt-6 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-full h-14 flex items-center justify-center gap-2 shadow-[0_16px_34px_rgba(138,124,246,0.28)] hover:shadow-[0_20px_42px_rgba(138,124,246,0.38)] transition-all disabled:opacity-70"
                 >
                   {submitting ? (
                     <>
@@ -249,12 +249,12 @@ const Option = ({ label, selected, onClick }: { label: string; selected: boolean
     onClick={onClick}
     className={`w-full text-left rounded-xl px-4 md:px-5 min-h-[48px] md:min-h-[56px] flex items-center justify-between gap-3 font-sans text-[13px] md:text-[14px] transition-all border ${
       selected
-        ? "bg-[#EEF0FF] border-[#5B6CFF] text-[var(--text)]"
-        : "bg-[#F8FAFF] border-[#DDE6F2] text-[var(--text)]/85 hover:bg-[#EEF3FF] hover:border-[#C7D4EA]"
+        ? "bg-[#F0EEFF] border-[#8A7CF6] text-[var(--text)]"
+        : "bg-[#F8F5F0] border-[#EEE7DE] text-[var(--text)]/85 hover:bg-[#F1EDE5] hover:border-[#E0D4C2]"
     }`}
   >
     <span>{label}</span>
-    <span className={`text-[#5B6CFF] transition-opacity ${selected ? "opacity-100" : "opacity-0"}`}>●</span>
+    <span className={`text-[#8A7CF6] transition-opacity ${selected ? "opacity-100" : "opacity-0"}`}>●</span>
   </button>
 );
 
@@ -274,7 +274,7 @@ const Input = ({
       maxLength={maxLength}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-[#F8FAFF] border border-[#DDE6F2] rounded-xl px-4 py-3.5 font-sans text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-[#6C63FF] focus:bg-white focus:shadow-[0_0_0_3px_rgba(108,99,255,0.15)]"
+      className="w-full bg-[#FBFAF7] border border-[#E9E0D6] rounded-xl px-4 py-3.5 font-sans text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-[#8A7CF6] focus:bg-white focus:shadow-[0_0_0_3px_rgba(138,124,246,0.18)]"
     />
   </label>
 );
