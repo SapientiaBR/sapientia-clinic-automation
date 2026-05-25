@@ -7,7 +7,6 @@ const ScrollProgress = () => {
 
   useEffect(() => {
     if (!lenis) {
-      // Fallback for users with prefers-reduced-motion (no Lenis instance).
       const onScroll = () => {
         const h = document.documentElement;
         const max = h.scrollHeight - h.clientHeight;
@@ -31,7 +30,7 @@ const ScrollProgress = () => {
         className="h-full origin-left"
         style={{
           transform: `scaleX(${pct / 100})`,
-          background: "linear-gradient(90deg, #7c3aed, #4debff)",
+          background: "linear-gradient(90deg, #6C63FF, #18C7D9)",
         }}
       />
     </div>

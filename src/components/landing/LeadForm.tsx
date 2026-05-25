@@ -81,7 +81,6 @@ export const LeadForm = () => {
 
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
-  // Step transition animation
   useEffect(() => {
     if (!stepRef.current) return;
     gsap.fromTo(
@@ -91,7 +90,6 @@ export const LeadForm = () => {
     );
   }, [step]);
 
-  // Progress bar animation
   useEffect(() => {
     if (!progressRef.current) return;
     gsap.to(progressRef.current, {
@@ -106,7 +104,7 @@ export const LeadForm = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">
         <div className="text-center mb-6 md:mb-10" data-reveal>
           <Eyebrow>// diagnóstico gratuito</Eyebrow>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Veja quanto sua clínica está <em>perdendo no WhatsApp.</em>
           </h2>
           <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4">
@@ -117,33 +115,34 @@ export const LeadForm = () => {
         <div
           className="rounded-[24px] p-5 sm:p-10 relative"
           style={{
-            background: "var(--navy-2)",
-            border: "1px solid rgba(77,235,255,0.18)",
+            background: "#FFFFFF",
+            border: "1px solid #DDE6F2",
+            boxShadow: "0 22px 60px rgba(23,33,61,0.08)",
           }}
           data-reveal
         >
           {/* Progress */}
           <div className="flex items-center justify-between mb-6">
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-300/60">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#5B6CFF]">
               Etapa {step} de 3
             </span>
-            <div className="flex-1 mx-4 h-[2px] bg-white/5 rounded-full overflow-hidden">
+            <div className="flex-1 mx-4 h-[3px] bg-[#EEF3FF] rounded-full overflow-hidden">
               <div
                 ref={progressRef}
                 className="h-full"
                 style={{
-                  background: "linear-gradient(90deg, #7c3aed, #4debff)",
+                  background: "linear-gradient(90deg, #6C63FF, #18C7D9)",
                   width: `${progress}%`,
                 }}
               />
             </div>
-            <span className="font-mono text-[11px] text-cyan-300/60">{Math.round(progress)}%</span>
+            <span className="font-mono text-[11px] text-[#5B6CFF]">{Math.round(progress)}%</span>
           </div>
 
           <div ref={stepRef} key={step}>
             {step === 1 && (
               <>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
                   Qual é o maior desafio do atendimento hoje?
                 </h3>
                 <div className="space-y-3">
@@ -159,11 +158,11 @@ export const LeadForm = () => {
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-cyan-300 mb-5 transition-colors"
+                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] mb-5 transition-colors"
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
                   Quantos atendimentos sua clínica faz por mês?
                 </h3>
                 <div className="space-y-3">
@@ -179,11 +178,11 @@ export const LeadForm = () => {
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-cyan-300 mb-5 transition-colors"
+                  className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#5B6CFF] mb-5 transition-colors"
                 >
                   ← Voltar
                 </button>
-                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-white mb-4 md:mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] font-semibold text-[var(--text)] mb-4 md:mb-6">
                   Onde te mandamos o diagnóstico gratuito?
                 </h3>
                 <div className="space-y-4">
@@ -214,13 +213,13 @@ export const LeadForm = () => {
                 </div>
 
                 {error && (
-                  <p className="font-sans text-sm text-rose-400 mt-4">{error}</p>
+                  <p className="font-sans text-sm text-[#EF6F7A] mt-4">{error}</p>
                 )}
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full mt-6 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-[10px] h-14 flex items-center justify-center gap-2 shadow-[0_0_40px_rgba(124,58,237,0.4)] hover:shadow-[0_0_55px_rgba(124,58,237,0.55)] transition-all disabled:opacity-70"
+                  className="w-full mt-6 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-[12px] h-14 flex items-center justify-center gap-2 shadow-[0_12px_32px_rgba(91,108,255,0.28)] hover:shadow-[0_16px_40px_rgba(91,108,255,0.4)] transition-all disabled:opacity-70"
                 >
                   {submitting ? (
                     <>
@@ -248,14 +247,14 @@ const Option = ({ label, selected, onClick }: { label: string; selected: boolean
   <button
     type="button"
     onClick={onClick}
-    className={`w-full text-left rounded-xl px-4 md:px-5 min-h-[48px] md:min-h-[56px] flex items-center justify-between gap-3 font-sans text-[13px] md:text-[14px] transition-all ${
+    className={`w-full text-left rounded-xl px-4 md:px-5 min-h-[48px] md:min-h-[56px] flex items-center justify-between gap-3 font-sans text-[13px] md:text-[14px] transition-all border ${
       selected
-        ? "bg-cyan-300/10 border border-cyan-300 text-white"
-        : "bg-[var(--navy-3)] border border-white/5 text-white/85 hover:border-cyan-300/40"
+        ? "bg-[#EEF0FF] border-[#5B6CFF] text-[var(--text)]"
+        : "bg-[#F8FAFF] border-[#DDE6F2] text-[var(--text)]/85 hover:bg-[#EEF3FF] hover:border-[#C7D4EA]"
     }`}
   >
     <span>{label}</span>
-    <span className={`text-cyan-300 transition-opacity ${selected ? "opacity-100" : "opacity-0"}`}>●</span>
+    <span className={`text-[#5B6CFF] transition-opacity ${selected ? "opacity-100" : "opacity-0"}`}>●</span>
   </button>
 );
 
@@ -275,7 +274,7 @@ const Input = ({
       maxLength={maxLength}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-[var(--navy-3)] border border-white/8 rounded-xl px-4 py-3.5 font-sans text-[15px] text-white placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-cyan-300 focus:shadow-[0_0_0_3px_rgba(77,235,255,0.12)]"
+      className="w-full bg-[#F8FAFF] border border-[#DDE6F2] rounded-xl px-4 py-3.5 font-sans text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-[#6C63FF] focus:bg-white focus:shadow-[0_0_0_3px_rgba(108,99,255,0.15)]"
     />
   </label>
 );

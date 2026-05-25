@@ -8,13 +8,13 @@ type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[10px] font-sans font-semibold text-[13px] tracking-[0.02em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/60";
+  "inline-flex items-center justify-center gap-2 rounded-[12px] font-sans font-semibold text-[13px] tracking-[0.02em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF]/50";
 
 const variants: Record<Variant, string> = {
   primary:
-    "gradient-brand text-white px-7 py-[15px] shadow-[0_0_40px_rgba(124,58,237,0.4)] hover:shadow-[0_0_55px_rgba(124,58,237,0.55)] hover:-translate-y-0.5",
+    "gradient-brand text-white px-7 py-[15px] shadow-[0_12px_32px_rgba(91,108,255,0.28)] hover:shadow-[0_16px_40px_rgba(91,108,255,0.4)] hover:-translate-y-0.5",
   ghost:
-    "bg-transparent border border-cyan-300/20 text-cyan-300 px-7 py-[15px] hover:bg-cyan-300/10 hover:border-cyan-300",
+    "bg-white border border-[#D8E2F0] text-[#5B6CFF] px-7 py-[15px] hover:bg-[#EEF3FF] hover:border-[#6C63FF]",
 };
 
 export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(

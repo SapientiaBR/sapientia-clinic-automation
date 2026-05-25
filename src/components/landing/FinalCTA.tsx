@@ -13,13 +13,20 @@ const FinalCTA = () => {
     <section className="py-14 md:section-padding relative overflow-hidden">
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
-        style={{ background: "rgba(124,58,237,0.12)", filter: "blur(120px)" }}
+        style={{ background: "rgba(108,99,255,0.10)", filter: "blur(120px)" }}
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        {/* Garantia */}
-        <div className="card-base p-6 sm:p-8 mb-10 md:mb-14 text-left">
+        {/* Garantia em destaque mint */}
+        <div
+          className="rounded-2xl p-6 sm:p-8 mb-10 md:mb-14 text-left"
+          style={{
+            background: "#ECFDF5",
+            border: "1px solid #BCEFD6",
+            boxShadow: "0 14px 36px rgba(69,216,155,0.10)",
+          }}
+        >
           <Eyebrow>// garantia</Eyebrow>
-          <p className="font-sans text-[15px] md:text-base text-white/85 leading-relaxed mt-2">
+          <p className="font-sans text-[15px] md:text-base text-[#0F3D2E] leading-relaxed mt-2">
             Acompanhamos sua clínica de perto nas primeiras semanas. Se não houver redução de
             faltas e mais agendamentos, ajustamos sem custo adicional.
           </p>
@@ -27,9 +34,9 @@ const FinalCTA = () => {
             {guarantees.map((g) => (
               <li
                 key={g}
-                className="flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)]"
+                className="flex items-center gap-2 font-sans text-[13px] text-[#0F3D2E]/80"
               >
-                <Check size={16} className="text-cyan-300 flex-shrink-0" />
+                <Check size={16} className="flex-shrink-0" style={{ color: "#16A875" }} />
                 <span>{g}</span>
               </li>
             ))}
@@ -38,7 +45,7 @@ const FinalCTA = () => {
 
         <div className="text-center">
           <Eyebrow>// comece agora</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-[52px] font-bold text-white text-balance">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-[52px] font-bold text-[var(--text)] text-balance">
             Pronto para parar de <em>perder pacientes?</em>
           </h2>
           <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] mt-4 md:mt-5 mb-7 md:mb-8 leading-relaxed">
