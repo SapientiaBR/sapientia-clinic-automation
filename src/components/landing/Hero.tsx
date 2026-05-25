@@ -102,7 +102,7 @@ const Hero = () => {
 
             <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[72px] text-[#1D1D24]">
               Sua clínica perde{" "}
-              <em className="gradient-warm">R$23.000/mês</em>{" "}
+              <em className="gradient-hero-value">R$23.000/mês</em>{" "}
               em silêncio.
             </h1>
 
