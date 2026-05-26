@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import logo from "@/assets/sapient-logo.webp";
@@ -5,6 +6,11 @@ import logo from "@/assets/sapient-logo.webp";
 const WHATSAPP_URL = "https://wa.me/5511920795583?text=Ol%C3%A1%2C%20acabei%20de%20preencher%20o%20fomul%C3%A1rio%20e%20gostaria%20do%20meu%20diagn%C3%B3stico%20gratuito.";
 
 const ThankYou = () => {
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead");
+    }
+  }, []);
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col justify-center items-center relative overflow-hidden py-20 px-4">
       <Helmet>
