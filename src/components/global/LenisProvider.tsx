@@ -22,6 +22,12 @@ const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     ref.current = instance;
     setLenis(instance);
 
+    if (import.meta.env.DEV || new URLSearchParams(window.location.search).has("perf")) {
+      (window as unknown as { __lenis?: Lenis }).__lenis = instance;
+    }
+
+
+
     ScrollTrigger.normalizeScroll(false);
 
     const onLenisScroll = () => ScrollTrigger.update();

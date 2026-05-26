@@ -1,25 +1,64 @@
-1. Shrink floating WhatsApp logo
-   - File: src/components/global/FloatingWhatsApp.tsx
-   - Reduce button from w-14 h-14 to w-11 h-11 (44px) and SVG icon from 26px to 22px. Keep existing animation and green color.
+# Lightweight Performance Logging
 
-2. Apply lavender→blue→beige gradient to hero "R$23.000/mês"
-   - File: src/components/landing/Hero.tsx
-   - The <em> already uses gradient-warm (lavanda→bege). Replace with a new utility class that inserts the blue/cyan midpoint so the gradient reads lavender → blue → beige as requested.
-   - File: src/index.css — add a new .gradient-hero-value utility with the three-stop gradient.
+Goal: instrument the landing page with **dev-only** perf marks so we can confirm that the recent mobile reflow + ScrollTrigger callback reductions actually improve scroll smoothness. Zero impact in production builds.
 
-3. Replace all "5 dias" / "~5 dias" / "5 dias úteis" copy with "poucos dias"
-   - Files to edit:
-     - src/pages/Index.tsx (meta description + og:description + FAQ entity)
-     - src/components/landing/FAQ.tsx (answer text)
-     - src/components/landing/FinalCTA.tsx (guarantees list)
-   - No structural changes; only string replacement.
+## What gets added
 
-4. Recolor the guarantee card in FinalCTA from green/mint to theme tones
-   - File: src/components/landing/FinalCTA.tsx
-   - Replace green background (#ECFDF5), border (#BCEFD6), shadow (green tint), and text/icon colors (#0F3D2E, #16A875) with warm theme equivalents:
-     - background → #F1EEFF (lavender tint) or #FBFAF7 (warm off-white)
-     - border → #DED8FF or #EEE7DE
-     - shadow → warm shadow (rgba(70,55,35,0.10))
-     - text → var(--text) or #1D1D24
-     - check icon → #8A7CF6
-   - Keep layout, copy, and Eyebrow unchanged.
+### 1. `src/lib/perfMonitor.ts` (new)
+A small, self-contained module that runs only when `import.meta.env.DEV` (or when `?perf=1` is present in the URL, so we can flip it on in the deployed preview without a rebuild). It exposes:
+
+- `startFpsMonitor()` — rAF loop that samples frame time, computes rolling 1s FPS, and logs:
+  - average FPS
+  - 1% low FPS (worst frame in window)
+  - count of long frames (>50ms)
+  Logs once per second to `console.info` with a `[perf]` tag, and emits a `performance.mark` so it shows up in DevTools Performance panel.
+- `startScrollFpsMonitor()` — same as above but only samples while the user is actively scrolling (listens to Lenis if available, falls back to `window` scroll). Logs a summary on scroll-end: duration, avg FPS during scroll, 1% low, longest frame.
+- `markScrollTriggerCallbacks()` — wraps `ScrollTrigger.addEventListener("refresh"/"scrollEnd")` and counts callback invocations per second, so we can verify the reduction. Logs deltas only when the count changes.
+- `logLongTasks()` — uses `PerformanceObserver({ type: "longtask" })` to log any task >50ms with its duration and attribution. No-op if the API is unavailable (Safari).
+- `logCLS()` and `logINP()` — minimal Web Vitals via `PerformanceObserver` (no extra dep), logged once on `visibilitychange === "hidden"`.
+
+All monitors honor `prefers-reduced-motion` purely for FPS expectations (no behavior change) and are tree-shaken in production via `if (import.meta.env.DEV)` guards.
+
+### 2. `src/main.tsx` (edit)
+Conditionally initialize the monitors at startup:
+
+```ts
+if (import.meta.env.DEV || new URLSearchParams(location.search).has("perf")) {
+  import("./lib/perfMonitor").then(m => {
+    m.startFpsMonitor();
+    m.startScrollFpsMonitor();
+    m.markScrollTriggerCallbacks();
+    m.logLongTasks();
+    m.logCLS();
+    m.logINP();
+  });
+}
+```
+
+Dynamic import keeps the module out of the production bundle entirely when the `?perf=1` flag isn't used.
+
+### 3. `src/components/global/LenisProvider.tsx` (tiny edit)
+Expose the Lenis instance on `window.__lenis` in dev only, so `startScrollFpsMonitor` can hook into Lenis's `scroll` event instead of falling back to native scroll. One-line guarded assignment.
+
+## How we validate
+
+After it's in:
+1. Open the preview with `?perf=1` on mobile viewport.
+2. Scroll the full landing page once.
+3. Check console for:
+   - `[perf] scroll fps avg=X p99low=Y longest=Zms` per scroll burst
+   - `[perf] longtask Xms` — should be rare/short
+   - `[perf] ST callbacks/s` — should be lower than before the reductions
+4. Compare numbers against a baseline (note them in chat) to confirm improvement.
+
+## Out of scope
+
+- No UI overlay (would itself cost frames). Console + Performance panel marks only.
+- No analytics upload. Local-only logs.
+- No new deps.
+
+## Files touched
+
+- `src/lib/perfMonitor.ts` (new, ~120 LOC)
+- `src/main.tsx` (5-line init block)
+- `src/components/global/LenisProvider.tsx` (1-line dev-only window assignment)
