@@ -67,9 +67,15 @@ export const LeadForm = () => {
         keepalive: true,
       });
       window.clearTimeout(t);
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead");
+      }
       navigate("/obrigado");
       window.scrollTo(0, 0);
     } catch {
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("track", "Lead");
+      }
       navigate("/obrigado");
       window.scrollTo(0, 0);
     } finally {
