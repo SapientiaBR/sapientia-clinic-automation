@@ -158,17 +158,17 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           <button
             type="submit"
             disabled={submitting}
-            className="relative w-full mt-5 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-full h-14 flex items-center justify-center gap-2 shadow-[0_22px_50px_rgba(138,124,246,0.45)] hover:shadow-[0_26px_60px_rgba(138,124,246,0.55)] transition-all disabled:opacity-70"
+            className="relative w-full mt-5 gradient-brand text-white font-sans font-bold text-[12px] sm:text-[13px] tracking-[0.08em] uppercase rounded-full h-14 px-6 inline-flex items-center justify-center gap-2.5 whitespace-nowrap shadow-[0_22px_50px_rgba(138,124,246,0.45)] hover:shadow-[0_26px_60px_rgba(138,124,246,0.55)] transition-all disabled:opacity-70"
           >
             {submitting ? (
               <>
-                <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                Enviando...
+                <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin shrink-0" />
+                <span className="leading-none">Enviando...</span>
               </>
             ) : (
               <>
-                <MessageSquare size={18} />
-                Receber a chamada da IA agora
+                <MessageSquare size={16} className="shrink-0" aria-hidden="true" />
+                <span className="leading-none">Receber a chamada da IA agora</span>
               </>
             )}
           </button>
