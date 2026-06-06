@@ -103,7 +103,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             Veja sua secretária digital <em>atendendo você agora</em>.
           </h2>
           <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
-            A IA te liga em minutos. Você sente o que o seu paciente sente.
+            A IA te chama no WhatsApp em minutos. Você sente o que o seu paciente sente.
           </p>
         </div>
 
