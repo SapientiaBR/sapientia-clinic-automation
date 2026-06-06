@@ -1,49 +1,26 @@
-## Objetivo
+## Resumo
+Reduzir a seção **Conversas Reais** de 6 para 3 cards, focando em mobile-first e diminuindo o scroll. Manter: Agendamento, Follow-up e Cancelamento. Reescrever o card de Follow-up para mostrar lembrete de consulta (redução de no-show).
 
-Fazer o bloco do formulário "saltar" da página durante o scroll, sem virar carnaval. A LP toda é areia/branco; o card vira o único bloco escuro, funcionando como âncora visual e CTA mestre.
+## O que será feito
 
-## Mudanças em `src/components/landing/LeadForm.tsx`
+### 1. Filtrar cards no `RealConversations.tsx`
+- Manter apenas os 3 cards: **Agendamento**, **Follow-up** e **Cancelamento**
+- Remover: Quebra de objeção, Áudio, Fora do script
 
-### 1. Copy mais curta
-- Subtítulo atual (3 linhas) vira uma frase:
-  > "A IA te liga em minutos. Você sente o que o seu paciente sente."
-- Headline mantida: "Veja sua secretária digital *atendendo você agora*."
-- Badge mantido: "Demonstração ao vivo, grátis".
-- Microcopy abaixo do botão fica em uma linha: "Resposta em minutos. LGPD, zero spam."
+### 2. Reescrever card de Follow-up
+- Título: trocar de "Faltou na consulta. IA recupera." para algo sobre lembrete
+- Mensagens: simular um lembrete preventivo, ex:
+  - IA (out): *"Olá, Dra. Mariana lembra que hoje você tem consulta às 14h. Confirma que vai conseguir comparecer?"*
+  - Paciente (in): *"Sim, obrigado pelo lembrete!"*
+  - IA (out): *"Perfeito. Te espero lá. Qualquer coisa, é só chamar."*
+- Caption: focar em redução de no-show com lembrete automatizado
+- Remover o `footer` desse card (ou ajustar)
 
-### 2. Card escuro (contraste premium, não "carnaval")
-Trocar o card branco por um painel escuro com glow lavanda discreto.
+### 3. Ajustes de copy nos cards restantes
+- Revisar títulos e captions dos 3 cards mantidos para manter consistência
+- Subtítulo geral da seção: encurtar se necessário para mobile
 
-- Fundo: `#1A1726` (quase preto com leve viés roxo, dialoga com lavanda da marca).
-- Borda: `1px solid rgba(138,124,246,0.22)`.
-- Sombra dupla: sombra quente externa + halo lavanda sutil
-  `0 30px 80px rgba(20,15,40,0.35), 0 0 0 1px rgba(138,124,246,0.18), 0 0 60px rgba(138,124,246,0.15)`.
-- Glow radial sutil no topo do card (pseudo bg) lavanda→transparente, baixa opacidade.
-- Cantos `rounded-[28px]`.
-
-### 3. Inputs no card escuro
-- Fundo input: `rgba(255,255,255,0.04)`.
-- Borda: `rgba(255,255,255,0.10)`.
-- Texto: branco; placeholder `rgba(255,255,255,0.35)`.
-- Label (mono, uppercase): `rgba(255,255,255,0.55)`.
-- Focus: borda `#8A7CF6`, ring `rgba(138,124,246,0.30)`, fundo `rgba(255,255,255,0.06)`.
-
-### 4. Botão
-- Mantém gradiente lavanda→ciano (já é o CTA principal da marca).
-- Aumenta a sombra para destacar sobre o fundo escuro: `0 22px 50px rgba(138,124,246,0.45)`.
-- Texto: "Receber a chamada da IA agora".
-
-### 5. Microcopy de segurança
-- Cor: `rgba(255,255,255,0.45)`.
-- Texto: "Resposta em minutos. LGPD, zero spam."
-
-### 6. Header da seção (fora do card)
-Continua claro, sobre o fundo areia da LP. Apenas o card é escuro, o que cria o contraste pedido sem escurecer a seção inteira.
-
-## O que NÃO muda
-- Lógica do form, validação Zod, webhook n8n, redirect `/obrigado`, `fbq("Lead")`.
-- Variante `compact` e id `formulario`.
-- Paleta global da LP.
-
-## Resultado esperado
-Ao scrollar, o olho bate direto no painel escuro com glow lavanda no meio da página clara, lê uma headline curta e um subtítulo de uma frase, e cai no CTA. Premium, focado, sem ruído.
+## Nada muda em:
+- Estrutura visual do card (borda, sombra, balões de chat)
+- Animações GSAP
+- Seção no geral (id, classes, container)
