@@ -102,24 +102,33 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Veja sua secretária digital <em>atendendo você agora</em>.
           </h2>
-          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-lg mx-auto">
-            Preencha abaixo e em poucos minutos a IA te chama no WhatsApp. Ela vai agendar, tirar dúvida,
-            responder áudio. Você sente exatamente o que o seu paciente vai sentir, sem reunião, sem
-            apresentação, sem enrolação.
+          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
+            A IA te liga em minutos. Você sente o que o seu paciente sente.
           </p>
         </div>
 
         <form
           onSubmit={onSubmit}
-          className="rounded-[24px] p-5 sm:p-8 relative"
+          className="rounded-[28px] p-6 sm:p-9 relative overflow-hidden"
           style={{
-            background: "#FFFFFF",
-            border: "1px solid #E9E0D6",
-            boxShadow: "0 24px 60px rgba(70,55,35,0.10)",
+            background: "#1A1726",
+            border: "1px solid rgba(138,124,246,0.22)",
+            boxShadow:
+              "0 30px 80px rgba(20,15,40,0.35), 0 0 0 1px rgba(138,124,246,0.18), 0 0 60px rgba(138,124,246,0.15)",
           }}
           data-reveal
         >
-          <div className="grid sm:grid-cols-2 gap-4">
+          {/* Glow lavanda sutil no topo */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-40 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 0%, rgba(138,124,246,0.22), transparent 70%)",
+            }}
+          />
+
+          <div className="relative grid sm:grid-cols-2 gap-4">
             <Input
               label="Nome"
               value={nome}
@@ -141,7 +150,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           </div>
 
           {error && (
-            <p className="font-sans text-sm text-[#EF6F7A] mt-4" role="alert">
+            <p className="font-sans text-sm text-[#FF9AA2] mt-4 relative" role="alert">
               {error}
             </p>
           )}
@@ -149,7 +158,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full mt-5 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-full h-14 flex items-center justify-center gap-2 shadow-[0_16px_34px_rgba(138,124,246,0.28)] hover:shadow-[0_20px_42px_rgba(138,124,246,0.38)] transition-all disabled:opacity-70"
+            className="relative w-full mt-5 gradient-brand text-white font-sans font-bold text-[14px] tracking-[0.02em] uppercase rounded-full h-14 flex items-center justify-center gap-2 shadow-[0_22px_50px_rgba(138,124,246,0.45)] hover:shadow-[0_26px_60px_rgba(138,124,246,0.55)] transition-all disabled:opacity-70"
           >
             {submitting ? (
               <>
@@ -164,10 +173,11 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             )}
           </button>
 
-          <p className="font-mono text-[11px] text-[var(--text-dim)] text-center mt-5">
-            Resposta em poucos minutos. Dados protegidos, compatível com LGPD, zero spam.
+          <p className="font-mono text-[11px] text-center mt-5 relative" style={{ color: "rgba(255,255,255,0.45)" }}>
+            Resposta em minutos. LGPD, zero spam.
           </p>
         </form>
+
       </div>
     </section>
   );
@@ -191,7 +201,10 @@ const Input = ({
   autoComplete?: string;
 }) => (
   <label className="block">
-    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)] block mb-2">
+    <span
+      className="font-mono text-[11px] uppercase tracking-[0.15em] block mb-2"
+      style={{ color: "rgba(255,255,255,0.55)" }}
+    >
       {label}
     </span>
     <input
@@ -201,7 +214,11 @@ const Input = ({
       autoComplete={autoComplete}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-[#FBFAF7] border border-[#E9E0D6] rounded-xl px-4 py-3.5 font-sans text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-[#8A7CF6] focus:bg-white focus:shadow-[0_0_0_3px_rgba(138,124,246,0.18)]"
+      className="w-full rounded-xl px-4 py-3.5 font-sans text-[15px] text-white outline-none transition-all border placeholder:text-white/35 focus:border-[#8A7CF6] focus:shadow-[0_0_0_3px_rgba(138,124,246,0.30)]"
+      style={{
+        background: "rgba(255,255,255,0.04)",
+        borderColor: "rgba(255,255,255,0.10)",
+      }}
     />
   </label>
 );
