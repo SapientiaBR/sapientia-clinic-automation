@@ -159,13 +159,13 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             ) : (
               <>
                 <MessageSquare size={18} />
-                Quero a IA me chamando agora
+                Receber a chamada da IA agora
               </>
             )}
           </button>
 
           <p className="font-mono text-[11px] text-[var(--text-dim)] text-center mt-5">
-            🔒 Dados protegidos. Compatível com LGPD. Zero spam.
+            Resposta em poucos minutos. Dados protegidos, compatível com LGPD, zero spam.
           </p>
         </form>
       </div>
