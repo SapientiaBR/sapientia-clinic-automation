@@ -103,7 +103,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             Veja sua secretária digital <em>atendendo você agora</em>.
           </h2>
           <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
-            A IA te chama no WhatsApp em minutos. Você sente o que o seu paciente sente.
+            A IA te chama no WhatsApp em segundos. Você sente o que o seu paciente sente.
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           </button>
 
           <p className="font-mono text-[11px] text-center mt-5 relative" style={{ color: "rgba(255,255,255,0.45)" }}>
-            Resposta em minutos. LGPD, zero spam.
+            Resposta em segundos. LGPD, zero spam.
           </p>
         </form>
 
