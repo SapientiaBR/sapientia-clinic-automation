@@ -84,13 +84,28 @@ export const LeadForm = ({ variant = "default" }: Props) => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">
         <div className="text-center mb-6 md:mb-8" data-reveal>
-          <Eyebrow>// teste a IA agora</Eyebrow>
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5"
+            style={{
+              background: "#F1EEFF",
+              border: "1px solid #DED8FF",
+            }}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#8A7CF6] opacity-50 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6F63E8]" />
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6F63E8]">
+              Demonstração ao vivo, grátis
+            </span>
+          </div>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            Coloque seu WhatsApp. <em>Nossa IA te chama em minutos.</em>
+            Veja sua secretária digital <em>atendendo você agora</em>.
           </h2>
-          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
-            Esse contato no seu WhatsApp é a demonstração. A própria IA vai te atender, agendar, responder
-            dúvidas. Você sente na pele como o paciente vai sentir.
+          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-lg mx-auto">
+            Preencha abaixo e em poucos minutos a IA te chama no WhatsApp. Ela vai agendar, tirar dúvida,
+            responder áudio. Você sente exatamente o que o seu paciente vai sentir, sem reunião, sem
+            apresentação, sem enrolação.
           </p>
         </div>
 
@@ -144,13 +159,13 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             ) : (
               <>
                 <MessageSquare size={18} />
-                Quero a IA me chamando agora
+                Receber a chamada da IA agora
               </>
             )}
           </button>
 
           <p className="font-mono text-[11px] text-[var(--text-dim)] text-center mt-5">
-            🔒 Dados protegidos. Compatível com LGPD. Zero spam.
+            Resposta em poucos minutos. Dados protegidos, compatível com LGPD, zero spam.
           </p>
         </form>
       </div>
