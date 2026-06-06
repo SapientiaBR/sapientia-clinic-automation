@@ -78,7 +78,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
 
   return (
     <section
-      id="formulario"
+      id={isCompact ? undefined : "formulario"}
       className={`${isCompact ? "py-10 md:py-14" : "py-14 md:section-padding"} relative scroll-mt-24`}
       ref={ref}
     >
