@@ -96,7 +96,7 @@ const Hero = () => {
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#6F63E8]">
                 <span className="md:hidden">IA 24/7 para clínicas</span>
-                <span className="hidden md:inline">✦ IA conversacional para clínicas — feita por médicos</span>
+                <span className="hidden md:inline">✦ IA conversacional para clínicas, feita por médicos</span>
               </span>
             </div>
 
@@ -106,14 +106,7 @@ const Hero = () => {
               em silêncio.
             </h1>
 
-            <a
-              href="#calculadora"
-              className="hidden md:block font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--text-muted)] hover:text-[#6F63E8] transition-colors mt-5 max-w-[460px]"
-            >
-              Estimativa baseada em atendimentos semanais, ticket médio e taxa conservadora de perda por demora no atendimento. Calcule a sua ↓
-            </a>
-
-            <p className="hidden md:block font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-4 mb-6">
+            <p className="hidden md:block font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-5 mb-6">
               Um produto Sapient.IA
             </p>
 
@@ -124,19 +117,9 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
               <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
-                Quero recuperar pacientes
-              </MagneticButton>
-              <MagneticButton href="#solucoes" variant="ghost" className="hidden md:inline-flex whitespace-nowrap">
-                Ver conversa real →
+                Testar a IA agora
               </MagneticButton>
             </div>
-
-            <a
-              href="#solucoes"
-              className="md:hidden inline-block mt-4 font-sans text-sm font-medium text-[#6F63E8] underline-offset-4 hover:underline"
-            >
-              Ver conversa real →
-            </a>
 
             <p className="hidden md:block font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)] mt-8">
               Implementação em poucos dias · Sem trocar seu WhatsApp · Sem app novo para o paciente
