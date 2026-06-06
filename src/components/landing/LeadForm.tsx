@@ -201,7 +201,10 @@ const Input = ({
   autoComplete?: string;
 }) => (
   <label className="block">
-    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)] block mb-2">
+    <span
+      className="font-mono text-[11px] uppercase tracking-[0.15em] block mb-2"
+      style={{ color: "rgba(255,255,255,0.55)" }}
+    >
       {label}
     </span>
     <input
@@ -211,7 +214,11 @@ const Input = ({
       autoComplete={autoComplete}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full bg-[#FBFAF7] border border-[#E9E0D6] rounded-xl px-4 py-3.5 font-sans text-[15px] text-[var(--text)] placeholder:text-[var(--text-dim)] outline-none transition-all focus:border-[#8A7CF6] focus:bg-white focus:shadow-[0_0_0_3px_rgba(138,124,246,0.18)]"
+      className="w-full rounded-xl px-4 py-3.5 font-sans text-[15px] text-white outline-none transition-all border placeholder:text-white/35 focus:border-[#8A7CF6] focus:shadow-[0_0_0_3px_rgba(138,124,246,0.30)]"
+      style={{
+        background: "rgba(255,255,255,0.04)",
+        borderColor: "rgba(255,255,255,0.10)",
+      }}
     />
   </label>
 );
