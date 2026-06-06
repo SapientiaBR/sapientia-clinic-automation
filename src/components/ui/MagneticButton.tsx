@@ -21,11 +21,30 @@ const variants: Record<Variant, string> = {
 };
 
 export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
-  ({ variant = "primary", className = "", children, noArrow = false, ...rest }, _ref) => {
+  ({ variant = "primary", className = "", children, noArrow = false, onClick, href, ...rest }, _ref) => {
     const magnetRef = useMagnetic<HTMLAnchorElement>(0.18);
     const isPrimary = variant === "primary";
+
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (onClick) onClick(e);
+      if (e.defaultPrevented) return;
+      if (typeof href === "string" && href.startsWith("#") && href.length > 1) {
+        const target = document.getElementById(href.slice(1));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    };
+
     return (
-      <a ref={magnetRef} className={`${base} ${variants[variant]} ${className}`} {...rest}>
+      <a
+        ref={magnetRef}
+        href={href}
+        onClick={handleClick}
+        className={`${base} ${variants[variant]} ${className}`}
+        {...rest}
+      >
         <span className={isPrimary ? "py-2" : ""}>{children}</span>
         {isPrimary && !noArrow && (
           <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(70,55,35,0.10)] transition-transform duration-300 group-hover:rotate-12">
