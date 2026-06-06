@@ -168,7 +168,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             ) : (
               <>
                 <MessageSquare size={16} className="shrink-0" aria-hidden="true" />
-                <span className="leading-none">Receber a chamada da IA agora</span>
+                <span className="leading-none">Falar com a IA no WhatsApp</span>
               </>
             )}
           </button>
