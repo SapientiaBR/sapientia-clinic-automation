@@ -34,82 +34,27 @@ const conversations: Convo[] = [
     footer: "Lead agendado fora do horário comercial",
   },
   {
-    tag: "Quebra de objeção",
-    title: "Paciente em dúvida sobre preço.",
-    caption: "A IA contorna a objeção com transparência e mantém a conversa viva, sem empurrar.",
-    messages: [
-      { side: "in", text: "Achei caro a consulta. Outras clínicas tão mais barato." },
-      {
-        side: "out",
-        text:
-          "Entendo, Marcos. O valor inclui a avaliação completa com o Dr. Rodrigo e o retorno em 30 dias. Quer que eu te explique o que costuma estar incluso quando o preço é menor?",
-      },
-      { side: "in", text: "Pode mandar" },
-      {
-        side: "out",
-        text:
-          "Beleza. Em geral, retorno separado, exames de triagem fora, e tempo de consulta menor. Aqui tudo já vai junto. Quer que eu segure um horário e você me confirma até amanhã?",
-      },
-    ],
-  },
-  {
     tag: "Follow-up",
-    title: "Faltou na consulta. IA recupera.",
-    caption: "Em vez de só marcar como falta, a IA reabre a conversa e remarca no mesmo fluxo.",
+    title: "Lembrete que reduz no-show.",
+    caption: "A IA confirma a presença algumas horas antes. Menos faltas, agenda mais cheia.",
     messages: [
       {
         side: "out",
         text:
-          "Oi, Ana. Senti sua falta hoje na consulta das 15h. Aconteceu algo? Se quiser, posso te oferecer outro horário essa semana.",
+          "Oi, Ana! 😊 Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
       },
-      { side: "in", text: "Nossa, esqueci completamente, desculpa" },
-      { side: "out", text: "Acontece! 😊 Tenho quinta 16h ou sexta 11h. Qual fica melhor?" },
-      { side: "in", text: "Quinta 16h" },
-      { side: "out", text: "Pronto, remarcado. Vou te lembrar 24h antes e 1h antes." },
-    ],
-    footer: "Falta recuperada sem secretária ligar",
-  },
-  {
-    tag: "Áudio",
-    title: "Paciente manda áudio. IA transcreve e responde.",
-    caption: "Áudio entendido em segundos. Resposta no formato que o paciente prefere.",
-    messages: [
-      { side: "in", text: "🎤 Áudio de 0:42 (transcrito)" },
-      {
-        side: "in",
-        text:
-          "Bom dia, queria saber se vocês atendem convênio Unimed e se tem horário ainda essa semana, porque tô com uma dor que não passa.",
-      },
+      { side: "in", text: "Confirmo sim, obrigada pelo lembrete!" },
       {
         side: "out",
         text:
-          "Bom dia, Júlia! Atendemos Unimed sim. Pelo que descreveu já te coloco como prioridade. Tenho quarta 9h ou quinta 8h30. Qual fica melhor?",
+          "Perfeito. Te espero por aqui. Se precisar de algo antes, é só chamar.",
       },
     ],
-  },
-  {
-    tag: "Fora do script",
-    title: "Pergunta que a IA não deveria responder sozinha.",
-    caption: "Quando foge do escopo, a IA avisa e passa para humano. Sem inventar.",
-    messages: [
-      { side: "in", text: "Posso parar o anticoagulante antes da cirurgia?" },
-      {
-        side: "out",
-        text:
-          "Essa é uma pergunta clínica que só a Dra. Helena pode responder com segurança. Vou marcar como prioridade e ela mesma te retorna ainda hoje, pode ser?",
-      },
-      { side: "in", text: "Pode sim, obrigado" },
-      {
-        side: "out",
-        text:
-          "Anotado. A Dra. já está vendo. Te aviso assim que tiver resposta.",
-      },
-    ],
-    footer: "Handoff automático para humano",
+    footer: "No-show reduzido sem ninguém ligar",
   },
   {
     tag: "Cancelamento",
-    title: "Em vez de só cancelar, a IA tenta reagendar.",
+    title: "Em vez de só cancelar, a IA reagenda.",
     caption: "Reduz o buraco na agenda sem ser insistente.",
     messages: [
       { side: "in", text: "Preciso cancelar amanhã" },
@@ -122,6 +67,7 @@ const conversations: Convo[] = [
       { side: "out", text: "Cancelei amanhã e remarquei pra segunda 10h. Te lembro 24h antes." },
     ],
   },
+
 ];
 
 const RealConversations = () => {
@@ -138,9 +84,9 @@ const RealConversations = () => {
             Veja a IA <em>trabalhando de verdade.</em>
           </h2>
           <p className="font-sans text-sm md:text-base text-[var(--text-muted)] mt-3 md:mt-5 leading-relaxed">
-            Sem mockup bonitinho. Conversas reais (com nomes trocados): agendamento, objeção,
-            follow-up, áudio, pergunta fora do script, cancelamento.
+            Sem mockup. Conversas reais (com nomes trocados): agendamento, lembrete e cancelamento.
           </p>
+
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
