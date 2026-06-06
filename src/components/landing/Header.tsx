@@ -6,8 +6,8 @@ import { useLenis } from "@/components/global/LenisProvider";
 const CTA_HREF = "#formulario";
 
 const navItems = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Recursos", href: "#solucoes" },
+  { label: "Conversas reais", href: "#conversas-reais" },
+  { label: "E se...?", href: "#objecoes" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "FAQ", href: "#faq" },
 ];
