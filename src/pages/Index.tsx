@@ -3,17 +3,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import { LeadForm } from "@/components/landing/LeadForm";
-import { useIsMobile } from "@/hooks/use-mobile";
-
-import PositioningStatement from "@/components/landing/PositioningStatement";
 
 const Problems = lazy(() => import("@/components/landing/Problems"));
-const Method = lazy(() => import("@/components/landing/Method"));
-const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
-const Visualization = lazy(() => import("@/components/landing/Visualization"));
+const RealConversations = lazy(() => import("@/components/landing/RealConversations"));
+const VideoDemo = lazy(() => import("@/components/landing/VideoDemo"));
+const AIObjections = lazy(() => import("@/components/landing/AIObjections"));
 const Solutions = lazy(() => import("@/components/landing/Solutions"));
-const LossCalculator = lazy(() => import("@/components/landing/LossCalculator"));
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
+const Method = lazy(() => import("@/components/landing/Method"));
 const FAQ = lazy(() => import("@/components/landing/FAQ"));
 const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
 const Footer = lazy(() => import("@/components/landing/Footer"));
@@ -40,21 +37,19 @@ const faqJsonLd = {
 };
 
 const Index = () => {
-  const isMobile = useIsMobile();
-
   return (
     <div className="min-h-screen bg-[var(--navy-0)] text-[var(--text)] overflow-x-hidden">
       <Helmet>
-        <title>Secretária Invisível — IA para agendamento automático no WhatsApp | Sapient.IA</title>
+        <title>Secretária Invisível | IA que atende seu WhatsApp 24/7 e agenda pacientes</title>
         <meta
           name="description"
-          content="A Secretária Invisível atende, qualifica e agenda consultas no WhatsApp 24/7. Implementação em poucos dias. Desenvolvido pela Sapient.IA para clínicas e consultórios."
+          content="Coloque seu WhatsApp e fale ao vivo com nossa IA. Ela atende, qualifica e agenda pacientes 24/7. Para clínicas em São Paulo. Por Sapient.IA."
         />
         <meta name="keywords" content="secretária virtual IA, automação WhatsApp clínica, agendamento automático médico, IA para consultório" />
         <link rel="canonical" href="https://secretariainvisivel.com.br/" />
         <meta property="og:url" content="https://secretariainvisivel.com.br/" />
-        <meta property="og:title" content="Secretária Invisível — IA para agendamento automático no WhatsApp" />
-        <meta property="og:description" content="Atende, qualifica e agenda no WhatsApp 24/7. Implementação em poucos dias." />
+        <meta property="og:title" content="Secretária Invisível | IA que atende seu WhatsApp 24/7" />
+        <meta property="og:description" content="Teste a IA ao vivo. Ela atende, qualifica e agenda no WhatsApp." />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
@@ -62,17 +57,17 @@ const Index = () => {
       <main className="page-canvas">
         <Hero />
         <LeadForm />
-        <PositioningStatement />
 
         <Suspense fallback={<Fallback h="h-96" />}>
           <Problems />
-          {!isMobile && <HowItWorks />}
-          {!isMobile && <Visualization />}
+          <RealConversations />
+          <VideoDemo />
+          <AIObjections />
           <Solutions />
-          <Method />
-          <LossCalculator />
           <SocialProof />
-          <FAQ compact={isMobile} />
+          <Method />
+          <LeadForm variant="compact" />
+          <FAQ />
           <FinalCTA />
         </Suspense>
       </main>

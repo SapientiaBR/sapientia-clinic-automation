@@ -53,7 +53,7 @@ const FinalCTA = () => {
           </p>
           <div className="flex justify-center">
             <MagneticButton href="#formulario" variant="primary" className="whitespace-nowrap">
-              <span className="whitespace-nowrap">Quero recuperar pacientes →</span>
+              <span className="whitespace-nowrap">Testar a IA agora</span>
             </MagneticButton>
           </div>
         </div>
