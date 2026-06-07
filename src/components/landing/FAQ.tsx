@@ -6,6 +6,30 @@ import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
+    "E se a IA responder algo errado?",
+    "Ela só responde dentro do escopo que vocês definem. Tudo que foge do script vira handoff automático para humano. Cada conversa fica gravada no painel para auditoria.",
+  ],
+  [
+    "Ela conhece minha clínica?",
+    "A IA é treinada com seus serviços, preços (ou faixas), convênios, médicos, horários, regras de agendamento e tom de voz. Não é genérica. É a sua secretária digital.",
+  ],
+  [
+    "Quem assume quando foge do script?",
+    "Sua equipe. A IA marca a conversa, alerta no painel ou no WhatsApp interno e segura o paciente educadamente até alguém entrar.",
+  ],
+  [
+    "Lê áudio? Lê imagem?",
+    "Sim. Áudio transcrito e respondido em segundos. Imagem (foto de carteirinha, pedido médico) é lida, classificada e roteada conforme a regra que vocês definirem.",
+  ],
+  [
+    "Faz follow-up de falta e cancelamento?",
+    "Faz. Recupera quem faltou, reagenda cancelamento e reativa paciente inativo. Tudo dentro da mesma conversa, sem campanha de spam.",
+  ],
+  [
+    "E meus dados? LGPD?",
+    "Conversas armazenadas em infraestrutura nacional, criptografadas, com contrato e DPA. Você controla retenção e acesso. Nada é usado para treinar modelo público.",
+  ],
+  [
     "Isso não vai parecer robótico para meus pacientes?",
     "Não. O sistema aprende o tom de voz da sua clínica e usa o nome do paciente em cada mensagem. Seus pacientes recebem respostas que soam como a sua equipe — com a linguagem que você já usa no consultório. Você aprova o fluxo completo antes de ativar. Se quiser mudar algo, nossa equipe ajusta em minutos.",
   ],
@@ -42,10 +66,13 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
     <section id="faq" className="section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
         <div className="text-center mb-12" data-reveal>
-          <Eyebrow>// perguntas frequentes</Eyebrow>
+          <Eyebrow>// e se...?</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            Suas dúvidas, <em>respondidas.</em>
+            As perguntas que todo médico faz <em>antes de confiar numa IA.</em>
           </h2>
+          <p className="font-sans text-sm md:text-base text-[var(--text-muted)] mt-3 md:mt-5 leading-relaxed">
+            Respostas diretas. Sem floreio.
+          </p>
         </div>
 
         <ul className="space-y-3" data-reveal>

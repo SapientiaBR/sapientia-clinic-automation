@@ -7,7 +7,7 @@ import { LeadForm } from "@/components/landing/LeadForm";
 const Problems = lazy(() => import("@/components/landing/Problems"));
 const RealConversations = lazy(() => import("@/components/landing/RealConversations"));
 const VideoDemo = lazy(() => import("@/components/landing/VideoDemo"));
-const AIObjections = lazy(() => import("@/components/landing/AIObjections"));
+
 const Solutions = lazy(() => import("@/components/landing/Solutions"));
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const Method = lazy(() => import("@/components/landing/Method"));
@@ -62,7 +62,7 @@ const Index = () => {
           <Problems />
           <RealConversations />
           <VideoDemo />
-          <AIObjections />
+          
           <Solutions />
           <SocialProof />
           <Method />
