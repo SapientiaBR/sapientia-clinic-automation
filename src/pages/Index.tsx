@@ -62,7 +62,7 @@ const Index = () => {
           <Problems />
           <RealConversations />
           <VideoDemo />
-          <AIObjections />
+          
           <Solutions />
           <SocialProof />
           <Method />
