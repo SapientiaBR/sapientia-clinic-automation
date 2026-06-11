@@ -115,10 +115,18 @@ const Hero = () => {
               <span className="hidden md:inline">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp, mesmo quando sua equipe não está disponível.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
               <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
                 Testar a IA agora
               </MagneticButton>
+              <a
+                href="https://wa.me/5511920795583"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0A8C7E] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"
+              >
+                Falar com especialista
+              </a>
             </div>
 
             <p className="hidden md:block font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)] mt-8">
