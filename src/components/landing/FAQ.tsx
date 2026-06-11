@@ -121,14 +121,14 @@ const FAQItem = ({
     <li
       className="rounded-2xl overflow-hidden transition-colors"
       style={{
-        background: "#FFFFFF",
-        border: `1px solid ${isOpen ? "#0FB5A3" : "#E5E7EB"}`,
-        boxShadow: isOpen ? "0 14px 36px rgba(91,108,255,0.10)" : "0 8px 22px rgba(23,33,61,0.04)",
+        background: isOpen ? "#FFFFFF" : "#F1FBF8",
+        border: `1px solid ${isOpen ? "#0FB5A3" : "#D6F3EE"}`,
+        boxShadow: isOpen ? "0 14px 36px rgba(15,181,163,0.14)" : "0 8px 22px rgba(10,140,126,0.06)",
       }}
     >
       <button
         onClick={onToggle}
-        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F9FAFB]"
+        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#E9F7F3]"
         aria-expanded={isOpen}
       >
         <span className="font-display text-[18px] font-medium text-[var(--text)]">{q}</span>
