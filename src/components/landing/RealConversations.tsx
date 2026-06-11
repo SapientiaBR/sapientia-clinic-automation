@@ -96,9 +96,9 @@ const RealConversations = () => {
               data-reveal
               className="rounded-3xl p-4 sm:p-5 flex flex-col"
               style={{
-                background: "#FFFFFF",
-                border: "1px solid #E5E7EB",
-                boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
+                background: "#F1FBF8",
+                border: "1px solid #D6F3EE",
+                boxShadow: "0 20px 44px rgba(10,140,126,0.10), 0 4px 12px rgba(15,23,42,0.04)",
               }}
             >
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
