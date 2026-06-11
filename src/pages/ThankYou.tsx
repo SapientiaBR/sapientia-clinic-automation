@@ -30,7 +30,7 @@ const ThankYou = () => {
         style={{
           background: "#FFFFFF",
           border: "1px solid #E5E7EB",
-          boxShadow: "0 24px 60px rgba(70,55,35,0.12)",
+          boxShadow: "0 24px 60px rgba(15,23,42,0.12)",
         }}
       >
         <img src={logo} alt="Sapient.IA" className="h-14 w-auto mb-6 opacity-80" />

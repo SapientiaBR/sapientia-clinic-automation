@@ -22,7 +22,7 @@ const FinalCTA = () => {
           style={{
             background: "#D6F3EE",
             border: "1px solid #A7E6DD",
-            boxShadow: "0 14px 36px rgba(70,55,35,0.10)",
+            boxShadow: "0 14px 36px rgba(15,23,42,0.10)",
           }}
         >
           <Eyebrow>// garantia</Eyebrow>

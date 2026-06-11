@@ -28,7 +28,7 @@ const VideoDemo = () => {
           style={{
             background: "#1F2937",
             border: "1px solid #E5E7EB",
-            boxShadow: "0 24px 60px rgba(70,55,35,0.18)",
+            boxShadow: "0 24px 60px rgba(15,23,42,0.18)",
           }}
         >
           <video

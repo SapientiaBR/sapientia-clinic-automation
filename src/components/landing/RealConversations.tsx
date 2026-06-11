@@ -98,7 +98,7 @@ const RealConversations = () => {
               style={{
                 background: "#FFFFFF",
                 border: "1px solid #E5E7EB",
-                boxShadow: "0 18px 44px rgba(70,55,35,0.08)",
+                boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
               }}
             >
               <span

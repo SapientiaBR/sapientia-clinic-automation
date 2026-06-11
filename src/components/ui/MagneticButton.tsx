@@ -47,7 +47,7 @@ export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
       >
         <span className={isPrimary ? "py-2" : ""}>{children}</span>
         {isPrimary && !noArrow && (
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(70,55,35,0.10)] transition-transform duration-300 group-hover:rotate-12">
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(15,23,42,0.10)] transition-transform duration-300 group-hover:rotate-12">
             <ArrowRight size={16} className="text-[#0A8C7E]" />
           </span>
         )}

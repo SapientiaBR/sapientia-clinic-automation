@@ -146,7 +146,7 @@ const Hero = () => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                filter: "drop-shadow(0 30px 60px rgba(138,99,40,0.18))",
+                filter: "drop-shadow(0 30px 60px rgba(15,181,163,0.18))",
               }}
             />
 
@@ -155,7 +155,7 @@ const Hero = () => {
                 className="rounded-3xl p-1 bg-white"
                 style={{
                   border: "1px solid #E5E7EB",
-                  boxShadow: "0 28px 70px rgba(70,55,35,0.18)",
+                  boxShadow: "0 28px 70px rgba(15,23,42,0.18)",
                 }}
               >
                 <div className="bg-white rounded-3xl overflow-hidden">
@@ -209,7 +209,7 @@ const Hero = () => {
                   className={`absolute ${c.pos} bg-white rounded-2xl px-3.5 py-2.5 hidden md:block`}
                   style={{
                     border: "1px solid #E5E7EB",
-                    boxShadow: "0 14px 30px rgba(70,55,35,0.12)",
+                    boxShadow: "0 14px 30px rgba(15,23,42,0.12)",
                   }}
                 >
                   <div className="flex items-center gap-2 mb-0.5">
