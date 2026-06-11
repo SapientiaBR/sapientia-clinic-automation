@@ -29,11 +29,11 @@ const Hero = () => {
         background: "linear-gradient(120deg, #ECFBF7 0%, #FFFFFF 55%, #D6F3EE 100%)",
       }}
     >
-      {/* Doctor photo as semi-transparent background */}
+      {/* Doctor photo as semi-transparent background — desktop only */}
       <div
         data-hero-bg
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           backgroundImage: `url(${heroBgAsset.url})`,
           backgroundSize: "cover",
@@ -42,10 +42,26 @@ const Hero = () => {
           opacity: 0.55,
         }}
       />
-      {/* Left fade mask so headline keeps full contrast */}
+      {/* Mobile: faint accent in bottom-right corner only */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none md:hidden"
+        style={{
+          backgroundImage: `url(${heroBgAsset.url})`,
+          backgroundSize: "auto 60%",
+          backgroundPosition: "right -40px bottom -20px",
+          backgroundRepeat: "no-repeat",
+          opacity: 0.18,
+          maskImage:
+            "linear-gradient(135deg, transparent 30%, #000 80%)",
+          WebkitMaskImage:
+            "linear-gradient(135deg, transparent 30%, #000 80%)",
+        }}
+      />
+      {/* Left fade mask so headline keeps full contrast (desktop) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none hidden md:block"
         style={{
           background:
             "linear-gradient(90deg, #ECFBF7 0%, rgba(236,251,247,0.92) 30%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0) 80%)",
