@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoSI from "@/assets/logo-secretaria-invisivel.png.asset.json";
+import logoSI from "@/assets/logo-si-transparent.png.asset.json";
 import { useLenis } from "@/components/global/LenisProvider";
 
 const CTA_HREF = "#formulario";
