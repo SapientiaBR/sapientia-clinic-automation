@@ -19,17 +19,17 @@ const stats: Stat[] = [
   {
     value: 63, suffix: "%", label: "pacientes vão embora em 5 min",
     desc: "63% dos pacientes não esperam mais que 5 minutos por resposta — ligam pra próxima clínica.",
-    Icon: Clock, bg: "#F1EEFF", iconColor: "#8A7CF6",
+    Icon: Clock, bg: "#D6F3EE", iconColor: "#0FB5A3",
   },
   {
     value: 2800, prefix: "R$ ", label: "/mês de secretária sobrecarregada",
     desc: "Custo médio de uma secretária CLT — e mesmo assim o WhatsApp segue sem resposta fora do horário.",
-    Icon: Wallet, bg: "#EAF6FB", iconColor: "#22BFEA",
+    Icon: Wallet, bg: "#D6F3EE", iconColor: "#0FB5A3",
   },
   {
     value: 34, suffix: "%", label: "faltas sem confirmação",
     desc: "Sem lembrete automático, as faltas podem chegar a 34% — agenda com buracos e dinheiro na mesa.",
-    Icon: CalendarX, bg: "#FFF1D9", iconColor: "#D4A76A",
+    Icon: CalendarX, bg: "#F3F4F6", iconColor: "#1F2937",
   },
 ];
 

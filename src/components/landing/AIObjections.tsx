@@ -43,7 +43,7 @@ const AIObjections = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="objecoes" className="py-14 md:section-padding relative bg-[#F7F3EE]" ref={ref}>
+    <section id="objecoes" className="py-14 md:section-padding relative bg-[#F3F4F6]" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-8 md:mb-12 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// e se...?</Eyebrow>
@@ -63,15 +63,15 @@ const AIObjections = () => {
               className="rounded-3xl p-5 md:p-6"
               style={{
                 background: "#FFFFFF",
-                border: "1px solid #EEE7DE",
-                boxShadow: "0 18px 44px rgba(70,55,35,0.08)",
+                border: "1px solid #E5E7EB",
+                boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
               }}
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: "linear-gradient(135deg, #F1EEFF, #EAF6FB)" }}
+                style={{ background: "linear-gradient(135deg, #D6F3EE, #D6F3EE)" }}
               >
-                <it.Icon size={22} style={{ color: "#6F63E8" }} />
+                <it.Icon size={22} style={{ color: "#0A8C7E" }} />
               </div>
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
                 {it.q}

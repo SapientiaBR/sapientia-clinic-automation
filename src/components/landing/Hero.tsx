@@ -13,9 +13,9 @@ const messages = [
 ];
 
 const floatCards = [
-  { pos: "top-2 -right-4 md:-right-10",     dot: "#8A7CF6", label: "AGENDAMENTO",    value: "Confirmado · Dr. Rodrigo 15h", delay: 0.4, drift: 4, parallax: -28 },
-  { pos: "top-1/2 -left-6 md:-left-14",     dot: "#22BFEA", label: "RESPOSTA",       value: "⚡ 3 segundos",                 delay: 0.7, drift: 5, parallax: -16 },
-  { pos: "bottom-16 -right-4 md:-right-12", dot: "#D4A76A", label: "AGENDA HOJE",    value: "+14 consultas",                 delay: 1.0, drift: 6, parallax: -22 },
+  { pos: "top-2 -right-4 md:-right-10",     dot: "#0FB5A3", label: "AGENDAMENTO",    value: "Confirmado · Dr. Rodrigo 15h", delay: 0.4, drift: 4, parallax: -28 },
+  { pos: "top-1/2 -left-6 md:-left-14",     dot: "#0FB5A3", label: "RESPOSTA",       value: "⚡ 3 segundos",                 delay: 0.7, drift: 5, parallax: -16 },
+  { pos: "bottom-16 -right-4 md:-right-12", dot: "#1F2937", label: "AGENDA HOJE",    value: "+14 consultas",                 delay: 1.0, drift: 6, parallax: -22 },
   { pos: "-bottom-2 left-2 md:-left-10",    dot: "#45D89B", label: "STATUS",         value: "Online · 24/7",                 delay: 1.3, drift: 7, parallax: -12 },
 ];
 
@@ -85,22 +85,22 @@ const Hero = () => {
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7"
               style={{
-                background: "#F1EEFF",
-                border: "1px solid #DED8FF",
+                background: "#D6F3EE",
+                border: "1px solid #A7E6DD",
                 boxShadow: "0 4px 14px rgba(138,124,246,0.10)",
               }}
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-[#8A7CF6] opacity-50 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6F63E8]" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#6F63E8]">
+              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#0A8C7E]">
                 <span className="md:hidden">IA 24/7 para clínicas</span>
                 <span className="hidden md:inline">✦ IA conversacional para clínicas, feita por médicos</span>
               </span>
             </div>
 
-            <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[72px] text-[#1D1D24]">
+            <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[72px] text-[#1F2937]">
               Sua clínica perde{" "}
               <em className="gradient-hero-value">R$23.000/mês</em>{" "}
               em silêncio.
@@ -115,10 +115,18 @@ const Hero = () => {
               <span className="hidden md:inline">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp, mesmo quando sua equipe não está disponível.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
               <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
                 Testar a IA agora
               </MagneticButton>
+              <a
+                href="https://wa.me/5511920795583"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0A8C7E] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"
+              >
+                Falar com especialista
+              </a>
             </div>
 
             <p className="hidden md:block font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-muted)] mt-8">
@@ -138,7 +146,7 @@ const Hero = () => {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                filter: "drop-shadow(0 30px 60px rgba(138,99,40,0.18))",
+                filter: "drop-shadow(0 30px 60px rgba(15,181,163,0.18))",
               }}
             />
 
@@ -146,14 +154,14 @@ const Hero = () => {
               <div
                 className="rounded-3xl p-1 bg-white"
                 style={{
-                  border: "1px solid #EEE7DE",
-                  boxShadow: "0 28px 70px rgba(70,55,35,0.18)",
+                  border: "1px solid #E5E7EB",
+                  boxShadow: "0 28px 70px rgba(15,23,42,0.18)",
                 }}
               >
                 <div className="bg-white rounded-3xl overflow-hidden">
                   <div
                     className="px-4 py-3 flex items-center gap-3"
-                    style={{ background: "linear-gradient(135deg, #8A7CF6, #6EA8FF)" }}
+                    style={{ background: "linear-gradient(135deg, #0FB5A3, #0A8C7E)" }}
                   >
                     <div className="w-10 h-10 rounded-full bg-white/25 flex items-center justify-center text-sm font-bold text-white">
                       IA
@@ -166,7 +174,7 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="p-4 space-y-3 min-h-[300px] bg-[#FBFAF7]">
+                  <div className="p-4 space-y-3 min-h-[300px] bg-[#F9FAFB]">
                     {messages.map((m, i) => (
                       <div
                         key={i}
@@ -180,14 +188,14 @@ const Hero = () => {
                           style={
                             m.side === "right"
                               ? { background: "#E7F8EF", color: "#0F3D2E" }
-                              : { background: "#F0F4FF", color: "#1D1D24", borderColor: "#E4E9F8" }
+                              : { background: "#F9FAFB", color: "#1F2937", borderColor: "#E5E7EB" }
                           }
                         >
                           {m.text}
                         </div>
                       </div>
                     ))}
-                    <p className="text-center font-mono text-[10px] text-[#6F63E8]/70 pt-2">
+                    <p className="text-center font-mono text-[10px] text-[#0A8C7E]/70 pt-2">
                       23:47 · Respondido em 3 segundos
                     </p>
                   </div>
@@ -200,8 +208,8 @@ const Hero = () => {
                   data-float={i}
                   className={`absolute ${c.pos} bg-white rounded-2xl px-3.5 py-2.5 hidden md:block`}
                   style={{
-                    border: "1px solid #EEE7DE",
-                    boxShadow: "0 14px 30px rgba(70,55,35,0.12)",
+                    border: "1px solid #E5E7EB",
+                    boxShadow: "0 14px 30px rgba(15,23,42,0.12)",
                   }}
                 >
                   <div className="flex items-center gap-2 mb-0.5">
@@ -220,7 +228,7 @@ const Hero = () => {
         </div>
 
         <div className="hidden md:block mt-12 text-center">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6F63E8]/80">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#0A8C7E]/80">
             Respondido em 3 segundos. Sua secretária levaria 47 minutos.
           </p>
         </div>

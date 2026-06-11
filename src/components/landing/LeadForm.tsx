@@ -87,15 +87,15 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5"
             style={{
-              background: "#F1EEFF",
-              border: "1px solid #DED8FF",
+              background: "#D6F3EE",
+              border: "1px solid #A7E6DD",
             }}
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-[#8A7CF6] opacity-50 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6F63E8]" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6F63E8]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#0A8C7E]">
               Demonstração ao vivo, grátis
             </span>
           </div>
@@ -111,7 +111,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           onSubmit={onSubmit}
           className="rounded-[28px] p-6 sm:p-9 relative overflow-hidden"
           style={{
-            background: "#1A1726",
+            background: "#111827",
             border: "1px solid rgba(138,124,246,0.22)",
             boxShadow:
               "0 30px 80px rgba(20,15,40,0.35), 0 0 0 1px rgba(138,124,246,0.18), 0 0 60px rgba(138,124,246,0.15)",
@@ -214,7 +214,7 @@ const Input = ({
       autoComplete={autoComplete}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="w-full rounded-xl px-4 py-3.5 font-sans text-[15px] text-white outline-none transition-all border placeholder:text-white/35 focus:border-[#8A7CF6] focus:shadow-[0_0_0_3px_rgba(138,124,246,0.30)]"
+      className="w-full rounded-xl px-4 py-3.5 font-sans text-[15px] text-white outline-none transition-all border placeholder:text-white/35 focus:border-[#0FB5A3] focus:shadow-[0_0_0_3px_rgba(138,124,246,0.30)]"
       style={{
         background: "rgba(255,255,255,0.04)",
         borderColor: "rgba(255,255,255,0.10)",

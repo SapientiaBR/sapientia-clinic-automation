@@ -26,9 +26,9 @@ const VideoDemo = () => {
           data-reveal
           className="mx-auto rounded-3xl overflow-hidden relative w-full max-w-[360px] aspect-[9/16]"
           style={{
-            background: "#1D1D24",
-            border: "1px solid #EEE7DE",
-            boxShadow: "0 24px 60px rgba(70,55,35,0.18)",
+            background: "#1F2937",
+            border: "1px solid #E5E7EB",
+            boxShadow: "0 24px 60px rgba(15,23,42,0.18)",
           }}
         >
           <video

@@ -51,23 +51,23 @@ const SocialProof = () => {
               className="rounded-3xl p-6 md:p-8 flex flex-col max-w-2xl w-full"
               style={{
                 background: "#FFFFFF",
-                border: "1px solid #EEE7DE",
-                boxShadow: "0 18px 44px rgba(70,55,35,0.08)",
+                border: "1px solid #E5E7EB",
+                boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
               }}
             >
-              <p className="tracking-[3px] text-base mb-3" style={{ color: "#D4A76A" }}>
+              <p className="tracking-[3px] text-base mb-3" style={{ color: "#1F2937" }}>
                 ★★★★★
               </p>
               <blockquote className="font-display italic text-[17px] md:text-[19px] leading-[1.65] text-[var(--text)] flex-1">
                 {t.quote}
               </blockquote>
 
-              <div className="flex items-center gap-4 mt-6 pt-5 border-t border-[#F1ECE4]">
+              <div className="flex items-center gap-4 mt-6 pt-5 border-t border-[#F3F4F6]">
                 <Avatar className="h-20 w-20 md:h-24 md:w-24">
                   {t.photo && <AvatarImage src={t.photo} alt={t.name} className="object-cover" />}
                   <AvatarFallback
                     className="text-white text-base font-bold"
-                    style={{ background: "linear-gradient(135deg, #8A7CF6, #22BFEA)" }}
+                    style={{ background: "linear-gradient(135deg, #0FB5A3, #0FB5A3)" }}
                   >
                     {t.initials}
                   </AvatarFallback>
@@ -79,7 +79,7 @@ const SocialProof = () => {
                   <p className="font-sans text-[13px] text-[var(--text-muted)] leading-tight mt-0.5">
                     {t.role}
                   </p>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6F63E8] mt-1">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#0A8C7E] mt-1">
                     {t.clinic}, {t.city}
                   </p>
                 </div>

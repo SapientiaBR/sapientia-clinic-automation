@@ -26,7 +26,7 @@ const LossCalculator = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="calculadora" className="py-14 md:section-padding relative bg-[#F7F3EE]" ref={ref}>
+    <section id="calculadora" className="py-14 md:section-padding relative bg-[#F3F4F6]" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
         <div className="text-center mb-8 md:mb-12" data-reveal>
           <Eyebrow>// calculadora</Eyebrow>
@@ -51,17 +51,17 @@ const LossCalculator = () => {
             min={100} max={2000} step={50}
           />
 
-          <div className="hidden md:block mt-2 mb-6 p-5 rounded-xl border border-[#EEE7DE] bg-[#FBFAF7]">
+          <div className="hidden md:block mt-2 mb-6 p-5 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB]">
             <p className="font-sans text-sm text-[var(--text)]/85 leading-relaxed">
-              Estudos mostram que <span className="text-[#6F63E8] font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-[#6F63E8] font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
+              Estudos mostram que <span className="text-[#0A8C7E] font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-[#0A8C7E] font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
             </p>
           </div>
 
-          <p className="md:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-[#6F63E8] mt-1 mb-4 text-center">
+          <p className="md:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-[#0A8C7E] mt-1 mb-4 text-center">
             Cálculo conservador · 30% de perda
           </p>
 
-          <div className="text-center pt-5 md:pt-6 border-t border-[#EEE7DE] overflow-visible">
+          <div className="text-center pt-5 md:pt-6 border-t border-[#E5E7EB] overflow-visible">
             <p className="font-sans text-[13px] md:text-sm text-[var(--text-muted)] mb-2 md:mb-3">
               Você está deixando na mesa todo mês:
             </p>
@@ -91,7 +91,7 @@ const SliderRow = ({ label, value, display, onChange, min, max, step }: {
       <span className="font-display-sans text-2xl gradient-text font-bold tabular-nums">{display}</span>
     </div>
     <Slider value={[value]} onValueChange={(v) => onChange(v[0])} min={min} max={max} step={step}
-      className="[&_[role=slider]]:bg-[#8A7CF6] [&_[role=slider]]:border-[#8A7CF6] cursor-pointer" />
+      className="[&_[role=slider]]:bg-[#0FB5A3] [&_[role=slider]]:border-[#0FB5A3] cursor-pointer" />
     <div className="flex justify-between font-mono text-[10px] text-[var(--text-dim)] mt-2 uppercase tracking-widest">
       <span>{min}</span><span>{max}</span>
     </div>

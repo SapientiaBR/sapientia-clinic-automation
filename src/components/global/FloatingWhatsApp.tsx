@@ -33,8 +33,8 @@ const FloatingWhatsApp = () => {
       aria-label="Testar a IA agora"
       className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 h-12 pl-3 pr-4 rounded-full flex items-center gap-2 text-white font-sans font-semibold text-[13px]"
       style={{
-        background: "linear-gradient(135deg, #8A7CF6, #22BFEA)",
-        boxShadow: "0 14px 30px rgba(138,124,246,0.32)",
+        background: "linear-gradient(135deg, #0FB5A3, #0A8C7E)",
+        boxShadow: "0 14px 30px rgba(15,181,163,0.32)",
       }}
     >
       <span

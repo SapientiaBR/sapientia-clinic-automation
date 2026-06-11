@@ -6,27 +6,27 @@ import { revealOnScroll } from "@/lib/animations";
 const steps = [
   {
     n: "01",
-    title: "Paciente envia mensagem",
-    desc: "Qualquer hora, qualquer dia. A Secretária Invisível recebe e entende a intenção em segundos.",
+    title: "Conectamos seu WhatsApp",
+    desc: "Em até 24h. Sem trocar de número, sem app novo. Usamos a API oficial do WhatsApp Business.",
     chat: [
-      { side: "right", text: "Oi, queria marcar uma consulta", time: "22:47" },
+      { side: "left", text: "✅ WhatsApp da clínica conectado e ativo", time: "10:12" },
     ],
   },
   {
     n: "02",
-    title: "IA qualifica e agenda",
-    desc: "Consulta a agenda, sugere horários, confirma dados do paciente. Tudo sem intervenção humana.",
+    title: "Configuramos sua agenda",
+    desc: "Integramos serviços, convênios, horários, médicos e o tom de voz da sua clínica. Você aprova antes de ativar.",
     chat: [
-      { side: "left", text: "Olá! 😊 Tenho amanhã às 14h ou 16h. Qual prefere?", time: "22:47" },
-      { side: "right", text: "14h", time: "22:48" },
+      { side: "right", text: "Pode incluir consulta + retorno em 15 dias?", time: "10:15" },
+      { side: "left", text: "Feito. Quer revisar o fluxo completo?", time: "10:15" },
     ],
   },
   {
     n: "03",
-    title: "Consulta confirmada",
-    desc: "Lembrete automático 24h antes. Reagendamento se necessário. Você só aparece para atender.",
+    title: "Sua IA atende sozinha",
+    desc: "Agenda, envia lembrete no dia, recupera no-show e reativa paciente inativo. Sua equipe só entra quando vale a pena.",
     chat: [
-      { side: "left", text: "✅ Confirmado para amanhã 14h. Lembrete 1h antes.", time: "22:48" },
+      { side: "left", text: "Olá Maria, hoje você tem consulta às 14h 😊", time: "08:00" },
     ],
   },
 ];
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                 {s.desc}
               </p>
 
-              <div className="bg-[#F8FAFF] border border-[#DDE6F2] rounded-xl p-3 space-y-2">
+              <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-3 space-y-2">
                 {s.chat.map((m, j) => (
                   <div key={j} className={`flex ${m.side === "right" ? "justify-end" : "justify-start"}`}>
                     <div
@@ -69,14 +69,14 @@ const HowItWorks = () => {
                       style={
                         m.side === "right"
                           ? { background: "#DCFCE7", color: "#0F3D2E" }
-                          : { background: "#EEF3FF", color: "#17213D", borderColor: "#DDE6F2" }
+                          : { background: "#F9FAFB", color: "#1F2937", borderColor: "#E5E7EB" }
                       }
                     >
                       {m.text}
                     </div>
                   </div>
                 ))}
-                <p className="font-mono text-[10px] text-[#5B6CFF]/60 text-center pt-1">{s.chat[s.chat.length - 1].time}</p>
+                <p className="font-mono text-[10px] text-[#0FB5A3]/60 text-center pt-1">{s.chat[s.chat.length - 1].time}</p>
               </div>
             </div>
           ))}

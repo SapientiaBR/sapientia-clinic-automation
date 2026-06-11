@@ -6,9 +6,9 @@ import { useLenis } from "@/components/global/LenisProvider";
 const CTA_HREF = "#formulario";
 
 const navItems = [
+  { label: "Como funciona", href: "#como-funciona" },
   { label: "Conversas reais", href: "#conversas-reais" },
-  { label: "E se...?", href: "#objecoes" },
-  { label: "Depoimentos", href: "#depoimentos" },
+  { label: "Garantia", href: "#garantia" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -34,14 +34,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#EEE7DE]"
+          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#E5E7EB]"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
-            <div className="rounded-xl bg-[#F7F3EE] px-2.5 py-1.5 border border-[#EEE7DE]">
+            <div className="rounded-xl bg-[#F3F4F6] px-2.5 py-1.5 border border-[#E5E7EB]">
               <img
                 src={logoSI}
                 alt="Secretária Invisível"
@@ -55,14 +55,14 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#6F63E8] transition-colors"
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#0A8C7E] transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-brand text-white text-[12px] font-semibold uppercase tracking-[0.02em] px-5 py-2.5 rounded-full shadow-[0_10px_22px_rgba(138,124,246,0.28)] hover:shadow-[0_14px_28px_rgba(138,124,246,0.38)] transition-all"
+              className="gradient-brand text-white text-[12px] font-semibold uppercase tracking-[0.02em] px-5 py-2.5 rounded-full shadow-[0_10px_22px_rgba(15,181,163,0.28)] hover:shadow-[0_14px_28px_rgba(15,181,163,0.38)] transition-all"
             >
               Quero testar
             </a>
@@ -79,7 +79,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-b border-[#EEE7DE] animate-fade-in shadow-[0_10px_30px_rgba(70,55,35,0.10)]">
+        <div className="md:hidden bg-white border-b border-[#E5E7EB] animate-fade-in shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a

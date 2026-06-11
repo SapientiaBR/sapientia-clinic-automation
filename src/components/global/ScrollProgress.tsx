@@ -30,7 +30,7 @@ const ScrollProgress = () => {
           transform: `scaleX(${pct / 100})`,
           transition: "transform 120ms cubic-bezier(0.22, 1, 0.36, 1)",
           background:
-            "linear-gradient(90deg, #8A7CF6 0%, #22BFEA 55%, #D4A76A 100%)",
+            "linear-gradient(90deg, #0FB5A3 0%, #0FB5A3 55%, #1F2937 100%)",
         }}
       />
     </div>
