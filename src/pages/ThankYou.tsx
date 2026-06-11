@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MessageSquare, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import logo from "@/assets/sapient-logo.webp";
+import logo from "@/assets/logo-si-v2.png.asset.json";
 
 const WHATSAPP_URL =
   "https://wa.me/5511920795583?text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20e%20quero%20conversar%20com%20a%20IA%20ao%20vivo.";
@@ -33,7 +33,7 @@ const ThankYou = () => {
           boxShadow: "0 24px 60px rgba(15,23,42,0.12)",
         }}
       >
-        <img src={logo} alt="Sapient.IA" className="h-14 w-auto mb-6 opacity-80" />
+        <img src={logo.url} alt="Secretária Invisível" className="h-14 w-auto mb-6 opacity-80" />
 
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mb-6 relative"
