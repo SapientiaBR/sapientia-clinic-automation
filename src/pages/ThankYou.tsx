@@ -33,7 +33,7 @@ const ThankYou = () => {
           boxShadow: "0 24px 60px rgba(15,23,42,0.12)",
         }}
       >
-        <img src={logo} alt="Sapient.IA" className="h-14 w-auto mb-6 opacity-80" />
+        <img src={logo.url} alt="Secretária Invisível" className="h-14 w-auto mb-6 opacity-80" />
 
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mb-6 relative"
