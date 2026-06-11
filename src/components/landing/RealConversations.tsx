@@ -110,7 +110,7 @@ const RealConversations = () => {
 
               <div
                 className="mt-4 rounded-2xl p-3 space-y-2 flex-1"
-                style={{ background: "#F9FAFB", border: "1px solid #F3F4F6" }}
+                style={{ background: "#FFFFFF", border: "1px solid #ECFBF7" }}
               >
                 {c.messages.map((m, j) => (
                   <div key={j} className={`flex ${m.side === "in" ? "justify-start" : "justify-end"}`}>
