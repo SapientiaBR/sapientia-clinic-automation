@@ -2,7 +2,8 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
-import heroBgAsset from "@/assets/hero-bg-doctor.png.asset.json";
+import heroDesktop from "@/assets/hero-doctor-desktop.webp.asset.json";
+import heroMobile from "@/assets/hero-doctor-mobile.webp.asset.json";
 
 const CTA_HREF = "#formulario";
 
@@ -29,33 +30,30 @@ const Hero = () => {
         background: "linear-gradient(120deg, #ECFBF7 0%, #FFFFFF 55%, #D6F3EE 100%)",
       }}
     >
-      {/* Doctor photo as semi-transparent background — desktop only */}
-      <div
+      {/* Doctor photo as actual <img> — discoverable for LCP, responsive */}
+      <img
         data-hero-bg
-        aria-hidden
-        className="absolute inset-0 pointer-events-none hidden md:block"
+        src={heroDesktop.url}
+        srcSet={`${heroMobile.url} 600w, ${heroDesktop.url} 1200w`}
+        sizes="(max-width: 767px) 60vw, 100vw"
+        width={1200}
+        height={619}
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none md:opacity-[0.70] opacity-[0.18]"
         style={{
-          backgroundImage: `url(${heroBgAsset.url})`,
-          backgroundSize: "cover",
-          backgroundPosition: "right center",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.70,
+          objectPosition: "right center",
         }}
       />
-      {/* Mobile: faint accent in bottom-right corner only */}
+      {/* Mobile-only: fade mask so headline keeps contrast over the corner photo */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none md:hidden"
         style={{
-          backgroundImage: `url(${heroBgAsset.url})`,
-          backgroundSize: "auto 60%",
-          backgroundPosition: "right -40px bottom -20px",
-          backgroundRepeat: "no-repeat",
-          opacity: 0.18,
-          maskImage:
-            "linear-gradient(135deg, transparent 30%, #000 80%)",
-          WebkitMaskImage:
-            "linear-gradient(135deg, transparent 30%, #000 80%)",
+          background:
+            "linear-gradient(135deg, #ECFBF7 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 75%)",
         }}
       />
       {/* Left fade mask so headline keeps full contrast (desktop) */}
