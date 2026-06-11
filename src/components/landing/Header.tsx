@@ -7,6 +7,7 @@ const CTA_HREF = "#formulario";
 
 const navItems = [
   { label: "Como funciona", href: "#como-funciona" },
+  { label: "Preços", href: "#precos" },
   { label: "Conversas reais", href: "#conversas-reais" },
   { label: "Garantia", href: "#garantia" },
   { label: "FAQ", href: "#faq" },
