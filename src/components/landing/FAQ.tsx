@@ -118,17 +118,17 @@ const FAQItem = ({
       className="rounded-2xl overflow-hidden transition-colors"
       style={{
         background: "#FFFFFF",
-        border: `1px solid ${isOpen ? "#6C63FF" : "#DDE6F2"}`,
+        border: `1px solid ${isOpen ? "#0FB5A3" : "#E5E7EB"}`,
         boxShadow: isOpen ? "0 14px 36px rgba(91,108,255,0.10)" : "0 8px 22px rgba(23,33,61,0.04)",
       }}
     >
       <button
         onClick={onToggle}
-        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F8FAFF]"
+        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F9FAFB]"
         aria-expanded={isOpen}
       >
         <span className="font-display text-[18px] font-medium text-[var(--text)]">{q}</span>
-        <span className="text-[#5B6CFF] flex-shrink-0">
+        <span className="text-[#0FB5A3] flex-shrink-0">
           {isOpen ? <Minus size={18} /> : <Plus size={18} />}
         </span>
       </button>

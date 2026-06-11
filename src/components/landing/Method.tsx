@@ -35,17 +35,17 @@ const Method = () => {
             <div key={i} className="card-base p-4 md:p-6 relative" data-reveal>
               <div className="flex items-center gap-3 md:block">
                 <div className="flex-shrink-0">
-                  <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.08em] md:tracking-[0.15em] text-[#6F63E8] block md:mb-0">
+                  <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.08em] md:tracking-[0.15em] text-[#0A8C7E] block md:mb-0">
                     0{i + 1}
                   </span>
                   <div
                     className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center md:my-4 mt-1 md:mt-0"
                     style={{
-                      background: "linear-gradient(135deg, #F1EEFF, #FFF1D9)",
+                      background: "linear-gradient(135deg, #D6F3EE, #F3F4F6)",
                     }}
                   >
-                    <s.Icon size={20} className="md:hidden" style={{ color: "#6F63E8" }} />
-                    <s.Icon size={22} className="hidden md:block" style={{ color: "#6F63E8" }} />
+                    <s.Icon size={20} className="md:hidden" style={{ color: "#0A8C7E" }} />
+                    <s.Icon size={22} className="hidden md:block" style={{ color: "#0A8C7E" }} />
                   </div>
                 </div>
                 <div className="min-w-0">

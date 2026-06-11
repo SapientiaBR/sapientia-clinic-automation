@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <span
               className="w-2 h-2 rounded-full"
-              style={{ background: "linear-gradient(135deg, #8A7CF6, #22BFEA)" }}
+              style={{ background: "linear-gradient(135deg, #0FB5A3, #0FB5A3)" }}
             />
             <span className="font-display italic text-base text-[var(--text)]">Secretária Invisível</span>
           </div>

@@ -97,13 +97,13 @@ const RealConversations = () => {
               className="rounded-3xl p-4 sm:p-5 flex flex-col"
               style={{
                 background: "#FFFFFF",
-                border: "1px solid #EEE7DE",
+                border: "1px solid #E5E7EB",
                 boxShadow: "0 18px 44px rgba(70,55,35,0.08)",
               }}
             >
               <span
                 className="self-start font-mono text-[10px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full mb-3"
-                style={{ background: "#F1EEFF", color: "#6F63E8" }}
+                style={{ background: "#D6F3EE", color: "#0A8C7E" }}
               >
                 {c.tag}
               </span>
@@ -116,7 +116,7 @@ const RealConversations = () => {
 
               <div
                 className="mt-4 rounded-2xl p-3 space-y-2 flex-1"
-                style={{ background: "#FBFAF7", border: "1px solid #F1ECE4" }}
+                style={{ background: "#F9FAFB", border: "1px solid #F3F4F6" }}
               >
                 {c.messages.map((m, j) => (
                   <div key={j} className={`flex ${m.side === "in" ? "justify-start" : "justify-end"}`}>
@@ -126,8 +126,8 @@ const RealConversations = () => {
                         m.side === "in"
                           ? {
                               background: "#FFFFFF",
-                              color: "#1D1D24",
-                              border: "1px solid #ECE5DB",
+                              color: "#1F2937",
+                              border: "1px solid #F9FAFB",
                               borderRadius: "14px 14px 14px 4px",
                             }
                           : {
@@ -144,7 +144,7 @@ const RealConversations = () => {
               </div>
 
               {c.footer && (
-                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#6F63E8] mt-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#0A8C7E] mt-3">
                   ✓ {c.footer}
                 </p>
               )}

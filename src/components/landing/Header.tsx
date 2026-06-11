@@ -34,14 +34,14 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#EEE7DE]"
+          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#E5E7EB]"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
-            <div className="rounded-xl bg-[#F7F3EE] px-2.5 py-1.5 border border-[#EEE7DE]">
+            <div className="rounded-xl bg-[#F3F4F6] px-2.5 py-1.5 border border-[#E5E7EB]">
               <img
                 src={logoSI}
                 alt="Secretária Invisível"
@@ -55,7 +55,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#6F63E8] transition-colors"
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#0A8C7E] transition-colors"
               >
                 {item.label}
               </a>
@@ -79,7 +79,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-b border-[#EEE7DE] animate-fade-in shadow-[0_10px_30px_rgba(70,55,35,0.10)]">
+        <div className="md:hidden bg-white border-b border-[#E5E7EB] animate-fade-in shadow-[0_10px_30px_rgba(70,55,35,0.10)]">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a

@@ -20,8 +20,8 @@ const FinalCTA = () => {
         <div
           className="rounded-2xl p-6 sm:p-8 mb-10 md:mb-14 text-left"
           style={{
-            background: "#F1EEFF",
-            border: "1px solid #DED8FF",
+            background: "#D6F3EE",
+            border: "1px solid #A7E6DD",
             boxShadow: "0 14px 36px rgba(70,55,35,0.10)",
           }}
         >
@@ -36,7 +36,7 @@ const FinalCTA = () => {
                 key={g}
                 className="flex items-center gap-2 font-sans text-[13px] text-[var(--text)]/80"
               >
-                <Check size={16} className="flex-shrink-0" style={{ color: "#8A7CF6" }} />
+                <Check size={16} className="flex-shrink-0" style={{ color: "#0FB5A3" }} />
                 <span>{g}</span>
               </li>
             ))}

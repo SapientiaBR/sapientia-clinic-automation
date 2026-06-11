@@ -28,8 +28,8 @@ const ThankYou = () => {
       <div
         className="w-full max-w-xl relative z-10 rounded-3xl text-center p-8 sm:p-12 flex flex-col items-center animate-slide-up-fade"
         style={{
-          background: "#FFFDFC",
-          border: "1px solid #EEE7DE",
+          background: "#FFFFFF",
+          border: "1px solid #E5E7EB",
           boxShadow: "0 24px 60px rgba(70,55,35,0.12)",
         }}
       >
