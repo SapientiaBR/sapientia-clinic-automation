@@ -45,6 +45,8 @@ const Header = () => {
             <img
               src={logoSI.url}
               alt="Secretária Invisível"
+              width={1264}
+              height={843}
               className="h-20 md:h-28 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </a>
@@ -54,7 +56,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#0A8C7E] transition-colors"
+                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#055449] transition-colors"
               >
                 {item.label}
               </a>

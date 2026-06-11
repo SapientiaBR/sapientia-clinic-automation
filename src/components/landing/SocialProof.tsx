@@ -80,7 +80,7 @@ const SocialProof = () => {
                   <p className="font-sans text-[13px] text-[var(--text-muted)] leading-tight mt-0.5">
                     {t.role}
                   </p>
-                  <p className="font-sans text-[12px] text-[#0A8C7E] mt-1">
+                  <p className="font-sans text-[12px] text-[#055449] mt-1">
                     {t.clinic} · {t.city}
                   </p>
                 </div>

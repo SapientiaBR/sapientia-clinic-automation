@@ -53,11 +53,11 @@ const LossCalculator = () => {
 
           <div className="hidden md:block mt-2 mb-6 p-5 rounded-xl border border-[#E5E7EB] bg-[#F9FAFB]">
             <p className="font-sans text-sm text-[var(--text)]/85 leading-relaxed">
-              Estudos mostram que <span className="text-[#0A8C7E] font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-[#0A8C7E] font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
+              Estudos mostram que <span className="text-[#055449] font-semibold">54% dos pedidos de agendamento acontecem fora do horário comercial</span>. Considerando uma perda conservadora de <span className="text-[#055449] font-semibold">30%</span> por falta de resposta imediata, o impacto na sua clínica é:
             </p>
           </div>
 
-          <p className="md:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-[#0A8C7E] mt-1 mb-4 text-center">
+          <p className="md:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-[#055449] mt-1 mb-4 text-center">
             Cálculo conservador · 30% de perda
           </p>
 

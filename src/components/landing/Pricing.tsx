@@ -209,7 +209,7 @@ const Pricing = () => {
                     "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-sans font-semibold text-[13px] uppercase tracking-[0.02em] transition-all duration-300 " +
                     (p.ctaVariant === "primary"
                       ? "gradient-brand text-white shadow-[0_14px_30px_rgba(15,181,163,0.32)] hover:-translate-y-0.5"
-                      : "bg-white border border-[#0FB5A3] text-[#0A8C7E] hover:bg-[#F1FBF8]")
+                      : "bg-white border border-[#0FB5A3] text-[#055449] hover:bg-[#F1FBF8]")
                   }
                 >
                   <span>{p.ctaLabel}</span>

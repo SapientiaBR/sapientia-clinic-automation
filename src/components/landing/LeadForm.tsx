@@ -95,7 +95,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#0A8C7E]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#055449]">
               Demonstração ao vivo, grátis
             </span>
           </div>

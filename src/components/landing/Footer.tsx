@@ -9,6 +9,8 @@ const Footer = () => {
             <img
               src={logoSI.url}
               alt="Secretária Invisível"
+              width={1264}
+              height={843}
               className="h-12 md:h-14 w-auto"
             />
           </div>
