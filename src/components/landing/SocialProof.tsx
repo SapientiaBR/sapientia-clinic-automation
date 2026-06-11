@@ -58,9 +58,10 @@ const SocialProof = () => {
               <p className="tracking-[3px] text-base mb-3" style={{ color: "#1F2937" }}>
                 ★★★★★
               </p>
-              <blockquote className="font-display italic text-[17px] md:text-[19px] leading-[1.65] text-[var(--text)] flex-1">
-                {t.quote}
+              <blockquote className="font-sans text-[17px] md:text-[19px] leading-[1.6] text-[var(--text)] font-medium flex-1">
+                "{t.quote}"
               </blockquote>
+
 
               <div className="flex items-center gap-4 mt-6 pt-5 border-t border-[#F3F4F6]">
                 <Avatar className="h-20 w-20 md:h-24 md:w-24">
