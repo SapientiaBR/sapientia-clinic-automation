@@ -87,7 +87,7 @@ const Hero = () => {
               href="https://wa.me/5511920795583"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#0A8C7E] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#055449] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"
             >
               Falar com especialista
             </a>
