@@ -33,7 +33,7 @@ const Solutions = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {features.map((f, i) => (
-            <div key={i} className="card-base p-4 md:p-7 group" data-reveal>
+            <div key={i} className="card-base card-on-green p-4 md:p-7 group" data-reveal>
               <div className="grid grid-cols-[auto_1fr] items-center gap-3 md:block md:gap-0">
                 <div
                   className="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center md:mb-5 transition-transform group-hover:scale-110 group-hover:rotate-3"
