@@ -39,15 +39,13 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-24 md:h-28">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
-            <div className="rounded-xl bg-[#F3F4F6] px-2.5 py-1.5 border border-[#E5E7EB]">
-              <img
-                src={logoSI}
-                alt="Secretária Invisível"
-                className="h-12 md:h-14 w-auto"
-              />
-            </div>
+            <img
+              src={logoSI}
+              alt="Secretária Invisível"
+              className="h-14 md:h-20 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+            />
           </a>
 
           <nav className="hidden md:flex items-center gap-8">

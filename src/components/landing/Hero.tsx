@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { gsap, EASE_PREMIUM, parallaxY, prefersReducedMotion } from "@/lib/animations";
+import logoSI from "@/assets/logo-secretaria-invisivel.png";
 
 const CTA_HREF = "#formulario";
 
@@ -82,6 +83,13 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left */}
           <div data-hero-left className="max-w-2xl">
+            <img
+              src={logoSI}
+              alt="Secretária Invisível"
+              className="h-16 md:h-24 w-auto mb-6 md:mb-8 select-none"
+              style={{ filter: "drop-shadow(0 8px 24px rgba(15,181,163,0.18))" }}
+            />
+
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7"
               style={{
@@ -105,10 +113,6 @@ const Hero = () => {
               <em className="gradient-hero-value">R$23.000/mês</em>{" "}
               em silêncio.
             </h1>
-
-            <p className="hidden md:block font-sans text-xs uppercase tracking-[0.08em] text-[var(--text-dim)] mt-5 mb-6">
-              Um produto Sapient.IA
-            </p>
 
             <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] leading-[1.6] md:leading-[1.7] max-w-[480px] mt-5 md:mt-0 mb-7 md:mb-10">
               <span className="md:hidden">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp.</span>
