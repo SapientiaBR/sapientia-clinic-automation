@@ -1,4 +1,4 @@
-import logoSapientia from "@/assets/logo-sapientia.png";
+import logoSI from "@/assets/logo-secretaria-invisivel.png.asset.json";
 
 const Footer = () => {
   return (
