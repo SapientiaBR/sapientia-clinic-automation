@@ -101,12 +101,6 @@ const RealConversations = () => {
                 boxShadow: "0 18px 44px rgba(15,23,42,0.08)",
               }}
             >
-              <span
-                className="self-start font-mono text-[10px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full mb-3"
-                style={{ background: "#D6F3EE", color: "#0A8C7E" }}
-              >
-                {c.tag}
-              </span>
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
                 {c.title}
               </h3>
@@ -142,19 +136,9 @@ const RealConversations = () => {
                   </div>
                 ))}
               </div>
-
-              {c.footer && (
-                <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#0A8C7E] mt-3">
-                  ✓ {c.footer}
-                </p>
-              )}
             </article>
           ))}
         </div>
-
-        <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-[var(--text-dim)] text-center mt-8 max-w-2xl mx-auto">
-          Conversas anonimizadas de clientes reais. Quer ver a sua acontecendo? Teste no botão acima.
-        </p>
       </div>
     </section>
   );
