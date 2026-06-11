@@ -66,8 +66,10 @@ const Index = () => {
           <VideoDemo />
           
           <Solutions />
+          <HowItWorks />
           <SocialProof />
           <Method />
+          <Guarantee />
           <LeadForm variant="compact" />
           <FAQ />
           <FinalCTA />
