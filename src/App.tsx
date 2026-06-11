@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
+import LenisProvider from "./components/global/LenisProvider";
 
-const LenisProvider = lazy(() => import("./components/global/LenisProvider"));
 const ScrollProgress = lazy(() => import("./components/global/ScrollProgress"));
 const CustomCursor = lazy(() => import("./components/global/CustomCursor"));
 const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp"));
@@ -13,35 +13,35 @@ const DeferredUI = lazy(() => import("./components/DeferredUI.tsx"));
 
 const App = () => (
   <BrowserRouter>
-    <Suspense fallback={null}>
-      <LenisProvider>
+    <LenisProvider>
+      <Suspense fallback={null}>
         <ScrollProgress />
         <CustomCursor />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route
-            path="/obrigado"
-            element={
-              <Suspense fallback={null}>
-                <ThankYou />
-              </Suspense>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <Suspense fallback={null}>
-                <NotFound />
-              </Suspense>
-            }
-          />
-        </Routes>
+      </Suspense>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route
+          path="/obrigado"
+          element={
+            <Suspense fallback={null}>
+              <ThankYou />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={null}>
+              <NotFound />
+            </Suspense>
+          }
+        />
+      </Routes>
+      <Suspense fallback={null}>
         <FloatingWhatsApp />
-        <Suspense fallback={null}>
-          <DeferredUI />
-        </Suspense>
-      </LenisProvider>
-    </Suspense>
+        <DeferredUI />
+      </Suspense>
+    </LenisProvider>
   </BrowserRouter>
 );
 
