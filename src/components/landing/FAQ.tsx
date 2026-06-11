@@ -34,10 +34,6 @@ export const faqEntries: [string, string][] = [
     "Faz. Recupera quem faltou, reagenda cancelamento e reativa paciente inativo. Tudo dentro da mesma conversa, sem campanha de spam.",
   ],
   [
-    "E meus dados? LGPD?",
-    "Conversas armazenadas em infraestrutura nacional, criptografadas, com contrato e DPA. Você controla retenção e acesso. Nada é usado para treinar modelo público.",
-  ],
-  [
     "Isso não vai parecer robótico para meus pacientes?",
     "Não. O sistema aprende o tom de voz da sua clínica e usa o nome do paciente em cada mensagem. Seus pacientes recebem respostas que soam como a sua equipe — com a linguagem que você já usa no consultório. Você aprova o fluxo completo antes de ativar. Se quiser mudar algo, nossa equipe ajusta em minutos.",
   ],
