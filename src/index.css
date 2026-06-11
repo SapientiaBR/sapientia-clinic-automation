@@ -20,7 +20,7 @@
     --text-muted: #4B5563;
     --text-dim:   #9CA3AF;
 
-    --border-subtle:  rgba(70,55,35,0.05);
+    --border-subtle:  rgba(15,23,42,0.04);
     --border-default: #E5E7EB;
     --border-hover:   #0FB5A3;
 
@@ -45,7 +45,7 @@
     --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
     --dur-fast: 350ms;
     --dur-base: 700ms;
-    --shadow-lift: 0 28px 64px rgba(70,55,35,0.14);
+    --shadow-lift: 0 28px 64px rgba(15,23,42,0.10);
   }
 
   * { @apply border-border; }
@@ -135,7 +135,7 @@
     background: #FFFFFF;
     border-radius: 22px;
     margin: 12px;
-    box-shadow: 0 32px 80px rgba(70,55,35,0.14);
+    box-shadow: 0 32px 80px rgba(15,23,42,0.10);
     overflow: hidden;
     position: relative;
   }
@@ -144,7 +144,7 @@
   }
 
   .glass {
-    background: rgba(255,253,252,0.82);
+    background: rgba(255,255,255,0.85);
     border: 1px solid #E5E7EB;
     border-radius: 20px;
   }
@@ -158,7 +158,7 @@
     border-radius: 22px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 18px 44px rgba(70,55,35,0.08);
+    box-shadow: 0 18px 44px rgba(15,23,42,0.06);
     transition:
       transform var(--dur-base) var(--ease-premium),
       box-shadow var(--dur-base) var(--ease-premium),
@@ -182,15 +182,15 @@
   .glass-card { @apply glass; }
   .neumorphism-dark { @apply glass; }
   .neumorphism-dark-hover { transition: all 0.3s ease; }
-  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #E0D4C2; }
+  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #0FB5A3; }
 
   .text-balance { text-wrap: balance; }
   .section-padding { @apply py-20 lg:py-28; }
 
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(216,208,196,0.22) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(216,208,196,0.22) 1px, transparent 1px);
+      linear-gradient(rgba(15,184,163,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,184,163,0.10) 1px, transparent 1px);
     background-size: 72px 72px;
   }
 
@@ -211,7 +211,7 @@
   /* Legacy accent classes — light theme repurposed */
   .border-accent-coral, .border-accent-rose, .border-accent-pink,
   .border-accent-amber, .border-accent-lime, .border-accent-emerald,
-  .border-accent-sky, .border-accent-indigo { border-top: 1px solid rgba(138,124,246,0.4); }
+  .border-accent-sky, .border-accent-indigo { border-top: 1px solid rgba(15,181,163,0.4); }
   .text-accent-coral, .text-accent-rose, .text-accent-pink,
   .text-accent-amber, .text-accent-lime, .text-accent-emerald,
   .text-accent-sky, .text-accent-indigo { color: #0A8C7E; }
