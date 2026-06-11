@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoSI from "@/assets/logo-secretaria-invisivel.png";
+import logoSI from "@/assets/logo-secretaria-invisivel.png.asset.json";
 import { useLenis } from "@/components/global/LenisProvider";
 
 const CTA_HREF = "#formulario";
@@ -42,7 +42,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-28 md:h-36">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
             <img
-              src={logoSI}
+              src={logoSI.url}
               alt="Secretária Invisível"
               className="h-20 md:h-28 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
             />
