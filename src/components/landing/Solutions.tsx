@@ -19,7 +19,7 @@ const Solutions = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="solucoes" className="section-padding relative bg-[#F3F4F6]" ref={ref}>
+    <section id="solucoes" className="section-padding relative bg-[#E6F6F1]" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-14 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// recursos</Eyebrow>
