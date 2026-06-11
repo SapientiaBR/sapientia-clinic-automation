@@ -73,14 +73,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div data-hero-left className="max-w-2xl">
           <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[76px] text-[#0F1F2C]">
-            Sua clínica perde{" "}
-            <span className="text-[#0A8C7E]">R$23.000/mês</span>{" "}
-            em silêncio.
+            Sua clínica responde pacientes em segundos, 24 horas por dia, 7 dias por semana.
           </h1>
 
           <p className="font-sans text-[16px] md:text-[18px] text-[#374151] leading-[1.65] max-w-[520px] mt-6 md:mt-7 mb-8 md:mb-10">
-            <span className="md:hidden">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp.</span>
-            <span className="hidden md:inline">Pacientes sem resposta fora do horário escolhem outra clínica. A Secretária Invisível responde, qualifica e agenda pelo WhatsApp — mesmo quando sua equipe não está disponível.</span>
+            A Secretária Invisível usa Inteligência Artificial para atender, qualificar e agendar consultas automaticamente pelo WhatsApp.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
