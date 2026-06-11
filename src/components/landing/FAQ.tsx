@@ -18,44 +18,12 @@ export const faqEntries: [string, string][] = [
     "Ela só responde dentro do escopo que vocês definem. Tudo que foge do script vira handoff automático para humano. Cada conversa fica gravada no painel para auditoria.",
   ],
   [
-    "Ela conhece minha clínica?",
-    "A IA é treinada com seus serviços, preços (ou faixas), convênios, médicos, horários, regras de agendamento e tom de voz. Não é genérica. É a sua secretária digital.",
-  ],
-  [
-    "Quem assume quando foge do script?",
-    "Sua equipe. A IA marca a conversa, alerta no painel ou no WhatsApp interno e segura o paciente educadamente até alguém entrar.",
-  ],
-  [
-    "Lê áudio? Lê imagem?",
-    "Sim. Áudio transcrito e respondido em segundos. Imagem (foto de carteirinha, pedido médico) é lida, classificada e roteada conforme a regra que vocês definirem.",
-  ],
-  [
     "Faz follow-up de falta e cancelamento?",
     "Faz. Recupera quem faltou, reagenda cancelamento e reativa paciente inativo. Tudo dentro da mesma conversa, sem campanha de spam.",
   ],
   [
     "Isso não vai parecer robótico para meus pacientes?",
     "Não. O sistema aprende o tom de voz da sua clínica e usa o nome do paciente em cada mensagem. Seus pacientes recebem respostas que soam como a sua equipe — com a linguagem que você já usa no consultório. Você aprova o fluxo completo antes de ativar. Se quiser mudar algo, nossa equipe ajusta em minutos.",
-  ],
-  [
-    "Vou perder o controle do meu atendimento?",
-    "Pelo contrário. Você ganha visibilidade que não tinha antes: painel com histórico de todas as conversas, alertas para casos que precisam de atenção humana e relatório semanal. Você define as regras — horários, especialidades, tipo de agendamento. A IA executa.",
-  ],
-  [
-    "É difícil de implementar? Preciso entender de tecnologia?",
-    "Zero configuração da sua parte. Nossa equipe cuida de tudo: integração com seu WhatsApp, configuração dos fluxos, treinamento do sistema. Implementação em poucos dias. Sem código, sem técnico contratado.",
-  ],
-  [
-    "Como funciona o contrato?",
-    "Contrato mensal flexível. Cancelamento por e-mail com 30 dias de antecedência. Todas as condições — prazo, recorrência e regras — são apresentadas com total clareza antes do início, para que você entre sabendo exatamente o que esperar.",
-  ],
-  [
-    "Quanto custa?",
-    "O investimento é calculado com base no volume da sua clínica. Antes de qualquer número, você recebe um diagnóstico gratuito com a estimativa do retorno esperado — para que você tome a decisão com dados, não com suposições.",
-  ],
-  [
-    "E se eu não gostar do resultado?",
-    "Acompanhamos de perto e fazemos ajustes contínuos no primeiro mês. Se algo não estiver funcionando como esperado, trabalhamos juntos para resolver — transparência e parceria são nossos valores. O objetivo é redução de faltas e aumento no volume de agendamentos desde as primeiras semanas.",
   ],
 ];
 
