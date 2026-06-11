@@ -95,9 +95,6 @@ const Visualization = () => {
                 </li>
               ))}
             </ul>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] mt-6" style={{ color: "#16A875" }}>
-              Agenda preenchida
-            </p>
           </div>
         </div>
       </div>

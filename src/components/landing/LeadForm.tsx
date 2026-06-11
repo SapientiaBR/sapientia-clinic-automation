@@ -173,9 +173,6 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             )}
           </button>
 
-          <p className="font-mono text-[11px] text-center mt-5 relative" style={{ color: "rgba(255,255,255,0.45)" }}>
-            Resposta em segundos. LGPD, zero spam.
-          </p>
         </form>
 
       </div>

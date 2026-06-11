@@ -26,11 +26,11 @@ const LossCalculator = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="calculadora" className="py-14 md:section-padding relative bg-[#F3F4F6]" ref={ref}>
+    <section id="calculadora" className="py-14 md:section-padding relative" ref={ref} style={{ background: "#0F1F2C" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
         <div className="text-center mb-8 md:mb-12" data-reveal>
           <Eyebrow>// calculadora</Eyebrow>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Quanto sua clínica está <em>deixando na mesa?</em>
           </h2>
         </div>

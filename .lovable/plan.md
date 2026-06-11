@@ -1,42 +1,67 @@
-# Plano: Novo logo no Header + destaque no Hero
+# Plano: Refresh "Nextly-like" + foto no hero + mais contraste + faxina de textos
 
-## 1. Upload do logo via Lovable Assets
+## 1. Hero: foto como background semi-transparente
 
-```
-lovable-assets create --file /mnt/user-uploads/ChatGPT_Image_11_de_jun._de_2026_10_24_33.png \
-  --filename logo-secretaria-invisivel.png \
-  > src/assets/logo-secretaria-invisivel.png.asset.json
-```
+`src/components/landing/Hero.tsx`:
+- Subir a foto da médica via `lovable-assets create --file /mnt/user-uploads/ChatGPT_Image_11_de_jun._de_2026_10_41_24.png --filename hero-bg-doctor.png` → `src/assets/hero-bg-doctor.png.asset.json`.
+- Como o lado direito já tem o mockup do WhatsApp (e a foto também é WhatsApp + médica), **substituir o mockup pela foto em destaque** no lado direito do hero — fica redundante manter os dois. O painel/balõezinhos atuais saem.
+- Adicionar a foto como **camada de fundo da seção inteira** com `opacity: 0.18` + `mix-blend-mode: multiply`, ancorada à direita, `object-position: right center`, mascarada por gradiente `linear-gradient(90deg, #F9FAFB 35%, transparent 75%)` para o texto à esquerda manter contraste total.
+- Atrás disso: faixa diagonal verde-água claro (`#D6F3EE` → `#FFFFFF`) trazendo a "presença" de cor que falta hoje.
 
-Sobrescreve o pointer existente (`src/assets/logo-secretaria-invisivel.png.asset.json`) — todos os imports atuais (`@/assets/logo-secretaria-invisivel.png`) continuam funcionando.
+## 2. Mais contraste — paleta e seções
 
-> Obs.: o logo já traz o wordmark "SECRETÁRIA INVISÍVEL"; vou parar de envelopá-lo em chip cinza no Header.
+`src/index.css` + componentes:
+- Body deixa de ser `#F9FAFB` puro. Alternar bandas:
+  - Hero: gradiente `#ECFBF7` → `#FFFFFF`
+  - Problems: `#0F1F2C` (cinza-escuro/navy) com texto branco — vira a "âncora de dor"
+  - Solutions / HowItWorks: `#FFFFFF`
+  - Method / Visualization: `#D6F3EE` suave
+  - LossCalculator: `#0F1F2C` escuro
+  - Guarantee: `#0FB5A3` cheio (verde-água sólido, texto branco)
+  - FAQ: `#FFFFFF`
+  - LeadForm: já é escuro, mantém
+- Aumentar peso das bordas dos cards de `#E5E7EB` para `#D1D5DB` e sombra para `0 24px 50px rgba(15,23,42,0.10)`.
+- Botões: o primário continua gradient (verde→escuro). Adicionar variante "solid Nextly" — pill verde-água cheia sem o círculo+seta, usada no Header e como CTA secundário em algumas seções, para se parecer mais com o "Get Started" do Nextly.
 
-## 2. Header — logo maior, sem chip
+## 3. Tipografia mais "Nextly"
 
-`src/components/landing/Header.tsx`:
-- Remover o wrapper `<div class="rounded-xl bg-[#F3F4F6] px-2.5 py-1.5 border ...">` — o logo respira melhor sem caixa.
-- Aumentar altura: `h-12 md:h-14` → `h-14 md:h-20` (cerca de +40%).
-- Aumentar `h-20 md:h-24` do container do header para `h-24 md:h-28` para acomodar.
-- Manter link âncora para `#`.
+- O hero do Nextly usa **sans bold gigante sem itálico**. Manter Manrope 800, mas **retirar o `<em>` italic gradient** da headline do hero — vira "Sua clínica perde **R$23.000/mês** em silêncio." com o valor em verde-água sólido, sem itálico Cormorant.
+- H2 de seções continua com Cormorant italic (assinatura editorial do projeto). Sem mexer em fontes.
 
-## 3. Hero — selo grande de marca
+## 4. Faxina de microtexto (os três alvos das setas + extensão ao resto do site)
 
-Em `src/components/landing/Hero.tsx`, antes do badge "IA 24/7 para clínicas":
-- Adicionar `<img>` do logo com `h-16 md:h-20 w-auto`, alinhado à esquerda, com `mb-6`.
-- Como o headline atual já abre com "Sua clínica perde…", o logo cria assinatura visual sem competir com a headline.
-- Remover a linha "Um produto Sapient.IA" (`p` abaixo do `h1` no desktop) — fica redundante com o logo grande; mantemos a atribuição apenas no Footer.
+Remover/consolidar todos os mono uppercase decorativos:
 
-## 4. ThankYou page (consistência)
+| Arquivo | Linha | Texto | Ação |
+|---|---|---|---|
+| Hero.tsx | 86–101 | eyebrow "IA conversacional…" | **Remover** |
+| Hero.tsx | 128–130 | "Implementação em poucos dias · Sem trocar…" | **Remover** |
+| Hero.tsx | 226–232 | "Respondido em 3 segundos…" (abaixo do mockup) | **Remover** (a foto substitui o mockup) |
+| Hero.tsx | 195 / 214 | mono dentro do mockup | sai junto com o mockup |
+| Problems.tsx | 111 | mono inferior | **Remover** |
+| RealConversations.tsx | 105, 147, 155 | tags mono + mono final | **Remover** os 3 |
+| Footer.tsx | 17, 34 | duas linhas mono | colapsar em **uma só** linha sans 13px |
+| Visualization.tsx | 98 | mono "16A875" inferior | **Remover** |
+| LeadForm.tsx | 176 | mono branco abaixo do botão | **Remover** |
+| SocialProof.tsx | 82 | mono "cargo" | trocar por sans 12px regular |
 
-`src/pages/ThankYou.tsx` também usa um logo (ou texto). Se houver `<img logoSI>`, aplicar mesma altura `h-16 md:h-20` sem chip para coerência. Vou conferir antes; se não usar logo, não mexo.
+Mantidos (servem de label funcional, não decorativo):
+- `Eyebrow.tsx` (componente de section title — só remover instâncias caso fiquem órfãs).
+- `Method.tsx` numeração dos passos.
+- `LossCalculator.tsx` labels do slider.
+- `LeadForm.tsx` labels dos inputs (linha 205).
+- `HowItWorks.tsx` timestamps do chat.
+
+## 5. Header alinhado ao Nextly
+
+- Já está com o logo grande (h-20/h-28). Trocar o CTA "Quero testar" para um botão **sólido** (`bg-[#0FB5A3]` sem gradient, sem shadow exagerado) com label "Começar agora", igual ao "Get Started" do Nextly.
 
 ## Arquivos editados
-- `src/assets/logo-secretaria-invisivel.png.asset.json` (novo pointer)
-- `src/components/landing/Header.tsx`
-- `src/components/landing/Hero.tsx`
-- `src/pages/ThankYou.tsx` (apenas se já mostrar o logo)
+
+`src/assets/hero-bg-doctor.png.asset.json` (novo), `src/index.css`, `src/components/landing/Hero.tsx`, `Problems.tsx`, `Solutions.tsx`, `HowItWorks.tsx`, `Method.tsx`, `Visualization.tsx`, `LossCalculator.tsx`, `RealConversations.tsx`, `Guarantee.tsx`, `LeadForm.tsx`, `SocialProof.tsx`, `Footer.tsx`, `Header.tsx`.
 
 ## Fora do escopo
-- Não troco o logo do Footer (`logo-sapientia.png` é a marca do grupo Sapient.IA, distinta).
-- Não recoloro o logo — ele já está no verde-água da paleta.
+
+- Não troco fontes do projeto (Manrope + Cormorant ficam).
+- Não mexo em FAQ, FloatingWhatsApp, AIObjections — já estão limpos.
+- Não removo o gradient warm dos `<em>` em H2/H3 (assinatura do projeto, só sai do H1 do hero).
