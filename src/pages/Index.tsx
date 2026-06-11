@@ -7,10 +7,12 @@ import { LeadForm } from "@/components/landing/LeadForm";
 const Problems = lazy(() => import("@/components/landing/Problems"));
 const RealConversations = lazy(() => import("@/components/landing/RealConversations"));
 const VideoDemo = lazy(() => import("@/components/landing/VideoDemo"));
+const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
 
 const Solutions = lazy(() => import("@/components/landing/Solutions"));
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const Method = lazy(() => import("@/components/landing/Method"));
+const Guarantee = lazy(() => import("@/components/landing/Guarantee"));
 const FAQ = lazy(() => import("@/components/landing/FAQ"));
 const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
 const Footer = lazy(() => import("@/components/landing/Footer"));
