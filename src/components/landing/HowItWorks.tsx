@@ -6,27 +6,27 @@ import { revealOnScroll } from "@/lib/animations";
 const steps = [
   {
     n: "01",
-    title: "Paciente envia mensagem",
-    desc: "Qualquer hora, qualquer dia. A Secretária Invisível recebe e entende a intenção em segundos.",
+    title: "Conectamos seu WhatsApp",
+    desc: "Em até 24h. Sem trocar de número, sem app novo. Usamos a API oficial do WhatsApp Business.",
     chat: [
-      { side: "right", text: "Oi, queria marcar uma consulta", time: "22:47" },
+      { side: "left", text: "✅ WhatsApp da clínica conectado e ativo", time: "10:12" },
     ],
   },
   {
     n: "02",
-    title: "IA qualifica e agenda",
-    desc: "Consulta a agenda, sugere horários, confirma dados do paciente. Tudo sem intervenção humana.",
+    title: "Configuramos sua agenda",
+    desc: "Integramos serviços, convênios, horários, médicos e o tom de voz da sua clínica. Você aprova antes de ativar.",
     chat: [
-      { side: "left", text: "Olá! 😊 Tenho amanhã às 14h ou 16h. Qual prefere?", time: "22:47" },
-      { side: "right", text: "14h", time: "22:48" },
+      { side: "right", text: "Pode incluir consulta + retorno em 15 dias?", time: "10:15" },
+      { side: "left", text: "Feito. Quer revisar o fluxo completo?", time: "10:15" },
     ],
   },
   {
     n: "03",
-    title: "Consulta confirmada",
-    desc: "Lembrete automático 24h antes. Reagendamento se necessário. Você só aparece para atender.",
+    title: "Sua IA atende sozinha",
+    desc: "Agenda, envia lembrete no dia, recupera no-show e reativa paciente inativo. Sua equipe só entra quando vale a pena.",
     chat: [
-      { side: "left", text: "✅ Confirmado para amanhã 14h. Lembrete 1h antes.", time: "22:48" },
+      { side: "left", text: "Olá Maria, hoje você tem consulta às 14h 😊", time: "08:00" },
     ],
   },
 ];
