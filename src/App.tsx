@@ -2,9 +2,10 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 import LenisProvider from "./components/global/LenisProvider";
-import ScrollProgress from "./components/global/ScrollProgress";
-import CustomCursor from "./components/global/CustomCursor";
-import FloatingWhatsApp from "./components/global/FloatingWhatsApp";
+
+const ScrollProgress = lazy(() => import("./components/global/ScrollProgress"));
+const CustomCursor = lazy(() => import("./components/global/CustomCursor"));
+const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp"));
 
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -13,8 +14,10 @@ const DeferredUI = lazy(() => import("./components/DeferredUI.tsx"));
 const App = () => (
   <BrowserRouter>
     <LenisProvider>
-      <ScrollProgress />
-      <CustomCursor />
+      <Suspense fallback={null}>
+        <ScrollProgress />
+        <CustomCursor />
+      </Suspense>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route
@@ -34,8 +37,8 @@ const App = () => (
           }
         />
       </Routes>
-      <FloatingWhatsApp />
       <Suspense fallback={null}>
+        <FloatingWhatsApp />
         <DeferredUI />
       </Suspense>
     </LenisProvider>
