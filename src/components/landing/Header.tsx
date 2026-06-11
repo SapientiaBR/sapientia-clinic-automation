@@ -62,7 +62,7 @@ const Header = () => {
             ))}
             <a
               href={CTA_HREF}
-              className="gradient-brand text-white text-[12px] font-semibold uppercase tracking-[0.02em] px-5 py-2.5 rounded-full shadow-[0_10px_22px_rgba(138,124,246,0.28)] hover:shadow-[0_14px_28px_rgba(138,124,246,0.38)] transition-all"
+              className="gradient-brand text-white text-[12px] font-semibold uppercase tracking-[0.02em] px-5 py-2.5 rounded-full shadow-[0_10px_22px_rgba(15,181,163,0.28)] hover:shadow-[0_14px_28px_rgba(15,181,163,0.38)] transition-all"
             >
               Quero testar
             </a>
