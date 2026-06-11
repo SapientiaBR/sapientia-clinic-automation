@@ -52,22 +52,6 @@ const conversations: Convo[] = [
     ],
     footer: "No-show reduzido sem ninguém ligar",
   },
-  {
-    tag: "Cancelamento",
-    title: "Em vez de só cancelar, a IA reagenda.",
-    caption: "Reduz o buraco na agenda sem ser insistente.",
-    messages: [
-      { side: "in", text: "Preciso cancelar amanhã" },
-      {
-        side: "out",
-        text:
-          "Sem problema, Pedro. Posso já te oferecer outro horário pra não perder o acompanhamento? Tenho sexta 14h ou segunda 10h.",
-      },
-      { side: "in", text: "Segunda 10h tá bom" },
-      { side: "out", text: "Cancelei amanhã e remarquei pra segunda 10h. Te lembro 24h antes." },
-    ],
-  },
-
 ];
 
 const RealConversations = () => {
@@ -89,7 +73,7 @@ const RealConversations = () => {
 
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {conversations.map((c, i) => (
             <article
               key={i}

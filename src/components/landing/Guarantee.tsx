@@ -12,11 +12,6 @@ const pillars = [
     desc: "Conectamos WhatsApp, configuramos sua agenda e treinamos a IA com o tom da sua clínica.",
   },
   {
-    icon: ShieldCheck,
-    title: "Ou seu dinheiro de volta",
-    desc: "Se não entregarmos no prazo combinado, você não paga o setup. Sem letra miúda.",
-  },
-  {
     icon: RefreshCcw,
     title: "Ajustes ilimitados no 1º mês",
     desc: "Refinamos fluxo, tom e regras até a IA atender do jeito que a sua clínica precisa.",
@@ -64,15 +59,15 @@ const Guarantee = () => {
             <div>
               <Eyebrow>// garantia</Eyebrow>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold text-[var(--text)] text-balance leading-[1.1]">
-                Implementação em 7 dias <em>ou seu dinheiro de volta.</em>
+                Implementação em 7 dias úteis. <em>Sem você levantar um dedo.</em>
               </h2>
               <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] mt-4 leading-relaxed max-w-2xl">
-                Você não corre risco. Se a sua Secretária Invisível não estiver atendendo no prazo combinado, devolvemos o setup integralmente. Simples assim.
+                Conectamos seu WhatsApp, configuramos a agenda e treinamos a IA com o tom da sua clínica. Ajustes ilimitados no primeiro mês até ficar do jeito certo.
               </p>
             </div>
           </div>
 
-          <div className="relative grid sm:grid-cols-3 gap-5 mt-10 pt-8 border-t border-[#E5E7EB]">
+          <div className="relative grid sm:grid-cols-2 gap-5 mt-10 pt-8 border-t border-[#E5E7EB]">
             {pillars.map((p, i) => (
               <div key={i} className="flex flex-col gap-3">
                 <IconChip icon={p.icon} size="md" />
