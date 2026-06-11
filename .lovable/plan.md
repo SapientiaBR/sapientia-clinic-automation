@@ -1,51 +1,58 @@
 
-## Ajustes da landing
+## Reestruturar seção de Preços
 
-### 1. Nova seção de Preços (`Pricing.tsx`)
-Criar `src/components/landing/Pricing.tsx` com tabela comparativa visual dos 3 planos baseada na imagem anexa.
+### 1. Ancoragem no topo da seção
+Acima da grid de planos (logo após o parágrafo descritivo do header), inserir um bloco de ancoragem destacado:
 
-- 3 colunas: **Essencial R$497/mês**, **Profissional R$797/mês** (destacada como "mais popular"), **Premium R$1.247/mês**.
-- Header de cada coluna: nome do plano, preço grande, perfil ("1 médico/consultório solo", "2-3 profissionais", "Clínica com 4+ profissionais ou rede").
-- Linhas da tabela (mesma ordem do anexo): IA responde WhatsApp 24/7, Agendamento de consultas, FAQ automatizado (valores/convênios/endereço/horários), Confirmação automática de agendamento, **Lembretes automáticos (anti-falta)**, Reagendamento/cancelamento pelo bot, **Qualificação de pacientes (perguntas pré-consulta)**, Integração Google Agenda, Relatório de atendimentos (—/Mensal/Semanal), Nº de agendas/profissionais (1/até 3/ilimitado), **Suporte prioritário (SLA 4h úteis)**, Ajustes de fluxo inclusos (1/mês, 2/mês, 4/mês).
-- Células com ✅ usam check verde (`#0FB5A3`); ausentes usam traço cinza `—`.
-- Mobile: a tabela vira 3 cards empilhados (um por plano), listando todas as features daquele plano com check verde.
-- Desktop: tabela com `.card-tinted` no contêiner, coluna "Profissional" com borda verde e badge "Mais escolhido".
-- CTA abaixo da tabela: botão primário "Falar com a Sapient.IA" linkando para `#formulario`.
-- Eyebrow: `// planos e preços`; H2: `Escolha o plano da sua clínica.` com `<em>` no segundo trecho.
-- Inserir no `Index.tsx` logo após `<Guarantee />` (antes do `LeadForm` compacto).
+- Container `rounded-2xl` com fundo `#FFF8E6` (creme suave) e borda `#F0E2B3` — destoa visualmente da paleta verde e chama atenção.
+- Texto em duas partes:
+  - "Uma recepcionista custa **mais de R$3.000/mês** com encargos e falta, tira férias e pede demissão."
+  - "A Secretária Invisível trabalha **24/7**, a partir de apenas **R$497**."
+- Ícone Lucide (`Scale` ou `TrendingDown`) à esquerda, em verde-água, dentro de um IconChip.
+- Largura `max-w-3xl mx-auto`, padding `p-5 md:p-6`, font-sans 15-16px.
 
-> Obs.: isso muda o pricing model em memória (era R$4k setup + R$500/mo). Vou atualizar `mem://business/positioning` depois da implementação.
+### 2. Trocar tabela comparativa por 3 cards "stacked tier"
+Remover o atual layout de tabela desktop + cards mobile (tudo de uma vez é um único componente). Reconstruir como **3 cards lado a lado em desktop, empilhados em mobile**, com hierarquia "tudo do plano anterior +".
 
-### 2. RealConversations — remover card "Cancelamento"
-Em `RealConversations.tsx`, remover o terceiro item do array `conversations` (tag "Cancelamento" — "Em vez de só cancelar, a IA reagenda"). Restam 2 cards (Agendamento + Follow-up). Grid já se adapta.
+Estrutura de cada card:
+- Header: nome (Cormorant italic, `#0A8C7E`), preço grande (`R$497` etc. com `/mês`), perfil do cliente.
+- Profissional fica destacado: borda 2px `#0FB5A3`, badge "Mais escolhido" no topo, header com fundo gradient verde + texto branco.
+- Body:
+  - **Essencial**: lista apenas as features incluídas (com check verde). Nada de itens riscados ou com traço.
+  - **Profissional**: linha-âncora `"Tudo do Essencial +"` em destaque (font-semibold, eyebrow style), seguida apenas dos itens novos do tier.
+  - **Premium**: linha-âncora `"Tudo do Profissional +"`, seguida apenas dos itens novos do tier.
+- CTA no rodapé de cada card: botão linkando para `#formulario` ("Começar com Essencial" / "Escolher Profissional" / "Falar sobre Premium"). Profissional usa primary gradient, os outros usam ghost outline.
 
-### 3. Remover seção Solutions ("Infraestrutura. Não chatbot.")
-- Remover `<Solutions />` e seu `lazy import` em `src/pages/Index.tsx`.
-- Deletar `src/components/landing/Solutions.tsx`.
-(O conteúdo das features agora vive na tabela de preços.)
+### Conteúdo dos tiers (derivado da tabela atual)
 
-### 4. Remover seção Method ("// método agenda invisível")
-- Remover `<Method />` e seu `lazy import` em `src/pages/Index.tsx`.
-- Deletar `src/components/landing/Method.tsx`.
+**Essencial — R$497/mês** (1 médico / consultório solo)
+- IA responde WhatsApp 24/7
+- Agendamento de consultas
+- FAQ automatizado (valores, convênios, endereço, horários)
+- Confirmação automática de agendamento
+- 1 agenda/profissional
+- 1 ajuste de fluxo por mês
 
-### 5. HowItWorks — caber em 1 tela sem scroll
-Em `src/components/landing/HowItWorks.tsx`:
-- Reduzir paddings: trocar `section-padding` por `py-10 md:py-14`.
-- Reduzir margem do header: `mb-16` → `mb-6 md:mb-8`.
-- Diminuir H2: `text-3xl sm:text-4xl lg:text-5xl` → `text-2xl sm:text-3xl lg:text-4xl`.
-- Cards mais compactos: `p-7` → `p-5`, número decorativo `text-[80px]` → `text-[56px]`, gap do grid `gap-8 lg:gap-10` → `gap-4 md:gap-6`.
-- Reduzir bolha de chat: `space-y-2` → `space-y-1.5`, padding `p-3` → `p-2.5`, manter apenas 1 mensagem por step (já é o caso na maioria; no step 02 manter só a última troca, ou cortar para 1 linha).
-- Texto descritivo `text-sm` → `text-[13px]` com `mt-2 mb-4`.
-- Objetivo: caber em viewport mobile (~844px) e desktop sem scroll dentro da seção.
+**Profissional — R$797/mês** (2-3 profissionais) — "Tudo do Essencial +"
+- Lembretes automáticos (anti-falta)
+- Reagendamento e cancelamento pelo bot
+- Qualificação de pacientes (perguntas pré-consulta)
+- Integração com Google Agenda
+- Relatório mensal de atendimentos
+- Até 3 agendas/profissionais
+- 2 ajustes de fluxo por mês
 
-### 6. Guarantee — remover "ou seu dinheiro de volta"
-Em `src/components/landing/Guarantee.tsx`:
-- H2: trocar `Implementação em 7 dias ou seu dinheiro de volta.` por `Implementação em 7 dias úteis. <em>Sem você levantar um dedo.</em>`
-- Parágrafo: substituir por algo como "Conectamos seu WhatsApp, configuramos a agenda e treinamos a IA com o tom da sua clínica. Ajustes ilimitados no primeiro mês até ficar do jeito certo."
-- Remover o pillar central `{ icon: ShieldCheck, title: "Ou seu dinheiro de volta", desc: "Se não entregarmos no prazo combinado, você não paga o setup..." }` do array `pillars`. Sobram 2 (Em até 7 dias úteis + Ajustes ilimitados no 1º mês) — grid passa para `sm:grid-cols-2`.
+**Premium — R$1.247/mês** (Clínica com 4+ profissionais ou rede) — "Tudo do Profissional +"
+- Suporte prioritário (SLA 4h úteis)
+- Relatório semanal (em vez de mensal)
+- Agendas/profissionais ilimitados
+- 4 ajustes de fluxo por mês
+
+### 3. CTA global
+Manter o botão "Falar com a Sapient.IA" + microcopy "Diagnóstico gratuito antes de qualquer cobrança." centralizado abaixo dos 3 cards.
 
 ### Arquivos
-- **Criar:** `src/components/landing/Pricing.tsx`
-- **Editar:** `src/pages/Index.tsx`, `src/components/landing/RealConversations.tsx`, `src/components/landing/HowItWorks.tsx`, `src/components/landing/Guarantee.tsx`
-- **Deletar:** `src/components/landing/Solutions.tsx`, `src/components/landing/Method.tsx`
-- **Memória:** atualizar `mem://business/positioning` (novo modelo de preço tiered) e core (remover "dinheiro de volta")
+- **Editar:** `src/components/landing/Pricing.tsx` (reescrita completa do componente; mesmo export default, mesma seção `id="precos"`).
+
+### Fora de escopo
+Todas as outras seções da página, copy do Hero, formulário, FAQ etc. ficam intactas.
