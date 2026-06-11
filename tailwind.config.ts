@@ -15,10 +15,11 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"DM Sans"', "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
-        display: ['"Cormorant Garamond"', "Georgia", "serif"],
+        display: ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
         "display-sans": ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
-        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        mono: ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
       },
+
       colors: {
         border: "hsl(var(--border-default))",
         input: "hsl(var(--border-default))",
