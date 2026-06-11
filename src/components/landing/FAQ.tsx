@@ -6,7 +6,15 @@ import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
-    "E se a IA responder algo errado?",
+    "Preciso trocar meu número de WhatsApp?",
+    "Não. Mantemos o número que sua clínica já usa, via WhatsApp Business API oficial. Sua equipe continua atendendo normalmente — a IA entra em paralelo, sem competir com o aparelho.",
+  ],
+  [
+    "É seguro? Onde ficam meus dados?",
+    "Conversas armazenadas em infraestrutura nacional, criptografadas, com contrato e DPA assinados. Você controla retenção e acesso. Nada é usado para treinar modelo público.",
+  ],
+  [
+    "E se a IA não souber responder?",
     "Ela só responde dentro do escopo que vocês definem. Tudo que foge do script vira handoff automático para humano. Cada conversa fica gravada no painel para auditoria.",
   ],
   [
