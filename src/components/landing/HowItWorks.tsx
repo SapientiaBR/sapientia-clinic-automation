@@ -42,9 +42,10 @@ const HowItWorks = () => {
         <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((s, i) => (
             <div key={i} className="card-base p-5 relative" data-reveal>
-              <span className="font-display italic text-[56px] leading-none gradient-text opacity-50 absolute -top-1 right-3 select-none">
+              <span className="font-display-sans font-extrabold text-[56px] leading-none gradient-text opacity-50 absolute -top-1 right-3 select-none tracking-tight">
                 {s.n}
               </span>
+
               <h3 className="font-display text-[19px] font-semibold text-[var(--text)] relative z-10 mt-1">
                 {s.title}
               </h3>

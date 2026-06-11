@@ -156,11 +156,12 @@ const Pricing = () => {
                 }
               >
                 <p
-                  className="font-display italic text-xl"
-                  style={{ color: p.highlight ? "#FFFFFF" : "#0A8C7E" }}
+                  className="font-display-sans text-[13px] font-semibold uppercase tracking-[0.18em]"
+                  style={{ color: p.highlight ? "rgba(255,255,255,0.92)" : "#0A8C7E" }}
                 >
                   {p.name}
                 </p>
+
                 <p
                   className="font-display-sans text-4xl font-bold mt-1"
                   style={{ color: p.highlight ? "#FFFFFF" : "#1F2937" }}

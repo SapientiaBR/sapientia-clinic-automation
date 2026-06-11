@@ -39,7 +39,7 @@ const Hero = () => {
           backgroundSize: "cover",
           backgroundPosition: "right center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.55,
+          opacity: 0.70,
         }}
       />
       {/* Mobile: faint accent in bottom-right corner only */}

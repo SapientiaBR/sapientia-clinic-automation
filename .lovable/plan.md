@@ -1,58 +1,62 @@
+## Objetivo
 
-## Reestruturar seção de Preços
+1. Padronizar a tipografia de todo o site com apenas **2 famílias** (uma para títulos, uma para texto), com hierarquia clara e contraste visual consistente.
+2. Deixar a foto do médico no hero menos transparente (+15%).
 
-### 1. Ancoragem no topo da seção
-Acima da grid de planos (logo após o parágrafo descritivo do header), inserir um bloco de ancoragem destacado:
+---
 
-- Container `rounded-2xl` com fundo `#FFF8E6` (creme suave) e borda `#F0E2B3` — destoa visualmente da paleta verde e chama atenção.
-- Texto em duas partes:
-  - "Uma recepcionista custa **mais de R$3.000/mês** com encargos e falta, tira férias e pede demissão."
-  - "A Secretária Invisível trabalha **24/7**, a partir de apenas **R$497**."
-- Ícone Lucide (`Scale` ou `TrendingDown`) à esquerda, em verde-água, dentro de um IconChip.
-- Largura `max-w-3xl mx-auto`, padding `p-5 md:p-6`, font-sans 15-16px.
+## 1. Sistema tipográfico — apenas 2 fontes
 
-### 2. Trocar tabela comparativa por 3 cards "stacked tier"
-Remover o atual layout de tabela desktop + cards mobile (tudo de uma vez é um único componente). Reconstruir como **3 cards lado a lado em desktop, empilhados em mobile**, com hierarquia "tudo do plano anterior +".
+**Decisão:** unificar tudo em duas famílias.
 
-Estrutura de cada card:
-- Header: nome (Cormorant italic, `#0A8C7E`), preço grande (`R$497` etc. com `/mês`), perfil do cliente.
-- Profissional fica destacado: borda 2px `#0FB5A3`, badge "Mais escolhido" no topo, header com fundo gradient verde + texto branco.
-- Body:
-  - **Essencial**: lista apenas as features incluídas (com check verde). Nada de itens riscados ou com traço.
-  - **Profissional**: linha-âncora `"Tudo do Essencial +"` em destaque (font-semibold, eyebrow style), seguida apenas dos itens novos do tier.
-  - **Premium**: linha-âncora `"Tudo do Profissional +"`, seguida apenas dos itens novos do tier.
-- CTA no rodapé de cada card: botão linkando para `#formulario` ("Começar com Essencial" / "Escolher Profissional" / "Falar sobre Premium"). Profissional usa primary gradient, os outros usam ghost outline.
+- **Títulos** (H1, H2, H3, H4, eyebrows, preços, botões): **Manrope** — sans moderna, já em uso no hero. Pesos 600/700/800 para criar hierarquia.
+- **Texto** (leads, body, captions, labels): **DM Sans** — já é a fonte base do `body`. Pesos 400/500.
 
-### Conteúdo dos tiers (derivado da tabela atual)
+**Removidas do site:**
+- Cormorant Garamond (usada hoje em H2s e em `<em>` dentro de H2-H6)
+- JetBrains Mono (usada hoje em eyebrows e labels)
 
-**Essencial — R$497/mês** (1 médico / consultório solo)
-- IA responde WhatsApp 24/7
-- Agendamento de consultas
-- FAQ automatizado (valores, convênios, endereço, horários)
-- Confirmação automática de agendamento
-- 1 agenda/profissional
-- 1 ajuste de fluxo por mês
+O `<em>` dentro de h2-h6 deixa de virar serif italic gradiente — vira simplesmente um destaque em verde `#0A8C7E` (mantém a assinatura de cor da marca, mas dentro das 2 famílias).
 
-**Profissional — R$797/mês** (2-3 profissionais) — "Tudo do Essencial +"
-- Lembretes automáticos (anti-falta)
-- Reagendamento e cancelamento pelo bot
-- Qualificação de pacientes (perguntas pré-consulta)
-- Integração com Google Agenda
-- Relatório mensal de atendimentos
-- Até 3 agendas/profissionais
-- 2 ajustes de fluxo por mês
+### Escala única (classes utilitárias em `src/index.css`)
 
-**Premium — R$1.247/mês** (Clínica com 4+ profissionais ou rede) — "Tudo do Profissional +"
-- Suporte prioritário (SLA 4h úteis)
-- Relatório semanal (em vez de mensal)
-- Agendas/profissionais ilimitados
-- 4 ajustes de fluxo por mês
+| Token | Uso | Tamanho (mobile → desktop) | Fonte / peso |
+|---|---|---|---|
+| `.t-eyebrow` | Tag/eyebrow acima do H2 | 11px, tracking 0.18em, uppercase | Manrope 600, #0A8C7E |
+| `.t-h1` | Hero | 44 → 58 → 76px, line-height 1.0, tracking -0.04em | Manrope 800 (mantém `.headline-hero`) |
+| `.t-h2` | Título de seção | 30 → 40 → 48px, line-height 1.1, tracking -0.02em | Manrope 700 |
+| `.t-h3` | Subtítulo de bloco | 22 → 26px, line-height 1.2 | Manrope 700 |
+| `.t-h4` | Card title / pergunta FAQ | 17 → 19px, line-height 1.3 | Manrope 600 |
+| `.t-lead` | Parágrafo sob H2 | 15 → 17px, line-height 1.65, #4B5563 | DM Sans 400 |
+| `.t-body` | Texto corrido | 15px, line-height 1.65, #1F2937 | DM Sans 400 |
+| `.t-body-sm` | Texto secundário | 13px, line-height 1.55, #4B5563 | DM Sans 400 |
+| `.t-caption` | Disclaimers, mini-rótulos | 12px, line-height 1.5, #4B5563 | DM Sans 400 |
+| `.t-price` | Valor de plano | 40px | Manrope 700 |
+| `.t-button` | CTA / botão | 13px, uppercase, tracking 0.06em | Manrope 600 |
 
-### 3. CTA global
-Manter o botão "Falar com a Sapient.IA" + microcopy "Diagnóstico gratuito antes de qualquer cobrança." centralizado abaixo dos 3 cards.
+Cores consolidadas em `--text` (#1F2937) e `--text-muted` (#4B5563). Usos pontuais (`#374151`, `text-[var(--text)]/85`) trocados pelos tokens.
 
-### Arquivos
-- **Editar:** `src/components/landing/Pricing.tsx` (reescrita completa do componente; mesmo export default, mesma seção `id="precos"`).
+### Arquivos editados
 
-### Fora de escopo
-Todas as outras seções da página, copy do Hero, formulário, FAQ etc. ficam intactas.
+- `src/index.css` — adicionar utilitários `.t-*`; remover a regra global `h2 em…h6 em` (serif gradient) e substituir por um destaque simples `color: #0A8C7E`. Remover `.font-display` (Cormorant) dos utilitários — vira alias do Manrope para compat, ou removido se sem usos.
+- Em todas as seções: trocar as classes locais pelos tokens, **sem mexer em layout, espaçamento ou cores de fundo**:
+  - `Hero.tsx` (lead vira `.t-lead`; H1 mantém `.headline-hero`)
+  - `Header.tsx` (links → `.t-body-sm`, CTA → `.t-button`)
+  - `Problems.tsx`, `AIObjections.tsx`, `HowItWorks.tsx`, `Visualization.tsx`, `PositioningStatement.tsx`
+  - `SocialProof.tsx` (depoimentos deixam de ser Cormorant italic — viram DM Sans com peso 500 para manter destaque), `RealConversations.tsx`, `VideoDemo.tsx`
+  - `LossCalculator.tsx`, `Guarantee.tsx`, `Pricing.tsx`, `FAQ.tsx`
+  - `FinalCTA.tsx`, `LeadForm.tsx`, `Footer.tsx`
+
+---
+
+## 2. Hero — foto do médico mais visível
+
+Em `src/components/landing/Hero.tsx`, camada desktop (linha 42): `opacity: 0.55` → `opacity: 0.70` (+15%). Máscara de fade à esquerda preservada. Mobile sem alteração.
+
+---
+
+## Fora de escopo
+
+- Não mexer em paleta de cores, espaçamentos, grids, animações, copy ou estrutura das seções.
+- Não mexer em componentes shadcn/ui.
+- Memória de marca será atualizada para refletir as 2 fontes (Manrope + DM Sans) e a remoção do Cormorant/JetBrains Mono.
