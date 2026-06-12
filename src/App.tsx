@@ -4,7 +4,6 @@ import Index from "./pages/Index.tsx";
 import LenisProvider from "./components/global/LenisProvider";
 
 const ScrollProgress = lazy(() => import("./components/global/ScrollProgress"));
-const CustomCursor = lazy(() => import("./components/global/CustomCursor"));
 const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp"));
 
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
@@ -16,7 +15,6 @@ const App = () => (
     <LenisProvider>
       <Suspense fallback={null}>
         <ScrollProgress />
-        <CustomCursor />
       </Suspense>
       <Routes>
         <Route path="/" element={<Index />} />

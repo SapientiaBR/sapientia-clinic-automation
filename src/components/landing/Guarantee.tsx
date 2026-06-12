@@ -8,7 +8,7 @@ import { revealOnScroll } from "@/lib/animations";
 const pillars = [
   {
     icon: Clock,
-    title: "Em até 7 dias úteis",
+    title: "Implementação rápida",
     desc: "Conectamos WhatsApp, configuramos sua agenda e treinamos a IA com o tom da sua clínica.",
   },
   {
@@ -59,10 +59,10 @@ const Guarantee = () => {
             <div>
               <Eyebrow>// garantia</Eyebrow>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold text-[var(--text)] text-balance leading-[1.1]">
-                Implementação em 7 dias úteis. <em>Sem você levantar um dedo.</em>
+                A gente faz acontecer. <em>Você só aprova.</em>
               </h2>
               <p className="font-sans text-[15px] md:text-base text-[var(--text-muted)] mt-4 leading-relaxed max-w-2xl">
-                Conectamos seu WhatsApp, configuramos a agenda e treinamos a IA com o tom da sua clínica. Ajustes ilimitados no primeiro mês até ficar do jeito certo.
+                Conectamos seu WhatsApp, configuramos sua agenda e treinamos a IA no tom da sua clínica. Ajustes ilimitados no primeiro mês até ficar do jeito certo.
               </p>
             </div>
           </div>

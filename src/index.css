@@ -52,9 +52,11 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background-color: #EEF2F4;
+    background-color: #FFFFFF;
     color: var(--text);
     font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   html { scroll-behavior: smooth; }
@@ -133,17 +135,10 @@
     padding-right: 0.05em;
   }
 
-  /* Floating premium canvas */
   .page-canvas {
     background: #FFFFFF;
-    border-radius: 22px;
-    margin: 12px;
-    box-shadow: 0 32px 80px rgba(15,23,42,0.10);
     overflow: hidden;
     position: relative;
-  }
-  @media (min-width: 1024px) {
-    .page-canvas { margin: 28px 32px; border-radius: 44px; }
   }
 
   .glass {

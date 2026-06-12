@@ -70,7 +70,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div data-hero-left className="max-w-2xl">
-          <h1 className="headline-hero text-balance text-[44px] sm:text-[58px] lg:text-[76px] text-[#0F1F2C]">
+          <h1 className="headline-hero text-balance text-[44px] sm:text-[52px] md:text-[60px] lg:text-[76px] text-[#0F1F2C]">
             Sua clínica responde pacientes em segundos,{" "}
             <span className="text-[#0FB5A3]">24 horas por dia</span>.
           </h1>
