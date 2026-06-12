@@ -67,19 +67,6 @@ const Guarantee = () => {
             </div>
           </div>
 
-          <div className="relative grid sm:grid-cols-2 gap-5 mt-10 pt-8 border-t border-[#E5E7EB]">
-            {pillars.map((p, i) => (
-              <div key={i} className="flex flex-col gap-3">
-                <IconChip icon={p.icon} size="md" />
-                <h3 className="font-display-sans text-[15px] font-semibold text-[var(--text)]">
-                  {p.title}
-                </h3>
-                <p className="font-sans text-[13px] text-[var(--text-muted)] leading-relaxed">
-                  {p.desc}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
