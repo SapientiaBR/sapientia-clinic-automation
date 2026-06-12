@@ -1,12 +1,5 @@
-import { Check } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import MagneticButton from "@/components/ui/MagneticButton";
-
-const guarantees = [
-  "Implementação em poucos dias",
-  "Sem trocar seu WhatsApp",
-  "Cancelamento simples (30 dias)",
-];
 
 const FinalCTA = () => {
   return (
@@ -16,33 +9,6 @@ const FinalCTA = () => {
         style={{ background: "rgba(108,99,255,0.10)", filter: "blur(120px)" }}
       />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        {/* Garantia em destaque (tema warm/lavanda) */}
-        <div
-          className="rounded-2xl p-6 sm:p-8 mb-10 md:mb-14 text-left"
-          style={{
-            background: "#D6F3EE",
-            border: "1px solid #A7E6DD",
-            boxShadow: "0 14px 36px rgba(15,23,42,0.10)",
-          }}
-        >
-          <Eyebrow>// garantia</Eyebrow>
-          <p className="font-sans text-[15px] md:text-base text-[var(--text)] leading-relaxed mt-2">
-            Acompanhamos sua clínica de perto nas primeiras semanas. Se não houver redução de
-            faltas e mais agendamentos, ajustamos sem custo adicional.
-          </p>
-          <ul className="grid sm:grid-cols-3 gap-3 mt-5">
-            {guarantees.map((g) => (
-              <li
-                key={g}
-                className="flex items-center gap-2 font-sans text-[13px] text-[var(--text)]/80"
-              >
-                <Check size={16} className="flex-shrink-0" style={{ color: "#0FB5A3" }} />
-                <span>{g}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div className="text-center">
           <Eyebrow>// comece agora</Eyebrow>
           <h2 className="font-display text-3xl sm:text-5xl lg:text-[52px] font-bold text-[var(--text)] text-balance">

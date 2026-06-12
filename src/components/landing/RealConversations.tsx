@@ -62,7 +62,7 @@ const RealConversations = () => {
   return (
     <section id="conversas-reais" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
-        <div className="text-center mb-8 md:mb-12 max-w-2xl mx-auto" data-reveal>
+        <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// conversas reais</Eyebrow>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Veja a IA <em>trabalhando de verdade.</em>
@@ -70,7 +70,6 @@ const RealConversations = () => {
           <p className="font-sans text-sm md:text-base text-[var(--text-muted)] mt-3 md:mt-5 leading-relaxed">
             Sem mockup. Conversas reais (com nomes trocados): agendamento, lembrete e cancelamento.
           </p>
-
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">

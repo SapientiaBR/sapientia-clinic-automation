@@ -36,7 +36,7 @@ const SocialProof = () => {
   return (
     <section id="depoimentos" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-3xl">
-        <div className="text-center mb-8 md:mb-12 max-w-2xl mx-auto" data-reveal>
+        <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// depoimentos</Eyebrow>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             O que médicos dizem depois de <em>plugar a IA.</em>
@@ -64,7 +64,7 @@ const SocialProof = () => {
 
 
               <div className="flex items-center gap-4 mt-6 pt-5 border-t border-[#F3F4F6]">
-                <Avatar className="h-20 w-20 md:h-24 md:w-24">
+                <Avatar className="h-14 w-14 md:h-16 md:w-16">
                   {t.photo && <AvatarImage src={t.photo} alt={t.name} className="object-cover" />}
                   <AvatarFallback
                     className="text-white text-base font-bold"

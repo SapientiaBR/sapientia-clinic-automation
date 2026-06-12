@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="relative flex items-center min-h-[88vh] pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden"
+      className="relative flex items-center min-h-[88vh] pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden"
       style={{
         background: "linear-gradient(120deg, #ECFBF7 0%, #FFFFFF 55%, #D6F3EE 100%)",
       }}

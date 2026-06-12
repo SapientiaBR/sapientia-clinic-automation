@@ -71,7 +71,7 @@ const Problems = () => {
   return (
     <section id="problema" className="py-16 md:section-padding relative" ref={ref} style={{ background: "#0F1F2C" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-8 md:mb-14 max-w-2xl mx-auto" data-reveal>
+        <div className="text-center mb-6 md:mb-10 max-w-2xl mx-auto" data-reveal>
           <Eyebrow>// o problema invisível</Eyebrow>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-white text-balance">
             Cada mensagem sem resposta é um <em>paciente que não volta.</em>

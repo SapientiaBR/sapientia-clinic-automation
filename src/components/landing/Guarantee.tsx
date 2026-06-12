@@ -23,10 +23,10 @@ const Guarantee = () => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="garantia" className="section-padding relative" ref={ref} style={{ background: "linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 100%)" }}>
+    <section id="garantia" className="py-14 md:py-20 relative" ref={ref} style={{ background: "linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 100%)" }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl relative z-10">
         <div
-          className="rounded-[28px] p-8 sm:p-12 lg:p-14 relative overflow-hidden"
+          className="rounded-[28px] p-7 sm:p-10 lg:p-12 relative overflow-hidden"
           style={{
             background: "#FFFFFF",
             border: "1px solid #FFFFFF",

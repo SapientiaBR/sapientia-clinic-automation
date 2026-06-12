@@ -40,14 +40,14 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28 md:h-36">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center group" aria-label="Secretária Invisível">
             <img
               src={logoSI.url}
               alt="Secretária Invisível"
               width={1264}
               height={843}
-              className="h-20 md:h-28 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </a>
 

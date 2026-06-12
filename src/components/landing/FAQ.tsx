@@ -35,9 +35,9 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="faq" className="section-padding relative" ref={ref}>
+    <section id="faq" className="py-14 md:py-20 relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
-        <div className="text-center mb-12" data-reveal>
+        <div className="text-center mb-8" data-reveal>
           <Eyebrow>// e se...?</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             As perguntas que todo médico faz <em>antes de confiar numa IA.</em>

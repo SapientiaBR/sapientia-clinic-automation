@@ -13,8 +13,8 @@ const VideoDemo = () => {
   return (
     <section id="video-demo" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-4xl">
-        <div className="text-center mb-8 md:mb-10 max-w-2xl mx-auto" data-reveal>
-          <Eyebrow>// vídeo de demonstração ao vivo</Eyebrow>
+        <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
+          <Eyebrow>// demonstração ao vivo</Eyebrow>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             A IA atendendo <em>em tempo real.</em>
           </h2>
@@ -71,9 +71,6 @@ const VideoDemo = () => {
                     Assistir Demonstração
                   </span>
                   
-                  <span className="font-sans text-[11px] text-gray-300 font-medium tracking-wide">
-                    (Vídeo: 1m e 30s)
-                  </span>
                 </div>
               </div>
             ) : (

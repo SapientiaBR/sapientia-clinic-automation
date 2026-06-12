@@ -172,9 +172,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               </>
             )}
           </button>
-
         </form>
-
       </div>
     </section>
   );
