@@ -79,19 +79,9 @@ const Hero = () => {
             A Secretária Invisível usa Inteligência Artificial para atender, qualificar e agendar consultas automaticamente pelo WhatsApp.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
-            <MagneticButton href={WA_URL} target="_blank" rel="noopener noreferrer" variant="primary" className="whitespace-nowrap">
-              Testar a IA agora
-            </MagneticButton>
-            <a
-              href={WA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#055449] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"
-            >
-              Falar com especialista
-            </a>
-          </div>
+          <MagneticButton href={WA_URL} target="_blank" rel="noopener noreferrer" variant="primary" className="whitespace-nowrap">
+            Testar a IA agora
+          </MagneticButton>
         </div>
       </div>
     </section>
