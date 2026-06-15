@@ -5,7 +5,7 @@ import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
 import heroDesktop from "@/assets/hero-doctor-desktop.webp.asset.json";
 import heroMobile from "@/assets/hero-doctor-mobile.webp.asset.json";
 
-const CTA_HREF = "#formulario";
+const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="relative flex items-center min-h-[88vh] pt-16 pb-12 md:pt-20 md:pb-16 overflow-hidden"
+      className="relative flex items-center min-h-[88vh] pt-28 pb-14 md:pt-36 md:pb-20 overflow-hidden"
       style={{
         background: "linear-gradient(120deg, #ECFBF7 0%, #FFFFFF 55%, #D6F3EE 100%)",
       }}
@@ -69,8 +69,8 @@ const Hero = () => {
       <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div data-hero-left className="max-w-2xl">
-          <h1 className="headline-hero text-balance text-[44px] sm:text-[52px] md:text-[60px] lg:text-[76px] text-[#0F1F2C]">
+        <div data-hero-left className="max-w-4xl">
+          <h1 className="headline-hero text-balance text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] text-[#0F1F2C]">
             Sua clínica responde pacientes em segundos,{" "}
             <span className="text-[#0FB5A3]">24 horas por dia</span>.
           </h1>
@@ -80,11 +80,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
-            <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
+            <MagneticButton href={WA_URL} target="_blank" rel="noopener noreferrer" variant="primary" className="whitespace-nowrap">
               Testar a IA agora
             </MagneticButton>
             <a
-              href="https://wa.me/5511920795583"
+              href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 font-sans text-[13px] font-semibold uppercase tracking-[0.06em] text-[#055449] bg-white border-2 border-[#0FB5A3] hover:bg-[#D6F3EE] transition-colors"

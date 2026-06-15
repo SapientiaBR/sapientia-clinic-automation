@@ -2,12 +2,7 @@ import { useEffect, useRef } from "react";
 import { MessageSquare } from "lucide-react";
 import { gsap } from "@/lib/animations";
 
-const scrollToForm = (e: React.MouseEvent) => {
-  e.preventDefault();
-  const el = document.getElementById("formulario");
-  if (!el) return;
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
-};
+const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
 
 const FloatingWhatsApp = () => {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -28,19 +23,13 @@ const FloatingWhatsApp = () => {
   return (
     <a
       ref={ref}
-      href="#formulario"
-      onClick={scrollToForm}
+      href={WA_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label="Testar a IA agora"
-      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 h-12 pl-3 pr-4 rounded-full flex items-center gap-2 text-white font-sans font-semibold text-[13px]"
-      style={{
-        background: "linear-gradient(135deg, #0FB5A3, #0A8C7E)",
-        boxShadow: "0 14px 30px rgba(15,181,163,0.32)",
-      }}
+      className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 h-12 pl-3 pr-4 rounded-full flex items-center gap-2 text-white font-sans font-semibold text-[13px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)]"
     >
-      <span
-        className="w-8 h-8 rounded-full flex items-center justify-center"
-        style={{ background: "rgba(255,255,255,0.18)" }}
-      >
+      <span className="w-8 h-8 rounded-full flex items-center justify-center bg-white/20">
         <MessageSquare size={16} />
       </span>
       Testar a IA
