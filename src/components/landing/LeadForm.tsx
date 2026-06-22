@@ -1,10 +1,56 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useGSAP } from "@gsap/react";
-import { MessageSquare } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { revealOnScroll } from "@/lib/animations";
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
-const WA_URL =
-  "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
+const WEBHOOK_URL =
+  "https://n8n.sapientiabr.cloud/webhook/07064e80-60ef-49c0-95ec-9b3837a8c87e";
+
+const onlyDigits = (v: string) => v.replace(/\D/g, "");
+
+const maskPhoneBR = (v: string) => {
+  const d = onlyDigits(v).slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : "";
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10)
+    return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+};
+
+const schema = z.object({
+  nome: z
+    .string()
+    .trim()
+    .min(2, "Informe seu nome")
+    .max(80, "Nome muito longo"),
+  email: z
+    .string()
+    .trim()
+    .email("E-mail inválido")
+    .max(120, "E-mail muito longo"),
+  telefone: z
+    .string()
+    .trim()
+    .refine((v) => {
+      const d = onlyDigits(v);
+      return d.length >= 10 && d.length <= 11;
+    }, "WhatsApp inválido"),
+});
+
+type FormValues = z.infer<typeof schema>;
 
 type Props = {
   variant?: "default" | "compact";
@@ -13,13 +59,48 @@ type Props = {
 export const LeadForm = ({ variant = "default" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isCompact = variant === "compact";
+  const [submitting, setSubmitting] = useState(false);
 
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
-  const handleClick = () => {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    defaultValues: { nome: "", email: "", telefone: "" },
+    mode: "onBlur",
+  });
+
+  const onSubmit = (values: FormValues) => {
+    setSubmitting(true);
+
+    const payload = {
+      name: values.nome,
+      email: values.email,
+      whatsapp: onlyDigits(values.telefone),
+      company: "",
+      instagram: "",
+      site: "",
+      revenue: "",
+      origem: isCompact ? "landing-pos-pricing" : "landing-pos-hero",
+    };
+
+    // Fire-and-forget; redireciona imediatamente.
+    try {
+      fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+        mode: "no-cors",
+      }).catch(() => {});
+    } catch {
+      /* noop */
+    }
+
     if (typeof window !== "undefined" && (window as any).fbq) {
       (window as any).fbq("track", "Lead");
     }
+
+    window.location.href = "/obrigado";
   };
 
   return (
@@ -28,8 +109,8 @@ export const LeadForm = ({ variant = "default" }: Props) => {
       className={`${isCompact ? "py-10 md:py-14" : "py-8 md:py-12"} relative scroll-mt-24`}
       ref={ref}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">
-        <div className="text-center" data-reveal>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl relative z-10">
+        <div className="text-center mb-6" data-reveal>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 bg-[#D6F3EE] border border-[#A7E6DD]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
@@ -40,27 +121,128 @@ export const LeadForm = ({ variant = "default" }: Props) => {
             </span>
           </div>
 
-          {!isCompact && (
+          {isCompact ? (
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--text)] text-balance">
+              Pronto para testar? <em>Receba o contato da IA agora.</em>
+            </h2>
+          ) : (
             <>
               <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
                 Veja sua secretária digital <em>atendendo você agora</em>.
               </h2>
-              <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 mb-8 leading-relaxed max-w-md mx-auto">
-                A IA te chama no WhatsApp em segundos. Você sente o que o seu paciente sente.
+              <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
+                Preencha abaixo e a IA te chama no WhatsApp em segundos.
               </p>
             </>
           )}
+        </div>
 
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleClick}
-            className="inline-flex items-center justify-center gap-2.5 w-full max-w-sm gradient-brand text-white font-sans font-bold text-[13px] tracking-[0.06em] uppercase rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all"
-          >
-            <MessageSquare size={16} aria-hidden="true" className="shrink-0" />
-            <span>Falar com a IA no WhatsApp</span>
-          </a>
+        <div
+          className="rounded-3xl p-6 sm:p-8"
+          style={{
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            boxShadow: "0 18px 44px rgba(15,23,42,0.06)",
+          }}
+          data-reveal
+        >
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="nome"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                      Nome
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="Seu nome"
+                        autoComplete="name"
+                        maxLength={80}
+                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                      E-mail
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="email"
+                        inputMode="email"
+                        placeholder="voce@clinica.com.br"
+                        autoComplete="email"
+                        maxLength={120}
+                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="telefone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                      WhatsApp
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="tel"
+                        inputMode="tel"
+                        placeholder="(11) 99999-9999"
+                        autoComplete="tel-national"
+                        maxLength={16}
+                        onChange={(e) => field.onChange(maskPhoneBR(e.target.value))}
+                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-sans font-bold text-[13px] tracking-[0.06em] uppercase rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+              >
+                {submitting ? (
+                  <Loader2 size={16} className="animate-spin" aria-hidden="true" />
+                ) : (
+                  <>
+                    <span>Quero falar com a IA agora</span>
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
+              </button>
+
+              <p className="font-sans text-[11px] text-[var(--text-muted)] text-center leading-relaxed pt-1">
+                Seus dados são usados apenas para te conectar com a IA. Sem spam.
+              </p>
+            </form>
+          </Form>
         </div>
       </div>
     </section>
