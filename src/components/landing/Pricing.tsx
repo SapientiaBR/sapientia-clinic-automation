@@ -46,8 +46,8 @@ const plans: Plan[] = [
       "Reagendamento e cancelamento pelo bot",
       "Qualificação de pacientes (perguntas pré-consulta)",
       "Integração com Google Agenda",
-      "Relatório mensal de atendimentos",
       "Até 3 agendas/profissionais",
+      "Entende e responde por áudio",
       "2 ajustes de fluxo por mês",
     ],
     ctaLabel: "Escolher Profissional",
@@ -62,14 +62,14 @@ const plans: Plan[] = [
     inheritsFrom: "Profissional",
     features: [
       "Suporte prioritário (SLA 4h úteis)",
-      "Relatório semanal (em vez de mensal)",
       "Agendas/profissionais ilimitados",
-      "4 ajustes de fluxo por mês",
+      "1 ajuste por semana",
     ],
     ctaLabel: "Falar sobre Premium",
     ctaVariant: "ghost",
   },
 ];
+
 
 const CheckIcon = () => (
   <span
