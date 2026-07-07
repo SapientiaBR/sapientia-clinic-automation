@@ -58,16 +58,29 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@600;700;800&display=swap"></noscript>
 
     <script>
+      // Stub imediato do Meta Pixel: qualquer fbq('track', ...) chamado antes
+      // do script carregar entra na fila e é enviado assim que ele conectar.
+      (function (f, b, e, n) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      })(window, document, 'script');
+
       (function () {
         var loaded = false;
         function loadTracking() {
           if (loaded) return; loaded = true;
-          (function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
-          })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+          // Carrega o script real do Meta Pixel; a fila do stub é drenada automaticamente.
+          var t = document.createElement('script');
+          t.async = true;
+          t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(t, s);
+
           fbq('init', '1150165570508883');
           fbq('track', 'PageView');
 
