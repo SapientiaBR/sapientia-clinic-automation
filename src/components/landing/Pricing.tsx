@@ -88,10 +88,31 @@ const Pricing = () => {
     <section id="precos" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
-          <Eyebrow>// planos e preços</Eyebrow>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            Escolha o plano <em>da sua clínica.</em>
+            Planos que cabem na sua <em>clínica.</em>
           </h2>
+        </div>
+
+        {/* Banner: implementação/setup grátis */}
+        <div
+          className="max-w-5xl mx-auto mb-5 md:mb-6 rounded-2xl p-4 md:p-5 flex flex-col md:flex-row md:items-center gap-3 md:gap-6"
+          style={{
+            background: "#F1FBF8",
+            border: "1px solid #A7E6DD",
+            boxShadow: "0 10px 28px rgba(15,181,163,0.10)",
+          }}
+          data-reveal
+        >
+          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text)] leading-relaxed flex-1">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#0A8C7E] mr-2">
+              Implementação · Setup
+            </span>
+            <span className="line-through text-[var(--text-muted)] mr-1">R$1.647</span>
+            <strong className="font-semibold" style={{ color: "#0A8C7E" }}>por nossa conta</strong>
+          </p>
+          <p className="font-sans text-[13px] md:text-[14px] text-[var(--text-muted)] md:text-right leading-relaxed">
+            Você paga <strong className="font-semibold text-[var(--text)]">só a mensalidade</strong> — sem taxa de implantação.
+          </p>
         </div>
 
         {/* Ancoragem de preço */}
@@ -117,6 +138,7 @@ const Pricing = () => {
             <strong className="font-semibold" style={{ color: "#0A8C7E" }}>R$497</strong>.
           </p>
         </div>
+
 
         {/* 3 cards stacked */}
         <div className="grid md:grid-cols-3 gap-5 md:gap-6 items-stretch">
