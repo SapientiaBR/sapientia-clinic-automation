@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Check, TrendingDown, ArrowRight } from "lucide-react";
-import Eyebrow from "@/components/ui/Eyebrow";
 import { revealOnScroll } from "@/lib/animations";
+
 
 type Plan = {
   key: string;
