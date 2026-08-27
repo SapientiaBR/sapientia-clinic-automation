@@ -2,10 +2,10 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
-import heroDesktop from "@/assets/hero-doctor-desktop.webp.asset.json";
-import heroMobile from "@/assets/hero-doctor-mobile.webp.asset.json";
+import heroReception from "@/assets/hero-reception.jpg";
 
-const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
+export const CTA_HREF = "#diagnostico";
+export const CTA_LABEL = "Agendar diagnóstico gratuito";
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
@@ -15,73 +15,58 @@ const Hero = () => {
     if (prefersReducedMotion()) return;
 
     gsap.from(root.querySelector("[data-hero-left]"), {
-      y: 24, opacity: 0, filter: "blur(6px)", duration: 0.9, ease: EASE_PREMIUM, delay: 0.3,
+      y: 24, opacity: 0, filter: "blur(6px)", duration: 0.9, ease: EASE_PREMIUM, delay: 0.2,
     });
-    gsap.from(root.querySelector("[data-hero-bg]"), {
-      opacity: 0, duration: 1.4, ease: EASE_PREMIUM,
+    gsap.from(root.querySelector("[data-hero-photo]"), {
+      opacity: 0, duration: 1.2, ease: EASE_PREMIUM, delay: 0.1,
     });
   }, { scope: ref });
 
   return (
     <section
       ref={ref}
-      className="relative flex items-center pt-28 pb-6 md:pt-36 md:pb-12 overflow-hidden"
-      style={{
-        background: "linear-gradient(120deg, #ECFBF7 0%, #FFFFFF 55%, #D6F3EE 100%)",
-      }}
+      className="relative pt-28 pb-10 md:pt-36 md:pb-16 overflow-hidden"
+      style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #F7FBFA 60%, #ECFBF7 100%)" }}
     >
-      {/* Doctor photo as actual <img> — discoverable for LCP, responsive */}
-      <img
-        data-hero-bg
-        src={heroDesktop.url}
-        srcSet={`${heroMobile.url} 600w, ${heroDesktop.url} 1200w`}
-        sizes="(max-width: 767px) 60vw, 100vw"
-        width={1200}
-        height={619}
-        alt=""
-        aria-hidden="true"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none md:opacity-[0.70] opacity-[0.18]"
-        style={{
-          objectPosition: "right center",
-        }}
-      />
-      {/* Mobile-only: fade mask so headline keeps contrast over the corner photo */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none md:hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #ECFBF7 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 75%)",
-        }}
-      />
-      {/* Left fade mask so headline keeps full contrast (desktop) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none hidden md:block"
-        style={{
-          background:
-            "linear-gradient(90deg, #ECFBF7 0%, rgba(236,251,247,0.92) 30%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0) 80%)",
-        }}
-      />
-      {/* Subtle grid texture */}
-      <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div data-hero-left className="max-w-4xl">
-          <h1 className="headline-hero text-balance text-[38px] sm:text-[52px] md:text-[62px] lg:text-[72px] text-[#0F1F2C]">
-            Sua clínica responde pacientes em segundos,{" "}
-            <span className="text-[#0FB5A3]">24 horas por dia</span>.
-          </h1>
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-14 items-center">
+          <div data-hero-left>
+            <h1 className="headline-hero text-balance text-[34px] sm:text-[46px] lg:text-[58px] text-[#1F2937] leading-[1.08]">
+              Sua recepção nunca mais deixa um paciente{" "}
+              <span className="text-[#0A8C7E]">esperando</span>.
+            </h1>
 
-          <p className="font-sans text-[16px] md:text-[18px] text-[#374151] leading-[1.65] max-w-[520px] mt-6 md:mt-7 mb-8 md:mb-10">
-            A Secretária Invisível usa Inteligência Artificial para atender, qualificar e agendar consultas automaticamente pelo WhatsApp.
-          </p>
+            <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] leading-[1.65] max-w-[560px] mt-6 mb-8">
+              Sua equipe continua oferecendo atendimento humano. A Secretária Invisível
+              cuida do WhatsApp 24 horas por dia, responde, agenda, confirma presença e
+              reduz faltas, enquanto sua recepcionista cuida de quem está na clínica.
+            </p>
 
-          <MagneticButton href={WA_URL} target="_blank" rel="noopener noreferrer" variant="primary" className="whitespace-nowrap">
-            Testar a IA agora
-          </MagneticButton>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <MagneticButton href={CTA_HREF} variant="primary" className="whitespace-nowrap">
+                {CTA_LABEL}
+              </MagneticButton>
+              <a
+                href="#como-funciona"
+                className="font-sans text-[17px] text-[#055449] underline underline-offset-4 hover:text-[#0A8C7E] transition-colors"
+              >
+                Ver como funciona
+              </a>
+            </div>
+          </div>
+
+          <div data-hero-photo className="relative">
+            <img
+              src={heroReception}
+              width={1280}
+              height={960}
+              fetchPriority="high"
+              decoding="async"
+              alt="Recepcionista atendendo uma paciente no balcão de uma clínica"
+              className="w-full h-[240px] sm:h-[320px] lg:h-[440px] object-cover rounded-3xl"
+              style={{ border: "1px solid #E5E7EB", boxShadow: "0 24px 60px rgba(15,23,42,0.10)" }}
+            />
+          </div>
         </div>
       </div>
     </section>
