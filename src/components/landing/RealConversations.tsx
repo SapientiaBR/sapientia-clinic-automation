@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import Eyebrow from "@/components/ui/Eyebrow";
 import { revealOnScroll } from "@/lib/animations";
 
 type Msg = { side: "in" | "out"; text: string };
@@ -22,7 +21,7 @@ const conversations: Convo[] = [
       {
         side: "out",
         text:
-          "Oi, Carla! 😊 Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?",
+          "Oi, Carla!  Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?",
       },
       { side: "in", text: "10h30 perfeito" },
       {
@@ -41,7 +40,7 @@ const conversations: Convo[] = [
       {
         side: "out",
         text:
-          "Oi, Ana! 😊 Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
+          "Oi, Ana!  Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
       },
       { side: "in", text: "Confirmo sim, obrigada pelo lembrete!" },
       {
@@ -87,7 +86,7 @@ const RealConversations = () => {
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
                 {c.title}
               </h3>
-              <p className="font-sans text-[13px] text-[var(--text-muted)] mt-1.5 leading-relaxed">
+              <p className="font-sans text-[17px] text-[#4B5563] mt-2 leading-relaxed">
                 {c.caption}
               </p>
 
