@@ -9,14 +9,6 @@ export const faqEntries: [string, string][] = [
     "Não. Ela continua sendo o rosto da clínica. A Secretária Invisível assume o volume de mensagens que hoje concorre com o atendimento presencial e cobre os horários em que não há ninguém disponível.",
   ],
   [
-    "Minha recepcionista vai se sentir ameaçada?",
-    "Na prática acontece o contrário. Ela deixa de responder às 22h e para de repetir as mesmas perguntas dezenas de vezes por dia. Ela participa da implantação desde o início e ajuda a definir como o sistema responde.",
-  ],
-  [
-    "O paciente vai perceber que está falando com um sistema?",
-    "A conversa segue o tom da sua clínica e usa o nome do paciente. Se ele perguntar, o sistema confirma que é atendimento automatizado. E sempre que a situação exige uma pessoa, a conversa é transferida para a sua equipe.",
-  ],
-  [
     "Preciso trocar meu número de WhatsApp?",
     "Não. Mantemos o número que sua clínica já usa, via API oficial do WhatsApp Business. Sua equipe continua atendendo no mesmo número, em paralelo.",
   ],
@@ -29,12 +21,8 @@ export const faqEntries: [string, string][] = [
     "Ele responde apenas dentro do escopo que vocês definem. Tudo que foge disso vira transferência automática para uma pessoa da equipe. Cada conversa fica gravada no painel para auditoria.",
   ],
   [
-    "Faz follow-up de falta e cancelamento?",
-    "Faz. Recupera quem faltou, reagenda cancelamento e retoma contato com paciente inativo, dentro da mesma conversa, sem disparo em massa.",
-  ],
-  [
     "Funciona com o sistema que eu já uso?",
-    "Avaliamos a integração no diagnóstico. [VALIDAR: listar aqui apenas sistemas já integrados em produção. Se não houver, manter só esta frase.]",
+    "Avaliamos a integração no diagnóstico.",
   ],
 ];
 

@@ -20,7 +20,7 @@ const plans: Plan[] = [
   {
     key: "essencial",
     name: "Essencial",
-    price: "R$497",
+    price: "R$597",
     profile: "1 médico / consultório solo",
     highlight: false,
     features: [
@@ -37,7 +37,7 @@ const plans: Plan[] = [
   {
     key: "profissional",
     name: "Profissional",
-    price: "R$797",
+    price: "R$897",
     profile: "2-3 profissionais",
     highlight: true,
     inheritsFrom: "Essencial",
@@ -56,7 +56,7 @@ const plans: Plan[] = [
   {
     key: "premium",
     name: "Premium",
-    price: "R$1.247",
+    price: "R$1.547",
     profile: "Clínica com 4+ profissionais ou rede",
     highlight: false,
     inheritsFrom: "Profissional",
