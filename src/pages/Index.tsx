@@ -9,7 +9,6 @@ const Scene = lazy(() => import("@/components/landing/Scene"));
 const HiddenCosts = lazy(() => import("@/components/landing/HiddenCosts"));
 
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
-const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
 const SecurityData = lazy(() => import("@/components/landing/SecurityData"));
 const SinglePlace = lazy(() => import("@/components/landing/SinglePlace"));
 const LeadForm = lazy(() =>
@@ -67,7 +66,6 @@ const Index = () => {
           <HiddenCosts />
           
           <SocialProof />
-          <HowItWorks />
           <SecurityData />
           <SinglePlace />
           <LeadForm />
