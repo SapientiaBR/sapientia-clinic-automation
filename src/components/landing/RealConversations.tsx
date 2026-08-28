@@ -63,7 +63,7 @@ const RealConversations = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[var(--text)] text-balance">
-            Três conversas reais, do primeiro oi ao agendamento.
+            Conversas reais, do primeiro "oi" ao agendamento.
           </h2>
           <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
             Recriação com nomes trocados. Agendamento, lembrete e reagendamento.
