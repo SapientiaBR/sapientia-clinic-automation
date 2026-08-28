@@ -105,8 +105,8 @@ export const LeadForm = ({ variant = "default" }: Props) => {
 
   return (
     <section
-      id={isCompact ? undefined : "formulario"}
-      className={`${isCompact ? "py-10 md:py-14" : "py-8 md:py-12"} relative scroll-mt-24`}
+      id={isCompact ? "diagnostico" : "demonstracao"}
+      className={`${isCompact ? "py-12 md:py-16" : "py-12 md:py-16"} relative scroll-mt-24`}
       ref={ref}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl relative z-10">
@@ -116,26 +116,34 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#055449]">
-              Demonstração ao vivo, grátis
+            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#055449]">
+              {isCompact ? "Diagnóstico gratuito" : "Demonstração ao vivo, grátis"}
             </span>
           </div>
 
           {isCompact ? (
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--text)] text-balance">
-              Pronto para testar? <em>Receba o contato da IA agora.</em>
-            </h2>
+            <>
+              <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] font-bold text-[#1F2937] text-balance">
+                Agendar diagnóstico gratuito.
+              </h2>
+              <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
+                Deixe seus dados e nossa equipe entra em contato para marcar 30 minutos de
+                conversa sobre a sua recepção.
+              </p>
+            </>
           ) : (
             <>
-              <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-                Veja sua secretária digital <em>atendendo você agora</em>.
+              <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance">
+                Veja uma conversa real antes de decidir.
               </h2>
-              <p className="font-sans text-[14px] md:text-[15px] text-[var(--text-muted)] mt-3 md:mt-4 leading-relaxed max-w-md mx-auto">
-                Preencha abaixo e a IA te chama no WhatsApp em segundos.
+              <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
+                Preencha abaixo e a Secretária Invisível te chama no WhatsApp em segundos.
+                É a mesma conversa que seu paciente teria.
               </p>
             </>
           )}
         </div>
+
 
         <div
           className="rounded-3xl p-6 sm:p-8"
@@ -222,13 +230,13 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-sans font-bold text-[13px] tracking-[0.06em] uppercase rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
                 {submitting ? (
                   <Loader2 size={16} className="animate-spin" aria-hidden="true" />
                 ) : (
                   <>
-                    <span>Quero falar com a IA agora</span>
+                    <span>{isCompact ? "Agendar diagnóstico gratuito" : "Quero ver a conversa"}</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover:translate-x-1"
@@ -238,9 +246,10 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 )}
               </button>
 
-              <p className="font-sans text-[11px] text-[var(--text-muted)] text-center leading-relaxed pt-1">
-                Seus dados são usados apenas para te conectar com a IA. Sem spam.
+              <p className="font-sans text-[15px] text-[#4B5563] text-center leading-relaxed pt-1">
+                Seus dados são usados apenas para o contato da sua clínica. Sem disparo em massa.
               </p>
+
             </form>
           </Form>
         </div>

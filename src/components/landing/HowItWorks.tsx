@@ -1,72 +1,72 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import Eyebrow from "@/components/ui/Eyebrow";
 import { revealOnScroll } from "@/lib/animations";
 
 const steps = [
   {
     n: "01",
-    title: "Conectamos seu WhatsApp",
-    desc: "Em até 24h. Sem trocar de número, sem app novo. API oficial do WhatsApp Business.",
-    chat: { side: "left", text: "✅ WhatsApp da clínica conectado e ativo", time: "10:12" },
+    title: "Mapeamento",
+    desc: "Entendemos como sua clínica atende hoje: horários, convênios, perguntas frequentes, fluxo de agenda.",
   },
   {
     n: "02",
-    title: "Configuramos sua agenda",
-    desc: "Serviços, convênios, horários e tom de voz. Você aprova antes de ativar.",
-    chat: { side: "left", text: "Fluxo configurado. Quer revisar?", time: "10:15" },
+    title: "Treinamento",
+    desc: "A inteligência artificial é treinada com as regras da sua clínica. Ela responde do jeito que sua equipe responderia.",
   },
   {
     n: "03",
-    title: "Sua IA atende sozinha",
-    desc: "Agenda, lembra, recupera no-show e reativa inativo. Sua equipe só entra no que vale.",
-    chat: { side: "left", text: "Olá Maria, hoje você tem consulta às 14h 😊", time: "08:00" },
+    title: "Integração",
+    desc: "Conectamos ao WhatsApp e à agenda que você já usa. Nada muda para o paciente.",
+  },
+  {
+    n: "04",
+    title: "Operação assistida",
+    desc: "Acompanhamos as primeiras semanas e ajustamos junto com a sua recepcionista.",
   },
 ];
 
 const HowItWorks = () => {
   const ref = useRef<HTMLDivElement>(null);
-
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="como-funciona" className="py-10 md:py-14 relative" ref={ref}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
-        <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
-          <Eyebrow>// como funciona</Eyebrow>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--text)] text-balance">
-            Três passos. <em>Zero esforço seu.</em>
+    <section id="como-funciona" className="py-14 md:py-20 scroll-mt-24" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+        <div className="max-w-2xl mb-8 md:mb-12" data-reveal>
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance">
+            Como sua recepção ganha um segundo turno.
           </h2>
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+            Implantação sem trocar o número da clínica.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-          {steps.map((s, i) => (
-            <div key={i} className="card-base p-5 relative" data-reveal>
-              <span className="font-display-sans font-extrabold text-[56px] leading-none gradient-text opacity-50 absolute -top-1 right-3 select-none tracking-tight">
+        <ol className="grid sm:grid-cols-2 gap-5 md:gap-6" data-reveal>
+          {steps.map((s) => (
+            <li
+              key={s.n}
+              className="rounded-2xl p-6 bg-white"
+              style={{ border: "1px solid #E5E7EB", boxShadow: "0 14px 34px rgba(15,23,42,0.05)" }}
+            >
+              <span className="font-display text-[15px] font-bold tracking-[0.14em] text-[#0A8C7E]">
                 {s.n}
               </span>
-
-              <h3 className="font-display text-[19px] font-semibold text-[var(--text)] relative z-10 mt-1">
+              <h3 className="font-display text-[20px] font-semibold text-[#1F2937] mt-2">
                 {s.title}
               </h3>
-              <p className="font-sans text-[13px] text-[var(--text-muted)] leading-snug mt-2 mb-4">
-                {s.desc}
-              </p>
-
-              <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-2.5">
-                <div className="flex justify-start">
-                  <div
-                    className="text-xs px-3 py-2 max-w-[90%] rounded-xl rounded-tl-sm border"
-                    style={{ background: "#FFFFFF", color: "#1F2937", borderColor: "#E5E7EB" }}
-                  >
-                    {s.chat.text}
-                  </div>
-                </div>
-                <p className="font-mono text-[10px] text-[#0FB5A3]/60 text-center pt-1">{s.chat.time}</p>
-              </div>
-            </div>
+              <p className="font-sans text-[17px] text-[#4B5563] leading-[1.6] mt-2">{s.desc}</p>
+            </li>
           ))}
-        </div>
+        </ol>
+
+        <p
+          className="font-sans text-[17px] md:text-[19px] text-[#1F2937] leading-[1.6] mt-6 md:mt-8 rounded-2xl p-6"
+          style={{ background: "#D6F3EE" }}
+          data-reveal
+        >
+          Sua recepcionista participa do processo. Ela sabe o que a clínica precisa melhor do
+          que qualquer sistema.
+        </p>
       </div>
     </section>
   );
