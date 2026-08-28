@@ -7,6 +7,10 @@ import { faqEntries } from "@/components/landing/FAQ";
 
 const Scene = lazy(() => import("@/components/landing/Scene"));
 const HiddenCosts = lazy(() => import("@/components/landing/HiddenCosts"));
+const SinglePoint = lazy(() => import("@/components/landing/SinglePoint"));
+const Complement = lazy(() => import("@/components/landing/Complement"));
+const ImpactBand = lazy(() => import("@/components/landing/ImpactBand"));
+const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
 
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const SecurityData = lazy(() => import("@/components/landing/SecurityData"));
@@ -63,16 +67,19 @@ const Index = () => {
 
         <Suspense fallback={<Fallback h="h-96" />}>
           <Scene />
+          <SinglePoint />
+          <Complement />
+          <ImpactBand />
           <HiddenCosts />
-          
+          <RealConversations />
           <SocialProof />
           <SecurityData />
           <SinglePlace />
           <LeadForm />
-          <RealConversations />
           <Pricing />
           <FAQ />
           <LeadForm variant="compact" />
+          <FinalCTA />
           
         </Suspense>
       </main>
