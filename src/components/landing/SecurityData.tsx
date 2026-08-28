@@ -53,11 +53,6 @@ const SecurityData = () => {
             </div>
           ))}
         </div>
-
-        {/* Não publicar sem revisar cada afirmação acima. */}
-        <p className="font-sans text-[15px] text-[#4B5563] mt-8" data-reveal>
-          [VALIDAR: confirmar cada afirmação com o contrato e o DPA vigentes antes de publicar]
-        </p>
       </div>
     </section>
   );
