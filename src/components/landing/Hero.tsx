@@ -5,7 +5,7 @@ import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
 import heroReception from "@/assets/hero-reception.jpg";
 
 export const CTA_HREF = "#diagnostico";
-export const CTA_LABEL = "Agendar diagnóstico gratuito";
+export const CTA_LABEL = "Ver como funcionaria na minha clínica";
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
@@ -32,14 +32,20 @@ const Hero = () => {
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-14 items-center">
           <div data-hero-left>
             <h1 className="headline-hero text-balance text-[34px] sm:text-[46px] lg:text-[58px] text-[#1F2937] leading-[1.08]">
-              Sua recepção nunca mais deixa um paciente{" "}
-              <span className="text-[#0A8C7E]">esperando</span>.
+              Sua recepcionista atende quem está na clínica.
             </h1>
 
-            <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] leading-[1.65] max-w-[560px] mt-6 mb-8">
-              Sua equipe continua oferecendo atendimento humano. A Secretária Invisível
-              cuida do WhatsApp 24 horas por dia, responde, agenda, confirma presença e
-              reduz faltas, enquanto sua recepcionista cuida de quem está na clínica.
+            <p className="font-display text-[20px] sm:text-[26px] lg:text-[30px] font-semibold text-[#0A8C7E] leading-[1.3] mt-4 text-balance">
+              A Secretária Invisível atende quem está no WhatsApp.
+            </p>
+
+            <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] leading-[1.65] max-w-[560px] mt-5">
+              Responde, agenda, confirma e organiza o atendimento enquanto sua equipe
+              continua cuidando dos pacientes.
+            </p>
+
+            <p className="font-display text-[17px] md:text-[19px] font-bold text-[#1F2937] mt-4 mb-8">
+              Sem substituir sua recepcionista.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">

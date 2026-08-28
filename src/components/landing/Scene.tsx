@@ -3,11 +3,10 @@ import { useGSAP } from "@gsap/react";
 import { revealOnScroll } from "@/lib/animations";
 
 const timeline: [string, string][] = [
-  ["18h40", "Sua recepcionista foi embora."],
-  ["21h17", "Um paciente pergunta se vocês atendem amanhã."],
+  ["21h17", "“Vocês atendem amanhã?”"],
   ["21h18", "Ele recebe a resposta."],
   ["21h19", "Escolhe o horário."],
-  ["21h20", "A consulta está marcada."],
+  ["21h20", "O atendimento segue."],
 ];
 
 const Scene = () => {
@@ -17,12 +16,14 @@ const Scene = () => {
   return (
     <section className="py-14 md:py-20 bg-white" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <h2
-          className="font-display text-[26px] sm:text-[36px] lg:text-[44px] font-bold text-[#1F2937] text-balance text-center mb-8 md:mb-12"
-          data-reveal
-        >
-          São 21h17 de uma terça-feira.
-        </h2>
+        <div className="text-center mb-8 md:mb-12" data-reveal>
+          <h2 className="font-display text-[30px] sm:text-[42px] lg:text-[52px] font-bold text-[#1F2937]">
+            21h17.
+          </h2>
+          <p className="font-display text-[19px] sm:text-[24px] font-semibold text-[#0A8C7E] mt-3 text-balance">
+            A clínica fechou. Um paciente acabou de mandar mensagem.
+          </p>
+        </div>
 
         <ol className="relative" data-reveal>
           {timeline.map(([time, text], i) => (
@@ -49,12 +50,14 @@ const Scene = () => {
           ))}
         </ol>
 
-        <p
-          className="font-display text-[20px] sm:text-[26px] font-semibold text-center text-[#1F2937] mt-10 md:mt-12 text-balance"
-          data-reveal
-        >
-          A clínica está fechada. A agenda continua enchendo.
-        </p>
+        <div className="text-center mt-10 md:mt-12" data-reveal>
+          <p className="font-display text-[20px] sm:text-[26px] font-semibold text-[#1F2937] text-balance">
+            A clínica fechou.
+          </p>
+          <p className="font-display text-[20px] sm:text-[26px] font-bold text-[#055449] mt-1 text-balance">
+            O atendimento não desapareceu.
+          </p>
+        </div>
       </div>
     </section>
   );
