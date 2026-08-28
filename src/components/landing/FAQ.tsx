@@ -1,29 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
-import Eyebrow from "@/components/ui/Eyebrow";
 import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
+    "Isso vai substituir minha recepcionista?",
+    "Não. Ela continua sendo o rosto da clínica. A Secretária Invisível assume o volume de mensagens que hoje concorre com o atendimento presencial e cobre os horários em que não há ninguém disponível.",
+  ],
+  [
+    "Minha recepcionista vai se sentir ameaçada?",
+    "Na prática acontece o contrário. Ela deixa de responder às 22h e para de repetir as mesmas perguntas dezenas de vezes por dia. Ela participa da implantação desde o início e ajuda a definir como o sistema responde.",
+  ],
+  [
+    "O paciente vai perceber que está falando com um sistema?",
+    "A conversa segue o tom da sua clínica e usa o nome do paciente. Se ele perguntar, o sistema confirma que é atendimento automatizado. E sempre que a situação exige uma pessoa, a conversa é transferida para a sua equipe.",
+  ],
+  [
     "Preciso trocar meu número de WhatsApp?",
-    "Não. Mantemos o número que sua clínica já usa, via WhatsApp Business API oficial. Sua equipe continua atendendo normalmente — a IA entra em paralelo, sem competir com o aparelho.",
+    "Não. Mantemos o número que sua clínica já usa, via API oficial do WhatsApp Business. Sua equipe continua atendendo no mesmo número, em paralelo.",
   ],
   [
     "É seguro? Onde ficam meus dados?",
     "Conversas armazenadas em infraestrutura nacional, criptografadas, com contrato e DPA assinados. Você controla retenção e acesso. Nada é usado para treinar modelo público.",
   ],
   [
-    "E se a IA não souber responder?",
-    "Ela só responde dentro do escopo que vocês definem. Tudo que foge do script vira handoff automático para humano. Cada conversa fica gravada no painel para auditoria.",
+    "E se o sistema não souber responder?",
+    "Ele responde apenas dentro do escopo que vocês definem. Tudo que foge disso vira transferência automática para uma pessoa da equipe. Cada conversa fica gravada no painel para auditoria.",
   ],
   [
     "Faz follow-up de falta e cancelamento?",
-    "Faz. Recupera quem faltou, reagenda cancelamento e reativa paciente inativo. Tudo dentro da mesma conversa, sem campanha de spam.",
+    "Faz. Recupera quem faltou, reagenda cancelamento e retoma contato com paciente inativo, dentro da mesma conversa, sem disparo em massa.",
   ],
   [
-    "Isso não vai parecer robótico para meus pacientes?",
-    "Não. O sistema aprende o tom de voz da sua clínica e usa o nome do paciente em cada mensagem. Seus pacientes recebem respostas que soam como a sua equipe — com a linguagem que você já usa no consultório. Você aprova o fluxo completo antes de ativar. Se quiser mudar algo, nossa equipe ajusta em minutos.",
+    "Funciona com o sistema que eu já uso?",
+    "Avaliamos a integração no diagnóstico. [VALIDAR: listar aqui apenas sistemas já integrados em produção. Se não houver, manter só esta frase.]",
   ],
 ];
 
@@ -35,14 +46,13 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
-    <section id="faq" className="py-14 md:py-20 relative" ref={ref}>
+    <section id="faq" className="py-14 md:py-20 relative scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
         <div className="text-center mb-8" data-reveal>
-          <Eyebrow>// e se...?</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            As perguntas que todo médico faz <em>antes de confiar numa IA.</em>
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance">
+            As perguntas que todo médico faz antes de confiar numa IA.
           </h2>
-          <p className="font-sans text-sm md:text-base text-[var(--text-muted)] mt-3 md:mt-5 leading-relaxed">
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
             Respostas diretas. Sem floreio.
           </p>
         </div>
@@ -87,25 +97,24 @@ const FAQItem = ({
 
   return (
     <li
-      className="rounded-2xl overflow-hidden transition-colors"
+      className="rounded-2xl overflow-hidden transition-colors bg-white"
       style={{
-        background: isOpen ? "#FFFFFF" : "#F1FBF8",
-        border: `1px solid ${isOpen ? "#0FB5A3" : "#D6F3EE"}`,
-        boxShadow: isOpen ? "0 14px 36px rgba(15,181,163,0.14)" : "0 8px 22px rgba(10,140,126,0.06)",
+        border: `1px solid ${isOpen ? "#0FB5A3" : "#E5E7EB"}`,
+        boxShadow: isOpen ? "0 14px 36px rgba(15,181,163,0.12)" : "0 8px 22px rgba(15,23,42,0.04)",
       }}
     >
       <button
         onClick={onToggle}
-        className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#E9F7F3]"
+        className="w-full text-left px-5 sm:px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F7FBFA]"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-[18px] font-medium text-[var(--text)]">{q}</span>
-        <span className="text-[#0FB5A3] flex-shrink-0">
-          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        <span className="font-display text-[18px] font-semibold text-[#1F2937] leading-snug">{q}</span>
+        <span className="text-[#0A8C7E] flex-shrink-0">
+          {isOpen ? <Minus size={18} strokeWidth={1.6} /> : <Plus size={18} strokeWidth={1.6} />}
         </span>
       </button>
       <div ref={panelRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
-        <p className="font-sans text-sm text-[var(--text-muted)] leading-[1.72] px-6 pb-6">
+        <p className="font-sans text-[17px] text-[#4B5563] leading-[1.7] px-5 sm:px-6 pb-6">
           {a}
         </p>
       </div>
