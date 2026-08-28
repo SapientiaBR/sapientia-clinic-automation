@@ -3,14 +3,13 @@ import { Menu, X } from "lucide-react";
 import logoSI from "@/assets/logo-si-v2.png.asset.json";
 import { useLenis } from "@/components/global/LenisProvider";
 
-const CTA_HREF = "#formulario";
+const CTA_HREF = "#diagnostico";
 
 const navItems = [
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "Preços", href: "#precos" },
-  { label: "Conversas reais", href: "#conversas-reais" },
-  { label: "Garantia", href: "#garantia" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Segurança", href: "#seguranca" },
+  { label: "Planos", href: "#precos" },
+  { label: "Perguntas", href: "#faq" },
 ];
 
 const Header = () => {
@@ -56,16 +55,16 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[13px] text-[var(--text-muted)] hover:text-[#055449] transition-colors"
+                className="font-sans text-[15px] text-[var(--text-muted)] hover:text-[#055449] transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="bg-[#0FB5A3] hover:bg-[#0A8C7E] text-white text-[13px] font-semibold px-5 py-2.5 rounded-full transition-colors"
+              className="bg-[#0FB5A3] hover:bg-[#0A8C7E] text-white text-[15px] font-semibold px-5 py-2.5 rounded-full transition-colors"
             >
-              Começar agora
+              Agendar diagnóstico
             </a>
           </nav>
 
@@ -97,7 +96,7 @@ const Header = () => {
               className="gradient-brand text-center text-white font-semibold px-5 py-3 rounded-full mt-2"
               onClick={() => setMenuOpen(false)}
             >
-              Quero testar
+              Agendar diagnóstico
             </a>
           </div>
         </div>
