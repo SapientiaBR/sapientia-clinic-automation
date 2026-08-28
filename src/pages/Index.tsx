@@ -70,7 +70,6 @@ const Index = () => {
           <SinglePoint />
           <Complement />
           <ImpactBand />
-          <HiddenCosts />
           <RealConversations />
           <SocialProof />
           <SecurityData />
@@ -80,7 +79,6 @@ const Index = () => {
           <FAQ />
           <LeadForm variant="compact" />
           <FinalCTA />
-          
         </Suspense>
       </main>
       <Suspense fallback={<Fallback h="h-32" />}>
