@@ -91,11 +91,15 @@ const Pricing = () => {
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
             Planos que cabem na sua <em>clínica.</em>
           </h2>
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+            O que define o plano é o tamanho da operação: número de profissionais, volume de
+            mensagem e integrações necessárias.
+          </p>
         </div>
 
-        {/* Banner: implementação/setup grátis */}
+        {/* Faixa: implantação sem custo */}
         <div
-          className="max-w-5xl mx-auto mb-5 md:mb-6 rounded-2xl p-4 md:p-5 flex flex-col md:flex-row md:items-center gap-3 md:gap-6"
+          className="max-w-3xl mx-auto mb-10 md:mb-14 rounded-2xl p-5 text-center"
           style={{
             background: "#F1FBF8",
             border: "1px solid #A7E6DD",
@@ -103,41 +107,15 @@ const Pricing = () => {
           }}
           data-reveal
         >
-          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text)] leading-relaxed flex-1">
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#0A8C7E] mr-2">
-              Implementação · Setup
-            </span>
-            <span className="line-through text-[var(--text-muted)] mr-1">R$1.647</span>
-            <strong className="font-semibold" style={{ color: "#0A8C7E" }}>por nossa conta</strong>
-          </p>
-          <p className="font-sans text-[13px] md:text-[14px] text-[var(--text-muted)] md:text-right leading-relaxed">
-            Você paga <strong className="font-semibold text-[var(--text)]">só a mensalidade</strong> — sem taxa de implantação.
+          <p className="font-sans text-[17px] text-[var(--text)] leading-[1.6]">
+            <strong className="font-semibold" style={{ color: "#0A8C7E" }}>
+              Implantação por nossa conta.
+            </strong>{" "}
+            Você paga só a mensalidade.
           </p>
         </div>
 
-        {/* Ancoragem de preço */}
-        <div
-          className="max-w-3xl mx-auto mb-10 md:mb-14 rounded-2xl p-5 md:p-6 flex items-start gap-4"
-          style={{
-            background: "#FFF8E6",
-            border: "1px solid #F0E2B3",
-            boxShadow: "0 12px 32px rgba(180,140,30,0.08)",
-          }}
-          data-reveal
-        >
-          <div
-            className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: "#D6F3EE" }}
-          >
-            <TrendingDown size={20} style={{ color: "#0A8C7E" }} />
-          </div>
-          <p className="font-sans text-[14px] md:text-[15px] text-[var(--text)] leading-relaxed">
-            Uma recepcionista custa{" "}
-            <strong className="font-semibold">mais de R$3.000/mês</strong> com encargos e falta, tira férias e pede demissão.{" "}
-            <strong className="font-semibold">A Secretária Invisível trabalha 24/7</strong>, a partir de apenas{" "}
-            <strong className="font-semibold" style={{ color: "#0A8C7E" }}>R$497</strong>.
-          </p>
-        </div>
+
 
 
         {/* 3 cards stacked */}
