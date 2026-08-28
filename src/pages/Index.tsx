@@ -7,7 +7,7 @@ import { faqEntries } from "@/components/landing/FAQ";
 
 const Scene = lazy(() => import("@/components/landing/Scene"));
 const HiddenCosts = lazy(() => import("@/components/landing/HiddenCosts"));
-const SideBySide = lazy(() => import("@/components/landing/SideBySide"));
+
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
 const HowItWorks = lazy(() => import("@/components/landing/HowItWorks"));
 const SecurityData = lazy(() => import("@/components/landing/SecurityData"));
@@ -18,7 +18,7 @@ const LeadForm = lazy(() =>
 const RealConversations = lazy(() => import("@/components/landing/RealConversations"));
 const Pricing = lazy(() => import("@/components/landing/Pricing"));
 const FAQ = lazy(() => import("@/components/landing/FAQ"));
-const FinalCTA = lazy(() => import("@/components/landing/FinalCTA"));
+
 const Footer = lazy(() => import("@/components/landing/Footer"));
 const MobileCtaBar = lazy(() => import("@/components/landing/MobileCtaBar"));
 
@@ -65,7 +65,7 @@ const Index = () => {
         <Suspense fallback={<Fallback h="h-96" />}>
           <Scene />
           <HiddenCosts />
-          <SideBySide />
+          
           <SocialProof />
           <HowItWorks />
           <SecurityData />
@@ -75,7 +75,7 @@ const Index = () => {
           <Pricing />
           <FAQ />
           <LeadForm variant="compact" />
-          <FinalCTA />
+          
         </Suspense>
       </main>
       <Suspense fallback={<Fallback h="h-32" />}>
