@@ -230,13 +230,13 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-sans font-bold text-[13px] tracking-[0.06em] uppercase rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
                 {submitting ? (
                   <Loader2 size={16} className="animate-spin" aria-hidden="true" />
                 ) : (
                   <>
-                    <span>Quero falar com a IA agora</span>
+                    <span>{isCompact ? "Agendar diagnóstico gratuito" : "Quero ver a conversa"}</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover:translate-x-1"
@@ -246,9 +246,10 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 )}
               </button>
 
-              <p className="font-sans text-[11px] text-[var(--text-muted)] text-center leading-relaxed pt-1">
-                Seus dados são usados apenas para te conectar com a IA. Sem spam.
+              <p className="font-sans text-[15px] text-[#4B5563] text-center leading-relaxed pt-1">
+                Seus dados são usados apenas para o contato da sua clínica. Sem disparo em massa.
               </p>
+
             </form>
           </Form>
         </div>
