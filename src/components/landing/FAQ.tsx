@@ -5,24 +5,24 @@ import { gsap, EASE, revealOnScroll } from "@/lib/animations";
 
 export const faqEntries: [string, string][] = [
   [
-    "Isso vai substituir minha recepcionista?",
-    "Não. Ela continua sendo o rosto da clínica. A Secretária Invisível assume o volume de mensagens que hoje concorre com o atendimento presencial e cobre os horários em que não há ninguém disponível.",
+    "Isso substitui minha recepcionista?",
+    "Não. A Secretária Invisível assume parte do volume. Sua equipe continua cuidando do que precisa de atenção humana.",
   ],
   [
-    "Preciso trocar meu número de WhatsApp?",
-    "Não. Mantemos o número que sua clínica já usa, via API oficial do WhatsApp Business. Sua equipe continua atendendo no mesmo número, em paralelo.",
+    "Vou precisar trocar meu número?",
+    "Não necessariamente. A implantação é adaptada à operação atual da sua clínica.",
+  ],
+  [
+    "E se surgir uma situação fora do padrão?",
+    "A Secretária Invisível segue os fluxos definidos pela clínica e pode direcionar situações específicas para a sua equipe, com todo o contexto da conversa.",
+  ],
+  [
+    "Minha equipe vai precisar aprender um sistema complicado?",
+    "Não. Nós configuramos a operação para reduzir trabalho, não criar mais trabalho.",
   ],
   [
     "É seguro? Onde ficam meus dados?",
     "Conversas armazenadas em infraestrutura nacional, criptografadas, com contrato e DPA assinados. Você controla retenção e acesso. Nada é usado para treinar modelo público.",
-  ],
-  [
-    "E se o sistema não souber responder?",
-    "Ele responde apenas dentro do escopo que vocês definem. Tudo que foge disso vira transferência automática para uma pessoa da equipe. Cada conversa fica gravada no painel para auditoria.",
-  ],
-  [
-    "Funciona com o sistema que eu já uso?",
-    "Avaliamos a integração no diagnóstico.",
   ],
 ];
 
@@ -38,7 +38,7 @@ const FAQ = ({ compact = false }: { compact?: boolean }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
         <div className="text-center mb-8" data-reveal>
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance">
-            As perguntas que todo médico faz antes de confiar numa IA.
+            Antes de colocar IA no atendimento da sua clínica, estas são as perguntas certas.
           </h2>
           <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
             Respostas diretas. Sem floreio.
