@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { Check, TrendingDown, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
 
 
@@ -31,7 +31,7 @@ const plans: Plan[] = [
       "1 agenda/profissional",
       "1 ajuste de fluxo por mês",
     ],
-    ctaLabel: "Começar com Essencial",
+    ctaLabel: "Agendar diagnóstico gratuito",
     ctaVariant: "ghost",
   },
   {
@@ -50,7 +50,7 @@ const plans: Plan[] = [
       "Entende e responde por áudio",
       "2 ajustes de fluxo por mês",
     ],
-    ctaLabel: "Escolher Profissional",
+    ctaLabel: "Agendar diagnóstico gratuito",
     ctaVariant: "primary",
   },
   {
@@ -65,7 +65,7 @@ const plans: Plan[] = [
       "Agendas/profissionais ilimitados",
       "1 ajuste por semana",
     ],
-    ctaLabel: "Falar sobre Premium",
+    ctaLabel: "Agendar diagnóstico gratuito",
     ctaVariant: "ghost",
   },
 ];
@@ -196,7 +196,7 @@ const Pricing = () => {
                   {p.features.map((f, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckIcon />
-                      <span className="font-sans text-[14px] text-[var(--text)] leading-snug">
+                      <span className="font-sans text-[17px] text-[var(--text)] leading-snug">
                         {f}
                       </span>
                     </li>
@@ -204,9 +204,9 @@ const Pricing = () => {
                 </ul>
 
                 <a
-                  href="#formulario"
+                  href="#diagnostico"
                   className={
-                    "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-sans font-semibold text-[13px] uppercase tracking-[0.02em] transition-all duration-300 " +
+                    "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-display font-bold text-[15px] transition-all duration-300 " +
                     (p.ctaVariant === "primary"
                       ? "gradient-brand text-white shadow-[0_14px_30px_rgba(15,181,163,0.32)] hover:-translate-y-0.5"
                       : "bg-white border border-[#0FB5A3] text-[#055449] hover:bg-[#F1FBF8]")
@@ -220,7 +220,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        <p className="font-sans text-[12px] text-[var(--text-muted)] text-center mt-8">
+        <p className="font-sans text-[15px] text-[var(--text-muted)] text-center mt-8">
           Diagnóstico gratuito antes de qualquer cobrança. Cancele com 30 dias de aviso.
         </p>
       </div>
