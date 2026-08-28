@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Check, ArrowRight } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
+import { CTA_LABEL } from "@/components/landing/Hero";
 
 
 type Plan = {
@@ -19,7 +20,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     key: "essencial",
-    name: "Essencial",
+    name: "Consultório",
     price: "R$597",
     profile: "1 médico / consultório solo",
     highlight: false,
@@ -31,16 +32,16 @@ const plans: Plan[] = [
       "1 agenda/profissional",
       "1 ajuste de fluxo por mês",
     ],
-    ctaLabel: "Agendar diagnóstico gratuito",
+    ctaLabel: CTA_LABEL,
     ctaVariant: "ghost",
   },
   {
     key: "profissional",
-    name: "Profissional",
+    name: "Clínica",
     price: "R$897",
     profile: "2-3 profissionais",
     highlight: true,
-    inheritsFrom: "Essencial",
+    inheritsFrom: "Consultório",
     features: [
       "Lembretes automáticos (anti-falta)",
       "Reagendamento e cancelamento pelo bot",
@@ -50,22 +51,22 @@ const plans: Plan[] = [
       "Entende e responde por áudio",
       "2 ajustes de fluxo por mês",
     ],
-    ctaLabel: "Agendar diagnóstico gratuito",
+    ctaLabel: CTA_LABEL,
     ctaVariant: "primary",
   },
   {
     key: "premium",
-    name: "Premium",
+    name: "Operação",
     price: "R$1.547",
     profile: "Clínica com 4+ profissionais ou rede",
     highlight: false,
-    inheritsFrom: "Profissional",
+    inheritsFrom: "Clínica",
     features: [
       "Suporte prioritário (SLA 4h úteis)",
       "Agendas/profissionais ilimitados",
       "1 ajuste por semana",
     ],
-    ctaLabel: "Agendar diagnóstico gratuito",
+    ctaLabel: CTA_LABEL,
     ctaVariant: "ghost",
   },
 ];
@@ -89,11 +90,13 @@ const Pricing = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
           <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            Planos que cabem na sua <em>clínica.</em>
+            A Secretária Invisível se adapta ao tamanho da sua <em>operação.</em>
           </h2>
           <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
-            O que define o plano é o tamanho da operação: número de profissionais, volume de
-            mensagem e integrações necessárias.
+            Você não paga implantação.
+          </p>
+          <p className="font-display text-[19px] md:text-[24px] font-bold text-[#055449] mt-2 text-balance">
+            Você começa pagando apenas a mensalidade.
           </p>
         </div>
 
