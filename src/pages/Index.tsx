@@ -6,7 +6,6 @@ import Reframe from "@/components/landing/Reframe";
 import { faqEntries } from "@/components/landing/FAQ";
 
 const Scene = lazy(() => import("@/components/landing/Scene"));
-const HiddenCosts = lazy(() => import("@/components/landing/HiddenCosts"));
 const SinglePoint = lazy(() => import("@/components/landing/SinglePoint"));
 const Complement = lazy(() => import("@/components/landing/Complement"));
 const ImpactBand = lazy(() => import("@/components/landing/ImpactBand"));
@@ -70,7 +69,6 @@ const Index = () => {
           <SinglePoint />
           <Complement />
           <ImpactBand />
-          <HiddenCosts />
           <RealConversations />
           <SocialProof />
           <SecurityData />
@@ -80,7 +78,6 @@ const Index = () => {
           <FAQ />
           <LeadForm variant="compact" />
           <FinalCTA />
-          
         </Suspense>
       </main>
       <Suspense fallback={<Fallback h="h-32" />}>

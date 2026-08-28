@@ -44,27 +44,6 @@ const conversations: Convo[] = [
       { side: "out", text: "Reagendado para sexta, 9h. Já liberei o horário de quinta na agenda." },
     ],
   },
-  {
-    tag: "Fora do horário",
-    title: "Atendimento fora do horário.",
-    caption: "A clínica está fechada. A conversa continua acontecendo.",
-    messages: [
-      { side: "in", text: "Boa noite, vocês atendem convênio?" },
-      { side: "out", text: "Boa noite! Atendemos os principais convênios e também particular. Quer que eu veja um horário para você?" },
-      { side: "in", text: "Quero sim" },
-    ],
-  },
-  {
-    tag: "Equipe",
-    title: "Situação encaminhada para a equipe.",
-    caption: "O que precisa de gente vai para uma pessoa, com todo o contexto junto.",
-    messages: [
-      { side: "in", text: "Estou com uma dor forte depois do procedimento, é normal?" },
-      { side: "out", text: "Entendi, Marina. Vou passar sua mensagem agora para a equipe clínica falar com você." },
-      { side: "out", text: "A Juliana já foi avisada e te responde em instantes por aqui." },
-    ],
-    footer: "Encaminhado para uma pessoa da equipe",
-  },
 ];
 
 const RealConversations = () => {
