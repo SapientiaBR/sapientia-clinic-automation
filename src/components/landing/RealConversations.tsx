@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import Eyebrow from "@/components/ui/Eyebrow";
 import { revealOnScroll } from "@/lib/animations";
 
 type Msg = { side: "in" | "out"; text: string };
@@ -22,7 +21,7 @@ const conversations: Convo[] = [
       {
         side: "out",
         text:
-          "Oi, Carla! 😊 Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?",
+          "Oi, Carla!  Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?",
       },
       { side: "in", text: "10h30 perfeito" },
       {
@@ -41,7 +40,7 @@ const conversations: Convo[] = [
       {
         side: "out",
         text:
-          "Oi, Ana! 😊 Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
+          "Oi, Ana!  Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
       },
       { side: "in", text: "Confirmo sim, obrigada pelo lembrete!" },
       {
@@ -63,14 +62,14 @@ const RealConversations = () => {
     <section id="conversas-reais" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
-          <Eyebrow>// conversas reais</Eyebrow>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
-            Veja a IA <em>trabalhando de verdade.</em>
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[var(--text)] text-balance">
+            Três conversas reais, do primeiro oi ao agendamento.
           </h2>
-          <p className="font-sans text-sm md:text-base text-[var(--text-muted)] mt-3 md:mt-5 leading-relaxed">
-            Sem mockup. Conversas reais (com nomes trocados): agendamento, lembrete e cancelamento.
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+            Recriação com nomes trocados. Agendamento, lembrete e reagendamento.
           </p>
         </div>
+
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {conversations.map((c, i) => (
@@ -87,7 +86,7 @@ const RealConversations = () => {
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
                 {c.title}
               </h3>
-              <p className="font-sans text-[13px] text-[var(--text-muted)] mt-1.5 leading-relaxed">
+              <p className="font-sans text-[17px] text-[#4B5563] mt-2 leading-relaxed">
                 {c.caption}
               </p>
 
