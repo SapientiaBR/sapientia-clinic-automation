@@ -64,7 +64,7 @@ const Header = () => {
               href={CTA_HREF}
               className="bg-[#0FB5A3] hover:bg-[#0A8C7E] text-white text-[15px] font-semibold px-5 py-2.5 rounded-full transition-colors"
             >
-              Agendar diagnóstico
+              Ver na minha clínica
             </a>
           </nav>
 
@@ -96,7 +96,7 @@ const Header = () => {
               className="gradient-brand text-center text-white font-semibold px-5 py-3 rounded-full mt-2"
               onClick={() => setMenuOpen(false)}
             >
-              Agendar diagnóstico
+              Ver na minha clínica
             </a>
           </div>
         </div>

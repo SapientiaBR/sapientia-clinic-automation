@@ -13,43 +13,57 @@ type Convo = {
 
 const conversations: Convo[] = [
   {
-    tag: "Agendamento",
-    title: "Sábado, 22h47. Paciente novo.",
-    caption: "Resposta em 3 segundos. Agenda na mesma conversa, sem ninguém da equipe acordado.",
+    tag: "Novo paciente",
+    title: "Novo paciente querendo agendar.",
+    caption: "Resposta em segundos e agenda fechada na mesma conversa.",
     messages: [
-      { side: "in", text: "Oi, vocês atendem amanhã? Preciso urgente." },
-      {
-        side: "out",
-        text:
-          "Oi, Carla!  Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?",
-      },
+      { side: "in", text: "Oi, vocês atendem amanhã? Preciso marcar uma consulta." },
+      { side: "out", text: "Oi, Carla! Atendemos sim. Temos 10h30 ou 14h amanhã. Qual te encaixa melhor?" },
       { side: "in", text: "10h30 perfeito" },
-      {
-        side: "out",
-        text:
-          "Marcado! Dr. Rodrigo, amanhã 10h30. Já vou te mandar lembrete 1h antes. Posso te passar o endereço por aqui mesmo?",
-      },
+      { side: "out", text: "Marcado! Dr. Rodrigo, amanhã às 10h30. Te mando um lembrete 1h antes." },
     ],
-    footer: "Lead agendado fora do horário comercial",
   },
   {
-    tag: "Follow-up",
-    title: "Lembrete que reduz no-show.",
-    caption: "A IA confirma a presença algumas horas antes. Menos faltas, agenda mais cheia.",
+    tag: "Confirmação",
+    title: "Paciente confirmando presença.",
+    caption: "A confirmação acontece sozinha. Menos faltas, sem ninguém ligar.",
     messages: [
-      {
-        side: "out",
-        text:
-          "Oi, Ana!  Passando pra lembrar: hoje você tem consulta com a Dra. Mariana às 14h. Confirma que vai conseguir vir?",
-      },
+      { side: "out", text: "Oi, Ana! Hoje você tem consulta com a Dra. Mariana às 14h. Confirma presença?" },
       { side: "in", text: "Confirmo sim, obrigada pelo lembrete!" },
-      {
-        side: "out",
-        text:
-          "Perfeito. Te espero por aqui. Se precisar de algo antes, é só chamar.",
-      },
+      { side: "out", text: "Perfeito. Te espero por aqui." },
     ],
-    footer: "No-show reduzido sem ninguém ligar",
+  },
+  {
+    tag: "Reagendamento",
+    title: "Pedido de reagendamento.",
+    caption: "O horário livre volta para a agenda antes de virar prejuízo.",
+    messages: [
+      { side: "in", text: "Preciso remarcar minha consulta de quinta, deu um imprevisto." },
+      { side: "out", text: "Sem problema, Paulo. Tenho sexta às 9h ou segunda às 16h30. Qual prefere?" },
+      { side: "in", text: "Sexta às 9h" },
+      { side: "out", text: "Reagendado para sexta, 9h. Já liberei o horário de quinta na agenda." },
+    ],
+  },
+  {
+    tag: "Fora do horário",
+    title: "Atendimento fora do horário.",
+    caption: "A clínica está fechada. A conversa continua acontecendo.",
+    messages: [
+      { side: "in", text: "Boa noite, vocês atendem convênio?" },
+      { side: "out", text: "Boa noite! Atendemos os principais convênios e também particular. Quer que eu veja um horário para você?" },
+      { side: "in", text: "Quero sim" },
+    ],
+  },
+  {
+    tag: "Equipe",
+    title: "Situação encaminhada para a equipe.",
+    caption: "O que precisa de gente vai para uma pessoa, com todo o contexto junto.",
+    messages: [
+      { side: "in", text: "Estou com uma dor forte depois do procedimento, é normal?" },
+      { side: "out", text: "Entendi, Marina. Vou passar sua mensagem agora para a equipe clínica falar com você." },
+      { side: "out", text: "A Juliana já foi avisada e te responde em instantes por aqui." },
+    ],
+    footer: "Encaminhado para uma pessoa da equipe",
   },
 ];
 
@@ -63,10 +77,10 @@ const RealConversations = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[var(--text)] text-balance">
-            Conversas reais, do primeiro "oi" ao agendamento.
+            Veja como seus pacientes seriam atendidos.
           </h2>
           <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
-            Recriação com nomes trocados. Agendamento, lembrete e reagendamento.
+            Conversas reais. Do primeiro “oi” até o próximo passo.
           </p>
         </div>
 

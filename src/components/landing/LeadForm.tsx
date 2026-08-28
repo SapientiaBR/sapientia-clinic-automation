@@ -124,7 +124,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           {isCompact ? (
             <>
               <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] font-bold text-[#1F2937] text-balance">
-                Agendar diagnóstico gratuito.
+                Ver como funcionaria na minha clínica.
               </h2>
               <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
                 Deixe seus dados e nossa equipe entra em contato para marcar 30 minutos de
@@ -236,7 +236,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                   <Loader2 size={16} className="animate-spin" aria-hidden="true" />
                 ) : (
                   <>
-                    <span>{isCompact ? "Agendar diagnóstico gratuito" : "Quero ver a conversa"}</span>
+                    <span>{isCompact ? "Ver como funcionaria na minha clínica" : "Quero ver a conversa"}</span>
                     <ArrowRight
                       size={16}
                       className="transition-transform group-hover:translate-x-1"
