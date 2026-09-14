@@ -10,12 +10,18 @@ const navItems = [
 ];
 
 /**
- * Header.
+ * Navbar flutuante em cápsula.
  *
- * No celular ficam só a logo e um botão curto. O menu sanfona saiu: ele
- * guardava quatro âncoras da mesma página, e abrir uma gaveta para chegar a
- * uma seção que a própria rolagem alcança é um passo a mais sem ganho. Os
- * links seguem no desktop, onde cabem sem disputar espaço.
+ * O docshield não encosta a barra no topo da janela: ela é uma pílula branca
+ * solta, com respiro em volta, sobreposta ao conteúdo. É o que faz o painel
+ * colorido do hero começar acima dela, e é boa parte do ar do site.
+ *
+ * A forma não muda ao rolar — só a sombra ganha peso. Trocar altura ou fundo
+ * no scroll provoca um salto de layout no primeiro gesto do visitante.
+ *
+ * No celular ficam só a logo e um botão curto. O menu sanfona guardava quatro
+ * âncoras da mesma página: abrir gaveta para chegar onde a rolagem chega é um
+ * passo a mais sem ganho.
  *
  * O `top` desconta a faixa da turma, que fica acima e tem altura própria.
  */
@@ -39,50 +45,59 @@ const Header = () => {
   }, [lenis]);
 
   return (
+    /* `--altura-faixa` e publicada pela propria faixa da turma: no celular
+       ela quebra em duas linhas e vai a 64px. O fallback cobre o instante
+       antes do primeiro layout. */
     <header
-      className={`fixed left-0 right-0 top-[34px] z-50 transition-all duration-300 sm:top-[37px] ${
-        scrolled
-          ? "border-b border-[#E5E7EB] bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+      className="fixed inset-x-0 z-50 px-3 pt-3 sm:px-6 sm:pt-4"
+      style={{ top: "var(--altura-faixa, 36px)" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between md:h-28">
-          <a href="/" className="group flex items-center" aria-label="Secretária Invisível">
-            <img
-              src={logoSI.url}
-              alt="Secretária Invisível"
-              width={1264}
-              height={843}
-              className="h-16 w-auto transition-transform duration-300 group-hover:scale-[1.02] md:h-24"
-            />
-          </a>
+      <div
+        className="mx-auto flex max-w-5xl items-center justify-between gap-4 py-2 pl-4 pr-2 transition-shadow duration-300 md:backdrop-blur-xl"
+        style={{
+          background: "rgb(255 255 255 / 0.92)",
+          borderRadius: "var(--radius-pill)",
+          border: "1px solid var(--line-subtle)",
+          boxShadow: scrolled ? "var(--shadow-pill)" : "var(--shadow-card)",
+        }}
+      >
+        <a href="/" className="group flex flex-none items-center" aria-label="Secretária Invisível">
+          <img
+            src={logoSI.url}
+            alt="Secretária Invisível"
+            width={1264}
+            height={843}
+            className="h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02] md:h-14"
+          />
+        </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="font-sans text-[15px] text-[var(--text-muted)] transition-colors hover:text-[#055449]"
-              >
-                {item.label}
-              </a>
-            ))}
+        <nav className="hidden items-center gap-7 md:flex">
+          {navItems.map((item) => (
             <a
-              href="#demo"
-              className="rounded-full bg-[#0FB5A3] px-5 py-2.5 text-[15px] font-semibold text-white transition-colors hover:bg-[#0A8C7E]"
+              key={item.href}
+              href={item.href}
+              className="font-sans text-[15px] transition-colors"
+              style={{ color: "var(--ink-body)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-800)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--ink-body)")}
             >
-              Ver demonstração
+              {item.label}
             </a>
-          </nav>
+          ))}
+        </nav>
 
-          <a
-            href="#demo"
-            className="rounded-full bg-[#0FB5A3] px-4 py-2 text-[14px] font-semibold text-white transition-colors hover:bg-[#0A8C7E] md:hidden"
-          >
-            Ver demo
-          </a>
-        </div>
+        <a
+          href="#demo"
+          className="flex-none px-4 py-2.5 font-display text-[14px] font-semibold transition-transform duration-300 hover:-translate-y-0.5 md:px-5 md:text-[15px]"
+          style={{
+            background: "var(--gradient-brand)",
+            color: "var(--ink-on-brand)",
+            borderRadius: "var(--radius-pill)",
+          }}
+        >
+          <span className="md:hidden">Ver demo</span>
+          <span className="hidden md:inline">Ver demonstração</span>
+        </a>
       </div>
     </header>
   );

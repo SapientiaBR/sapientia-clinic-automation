@@ -63,6 +63,19 @@
   --gradient-brand: linear-gradient(135deg, #0fb5a3, #0a8c7e);
   --gradient-brand-hover: linear-gradient(135deg, #14c7b4, #0fb5a3);
   --gradient-text: linear-gradient(135deg, #0a8c7e, #055449);
+  /* Painel do hero, traduzido do docshield.
+     La e um bloco azul que escurece no topo e dissolve no branco embaixo
+     (#0B3B91 -> #1E429F -> #A5BDE5). O caminho aqui e o verde da marca, e a
+     ultima parada e o proprio fundo da pagina: assim a emenda com a secao
+     seguinte nao tem corte reto. */
+  --gradient-panel: linear-gradient(
+    180deg,
+    #033b33 0%,
+    #055449 30%,
+    #0a8c7e 58%,
+    #a7e6dd 84%,
+    #ffffff 100%
+  );
 
   /* === RAIOS ===
      A pílula é a forma dominante do docshield: contei 24 usos de
