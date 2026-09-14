@@ -1,56 +1,47 @@
 /**
  * Design tokens — Secretária Invisível.
  *
- * A estrutura vem do docshield.com: site claro, tipo de display em peso regular
- * com tracking negativo forte, cantos em pílula, e cor cheia só nas duas pontas
- * da página. As cores vêm da Sapient.IA — roxo → ciano, os mesmos degraus do
- * sapientiabr.cloud.
+ * A cor é a do site: o verde-azulado #0FB5A3 da marca, com a escala montada em
+ * volta dele. O que vem do docshield é a estrutura — tipo de display em peso
+ * regular com tracking negativo forte, cantos em pílula, superfícies claras e
+ * sombra no lugar de borda.
  *
  * Os nomes antigos (`--navy-*`, `--purple`, `--text`, `--cyan`) continuam
- * existindo e apontam para os novos. Os 20 componentes da landing já os usam;
- * mantê-los vivos é o que permite virar o sistema inteiro sem reescrever cada
- * seção.
+ * existindo e apontam para os novos. Os componentes da landing já os usam;
+ * mantê-los vivos é o que permite mudar o sistema sem reescrever cada seção.
  */
 
 :root {
-  /* === FUNDOS ===
-     Branco é o padrão do docshield. `paper` separa uma seção da vizinha sem
-     desenhar borda; `mist` é o fundo lavado dos cards. */
+  /* === FUNDOS === */
   --bg-page: #ffffff;
-  --bg-paper: #fafafc;
-  --bg-mist: #f5f3ff;
+  --bg-paper: #f9fafb;
+  --bg-mist: #f1fbf8;
   --bg-card: #ffffff;
 
-  /* === ESCALA ROXA === (idêntica ao sapientiabr.cloud) */
-  --purple-50: #f0eaff;
-  --purple-100: #ddd0ff;
-  --purple-200: #c4adff;
-  --purple-300: #a78bfa;
-  --purple-400: #8b5cf6;
-  --purple-500: #7c3aed;
-  --purple-600: #6d28d9;
-  --purple-700: #5b21b6;
-  --purple-800: #4c1d95;
-  --purple-900: #2e1065;
-
-  /* === ESCALA CIANO === */
-  --cyan-100: #b8fdf8;
-  --cyan-200: #7df8ef;
-  --cyan-300: #4debff;
-  --cyan-400: #22d3ee;
-  --cyan-500: #06b6d4;
-  --cyan-600: #0891b2;
-  --cyan-700: #0e7490;
+  /* === ESCALA DA MARCA ===
+     #0FB5A3 é o verde do site e fica sendo o degrau 500. Os degraus acima e
+     abaixo saem dele, para haver uma escala de verdade em vez de três tons
+     escolhidos caso a caso. */
+  --brand-50: #f1fbf8;
+  --brand-100: #d6f3ee;
+  --brand-200: #a7e6dd;
+  --brand-300: #5fe3d0;
+  --brand-400: #14c7b4;
+  --brand-500: #0fb5a3;
+  --brand-600: #0a8c7e;
+  --brand-700: #087468;
+  --brand-800: #055449;
+  --brand-900: #033b33;
 
   /* === TEXTO ===
-     Sobre branco. `strong` é o quase-preto azulado do docshield; `body` e
-     `soft` descem em contraste sem cair abaixo de 4,5:1. */
-  --ink-strong: #0c0a22;
-  --ink-body: #3e3c58;
-  --ink-soft: #6a6882;
-  /* `faint` existe para numeral gigante, onde o contraste baixo é desenho.
-     Em corpo de texto ele dá 2,9:1 e reprova — para legenda, use `ink-soft`. */
-  --ink-faint: #9492aa;
+     Sobre branco. `strong` é o quase-preto do site; `body` e `soft` descem em
+     contraste sem cair abaixo de 4,5:1. */
+  --ink-strong: #1f2937;
+  --ink-body: #4b5563;
+  --ink-soft: #6b7280;
+  /* `faint` existe para numeral grande, onde o contraste baixo é desenho.
+     Em corpo de texto ele reprova — para legenda, use `ink-soft`. */
+  --ink-faint: #9ca3af;
   --ink-on-brand: #ffffff;
 
   /* === SEMÂNTICAS === */
@@ -61,37 +52,17 @@
   /* === LINHAS E SOMBRAS ===
      No claro a separação é quase sempre a mudança de fundo, não a borda — por
      isso os filetes são discretos e a sombra faz o trabalho pesado. */
-  --line-subtle: rgba(12, 10, 34, 0.06);
-  --line-default: rgba(12, 10, 34, 0.1);
-  --line-strong: rgba(12, 10, 34, 0.16);
-  --shadow-card: 0 1px 2px rgba(12, 10, 34, 0.04), 0 12px 32px -18px rgba(12, 10, 34, 0.18);
-  --shadow-lift: 0 2px 4px rgba(12, 10, 34, 0.05), 0 24px 48px -24px rgba(12, 10, 34, 0.24);
-  --shadow-pill: 0 1px 2px rgba(12, 10, 34, 0.06), 0 8px 24px -12px rgba(12, 10, 34, 0.2);
+  --line-subtle: rgba(15, 23, 42, 0.06);
+  --line-default: #e5e7eb;
+  --line-strong: rgba(15, 23, 42, 0.16);
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -18px rgba(15, 23, 42, 0.18);
+  --shadow-lift: 0 2px 4px rgba(15, 23, 42, 0.05), 0 24px 48px -24px rgba(15, 23, 42, 0.24);
+  --shadow-pill: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px -12px rgba(10, 140, 126, 0.28);
 
-  /* === GRADIENTES ===
-     O painel é a tradução do bloco azul do docshield (#0B3B91 → #1E429F →
-     #A5BDE5): escuro em cima, dissolvendo no fundo da página embaixo. Abre e
-     fecha no branco para a emenda com a seção vizinha não ter corte. */
-  --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
-  --gradient-brand-hover: linear-gradient(135deg, #8b5cf6, #22d3ee);
-  --gradient-text: linear-gradient(135deg, #6d28d9, #0e7490);
-  --gradient-panel: linear-gradient(
-    180deg,
-    #2e1065 0%,
-    #4c1d95 38%,
-    #6d28d9 68%,
-    #a78bfa 89%,
-    #ffffff 100%
-  );
-  --gradient-panel-soft: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ece3ff 9%,
-    #cdb8ff 34%,
-    #ddd0ff 66%,
-    #f3eeff 90%,
-    #ffffff 100%
-  );
+  /* === GRADIENTES === */
+  --gradient-brand: linear-gradient(135deg, #0fb5a3, #0a8c7e);
+  --gradient-brand-hover: linear-gradient(135deg, #14c7b4, #0fb5a3);
+  --gradient-text: linear-gradient(135deg, #0a8c7e, #055449);
 
   /* === RAIOS ===
      A pílula é a forma dominante do docshield: contei 24 usos de
@@ -104,9 +75,9 @@
   --radius-xl: 40px;
 
   /* === TIPOGRAFIA ===
-     Uma família só, como no sapientiabr. O peso do display é 400, não 700 —
-     medi no docshield: título de 50px, peso regular, tracking de −2,02px. É o
-     que dá o ar arejado; em bold sobre branco a página fecha. */
+     Uma família só. O peso do display é 400, não 700 — medi no docshield:
+     título de 50px, peso regular, tracking de −2,02px. É o que dá o ar
+     arejado; em bold sobre fundo claro a página fecha. */
   --font-display: 'Switzer', system-ui, sans-serif;
   --font-body: 'Switzer', system-ui, sans-serif;
   --tracking-display: -0.04em;
@@ -118,35 +89,39 @@
 
   /* ==================================================================
      PONTES PARA OS NOMES ANTIGOS
-     Os 20 componentes da landing foram escritos contra estes nomes. Mantê-los
-     apontando para os novos é o que vira o sistema inteiro sem reescrever
-     seção por seção — e é reversível, se um dia quisermos voltar.
+     Os componentes da landing foram escritos contra estes nomes. Mantê-los
+     apontando para os novos é o que muda o sistema sem reescrever seção por
+     seção — e é reversível.
      ================================================================== */
   --navy-0: var(--bg-page);
   --navy-1: var(--bg-page);
   --navy-2: var(--bg-card);
   --navy-3: var(--bg-mist);
 
-  --purple: var(--purple-500);
-  --cyan: var(--cyan-500);
-  --neon: var(--cyan-400);
+  --purple: var(--brand-500);
+  --purple-300: var(--brand-600);
+  --purple-500: var(--brand-500);
+  --cyan: var(--brand-500);
+  --cyan-300: var(--brand-600);
+  --cyan-500: var(--brand-500);
+  --neon: var(--brand-300);
 
   --text: var(--ink-strong);
   --text-muted: var(--ink-body);
-  --text-dim: var(--ink-soft);
+  --text-dim: var(--ink-faint);
   --text-primary: var(--ink-strong);
   --text-hint: var(--ink-soft);
 
   --border-subtle: var(--line-subtle);
   --border-default: var(--line-default);
-  --border-hover: var(--line-strong);
+  --border-hover: var(--brand-500);
 
   --bg-deep: var(--bg-page);
   --bg-primary: var(--bg-page);
   --bg-secondary: var(--bg-page);
   --bg-elevated: var(--bg-mist);
 
-  --accent-amber: var(--warning);
+  --accent-amber: var(--ink-strong);
 
   --ease-premium: var(--ease-out-soft);
   --dur-fast: 350ms;

@@ -28,14 +28,14 @@ const VideoDemo = () => {
           className="mx-auto w-full max-w-[320px] md:max-w-[360px]"
         >
           <div
-            className="rounded-[36px] overflow-hidden relative w-full aspect-[9/16] cursor-pointer group border-8 border-white bg-white shadow-[0_18px_44px_rgba(12, 10, 34,0.08)] ring-1 ring-black/5 hover:shadow-[0_28px_55px_rgba(12, 10, 34,0.14)]"
+            className="rounded-[36px] overflow-hidden relative w-full aspect-[9/16] cursor-pointer group border-8 border-white bg-white shadow-[0_18px_44px_rgba(15, 23, 42,0.08)] ring-1 ring-black/5 hover:shadow-[0_28px_55px_rgba(15, 23, 42,0.14)]"
             style={{ transition: "box-shadow 0.3s ease" }}
             onClick={() => {
               if (!isPlaying) setIsPlaying(true);
             }}
           >
             {/* Smartphone Notch / Speaker simulator (aesthetic only) */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#e6e4ef] rounded-full z-20 opacity-60 flex items-center justify-center pointer-events-none">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#E5E7EB] rounded-full z-20 opacity-60 flex items-center justify-center pointer-events-none">
               <div className="w-8 h-1 bg-gray-400 rounded-full" />
             </div>
 
@@ -54,9 +54,9 @@ const VideoDemo = () => {
 
                 {/* Play Button and Actions */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10 px-4">
-                  <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-[#7c3aed] to-[#6d28d9] shadow-[0_0_30px_rgba(124, 58, 237,0.5)] transition-transform duration-300 group-hover:scale-110 active:scale-95 touch-manipulation">
+                  <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-[#0FB5A3] to-[#0A8C7E] shadow-[0_0_30px_rgba(15, 181, 163,0.5)] transition-transform duration-300 group-hover:scale-110 active:scale-95 touch-manipulation">
                     {/* Pulsing ripple effect */}
-                    <span className="absolute inset-0 rounded-full bg-[#7c3aed]/40 animate-ping" />
+                    <span className="absolute inset-0 rounded-full bg-[#0FB5A3]/40 animate-ping" />
 
                     {/* Play Icon */}
                     <svg

@@ -44,10 +44,10 @@ const HiddenCosts = () => {
     <section className="py-14 md:py-20" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="max-w-2xl mb-8 md:mb-12" data-reveal>
-          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#0c0a22] text-balance tracking-[-0.04em]">
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#1F2937] text-balance tracking-[-0.04em]">
             Dinheiro que sua recepção perde sem perceber.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#3e3c58] mt-4 leading-[1.6]">
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
             Não é falta de esforço da equipe. É falta de cobertura.
           </p>
         </div>
@@ -57,23 +57,23 @@ const HiddenCosts = () => {
             <article
               key={c.title}
               className="rounded-2xl p-6 bg-white flex flex-col"
-              style={{ border: "1px solid #e6e4ef", boxShadow: "0 14px 34px rgba(12, 10, 34,0.05)" }}
+              style={{ border: "1px solid #E5E7EB", boxShadow: "0 14px 34px rgba(15, 23, 42,0.05)" }}
             >
-              <h3 className="font-display text-[19px] font-semibold text-[#0c0a22] leading-snug">
+              <h3 className="font-display text-[19px] font-semibold text-[#1F2937] leading-snug">
                 {c.title}
               </h3>
-              <p className="font-sans text-[17px] text-[#3e3c58] leading-[1.6] mt-3 flex-1">
+              <p className="font-sans text-[17px] text-[#4B5563] leading-[1.6] mt-3 flex-1">
                 {c.text}
               </p>
               {c.value ? (
-                <p className="font-display text-[22px] font-bold text-[#6d28d9] mt-5">{c.value}</p>
+                <p className="font-display text-[22px] font-bold text-[#0A8C7E] mt-5">{c.value}</p>
               ) : null}
             </article>
           ))}
         </div>
 
         <p
-          className="font-sans text-[17px] md:text-[19px] text-[#0c0a22] mt-8 md:mt-10 leading-[1.6] max-w-2xl"
+          className="font-sans text-[17px] md:text-[19px] text-[#1F2937] mt-8 md:mt-10 leading-[1.6] max-w-2xl"
           data-reveal
         >
           Some tudo isso em 30 dias. Esse é o custo real de uma recepção sem cobertura.

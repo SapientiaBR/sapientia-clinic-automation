@@ -27,17 +27,17 @@ export default {
         background: "var(--bg-deep)",
         foreground: "var(--text-primary)",
         teal: {
-          DEFAULT: "#7c3aed",
-          dark: "#6d28d9",
-          light: "#e6dcff",
+          DEFAULT: "#0FB5A3",
+          dark: "#0A8C7E",
+          light: "#D6F3EE",
         },
         ink: {
-          DEFAULT: "#0c0a22",
-          muted: "#3e3c58",
-          line: "#e6e4ef",
+          DEFAULT: "#1F2937",
+          muted: "#4B5563",
+          line: "#E5E7EB",
         },
         primary: {
-          DEFAULT: "#7c3aed",
+          DEFAULT: "#0FB5A3",
           foreground: "#ffffff",
         },
         secondary: {
@@ -61,7 +61,7 @@ export default {
           foreground: "var(--text-muted)",
         },
         accent: {
-          DEFAULT: "#7c3aed",
+          DEFAULT: "#0FB5A3",
           foreground: "#ffffff",
         },
         popover: {
@@ -75,12 +75,12 @@ export default {
         sidebar: {
           DEFAULT: "var(--bg-secondary)",
           foreground: "var(--text-primary)",
-          primary: "#7c3aed",
+          primary: "#0FB5A3",
           "primary-foreground": "#FFFFFF",
           accent: "var(--bg-elevated)",
           "accent-foreground": "var(--text-primary)",
           border: "var(--border-default)",
-          ring: "#7c3aed",
+          ring: "#0FB5A3",
         },
       },
       borderRadius: {

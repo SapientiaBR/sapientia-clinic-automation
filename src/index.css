@@ -29,7 +29,7 @@
     font-style: normal;
     font-family: inherit;
     font-weight: inherit;
-    color: #6d28d9;
+    color: #0A8C7E;
     background: none;
     -webkit-text-fill-color: currentColor;
     padding: 0;
@@ -66,7 +66,7 @@
     padding: 0; margin: 0;
   }
   .headline-hero em.gradient-hero-value {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 45%, #3e3c58 75%, #0c0a22 100%);
+    background: linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 45%, #4B5563 75%, #1F2937 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -74,12 +74,12 @@
   }
 
 
-  .gradient-brand        { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); }
-  .gradient-brand-hover  { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
-  .gradient-vibrant      { background: linear-gradient(135deg, #7c3aed 0%, #7c3aed 100%); }
+  .gradient-brand        { background: linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 100%); }
+  .gradient-brand-hover  { background: linear-gradient(135deg, #14C7B4 0%, #0FB5A3 100%); }
+  .gradient-vibrant      { background: linear-gradient(135deg, #0FB5A3 0%, #0FB5A3 100%); }
 
   .gradient-text {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #7c3aed 100%);
+    background: linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 50%, #0FB5A3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -87,7 +87,7 @@
   }
 
   .gradient-warm {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 32%, #3e3c58 68%, #0c0a22 100%);
+    background: linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 32%, #4B5563 68%, #1F2937 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -95,7 +95,7 @@
   }
 
   .gradient-hero-value {
-    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 45%, #3e3c58 75%, #0c0a22 100%);
+    background: linear-gradient(135deg, #0FB5A3 0%, #0A8C7E 45%, #4B5563 75%, #1F2937 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -119,12 +119,12 @@
   }
 
   .card-base {
-    background: #faf8ff;
-    border: 1px solid #e6dcff;
+    background: #F1FBF8;
+    border: 1px solid #D6F3EE;
     border-radius: 22px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 20px 44px rgba(109, 40, 217,0.08), 0 4px 12px rgba(12, 10, 34,0.04);
+    box-shadow: 0 20px 44px rgba(10, 140, 126,0.08), 0 4px 12px rgba(15, 23, 42,0.04);
     transition:
       transform var(--dur-base) var(--ease-premium),
       box-shadow var(--dur-base) var(--ease-premium),
@@ -133,40 +133,67 @@
   }
   .card-on-green {
     background: #FFFFFF !important;
-    border-color: #e6dcff !important;
+    border-color: #D6F3EE !important;
   }
   .card-base::before {
     content: "";
     position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(135deg, #7c3aed, #7c3aed);
+    background: linear-gradient(135deg, #0FB5A3, #0FB5A3);
     opacity: 0.5;
     transition: opacity var(--dur-base) var(--ease-premium);
   }
   .card-base:hover {
     transform: translateY(-4px);
-    border-color: #7c3aed;
-    box-shadow: 0 32px 70px rgba(12, 10, 34,0.16);
+    border-color: #0FB5A3;
+    box-shadow: 0 32px 70px rgba(15, 23, 42,0.16);
   }
   .card-base:hover::before { opacity: 0.9; }
 
   .glass-card { @apply glass; }
   .neumorphism-dark { @apply glass; }
   .neumorphism-dark-hover { transition: all 0.3s ease; }
-  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #7c3aed; }
+  .neumorphism-dark-hover:hover { transform: translateY(-2px); border-color: #0FB5A3; }
+
+  /* Botao da secao de turma. Largura total no celular, encolhe para o
+     conteudo a partir de sm — no mobile um alvo de toque de borda a borda e
+     mais facil de acertar com o polegar. */
+  .btn-turma {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border-radius: var(--radius-pill);
+    background: var(--gradient-brand);
+    padding: 0.95rem 1.75rem;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 0 14px 36px rgba(15, 181, 163, 0.35);
+    transition: transform 0.25s var(--ease-out-soft), box-shadow 0.25s var(--ease-out-soft);
+  }
+  .btn-turma:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 44px rgba(15, 181, 163, 0.45);
+  }
+  @media (min-width: 640px) {
+    .btn-turma { display: inline-flex; width: auto; }
+  }
 
   .text-balance { text-wrap: balance; }
   .section-padding { @apply py-20 lg:py-28; }
 
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(124, 58, 237,0.10) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(124, 58, 237,0.10) 1px, transparent 1px);
+      linear-gradient(rgba(15, 181, 163,0.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 181, 163,0.10) 1px, transparent 1px);
     background-size: 72px 72px;
   }
 
   /* Organic beige blob behind hero mockup */
   .blob-beige {
-    background: linear-gradient(135deg, #e6dcff 0%, #7c3aed 60%, #6d28d9 100%);
+    background: linear-gradient(135deg, #D6F3EE 0%, #0FB5A3 60%, #0A8C7E 100%);
     border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
   }
 
@@ -176,17 +203,17 @@
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #6d28d9;
+    color: #0A8C7E;
   }
 
 
   /* Legacy accent classes — light theme repurposed */
   .border-accent-coral, .border-accent-rose, .border-accent-pink,
   .border-accent-amber, .border-accent-lime, .border-accent-emerald,
-  .border-accent-sky, .border-accent-indigo { border-top: 1px solid rgba(124, 58, 237,0.4); }
+  .border-accent-sky, .border-accent-indigo { border-top: 1px solid rgba(15, 181, 163,0.4); }
   .text-accent-coral, .text-accent-rose, .text-accent-pink,
   .text-accent-amber, .text-accent-lime, .text-accent-emerald,
-  .text-accent-sky, .text-accent-indigo { color: #6d28d9; }
+  .text-accent-sky, .text-accent-indigo { color: #0A8C7E; }
 }
 
 @media (prefers-reduced-motion: reduce) {
