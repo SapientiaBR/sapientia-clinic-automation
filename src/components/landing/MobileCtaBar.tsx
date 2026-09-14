@@ -6,7 +6,7 @@ const MobileCtaBar = () => {
       className="md:hidden fixed bottom-0 left-0 right-0 z-40 px-4 py-3"
       style={{
         background: "rgba(255,255,255,0.96)",
-        borderTop: "1px solid #E5E7EB",
+        borderTop: "1px solid #e6e4ef",
         paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",
       }}
     >

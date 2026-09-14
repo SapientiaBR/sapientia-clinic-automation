@@ -26,25 +26,25 @@ const Hero = () => {
     <section
       ref={ref}
       className="relative pt-28 pb-10 md:pt-36 md:pb-16 overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #F7FBFA 60%, #ECFBF7 100%)" }}
+      style={{ background: "linear-gradient(160deg, #FFFFFF 0%, #faf9ff 60%, #f5f3ff 100%)" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 lg:gap-14 items-center">
           <div data-hero-left>
-            <h1 className="headline-hero text-balance text-[34px] sm:text-[46px] lg:text-[58px] text-[#1F2937] leading-[1.08]">
+            <h1 className="headline-hero text-balance text-[34px] sm:text-[46px] lg:text-[58px] text-[#0c0a22] leading-[1.08]">
               Sua recepcionista atende quem está na clínica.
             </h1>
 
-            <p className="font-display text-[20px] sm:text-[26px] lg:text-[30px] font-semibold text-[#0A8C7E] leading-[1.3] mt-4 text-balance">
+            <p className="font-display text-[20px] sm:text-[26px] lg:text-[30px] font-semibold text-[#6d28d9] leading-[1.3] mt-4 text-balance">
               A Secretária Invisível atende quem está no WhatsApp.
             </p>
 
-            <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] leading-[1.65] max-w-[560px] mt-5">
+            <p className="font-sans text-[17px] md:text-[19px] text-[#3e3c58] leading-[1.65] max-w-[560px] mt-5">
               Responde, agenda, confirma e organiza o atendimento enquanto sua equipe
               continua cuidando dos pacientes.
             </p>
 
-            <p className="font-display text-[17px] md:text-[19px] font-bold text-[#1F2937] mt-4 mb-8">
+            <p className="font-display text-[17px] md:text-[19px] font-bold text-[#0c0a22] mt-4 mb-8">
               Sem substituir sua recepcionista.
             </p>
 
@@ -54,7 +54,7 @@ const Hero = () => {
               </MagneticButton>
               <a
                 href="#como-funciona"
-                className="font-sans text-[17px] text-[#055449] underline underline-offset-4 hover:text-[#0A8C7E] transition-colors"
+                className="font-sans text-[17px] text-[#4c1d95] underline underline-offset-4 hover:text-[#6d28d9] transition-colors"
               >
                 Ver como funciona
               </a>
@@ -70,7 +70,7 @@ const Hero = () => {
               decoding="async"
               alt="Recepcionista atendendo uma paciente no balcão de uma clínica"
               className="w-full h-[240px] sm:h-[320px] lg:h-[440px] object-cover rounded-3xl"
-              style={{ border: "1px solid #E5E7EB", boxShadow: "0 24px 60px rgba(15,23,42,0.10)" }}
+              style={{ border: "1px solid #e6e4ef", boxShadow: "0 24px 60px rgba(12, 10, 34,0.10)" }}
             />
           </div>
         </div>

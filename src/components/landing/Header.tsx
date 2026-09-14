@@ -34,7 +34,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#E5E7EB]"
+          ? "bg-[rgba(255,253,252,0.86)] md:backdrop-blur-xl border-b border-[#e6e4ef]"
           : "bg-transparent"
       }`}
     >
@@ -55,14 +55,14 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-[15px] text-[var(--text-muted)] hover:text-[#055449] transition-colors"
+                className="font-sans text-[15px] text-[var(--text-muted)] hover:text-[#4c1d95] transition-colors"
               >
                 {item.label}
               </a>
             ))}
             <a
               href={CTA_HREF}
-              className="bg-[#0FB5A3] hover:bg-[#0A8C7E] text-white text-[15px] font-semibold px-5 py-2.5 rounded-full transition-colors"
+              className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white text-[15px] font-semibold px-5 py-2.5 rounded-full transition-colors"
             >
               Ver na minha clínica
             </a>
@@ -79,7 +79,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-b border-[#E5E7EB] animate-fade-in shadow-[0_10px_30px_rgba(15,23,42,0.08)]">
+        <div className="md:hidden bg-white border-b border-[#e6e4ef] animate-fade-in shadow-[0_10px_30px_rgba(12, 10, 34,0.08)]">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navItems.map((item) => (
               <a

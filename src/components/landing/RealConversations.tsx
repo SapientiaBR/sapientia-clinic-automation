@@ -55,10 +55,10 @@ const RealConversations = () => {
     <section id="conversas-reais" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
-          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[var(--text)] text-balance">
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[var(--text)] text-balance tracking-[-0.04em]">
             Veja como seus pacientes seriam atendidos.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+          <p className="font-sans text-[17px] md:text-[19px] text-[#3e3c58] mt-4 leading-[1.6]">
             Conversas reais. Do primeiro “oi” até o próximo passo.
           </p>
         </div>
@@ -71,21 +71,21 @@ const RealConversations = () => {
               data-reveal
               className="rounded-3xl p-4 sm:p-5 flex flex-col"
               style={{
-                background: "#F1FBF8",
-                border: "1px solid #D6F3EE",
-                boxShadow: "0 20px 44px rgba(10,140,126,0.10), 0 4px 12px rgba(15,23,42,0.04)",
+                background: "#faf8ff",
+                border: "1px solid #e6dcff",
+                boxShadow: "0 20px 44px rgba(109, 40, 217,0.10), 0 4px 12px rgba(12, 10, 34,0.04)",
               }}
             >
               <h3 className="font-display text-[17px] md:text-[18px] font-semibold text-[var(--text)] leading-snug">
                 {c.title}
               </h3>
-              <p className="font-sans text-[17px] text-[#4B5563] mt-2 leading-relaxed">
+              <p className="font-sans text-[17px] text-[#3e3c58] mt-2 leading-relaxed">
                 {c.caption}
               </p>
 
               <div
                 className="mt-4 rounded-2xl p-3 space-y-2 flex-1"
-                style={{ background: "#FFFFFF", border: "1px solid #ECFBF7" }}
+                style={{ background: "#FFFFFF", border: "1px solid #f5f3ff" }}
               >
                 {c.messages.map((m, j) => (
                   <div key={j} className={`flex ${m.side === "in" ? "justify-start" : "justify-end"}`}>
@@ -95,12 +95,12 @@ const RealConversations = () => {
                         m.side === "in"
                           ? {
                               background: "#FFFFFF",
-                              color: "#1F2937",
-                              border: "1px solid #F9FAFB",
+                              color: "#0c0a22",
+                              border: "1px solid #fafafc",
                               borderRadius: "14px 14px 14px 4px",
                             }
                           : {
-                              background: "#E7F8EF",
+                              background: "#ecfdf5",
                               color: "#0F3D2E",
                               borderRadius: "14px 14px 4px 14px",
                             }

@@ -29,20 +29,20 @@ const ThankYou = () => {
         className="w-full max-w-xl relative z-10 rounded-3xl text-center p-8 sm:p-12 flex flex-col items-center animate-slide-up-fade"
         style={{
           background: "#FFFFFF",
-          border: "1px solid #E5E7EB",
-          boxShadow: "0 24px 60px rgba(15,23,42,0.12)",
+          border: "1px solid #e6e4ef",
+          boxShadow: "0 24px 60px rgba(12, 10, 34,0.12)",
         }}
       >
         <img src={logo.url} alt="Secretária Invisível" className="h-14 w-auto mb-6 opacity-80" />
 
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mb-6 relative"
-          style={{ background: "#E8F8EF" }}
+          style={{ background: "#ecfdf5" }}
         >
           <CheckCircle2 size={32} style={{ color: "#1FA463" }} />
         </div>
 
-        <h1 className="font-display text-3xl sm:text-4xl font-bold text-[var(--text)] mb-3 text-balance">
+        <h1 className="font-display text-3xl sm:text-4xl font-normal text-[var(--text)] mb-3 text-balance tracking-[-0.04em]">
           Obrigado! Sua IA já foi <em>acionada.</em>
         </h1>
 

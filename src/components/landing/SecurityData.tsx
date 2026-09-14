@@ -34,7 +34,7 @@ const SecurityData = () => {
     <section id="seguranca" className="py-14 md:py-20 scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <h2
-          className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance mb-8 md:mb-12 max-w-3xl"
+          className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#0c0a22] text-balance mb-8 md:mb-12 max-w-3xl tracking-[-0.04em]"
           data-reveal
         >
           Dado de paciente é dado de saúde. Tratamos como tal.
@@ -43,12 +43,12 @@ const SecurityData = () => {
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8" data-reveal>
           {items.map(({ Icon, title, text }) => (
             <div key={title} className="flex gap-4">
-              <Icon size={24} strokeWidth={1.4} className="text-[#0A8C7E] flex-shrink-0 mt-1" aria-hidden />
+              <Icon size={24} strokeWidth={1.4} className="text-[#6d28d9] flex-shrink-0 mt-1" aria-hidden />
               <div>
-                <h3 className="font-display text-[19px] font-semibold text-[#1F2937] leading-snug">
+                <h3 className="font-display text-[19px] font-semibold text-[#0c0a22] leading-snug">
                   {title}
                 </h3>
-                <p className="font-sans text-[17px] text-[#4B5563] leading-[1.6] mt-2">{text}</p>
+                <p className="font-sans text-[17px] text-[#3e3c58] leading-[1.6] mt-2">{text}</p>
               </div>
             </div>
           ))}

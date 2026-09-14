@@ -14,10 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"DM Sans"', "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
-        display: ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
-        "display-sans": ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
-        mono: ['"Manrope"', "system-ui", "-apple-system", "sans-serif"],
+        sans: ["Switzer", "system-ui", "sans-serif"],
+        display: ["Switzer", "system-ui", "sans-serif"],
+        "display-sans": ["Switzer", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
       },
 
       colors: {
@@ -27,17 +27,17 @@ export default {
         background: "var(--bg-deep)",
         foreground: "var(--text-primary)",
         teal: {
-          DEFAULT: "#0FB5A3",
-          dark: "#0A8C7E",
-          light: "#D6F3EE",
+          DEFAULT: "#7c3aed",
+          dark: "#6d28d9",
+          light: "#e6dcff",
         },
         ink: {
-          DEFAULT: "#1F2937",
-          muted: "#4B5563",
-          line: "#E5E7EB",
+          DEFAULT: "#0c0a22",
+          muted: "#3e3c58",
+          line: "#e6e4ef",
         },
         primary: {
-          DEFAULT: "#0FB5A3",
+          DEFAULT: "#7c3aed",
           foreground: "#ffffff",
         },
         secondary: {
@@ -61,7 +61,7 @@ export default {
           foreground: "var(--text-muted)",
         },
         accent: {
-          DEFAULT: "#0FB5A3",
+          DEFAULT: "#7c3aed",
           foreground: "#ffffff",
         },
         popover: {
@@ -75,12 +75,12 @@ export default {
         sidebar: {
           DEFAULT: "var(--bg-secondary)",
           foreground: "var(--text-primary)",
-          primary: "#0FB5A3",
+          primary: "#7c3aed",
           "primary-foreground": "#FFFFFF",
           accent: "var(--bg-elevated)",
           "accent-foreground": "var(--text-primary)",
           border: "var(--border-default)",
-          ring: "#0FB5A3",
+          ring: "#7c3aed",
         },
       },
       borderRadius: {

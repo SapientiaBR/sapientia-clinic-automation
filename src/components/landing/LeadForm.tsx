@@ -111,32 +111,32 @@ export const LeadForm = ({ variant = "default" }: Props) => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl relative z-10">
         <div className="text-center mb-6" data-reveal>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 bg-[#D6F3EE] border border-[#A7E6DD]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 bg-[#e6dcff] border border-[#c4adff]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#7c3aed] opacity-50 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6d28d9]" />
             </span>
-            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#055449]">
+            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#4c1d95]">
               {isCompact ? "Diagnóstico gratuito" : "Demonstração ao vivo, grátis"}
             </span>
           </div>
 
           {isCompact ? (
             <>
-              <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] font-bold text-[#1F2937] text-balance">
+              <h2 className="font-display text-[26px] sm:text-[34px] lg:text-[40px] font-normal text-[#0c0a22] text-balance tracking-[-0.04em]">
                 Ver como funcionaria na minha clínica.
               </h2>
-              <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
+              <p className="font-sans text-[17px] text-[#3e3c58] mt-4 leading-[1.6] max-w-md mx-auto">
                 Deixe seus dados e nossa equipe entra em contato para marcar 30 minutos de
                 conversa sobre a sua recepção.
               </p>
             </>
           ) : (
             <>
-              <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-bold text-[#1F2937] text-balance">
+              <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#0c0a22] text-balance tracking-[-0.04em]">
                 Veja uma conversa real antes de decidir.
               </h2>
-              <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
+              <p className="font-sans text-[17px] text-[#3e3c58] mt-4 leading-[1.6] max-w-md mx-auto">
                 Preencha abaixo e a Secretária Invisível te chama no WhatsApp em segundos.
                 É a mesma conversa que seu paciente teria.
               </p>
@@ -149,8 +149,8 @@ export const LeadForm = ({ variant = "default" }: Props) => {
           className="rounded-3xl p-6 sm:p-8"
           style={{
             background: "#FFFFFF",
-            border: "1px solid #E5E7EB",
-            boxShadow: "0 18px 44px rgba(15,23,42,0.06)",
+            border: "1px solid #e6e4ef",
+            boxShadow: "0 18px 44px rgba(12, 10, 34,0.06)",
           }}
           data-reveal
         >
@@ -161,7 +161,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 name="nome"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#0c0a22]">
                       Nome
                     </FormLabel>
                     <FormControl>
@@ -170,7 +170,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                         placeholder="Seu nome"
                         autoComplete="name"
                         maxLength={80}
-                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                        className="h-12 rounded-xl border-[#e6e4ef] bg-white text-[var(--text)] placeholder:text-[#6a6882] focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-offset-0 focus-visible:border-[#7c3aed]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -183,7 +183,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#0c0a22]">
                       E-mail
                     </FormLabel>
                     <FormControl>
@@ -194,7 +194,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                         placeholder="voce@clinica.com.br"
                         autoComplete="email"
                         maxLength={120}
-                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                        className="h-12 rounded-xl border-[#e6e4ef] bg-white text-[var(--text)] placeholder:text-[#6a6882] focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-offset-0 focus-visible:border-[#7c3aed]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -207,7 +207,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 name="telefone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#1F2937]">
+                    <FormLabel className="font-display-sans text-[13px] font-semibold text-[#0c0a22]">
                       WhatsApp
                     </FormLabel>
                     <FormControl>
@@ -219,7 +219,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                         autoComplete="tel-national"
                         maxLength={16}
                         onChange={(e) => field.onChange(maskPhoneBR(e.target.value))}
-                        className="h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]"
+                        className="h-12 rounded-xl border-[#e6e4ef] bg-white text-[var(--text)] placeholder:text-[#6a6882] focus-visible:ring-2 focus-visible:ring-[#7c3aed] focus-visible:ring-offset-0 focus-visible:border-[#7c3aed]"
                       />
                     </FormControl>
                     <FormMessage />
@@ -230,7 +230,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(15,181,163,0.35)] hover:shadow-[0_18px_44px_rgba(15,181,163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-8 shadow-[0_14px_36px_rgba(124, 58, 237,0.35)] hover:shadow-[0_18px_44px_rgba(124, 58, 237,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
                 {submitting ? (
                   <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -246,7 +246,7 @@ export const LeadForm = ({ variant = "default" }: Props) => {
                 )}
               </button>
 
-              <p className="font-sans text-[15px] text-[#4B5563] text-center leading-relaxed pt-1">
+              <p className="font-sans text-[15px] text-[#3e3c58] text-center leading-relaxed pt-1">
                 Seus dados são usados apenas para o contato da sua clínica. Sem disparo em massa.
               </p>
 

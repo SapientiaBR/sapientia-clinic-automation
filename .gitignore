@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Assets do Lovable, baixados para o dev local.
+#
+# O repositório versiona só os ponteiros (`*.asset.json`); os binários moram na
+# CDN do Lovable e são servidos pelo domínio do site. Baixá-los é o que faz o
+# localhost ficar igual ao ar — mas eles não entram no git: o vídeo da
+# demonstração sozinho tem 144 MB, e o ponteiro continua sendo a fonte da
+# verdade para o build publicado.
+src/assets/logo-si-v2.png
+src/assets/mariana-fogarolli.png
+src/assets/hero-doctor-desktop.webp
+src/assets/hero-doctor-mobile.webp
+src/assets/secretaria-invisivel-aovivo.mp4

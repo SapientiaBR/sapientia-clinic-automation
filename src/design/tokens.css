@@ -1,0 +1,154 @@
+/**
+ * Design tokens — Secretária Invisível.
+ *
+ * A estrutura vem do docshield.com: site claro, tipo de display em peso regular
+ * com tracking negativo forte, cantos em pílula, e cor cheia só nas duas pontas
+ * da página. As cores vêm da Sapient.IA — roxo → ciano, os mesmos degraus do
+ * sapientiabr.cloud.
+ *
+ * Os nomes antigos (`--navy-*`, `--purple`, `--text`, `--cyan`) continuam
+ * existindo e apontam para os novos. Os 20 componentes da landing já os usam;
+ * mantê-los vivos é o que permite virar o sistema inteiro sem reescrever cada
+ * seção.
+ */
+
+:root {
+  /* === FUNDOS ===
+     Branco é o padrão do docshield. `paper` separa uma seção da vizinha sem
+     desenhar borda; `mist` é o fundo lavado dos cards. */
+  --bg-page: #ffffff;
+  --bg-paper: #fafafc;
+  --bg-mist: #f5f3ff;
+  --bg-card: #ffffff;
+
+  /* === ESCALA ROXA === (idêntica ao sapientiabr.cloud) */
+  --purple-50: #f0eaff;
+  --purple-100: #ddd0ff;
+  --purple-200: #c4adff;
+  --purple-300: #a78bfa;
+  --purple-400: #8b5cf6;
+  --purple-500: #7c3aed;
+  --purple-600: #6d28d9;
+  --purple-700: #5b21b6;
+  --purple-800: #4c1d95;
+  --purple-900: #2e1065;
+
+  /* === ESCALA CIANO === */
+  --cyan-100: #b8fdf8;
+  --cyan-200: #7df8ef;
+  --cyan-300: #4debff;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --cyan-700: #0e7490;
+
+  /* === TEXTO ===
+     Sobre branco. `strong` é o quase-preto azulado do docshield; `body` e
+     `soft` descem em contraste sem cair abaixo de 4,5:1. */
+  --ink-strong: #0c0a22;
+  --ink-body: #3e3c58;
+  --ink-soft: #6a6882;
+  /* `faint` existe para numeral gigante, onde o contraste baixo é desenho.
+     Em corpo de texto ele dá 2,9:1 e reprova — para legenda, use `ink-soft`. */
+  --ink-faint: #9492aa;
+  --ink-on-brand: #ffffff;
+
+  /* === SEMÂNTICAS === */
+  --success: #059669;
+  --warning: #b45309;
+  --danger: #dc2626;
+
+  /* === LINHAS E SOMBRAS ===
+     No claro a separação é quase sempre a mudança de fundo, não a borda — por
+     isso os filetes são discretos e a sombra faz o trabalho pesado. */
+  --line-subtle: rgba(12, 10, 34, 0.06);
+  --line-default: rgba(12, 10, 34, 0.1);
+  --line-strong: rgba(12, 10, 34, 0.16);
+  --shadow-card: 0 1px 2px rgba(12, 10, 34, 0.04), 0 12px 32px -18px rgba(12, 10, 34, 0.18);
+  --shadow-lift: 0 2px 4px rgba(12, 10, 34, 0.05), 0 24px 48px -24px rgba(12, 10, 34, 0.24);
+  --shadow-pill: 0 1px 2px rgba(12, 10, 34, 0.06), 0 8px 24px -12px rgba(12, 10, 34, 0.2);
+
+  /* === GRADIENTES ===
+     O painel é a tradução do bloco azul do docshield (#0B3B91 → #1E429F →
+     #A5BDE5): escuro em cima, dissolvendo no fundo da página embaixo. Abre e
+     fecha no branco para a emenda com a seção vizinha não ter corte. */
+  --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-brand-hover: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  --gradient-text: linear-gradient(135deg, #6d28d9, #0e7490);
+  --gradient-panel: linear-gradient(
+    180deg,
+    #2e1065 0%,
+    #4c1d95 38%,
+    #6d28d9 68%,
+    #a78bfa 89%,
+    #ffffff 100%
+  );
+  --gradient-panel-soft: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ece3ff 9%,
+    #cdb8ff 34%,
+    #ddd0ff 66%,
+    #f3eeff 90%,
+    #ffffff 100%
+  );
+
+  /* === RAIOS ===
+     A pílula é a forma dominante do docshield: contei 24 usos de
+     `border-radius: 9999px` contra 13 do raio de 6px. */
+  --radius-pill: 9999px;
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* === TIPOGRAFIA ===
+     Uma família só, como no sapientiabr. O peso do display é 400, não 700 —
+     medi no docshield: título de 50px, peso regular, tracking de −2,02px. É o
+     que dá o ar arejado; em bold sobre branco a página fecha. */
+  --font-display: 'Switzer', system-ui, sans-serif;
+  --font-body: 'Switzer', system-ui, sans-serif;
+  --tracking-display: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.16em;
+
+  /* === MOVIMENTO === */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ==================================================================
+     PONTES PARA OS NOMES ANTIGOS
+     Os 20 componentes da landing foram escritos contra estes nomes. Mantê-los
+     apontando para os novos é o que vira o sistema inteiro sem reescrever
+     seção por seção — e é reversível, se um dia quisermos voltar.
+     ================================================================== */
+  --navy-0: var(--bg-page);
+  --navy-1: var(--bg-page);
+  --navy-2: var(--bg-card);
+  --navy-3: var(--bg-mist);
+
+  --purple: var(--purple-500);
+  --cyan: var(--cyan-500);
+  --neon: var(--cyan-400);
+
+  --text: var(--ink-strong);
+  --text-muted: var(--ink-body);
+  --text-dim: var(--ink-soft);
+  --text-primary: var(--ink-strong);
+  --text-hint: var(--ink-soft);
+
+  --border-subtle: var(--line-subtle);
+  --border-default: var(--line-default);
+  --border-hover: var(--line-strong);
+
+  --bg-deep: var(--bg-page);
+  --bg-primary: var(--bg-page);
+  --bg-secondary: var(--bg-page);
+  --bg-elevated: var(--bg-mist);
+
+  --accent-amber: var(--warning);
+
+  --ease-premium: var(--ease-out-soft);
+  --dur-fast: 350ms;
+  --dur-base: 700ms;
+}

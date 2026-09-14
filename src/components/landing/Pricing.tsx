@@ -75,9 +75,9 @@ const plans: Plan[] = [
 const CheckIcon = () => (
   <span
     className="inline-flex items-center justify-center w-5 h-5 rounded-full flex-shrink-0 mt-0.5"
-    style={{ background: "#D6F3EE" }}
+    style={{ background: "#e6dcff" }}
   >
-    <Check size={12} strokeWidth={3} style={{ color: "#0A8C7E" }} />
+    <Check size={12} strokeWidth={3} style={{ color: "#6d28d9" }} />
   </span>
 );
 
@@ -89,13 +89,13 @@ const Pricing = () => {
     <section id="precos" className="py-14 md:section-padding relative" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         <div className="text-center mb-6 md:mb-8 max-w-2xl mx-auto" data-reveal>
-          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold text-[var(--text)] text-balance">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-normal text-[var(--text)] text-balance tracking-[-0.04em]">
             A Secretária Invisível se adapta ao tamanho da sua <em>operação.</em>
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+          <p className="font-sans text-[17px] md:text-[19px] text-[#3e3c58] mt-4 leading-[1.6]">
             Você não paga implantação.
           </p>
-          <p className="font-display text-[19px] md:text-[24px] font-bold text-[#055449] mt-2 text-balance">
+          <p className="font-display text-[19px] md:text-[24px] font-bold text-[#4c1d95] mt-2 text-balance">
             Você começa pagando apenas a mensalidade.
           </p>
         </div>
@@ -104,14 +104,14 @@ const Pricing = () => {
         <div
           className="max-w-3xl mx-auto mb-10 md:mb-14 rounded-2xl p-5 text-center"
           style={{
-            background: "#F1FBF8",
-            border: "1px solid #A7E6DD",
-            boxShadow: "0 10px 28px rgba(15,181,163,0.10)",
+            background: "#faf8ff",
+            border: "1px solid #c4adff",
+            boxShadow: "0 10px 28px rgba(124, 58, 237,0.10)",
           }}
           data-reveal
         >
           <p className="font-sans text-[17px] text-[var(--text)] leading-[1.6]">
-            <strong className="font-semibold" style={{ color: "#0A8C7E" }}>
+            <strong className="font-semibold" style={{ color: "#6d28d9" }}>
               Implantação por nossa conta.
             </strong>{" "}
             Você paga só a mensalidade.
@@ -130,17 +130,17 @@ const Pricing = () => {
               className="rounded-3xl overflow-hidden flex flex-col relative"
               style={{
                 background: "#FFFFFF",
-                border: p.highlight ? "2px solid #0FB5A3" : "1px solid #D6F3EE",
+                border: p.highlight ? "2px solid #7c3aed" : "1px solid #e6dcff",
                 boxShadow: p.highlight
-                  ? "0 28px 60px rgba(15,181,163,0.22)"
-                  : "0 16px 36px rgba(15,23,42,0.06)",
+                  ? "0 28px 60px rgba(124, 58, 237,0.22)"
+                  : "0 16px 36px rgba(12, 10, 34,0.06)",
                 transform: p.highlight ? "translateY(-8px)" : undefined,
               }}
             >
               {p.highlight && (
                 <span
                   className="absolute top-4 right-4 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.18em]"
-                  style={{ background: "#1F2937", color: "#FFFFFF" }}
+                  style={{ background: "#0c0a22", color: "#FFFFFF" }}
                 >
                   Mais escolhido
                 </span>
@@ -152,22 +152,22 @@ const Pricing = () => {
                 style={
                   p.highlight
                     ? {
-                        background: "linear-gradient(180deg, #0FB5A3 0%, #0A8C7E 100%)",
+                        background: "linear-gradient(180deg, #7c3aed 0%, #6d28d9 100%)",
                         color: "#FFFFFF",
                       }
-                    : { background: "#F1FBF8" }
+                    : { background: "#faf8ff" }
                 }
               >
                 <p
                   className="font-display-sans text-[13px] font-semibold uppercase tracking-[0.18em]"
-                  style={{ color: p.highlight ? "rgba(255,255,255,0.92)" : "#0A8C7E" }}
+                  style={{ color: p.highlight ? "rgba(255,255,255,0.92)" : "#6d28d9" }}
                 >
                   {p.name}
                 </p>
 
                 <p
-                  className="font-display-sans text-4xl font-bold mt-1"
-                  style={{ color: p.highlight ? "#FFFFFF" : "#1F2937" }}
+                  className="font-display-sans text-4xl font-normal mt-1 tracking-[-0.04em]"
+                  style={{ color: p.highlight ? "#FFFFFF" : "#0c0a22" }}
                 >
                   {p.price}
                   <span
@@ -190,7 +190,7 @@ const Pricing = () => {
                 {p.inheritsFrom && (
                   <p
                     className="font-display-sans text-[13px] font-semibold uppercase tracking-[0.08em] mb-4 pb-3 border-b"
-                    style={{ color: "#0A8C7E", borderColor: "#E5E7EB" }}
+                    style={{ color: "#6d28d9", borderColor: "#e6e4ef" }}
                   >
                     Tudo do {p.inheritsFrom} +
                   </p>
@@ -211,8 +211,8 @@ const Pricing = () => {
                   className={
                     "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-display font-bold text-[15px] transition-all duration-300 " +
                     (p.ctaVariant === "primary"
-                      ? "gradient-brand text-white shadow-[0_14px_30px_rgba(15,181,163,0.32)] hover:-translate-y-0.5"
-                      : "bg-white border border-[#0FB5A3] text-[#055449] hover:bg-[#F1FBF8]")
+                      ? "gradient-brand text-white shadow-[0_14px_30px_rgba(124, 58, 237,0.32)] hover:-translate-y-0.5"
+                      : "bg-white border border-[#7c3aed] text-[#4c1d95] hover:bg-[#faf8ff]")
                   }
                 >
                   <span>{p.ctaLabel}</span>

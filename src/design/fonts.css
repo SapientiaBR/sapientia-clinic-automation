@@ -1,0 +1,32 @@
+/**
+ * Fontes auto-hospedadas.
+ *
+ * Nenhuma requisição a terceiro no caminho da primeira pintura: os arquivos
+ * saem do próprio domínio. Antes o site puxava DM Sans e Manrope do Google
+ * Fonts, o que são duas conexões a mais antes do primeiro texto aparecer.
+ *
+ * Licença:
+ * - Switzer — ITF Free Font License 2.0 (Indian Type Foundry / Fontshare).
+ *             Uso comercial liberado e self-hosting explicitamente permitido.
+ *             A licença trata subsetting e conversão de formato como obra
+ *             derivada, então os .woff2 entram exatamente como distribuídos.
+ *
+ * É a mesma família do sapientiabr.cloud, de propósito: a Secretária Invisível
+ * é um produto da Sapient.IA e precisa soar como parte da mesma casa.
+ */
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('./fonts/Switzer-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('./fonts/Switzer-VariableItalic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
