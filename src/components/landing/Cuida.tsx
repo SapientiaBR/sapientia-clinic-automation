@@ -62,7 +62,7 @@ const Cuida = ({ variante = "clinica" }: Props) => {
     <section id="como-funciona" className="scroll-mt-24 bg-white py-14 md:py-20" ref={ref}>
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <h2
-          className="font-display text-balance text-center text-[26px] font-normal tracking-[-0.04em] text-[#1F2937] sm:text-[36px] lg:text-[42px]"
+          className="font-display text-balance text-center text-[26px] font-normal tracking-[-0.04em] text-[#292929] sm:text-[36px] lg:text-[42px]"
           data-reveal
         >
           O resto, na prática:
@@ -74,11 +74,11 @@ const Cuida = ({ variante = "clinica" }: Props) => {
               <span
                 aria-hidden="true"
                 className="grid h-11 w-11 place-items-center rounded-full"
-                style={{ background: "#D6F3EE", color: "#055449" }}
+                style={{ background: "#DBF9F1", color: "#003D2F" }}
               >
                 <item.icone size={19} strokeWidth={1.8} />
               </span>
-              <span className="font-sans text-[15px] leading-snug text-[#1F2937] md:text-[16px]">
+              <span className="font-sans text-[15px] leading-snug text-[#292929] md:text-[16px]">
                 {item.texto}
               </span>
             </li>
@@ -86,7 +86,7 @@ const Cuida = ({ variante = "clinica" }: Props) => {
         </ul>
 
         <p
-          className="font-display mt-10 text-balance text-center text-[19px] font-bold text-[#055449] md:mt-14 md:text-[23px]"
+          className="font-display mt-10 text-balance text-center text-[19px] font-bold text-[#003D2F] md:mt-14 md:text-[23px]"
           data-reveal
         >
           {t.fecho}

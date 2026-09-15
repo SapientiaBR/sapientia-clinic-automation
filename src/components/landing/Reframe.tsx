@@ -34,9 +34,9 @@ const Reframe = ({ variante = "clinica" }: Props) => {
   const t = copy[variante];
 
   return (
-    <section className="py-12 md:py-16" style={{ background: "#D6F3EE" }}>
+    <section className="py-12 md:py-16" style={{ background: "#DBF9F1" }}>
       <div className="container mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="font-display text-balance text-[24px] font-bold leading-[1.25] text-[#1F2937] sm:text-[32px] md:text-[38px]">
+        <h2 className="font-display text-balance text-[24px] font-bold leading-[1.25] text-[#292929] sm:text-[32px] md:text-[38px]">
           {t.titulo}
         </h2>
 
@@ -46,9 +46,9 @@ const Reframe = ({ variante = "clinica" }: Props) => {
               <span
                 aria-hidden="true"
                 className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full"
-                style={{ background: "#0A8C7E" }}
+                style={{ background: "#00543F" }}
               />
-              <span className="font-sans text-[17px] leading-[1.55] text-[#31504B] md:text-[19px]">
+              <span className="font-sans text-[17px] leading-[1.55] text-[#3D4A52] md:text-[19px]">
                 {item}
               </span>
             </li>
@@ -56,7 +56,7 @@ const Reframe = ({ variante = "clinica" }: Props) => {
         </ul>
 
         {t.fecho && (
-          <p className="font-display mt-8 text-balance text-[18px] font-bold leading-[1.4] text-[#055449] md:text-[21px]">
+          <p className="font-display mt-8 text-balance text-[18px] font-bold leading-[1.4] text-[#003D2F] md:text-[21px]">
             {t.fecho}
           </p>
         )}

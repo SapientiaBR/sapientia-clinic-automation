@@ -11,13 +11,13 @@ type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 const base =
-  "group inline-flex items-center font-sans font-semibold text-[13px] tracking-[0.01em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0FB5A3]/50";
+  "group inline-flex items-center font-sans font-semibold text-[13px] tracking-[0.01em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006851]/50";
 
 const variants: Record<Variant, string> = {
   primary:
     "gradient-brand text-white rounded-full pl-6 pr-2 py-2 gap-3 shadow-[0_16px_34px_rgba(138,124,246,0.28)] hover:shadow-[0_20px_42px_rgba(138,124,246,0.38)] hover:-translate-y-0.5",
   ghost:
-    "bg-white border border-[#E9E0D6] text-[#055449] rounded-full px-6 py-3 gap-2 hover:bg-[#F3F4F6] hover:border-[#0FB5A3]",
+    "bg-white border border-[#E9E0D6] text-[#003D2F] rounded-full px-6 py-3 gap-2 hover:bg-[#F1F2F7] hover:border-[#006851]",
 };
 
 export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
@@ -47,8 +47,8 @@ export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
       >
         <span className={isPrimary ? "py-2" : ""}>{children}</span>
         {isPrimary && !noArrow && (
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(15,23,42,0.10)] transition-transform duration-300 group-hover:rotate-12">
-            <ArrowRight size={16} className="text-[#055449]" />
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(41, 41, 41,0.10)] transition-transform duration-300 group-hover:rotate-12">
+            <ArrowRight size={16} className="text-[#003D2F]" />
           </span>
         )}
       </a>

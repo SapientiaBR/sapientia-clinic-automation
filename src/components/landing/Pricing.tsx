@@ -91,17 +91,17 @@ const planoSolo: Plano = {
 const IconeCheck = () => (
   <span
     className="mt-0.5 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
-    style={{ background: "#D6F3EE" }}
+    style={{ background: "#DBF9F1" }}
   >
-    <Check size={12} strokeWidth={3} style={{ color: "#0A8C7E" }} />
+    <Check size={12} strokeWidth={3} style={{ color: "#00543F" }} />
   </span>
 );
 
 /** Linha da implantação, repetida em todo card. */
 const LinhaImplantacao = ({ destaque }: { destaque: boolean }) => {
   const t = turmaAtual();
-  const corFraca = destaque ? "rgba(255,255,255,0.75)" : "#6B7280";
-  const corForte = destaque ? "#FFFFFF" : "#055449";
+  const corFraca = destaque ? "rgba(255,255,255,0.75)" : "#6F7276";
+  const corForte = destaque ? "#FFFFFF" : "#003D2F";
 
   if (t.lotada) {
     return (
@@ -127,16 +127,16 @@ const Card = ({ p }: { p: Plano }) => (
     className="relative flex flex-col overflow-hidden rounded-3xl"
     style={{
       background: "#FFFFFF",
-      border: p.destaque ? "2px solid #0FB5A3" : "1px solid #D6F3EE",
+      border: p.destaque ? "2px solid #006851" : "1px solid #DBF9F1",
       boxShadow: p.destaque
-        ? "0 28px 60px rgba(15, 181, 163,0.22)"
-        : "0 16px 36px rgba(15, 23, 42,0.06)",
+        ? "0 28px 60px rgba(0, 104, 81,0.22)"
+        : "0 16px 36px rgba(41, 41, 41,0.06)",
     }}
   >
     {p.destaque && (
       <span
         className="absolute right-4 top-4 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em]"
-        style={{ background: "#1F2937", color: "#FFFFFF" }}
+        style={{ background: "#292929", color: "#FFFFFF" }}
       >
         Recomendado
       </span>
@@ -146,13 +146,13 @@ const Card = ({ p }: { p: Plano }) => (
       className="p-6 md:p-7"
       style={
         p.destaque
-          ? { background: "linear-gradient(180deg, #0FB5A3 0%, #0A8C7E 100%)", color: "#FFFFFF" }
-          : { background: "#F1FBF8" }
+          ? { background: "linear-gradient(180deg, #006851 0%, #00543F 100%)", color: "#FFFFFF" }
+          : { background: "#EEFCF7" }
       }
     >
       <p
         className="font-display-sans text-[13px] font-semibold uppercase tracking-[0.18em]"
-        style={{ color: p.destaque ? "rgba(255,255,255,0.92)" : "#0A8C7E" }}
+        style={{ color: p.destaque ? "rgba(255,255,255,0.92)" : "#00543F" }}
       >
         {p.nome}
       </p>
@@ -170,7 +170,7 @@ const Card = ({ p }: { p: Plano }) => (
       </p>
       <p
         className="font-display-sans mt-4 text-4xl font-normal tracking-[-0.04em]"
-        style={{ color: p.destaque ? "#FFFFFF" : "#1F2937" }}
+        style={{ color: p.destaque ? "#FFFFFF" : "#292929" }}
       >
         {p.preco}
         <span
@@ -187,7 +187,7 @@ const Card = ({ p }: { p: Plano }) => (
       {p.herdaDe && (
         <p
           className="font-display-sans mb-4 border-b pb-3 text-[13px] font-semibold uppercase tracking-[0.08em]"
-          style={{ color: "#0A8C7E", borderColor: "#E5E7EB" }}
+          style={{ color: "#00543F", borderColor: "#E8EAF0" }}
         >
           Tudo do {p.herdaDe} +
         </p>
@@ -206,8 +206,8 @@ const Card = ({ p }: { p: Plano }) => (
         className={
           "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-300 " +
           (p.destaque
-            ? "gradient-brand text-white shadow-[0_14px_30px_rgba(15, 181, 163,0.32)] hover:-translate-y-0.5"
-            : "border border-[#0FB5A3] bg-white text-[#055449] hover:bg-[#F1FBF8]")
+            ? "gradient-brand text-white shadow-[0_14px_30px_rgba(0, 104, 81,0.32)] hover:-translate-y-0.5"
+            : "border border-[#006851] bg-white text-[#003D2F] hover:bg-[#EEFCF7]")
         }
       >
         <span>Quero minha vaga</span>
@@ -260,7 +260,7 @@ const Pricing = ({ variante = "clinica" }: Props) => {
             Quer lembrete anti-falta, remarcação e áudio?{" "}
             <a
               href="/#planos"
-              className="font-semibold text-[#055449] underline underline-offset-4"
+              className="font-semibold text-[#003D2F] underline underline-offset-4"
             >
               Ver plano Clínica (R$897/mês)
             </a>

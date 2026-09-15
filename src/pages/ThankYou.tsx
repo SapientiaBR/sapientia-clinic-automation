@@ -29,15 +29,15 @@ const ThankYou = () => {
         className="w-full max-w-xl relative z-10 rounded-3xl text-center p-8 sm:p-12 flex flex-col items-center animate-slide-up-fade"
         style={{
           background: "#FFFFFF",
-          border: "1px solid #E5E7EB",
-          boxShadow: "0 24px 60px rgba(15, 23, 42,0.12)",
+          border: "1px solid #E8EAF0",
+          boxShadow: "0 24px 60px rgba(41, 41, 41,0.12)",
         }}
       >
         <img src={logo.url} alt="Secretária Invisível" className="h-14 w-auto mb-6 opacity-80" />
 
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center mb-6 relative"
-          style={{ background: "#E8F8EF" }}
+          style={{ background: "#DBF9F1" }}
         >
           <CheckCircle2 size={32} style={{ color: "#1FA463" }} />
         </div>

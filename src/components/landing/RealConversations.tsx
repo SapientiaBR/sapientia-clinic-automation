@@ -7,18 +7,18 @@ const Cartao = ({ c }: { c: Convo }) => (
   <article
     className="flex h-full flex-col rounded-3xl p-4 sm:p-5"
     style={{
-      background: "#F1FBF8",
-      border: "1px solid #D6F3EE",
-      boxShadow: "0 20px 44px rgba(10, 140, 126,0.10), 0 4px 12px rgba(15, 23, 42,0.04)",
+      background: "#EEFCF7",
+      border: "1px solid #DBF9F1",
+      boxShadow: "0 20px 44px rgba(0, 84, 63,0.10), 0 4px 12px rgba(41, 41, 41,0.04)",
     }}
   >
     <h3 className="font-display text-[17px] font-semibold leading-snug text-[var(--text)] md:text-[18px]">
       {c.title}
     </h3>
-    <p className="font-sans mt-2 text-[16px] leading-relaxed text-[#4B5563]">{c.caption}</p>
+    <p className="font-sans mt-2 text-[16px] leading-relaxed text-[#4B4E52]">{c.caption}</p>
     <div
       className="mt-4 flex-1 space-y-2 rounded-2xl p-3"
-      style={{ background: "#FFFFFF", border: "1px solid #ECFBF7" }}
+      style={{ background: "#FFFFFF", border: "1px solid #EEFCF7" }}
     >
       <Baloes messages={c.messages} />
     </div>
@@ -63,7 +63,7 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
           <h2 className="font-display text-[26px] font-normal tracking-[-0.04em] text-balance text-[var(--text)] sm:text-[36px] lg:text-[42px]">
             Veja como seus pacientes seriam atendidos.
           </h2>
-          <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B5563] md:text-[19px]">
+          <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B4E52] md:text-[19px]">
             Conversas reais. Do primeiro “oi” até o próximo passo.
           </p>
         </div>
@@ -97,7 +97,7 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
                   className="h-2 rounded-full transition-all duration-300"
                   style={{
                     width: i === ativo ? 22 : 8,
-                    background: i === ativo ? "#0FB5A3" : "#D6F3EE",
+                    background: i === ativo ? "#006851" : "#DBF9F1",
                   }}
                 />
               ))}

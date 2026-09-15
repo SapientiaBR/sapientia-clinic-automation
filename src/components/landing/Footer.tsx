@@ -15,7 +15,7 @@ const Footer = () => {
   const linhaJuridica = RAZAO_SOCIAL ? `${RAZAO_SOCIAL} · CNPJ ${CNPJ}` : `CNPJ ${CNPJ}`;
 
   return (
-    <footer className="border-t border-[#E5E7EB] bg-transparent py-10 pb-28 md:pb-10">
+    <footer className="border-t border-[#E8EAF0] bg-transparent py-10 pb-28 md:pb-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-7 md:flex-row md:justify-between">
           <img
@@ -31,7 +31,7 @@ const Footer = () => {
               href="https://sapientiabr.cloud"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline"
+              className="font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
             >
               Um produto Sapient.IA
             </a>
@@ -39,7 +39,7 @@ const Footer = () => {
               href="https://wa.me/5511920795583"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline"
+              className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
             >
               <MessageCircle size={15} aria-hidden="true" />
               Falar no WhatsApp

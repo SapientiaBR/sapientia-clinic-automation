@@ -1,85 +1,93 @@
 /**
- * Design tokens — Secretária Invisível.
+ * Design tokens — Secretária Invisível, paleta Emerald.
  *
- * A cor é a do site: o verde-azulado #0FB5A3 da marca, com a escala montada em
- * volta dele. O que vem do docshield é a estrutura — tipo de display em peso
- * regular com tracking negativo forte, cantos em pílula, superfícies claras e
- * sombra no lugar de borda.
+ * Os valores vêm de `design-system-2/tokens/colors.css`, o export do Claude
+ * Design. Os NOMES são os mesmos de antes, e isso é proposital: as seções da
+ * landing já consomem `--brand-500`, `--ink-strong` e as pontes antigas, e
+ * manter os nomes é o que troca a identidade do site inteiro sem reescrever
+ * um componente sequer.
  *
- * Os nomes antigos (`--navy-*`, `--purple`, `--text`, `--cyan`) continuam
- * existindo e apontam para os novos. Os componentes da landing já os usam;
- * mantê-los vivos é o que permite mudar o sistema sem reescrever cada seção.
+ * O mapeamento é por PAPEL, não por número. No export, a cor primária é o
+ * degrau 700 (`--si-emerald-700: #006851`), não o 500. Copiar número por
+ * número deixaria o site com um verde médio acinzentado nos botões. Cada
+ * linha abaixo diz de qual degrau do export ela veio.
+ *
+ * A estrutura — pílula dominante, Switzer, display em peso 400 com tracking
+ * negativo, sombra no lugar de borda — não muda. O que muda é a cor.
  */
 
 :root {
   /* === FUNDOS === */
   --bg-page: #ffffff;
-  --bg-paper: #f9fafb;
-  --bg-mist: #f1fbf8;
+  --bg-paper: #f8f9fe; /* si-ghost */
+  --bg-mist: #eefcf7; /* si-emerald-050 */
   --bg-card: #ffffff;
 
   /* === ESCALA DA MARCA ===
-     #0FB5A3 é o verde do site e fica sendo o degrau 500. Os degraus acima e
-     abaixo saem dele, para haver uma escala de verdade em vez de três tons
-     escolhidos caso a caso. */
-  --brand-50: #f1fbf8;
-  --brand-100: #d6f3ee;
-  --brand-200: #a7e6dd;
-  --brand-300: #5fe3d0;
-  --brand-400: #14c7b4;
-  --brand-500: #0fb5a3;
-  --brand-600: #0a8c7e;
-  --brand-700: #087468;
-  --brand-800: #055449;
-  --brand-900: #033b33;
+     Emerald do export, reordenada por papel. O 500 aqui é o #006851, que lá
+     é o 700 — é a cor primária, a que vai nos botões e nos links. */
+  --brand-50: #eefcf7; /* si-emerald-050 */
+  --brand-100: #dbf9f1; /* si-emerald-100 — mint */
+  --brand-200: #c0e2d8; /* si-emerald-200 */
+  --brand-300: #9accbd; /* si-emerald-300 */
+  --brand-400: #3d9a80; /* si-emerald-500 */
+  --brand-500: #006851; /* si-emerald-700 — PRIMÁRIA */
+  --brand-600: #00543f; /* si-emerald-800 — hover, texto sobre claro */
+  --brand-700: #003d2f; /* si-emerald-900 */
+  /* A rampa do export termina no 900. Os dois degraus abaixo repetem esse
+     valor em vez de inventar um verde que não existe no sistema; onde o
+     desenho precisa de mais profundidade, o gradiente do painel resolve. */
+  --brand-800: #003d2f;
+  --brand-900: #003d2f;
+
+  /* === ACENTO DO LOGO ===
+     O teal da marca-figura. Não é a cor de ação — é detalhe e status. */
+  --accent-teal: #1bbfba; /* si-teal */
+  --accent-teal-dark: #14918d; /* si-teal-dark */
+  --accent-teal-soft: #e4f8f7; /* si-teal-soft */
 
   /* === TEXTO ===
-     Sobre branco. `strong` é o quase-preto do site; `body` e `soft` descem em
-     contraste sem cair abaixo de 4,5:1. */
-  --ink-strong: #1f2937;
-  --ink-body: #4b5563;
-  --ink-soft: #6b7280;
+     Neutros do export. O primário é o "moody black" da identidade, não preto. */
+  --ink-strong: #292929; /* si-gray-900 / si-black */
+  --ink-body: #4b4e52; /* si-gray-700 */
+  --ink-soft: #6f7276; /* si-gray-600 */
   /* `faint` existe para numeral grande, onde o contraste baixo é desenho.
      Em corpo de texto ele reprova — para legenda, use `ink-soft`. */
-  --ink-faint: #9ca3af;
+  --ink-faint: #a9adb3; /* si-gray-400 */
   --ink-on-brand: #ffffff;
 
   /* === SEMÂNTICAS === */
-  --success: #059669;
-  --warning: #b45309;
-  --danger: #dc2626;
+  --success: #2e9e6b; /* si-status-good */
+  --warning: #e9a23b; /* si-status-warn */
+  --danger: #e0574f; /* si-status-alert */
 
   /* === LINHAS E SOMBRAS ===
-     No claro a separação é quase sempre a mudança de fundo, não a borda — por
-     isso os filetes são discretos e a sombra faz o trabalho pesado. */
-  --line-subtle: rgba(15, 23, 42, 0.06);
-  --line-default: #e5e7eb;
-  --line-strong: rgba(15, 23, 42, 0.16);
-  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 32px -18px rgba(15, 23, 42, 0.18);
-  --shadow-lift: 0 2px 4px rgba(15, 23, 42, 0.05), 0 24px 48px -24px rgba(15, 23, 42, 0.24);
-  --shadow-pill: 0 1px 2px rgba(15, 23, 42, 0.06), 0 8px 24px -12px rgba(10, 140, 126, 0.28);
+     A separação é a mudança de fundo, não a borda — por isso os filetes são
+     discretos e a sombra faz o trabalho pesado. */
+  --line-subtle: rgba(41, 41, 41, 0.06);
+  --line-default: #e8eaf0; /* si-gray-200 */
+  --line-strong: rgba(41, 41, 41, 0.16);
+  --shadow-card: 0 1px 2px rgba(41, 41, 41, 0.04), 0 12px 32px -18px rgba(41, 41, 41, 0.18);
+  --shadow-lift: 0 2px 4px rgba(41, 41, 41, 0.05), 0 24px 48px -24px rgba(41, 41, 41, 0.24);
+  --shadow-pill: 0 1px 2px rgba(41, 41, 41, 0.06), 0 8px 24px -12px rgba(0, 104, 81, 0.3);
 
   /* === GRADIENTES === */
-  --gradient-brand: linear-gradient(135deg, #0fb5a3, #0a8c7e);
-  --gradient-brand-hover: linear-gradient(135deg, #14c7b4, #0fb5a3);
-  --gradient-text: linear-gradient(135deg, #0a8c7e, #055449);
-  /* Painel do hero, traduzido do docshield.
-     La e um bloco azul que escurece no topo e dissolve no branco embaixo
-     (#0B3B91 -> #1E429F -> #A5BDE5). O caminho aqui e o verde da marca, e a
-     ultima parada e o proprio fundo da pagina: assim a emenda com a secao
-     seguinte nao tem corte reto. */
+  --gradient-brand: linear-gradient(135deg, #006851, #00543f);
+  --gradient-brand-hover: linear-gradient(135deg, #21806a, #006851);
+  --gradient-text: linear-gradient(135deg, #00543f, #003d2f);
+  /* Painel do hero: escurece no topo e dissolve no fundo da página embaixo,
+     para a emenda com a seção seguinte não ter corte reto. Todas as paradas
+     são degraus reais do export. */
   --gradient-panel: linear-gradient(
     180deg,
-    #033b33 0%,
-    #055449 30%,
-    #0a8c7e 58%,
-    #a7e6dd 84%,
+    #003d2f 0%,
+    #00543f 30%,
+    #006851 58%,
+    #9accbd 84%,
     #ffffff 100%
   );
 
-  /* === RAIOS ===
-     A pílula é a forma dominante do docshield: contei 24 usos de
-     `border-radius: 9999px` contra 13 do raio de 6px. */
+  /* === RAIOS === */
   --radius-pill: 9999px;
   --radius-xs: 6px;
   --radius-sm: 12px;
@@ -88,9 +96,8 @@
   --radius-xl: 40px;
 
   /* === TIPOGRAFIA ===
-     Uma família só. O peso do display é 400, não 700 — medi no docshield:
-     título de 50px, peso regular, tracking de −2,02px. É o que dá o ar
-     arejado; em bold sobre fundo claro a página fecha. */
+     Uma família só. Display em peso 400 com tracking negativo forte: título
+     grande em bold sobre fundo claro fecha a página. */
   --font-display: 'Switzer', system-ui, sans-serif;
   --font-body: 'Switzer', system-ui, sans-serif;
   --tracking-display: -0.04em;
@@ -103,7 +110,7 @@
   /* ==================================================================
      PONTES PARA OS NOMES ANTIGOS
      Os componentes da landing foram escritos contra estes nomes. Mantê-los
-     apontando para os novos é o que muda o sistema sem reescrever seção por
+     apontando para os novos é o que troca a paleta sem reescrever seção por
      seção — e é reversível.
      ================================================================== */
   --navy-0: var(--bg-page);
@@ -117,7 +124,7 @@
   --cyan: var(--brand-500);
   --cyan-300: var(--brand-600);
   --cyan-500: var(--brand-500);
-  --neon: var(--brand-300);
+  --neon: var(--accent-teal);
 
   --text: var(--ink-strong);
   --text-muted: var(--ink-body);

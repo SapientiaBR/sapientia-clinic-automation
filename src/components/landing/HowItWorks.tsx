@@ -33,10 +33,10 @@ const HowItWorks = () => {
     <section id="como-funciona" className="py-14 md:py-20 scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <div className="max-w-2xl mb-8 md:mb-12" data-reveal>
-          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#1F2937] text-balance tracking-[-0.04em]">
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Como sua recepção ganha um segundo turno.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B5563] mt-4 leading-[1.6]">
+          <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] mt-4 leading-[1.6]">
             Implantação sem trocar o número da clínica.
           </p>
         </div>
@@ -46,22 +46,22 @@ const HowItWorks = () => {
             <li
               key={s.n}
               className="rounded-2xl p-6 bg-white"
-              style={{ border: "1px solid #E5E7EB", boxShadow: "0 14px 34px rgba(15, 23, 42,0.05)" }}
+              style={{ border: "1px solid #E8EAF0", boxShadow: "0 14px 34px rgba(41, 41, 41,0.05)" }}
             >
-              <span className="font-display text-[15px] font-bold tracking-[0.14em] text-[#0A8C7E]">
+              <span className="font-display text-[15px] font-bold tracking-[0.14em] text-[#00543F]">
                 {s.n}
               </span>
-              <h3 className="font-display text-[20px] font-semibold text-[#1F2937] mt-2">
+              <h3 className="font-display text-[20px] font-semibold text-[#292929] mt-2">
                 {s.title}
               </h3>
-              <p className="font-sans text-[17px] text-[#4B5563] leading-[1.6] mt-2">{s.desc}</p>
+              <p className="font-sans text-[17px] text-[#4B4E52] leading-[1.6] mt-2">{s.desc}</p>
             </li>
           ))}
         </ol>
 
         <p
-          className="font-sans text-[17px] md:text-[19px] text-[#1F2937] leading-[1.6] mt-6 md:mt-8 rounded-2xl p-6"
-          style={{ background: "#D6F3EE" }}
+          className="font-sans text-[17px] md:text-[19px] text-[#292929] leading-[1.6] mt-6 md:mt-8 rounded-2xl p-6"
+          style={{ background: "#DBF9F1" }}
           data-reveal
         >
           Sua recepcionista participa do processo. Ela sabe o que a clínica precisa melhor do

@@ -1,5 +1,5 @@
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#055449] mb-4">
+  <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#003D2F] mb-4">
     {children}
   </p>
 );

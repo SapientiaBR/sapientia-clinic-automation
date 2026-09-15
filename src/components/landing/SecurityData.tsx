@@ -25,7 +25,7 @@ const SecurityData = () => {
     <section id="seguranca" className="py-14 md:py-20 scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         <h2
-          className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#1F2937] text-balance mb-8 md:mb-12 max-w-3xl tracking-[-0.04em]"
+          className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance mb-8 md:mb-12 max-w-3xl tracking-[-0.04em]"
           data-reveal
         >
           Dado de paciente é dado de saúde.
@@ -37,10 +37,10 @@ const SecurityData = () => {
               <Icon
                 size={21}
                 strokeWidth={1.5}
-                className="flex-shrink-0 text-[#0A8C7E]"
+                className="flex-shrink-0 text-[#00543F]"
                 aria-hidden
               />
-              <span className="font-sans text-[17px] leading-snug text-[#1F2937]">{text}</span>
+              <span className="font-sans text-[17px] leading-snug text-[#292929]">{text}</span>
             </li>
           ))}
         </ul>

@@ -68,13 +68,13 @@ export const Baloes = ({ messages }: { messages: Msg[] }) => (
             m.side === "in"
               ? {
                   background: "#FFFFFF",
-                  color: "#1F2937",
-                  border: "1px solid #F9FAFB",
+                  color: "#292929",
+                  border: "1px solid #F8F9FE",
                   borderRadius: "14px 14px 14px 4px",
                 }
               : {
-                  background: "#E8F8EF",
-                  color: "#0F3D2E",
+                  background: "#DBF9F1",
+                  color: "#003D2F",
                   borderRadius: "14px 14px 4px 14px",
                 }
           }

@@ -19,8 +19,8 @@ const IconChip = ({ icon: Icon, size = "md", variant = "teal", className = "" }:
   const s = sizeMap[size];
   const palette =
     variant === "dark"
-      ? { bg: "#1F2937", color: "#D6F3EE", border: "#1F2937" }
-      : { bg: "#D6F3EE", color: "#0A8C7E", border: "#A7E6DD" };
+      ? { bg: "#292929", color: "#DBF9F1", border: "#292929" }
+      : { bg: "#DBF9F1", color: "#00543F", border: "#C0E2D8" };
 
   return (
     <span

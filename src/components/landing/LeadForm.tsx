@@ -67,8 +67,8 @@ type ValoresMedico = z.infer<typeof schemaMedico>;
 type Valores = ValoresClinica & Partial<ValoresMedico>;
 
 const CAMPO =
-  "h-12 rounded-xl border-[#E5E7EB] bg-white text-[var(--text)] placeholder:text-[#9CA3AF] focus-visible:ring-2 focus-visible:ring-[#0FB5A3] focus-visible:ring-offset-0 focus-visible:border-[#0FB5A3]";
-const ROTULO = "font-display-sans text-[13px] font-semibold text-[#1F2937]";
+  "h-12 rounded-xl border-[#E8EAF0] bg-white text-[var(--text)] placeholder:text-[#A9ADB3] focus-visible:ring-2 focus-visible:ring-[#006851] focus-visible:ring-offset-0 focus-visible:border-[#006851]";
+const ROTULO = "font-display-sans text-[13px] font-semibold text-[#292929]";
 
 type Props = {
   /** Muda o campo extra e o valor de `origem` enviado ao webhook. */
@@ -146,20 +146,20 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
     <section id="demo" className="py-12 md:py-16 relative scroll-mt-24" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-xl relative z-10">
         <div className="text-center mb-6" data-reveal>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 bg-[#D6F3EE] border border-[#A7E6DD]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-5 bg-[#DBF9F1] border border-[#C0E2D8]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-[#0FB5A3] opacity-50 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0A8C7E]" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#006851] opacity-50 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00543F]" />
             </span>
-            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#055449]">
+            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#003D2F]">
               Demonstração ao vivo, grátis
             </span>
           </div>
 
-          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#1F2937] text-balance tracking-[-0.04em]">
+          <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Veja a Secretária Invisível atendendo você.
           </h2>
-          <p className="font-sans text-[17px] text-[#4B5563] mt-4 leading-[1.6] max-w-md mx-auto">
+          <p className="font-sans text-[17px] text-[#4B4E52] mt-4 leading-[1.6] max-w-md mx-auto">
             Deixe seu WhatsApp. Em segundos ela te chama com a mesma conversa que seu paciente
             teria.
           </p>
@@ -169,8 +169,8 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
           className="rounded-3xl p-6 sm:p-8"
           style={{
             background: "#FFFFFF",
-            border: "1px solid #E5E7EB",
-            boxShadow: "0 18px 44px rgba(15, 23, 42,0.06)",
+            border: "1px solid #E8EAF0",
+            boxShadow: "0 18px 44px rgba(41, 41, 41,0.06)",
           }}
           data-reveal
         >
@@ -179,10 +179,10 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                precisar mover o foco — o formulário sumiu e sem isso a pessoa
                não saberia que deu certo. */
             <div role="status" className="py-6 text-center">
-              <span className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-full bg-[#D6F3EE] text-[#055449]">
+              <span className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-full bg-[#DBF9F1] text-[#003D2F]">
                 <Check size={26} strokeWidth={2.2} aria-hidden="true" />
               </span>
-              <p className="font-display text-[20px] font-semibold text-[#1F2937] text-balance">
+              <p className="font-display text-[20px] font-semibold text-[#292929] text-balance">
                 Pronto! Abra seu WhatsApp: a Secretária Invisível já está te chamando.
               </p>
             </div>
@@ -239,7 +239,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className={ROTULO}>
-                          Especialidade <span className="font-normal text-[#6B7280]">(opcional)</span>
+                          Especialidade <span className="font-normal text-[#6F7276]">(opcional)</span>
                         </FormLabel>
                         <FormControl>
                           <Input
@@ -283,7 +283,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className={ROTULO}>
-                        E-mail <span className="font-normal text-[#6B7280]">(opcional)</span>
+                        E-mail <span className="font-normal text-[#6F7276]">(opcional)</span>
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -304,7 +304,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-6 shadow-[0_14px_36px_rgba(15, 181, 163,0.35)] hover:shadow-[0_18px_44px_rgba(15, 181, 163,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-6 shadow-[0_14px_36px_rgba(0, 104, 81,0.35)] hover:shadow-[0_18px_44px_rgba(0, 104, 81,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
                   {submitting ? (
                     <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -322,7 +322,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                   )}
                 </button>
 
-                <p className="font-sans text-[14px] text-[#4B5563] text-center leading-relaxed pt-1">
+                <p className="font-sans text-[14px] text-[#4B4E52] text-center leading-relaxed pt-1">
                   Grátis · Sem ligação · Sem disparo em massa
                 </p>
               </form>

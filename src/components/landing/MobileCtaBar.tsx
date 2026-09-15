@@ -52,7 +52,7 @@ const MobileCtaBar = () => {
       }`}
       style={{
         background: "rgba(255,255,255,0.96)",
-        borderTop: "1px solid #E5E7EB",
+        borderTop: "1px solid #E8EAF0",
         paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",
       }}
       // Fora de vista, a barra sai também da ordem de leitura e da navegação
