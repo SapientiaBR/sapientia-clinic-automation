@@ -43,7 +43,7 @@ const Turma = ({ unidade = "clínica" }: Props) => {
               <h2 className="font-display text-[26px] sm:text-[34px] font-normal tracking-[-0.04em] text-[#292929] text-balance">
                 Turma de {t.mes} lotada.
               </h2>
-              <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B4E52]">
+              <p className="font-sans mt-4 text-[length:var(--text-body-lg)] leading-[1.6] text-[#4B4E52]">
                 Implantação agora: {implantacaoFormatada} — ou entre na lista da turma de{" "}
                 {t.proximoMes} com implantação grátis.
               </p>
@@ -57,17 +57,17 @@ const Turma = ({ unidade = "clínica" }: Props) => {
               <h2 className="font-display text-[26px] sm:text-[34px] font-normal tracking-[-0.04em] text-[#292929] text-balance">
                 Implantação grátis só para a turma de {t.mes}.
               </h2>
-              <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B4E52]">
+              <p className="font-sans mt-4 text-[length:var(--text-body-lg)] leading-[1.6] text-[#4B4E52]">
                 Cada implantação é configurada pela nossa equipe, uma {unidade} por vez. Por isso
                 abrimos {t.total} vagas por mês.
               </p>
 
               <div className="mt-7">
                 <div className="flex items-baseline justify-between gap-3">
-                  <span className="font-display-sans text-[13px] font-semibold text-[#003D2F]">
+                  <span className="font-display-sans text-[length:var(--text-sm)] font-semibold text-[#003D2F]">
                     {t.preenchidas}/{t.total} vagas preenchidas
                   </span>
-                  <span className="font-sans text-[13px] text-[#4B4E52]">
+                  <span className="font-sans text-[length:var(--text-sm)] text-[#4B4E52]">
                     {t.restantes} {t.restantes === 1 ? "restante" : "restantes"}
                   </span>
                 </div>
@@ -84,14 +84,14 @@ const Turma = ({ unidade = "clínica" }: Props) => {
                 </div>
               </div>
 
-              <p className="font-display mt-7 text-[19px] font-semibold text-[#292929]">
+              <p className="font-display mt-7 text-[length:var(--text-body-lg)] font-semibold text-[#292929]">
                 Implantação <s className="font-normal text-[#6F7276]">{implantacaoFormatada}</s>{" "}
                 <span className="text-[#003D2F]">R$0</span> nesta turma.
               </p>
-              <p className="font-sans mt-1.5 text-[15px] text-[#4B4E52]">
+              <p className="font-sans mt-1.5 text-[length:var(--text-body)] text-[#4B4E52]">
                 Lotou ou virou o mês, a implantação volta a {implantacaoFormatada}.
               </p>
-              <p className="font-sans mt-1.5 text-[15px] text-[#4B4E52]">
+              <p className="font-sans mt-1.5 text-[length:var(--text-body)] text-[#4B4E52]">
                 {t.diasRestantes === 0
                   ? `Encerra hoje (${t.ultimoDia}/${t.numeroMes}).`
                   : `Encerra em ${t.diasRestantes} dias (${t.ultimoDia}/${t.numeroMes}).`}

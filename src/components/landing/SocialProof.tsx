@@ -70,7 +70,7 @@ const SocialProof = ({ variante = "clinica" }: Props) => {
               ))}
             </div>
             {PERIODO_DE_USO && (
-              <p className="font-sans text-[15px] text-[#4B4E52] text-center mt-3">
+              <p className="font-sans text-[length:var(--text-body)] text-[#4B4E52] text-center mt-3">
                 {PERIODO_DE_USO}
               </p>
             )}
@@ -85,7 +85,7 @@ const SocialProof = ({ variante = "clinica" }: Props) => {
               className="rounded-3xl p-6 md:p-8 flex flex-col w-full flex-shrink-0 snap-center bg-white"
               style={{ border: "1px solid #E8EAF0", boxShadow: "0 18px 44px rgba(41, 41, 41,0.08)" }}
             >
-              <blockquote className="font-sans text-[17px] md:text-[19px] leading-[1.65] text-[#292929] flex-1">
+              <blockquote className="font-sans text-[length:var(--text-body-lg)] leading-[1.65] text-[#292929] flex-1">
                 "{t.quote}"
               </blockquote>
 
@@ -97,11 +97,11 @@ const SocialProof = ({ variante = "clinica" }: Props) => {
                   </AvatarFallback>
                 </Avatar>
                 <div className="min-w-0">
-                  <p className="font-display text-[17px] font-semibold text-[#292929] leading-tight">
+                  <p className="font-display text-[length:var(--text-body-lg)] font-semibold text-[#292929] leading-tight">
                     {t.name}
                   </p>
-                  <p className="font-sans text-[15px] text-[#4B4E52] leading-tight mt-0.5">{t.role}</p>
-                  <p className="font-sans text-[15px] text-[#003D2F] mt-1">
+                  <p className="font-sans text-[length:var(--text-body)] text-[#4B4E52] leading-tight mt-0.5">{t.role}</p>
+                  <p className="font-sans text-[length:var(--text-body)] text-[#003D2F] mt-1">
                     {t.clinic}, {t.city}
                   </p>
                 </div>

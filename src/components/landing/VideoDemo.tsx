@@ -67,7 +67,7 @@ const VideoDemo = () => {
                     </svg>
                   </div>
 
-                  <span className="font-display text-[13px] md:text-[14px] font-bold text-white tracking-[0.06em] px-5 py-2 rounded-full bg-black/45 backdrop-blur-md border border-white/10 uppercase shadow-sm">
+                  <span className="font-display text-[length:var(--text-sm)] font-bold text-white tracking-[0.06em] px-5 py-2 rounded-full bg-black/45 backdrop-blur-md border border-white/10 uppercase shadow-sm">
                     Assistir Demonstração
                   </span>
                   

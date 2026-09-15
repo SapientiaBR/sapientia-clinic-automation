@@ -51,7 +51,7 @@ const TurmaBanner = () => {
       onMouseLeave={(e) => (e.currentTarget.style.background = "var(--brand-800)")}
     >
       <span
-        className="font-sans text-[12px] leading-snug sm:text-[13px]"
+        className="font-sans text-[length:var(--text-xs)] leading-snug sm:text-[length:var(--text-sm)]"
         style={{ color: "var(--ink-on-brand)" }}
       >
         {texto}

@@ -67,7 +67,7 @@ const FAQ = ({ variante = "clinica" }: { variante?: "clinica" | "medico" }) => {
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Antes de colocar IA no atendimento, estas são as perguntas certas.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] mt-4 leading-[1.6]">
+          <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] mt-4 leading-[1.6]">
             Respostas diretas. Sem floreio.
           </p>
         </div>
@@ -123,13 +123,13 @@ const FAQItem = ({
         className="w-full text-left px-5 sm:px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#F8F9FE]"
         aria-expanded={isOpen}
       >
-        <span className="font-display text-[18px] font-semibold text-[#292929] leading-snug">{q}</span>
+        <span className="font-display text-[length:var(--text-body-lg)] font-semibold text-[#292929] leading-snug">{q}</span>
         <span className="text-[#00543F] flex-shrink-0">
           {isOpen ? <Minus size={18} strokeWidth={1.6} /> : <Plus size={18} strokeWidth={1.6} />}
         </span>
       </button>
       <div ref={panelRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
-        <p className="font-sans text-[17px] text-[#4B4E52] leading-[1.7] px-5 sm:px-6 pb-6">
+        <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] leading-[1.7] px-5 sm:px-6 pb-6">
           {a}
         </p>
       </div>

@@ -65,7 +65,7 @@ const MobileCtaBar = () => {
       <a
         href="#demo"
         tabIndex={visivel ? undefined : -1}
-        className="flex w-full items-center justify-center rounded-full gradient-brand px-4 py-3.5 text-center font-display text-[17px] font-bold text-white"
+        className="flex w-full items-center justify-center rounded-full gradient-brand px-4 py-3.5 text-center font-display text-[length:var(--text-body-lg)] font-bold text-white"
       >
         Ver demonstração grátis
       </a>

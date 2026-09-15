@@ -105,13 +105,13 @@ const LinhaImplantacao = ({ destaque }: { destaque: boolean }) => {
 
   if (t.lotada) {
     return (
-      <p className="font-sans mt-3 text-[14px]" style={{ color: corFraca }}>
+      <p className="font-sans mt-3 text-[length:var(--text-sm)]" style={{ color: corFraca }}>
         Implantação {implantacaoFormatada}
       </p>
     );
   }
   return (
-    <p className="font-sans mt-3 text-[14px]" style={{ color: corFraca }}>
+    <p className="font-sans mt-3 text-[length:var(--text-sm)]" style={{ color: corFraca }}>
       Implantação <s>{implantacaoFormatada}</s>{" "}
       <strong className="font-semibold" style={{ color: corForte }}>
         R$0
@@ -151,19 +151,19 @@ const Card = ({ p }: { p: Plano }) => (
       }
     >
       <p
-        className="font-display-sans text-[13px] font-semibold uppercase tracking-[0.18em]"
+        className="font-display-sans text-[length:var(--text-sm)] font-semibold uppercase tracking-[0.18em]"
         style={{ color: p.destaque ? "rgba(255,255,255,0.92)" : "#00543F" }}
       >
         {p.nome}
       </p>
       <p
-        className="font-sans mt-1.5 text-[13px] leading-snug"
+        className="font-sans mt-1.5 text-[length:var(--text-sm)] leading-snug"
         style={{ color: p.destaque ? "rgba(255,255,255,0.92)" : "var(--text-muted)" }}
       >
         {p.perfil}
       </p>
       <p
-        className="font-sans mt-3 text-[15px] leading-snug"
+        className="font-sans mt-3 text-[length:var(--text-body)] leading-snug"
         style={{ color: p.destaque ? "#FFFFFF" : "var(--text)" }}
       >
         {p.promessa}
@@ -186,7 +186,7 @@ const Card = ({ p }: { p: Plano }) => (
     <div className="flex flex-1 flex-col p-6 md:p-7">
       {p.herdaDe && (
         <p
-          className="font-display-sans mb-4 border-b pb-3 text-[13px] font-semibold uppercase tracking-[0.08em]"
+          className="font-display-sans mb-4 border-b pb-3 text-[length:var(--text-sm)] font-semibold uppercase tracking-[0.08em]"
           style={{ color: "#00543F", borderColor: "#E8EAF0" }}
         >
           Tudo do {p.herdaDe} +
@@ -196,7 +196,7 @@ const Card = ({ p }: { p: Plano }) => (
         {p.recursos.map((f) => (
           <li key={f} className="flex items-start gap-3">
             <IconeCheck />
-            <span className="font-sans text-[16px] leading-snug text-[var(--text)]">{f}</span>
+            <span className="font-sans text-[length:var(--text-body)] leading-snug text-[var(--text)]">{f}</span>
           </li>
         ))}
       </ul>
@@ -204,7 +204,7 @@ const Card = ({ p }: { p: Plano }) => (
       <a
         href="#demo"
         className={
-          "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-base " +
+          "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[length:var(--text-body)] font-bold transition-all duration-base " +
           (p.destaque
             ? "gradient-brand text-white shadow-[0_14px_30px_rgba(0, 104, 81,0.32)] hover:-translate-y-0.5"
             : "border border-[#006851] bg-white text-[#003D2F] hover:bg-[#EEFCF7]")
@@ -231,7 +231,7 @@ const Pricing = ({ variante = "clinica" }: Props) => {
     <section id="planos" className="relative scroll-mt-24 py-14 md:section-padding" ref={ref}>
       <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <p
-          className="font-sans mx-auto mb-8 max-w-2xl text-center text-[17px] leading-[1.6] text-[var(--text)] md:mb-10"
+          className="font-sans mx-auto mb-8 max-w-2xl text-center text-[length:var(--text-body-lg)] leading-[1.6] text-[var(--text)] md:mb-10"
           data-reveal
         >
           {solo
@@ -251,12 +251,12 @@ const Pricing = ({ variante = "clinica" }: Props) => {
           </div>
         )}
 
-        <p className="font-sans mt-8 text-center text-[15px] text-[var(--text-muted)]">
+        <p className="font-sans mt-8 text-center text-[length:var(--text-body)] text-[var(--text-muted)]">
           Diagnóstico grátis antes de qualquer cobrança · Cancele com 30 dias de aviso.
         </p>
 
         {solo && (
-          <p className="font-sans mt-5 text-center text-[15px] text-[var(--text-muted)]">
+          <p className="font-sans mt-5 text-center text-[length:var(--text-body)] text-[var(--text-muted)]">
             Quer lembrete anti-falta, remarcação e áudio?{" "}
             <a
               href="/#planos"

@@ -68,7 +68,7 @@ type Valores = ValoresClinica & Partial<ValoresMedico>;
 
 const CAMPO =
   "h-12 rounded-xl border-[#E8EAF0] bg-white text-[var(--text)] placeholder:text-[#A9ADB3] focus-visible:ring-2 focus-visible:ring-[#006851] focus-visible:ring-offset-0 focus-visible:border-[#006851]";
-const ROTULO = "font-display-sans text-[13px] font-semibold text-[#292929]";
+const ROTULO = "font-display-sans text-[length:var(--text-sm)] font-semibold text-[#292929]";
 
 type Props = {
   /** Muda o campo extra e o valor de `origem` enviado ao webhook. */
@@ -151,7 +151,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#006851] opacity-50 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00543F]" />
             </span>
-            <span className="font-display text-[12px] uppercase tracking-[0.18em] font-bold text-[#003D2F]">
+            <span className="font-display text-[length:var(--text-xs)] uppercase tracking-[0.18em] font-bold text-[#003D2F]">
               Demonstração ao vivo, grátis
             </span>
           </div>
@@ -159,7 +159,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Veja a Secretária Invisível atendendo você.
           </h2>
-          <p className="font-sans text-[17px] text-[#4B4E52] mt-4 leading-[1.6] max-w-md mx-auto">
+          <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] mt-4 leading-[1.6] max-w-md mx-auto">
             Deixe seu WhatsApp. Em segundos ela te chama com a mesma conversa que seu paciente
             teria.
           </p>
@@ -304,7 +304,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[16px] rounded-full h-14 px-6 shadow-[0_14px_36px_rgba(0, 104, 81,0.35)] hover:shadow-[0_18px_44px_rgba(0, 104, 81,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                  className="group mt-2 inline-flex items-center justify-center gap-2.5 w-full gradient-brand text-white font-display font-bold text-[length:var(--text-body)] rounded-full h-14 px-6 shadow-[0_14px_36px_rgba(0, 104, 81,0.35)] hover:shadow-[0_18px_44px_rgba(0, 104, 81,0.45)] hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
                   {submitting ? (
                     <Loader2 size={16} className="animate-spin" aria-hidden="true" />
@@ -322,7 +322,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                   )}
                 </button>
 
-                <p className="font-sans text-[14px] text-[#4B4E52] text-center leading-relaxed pt-1">
+                <p className="font-sans text-[length:var(--text-sm)] text-[#4B4E52] text-center leading-relaxed pt-1">
                   Grátis · Sem ligação · Sem disparo em massa
                 </p>
               </form>

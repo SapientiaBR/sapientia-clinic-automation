@@ -48,7 +48,7 @@ const Reframe = ({ variante = "clinica" }: Props) => {
                 className="mt-[9px] h-1.5 w-1.5 flex-none rounded-full"
                 style={{ background: "#00543F" }}
               />
-              <span className="font-sans text-[17px] leading-[1.55] text-[#3D4A52] md:text-[19px]">
+              <span className="font-sans text-[length:var(--text-body-lg)] leading-[1.55] text-[#3D4A52] md:text-[length:var(--text-body-lg)]">
                 {item}
               </span>
             </li>
@@ -56,7 +56,7 @@ const Reframe = ({ variante = "clinica" }: Props) => {
         </ul>
 
         {t.fecho && (
-          <p className="font-display mt-8 text-balance text-[18px] font-bold leading-[1.4] text-[#003D2F] md:text-[21px]">
+          <p className="font-display mt-8 text-balance text-[length:var(--text-body-lg)] font-bold leading-[1.4] text-[#003D2F] md:text-[21px]">
             {t.fecho}
           </p>
         )}

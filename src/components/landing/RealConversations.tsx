@@ -2,25 +2,32 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { revealOnScroll } from "@/lib/animations";
 import { Baloes, conversas, type Convo } from "@/components/landing/conversations";
+import { ChatThread } from "../../../design-system-2/components/product/ChatThread";
 
+/**
+ * A moldura da conversa agora é o `ChatThread` do design system.
+ *
+ * Antes era um retângulo branco com os balões dentro. O componente traz o que
+ * faltava para a cena ser reconhecível: cabeçalho com o contato e o status,
+ * a tela de fundo quente do WhatsApp e o campo de digitação embaixo.
+ *
+ * O `ds-root` é obrigatório — os tokens do sistema são escopados nessa classe
+ * de propósito, para não vazarem para o resto do site.
+ */
 const Cartao = ({ c }: { c: Convo }) => (
-  <article
-    className="flex h-full flex-col rounded-3xl p-4 sm:p-5"
-    style={{
-      background: "#EEFCF7",
-      border: "1px solid #DBF9F1",
-      boxShadow: "0 20px 44px rgba(0, 84, 63,0.10), 0 4px 12px rgba(41, 41, 41,0.04)",
-    }}
-  >
-    <h3 className="font-display text-[17px] font-semibold leading-snug text-[var(--text)] md:text-[18px]">
+  <article className="flex h-full flex-col">
+    <h3 className="font-display text-[length:var(--text-body-lg)] font-semibold leading-snug text-[var(--text)] md:text-[length:var(--text-body-lg)]">
       {c.title}
     </h3>
-    <p className="font-sans mt-2 text-[16px] leading-relaxed text-[#4B4E52]">{c.caption}</p>
-    <div
-      className="mt-4 flex-1 space-y-2 rounded-2xl p-3"
-      style={{ background: "#FFFFFF", border: "1px solid #EEFCF7" }}
-    >
-      <Baloes messages={c.messages} />
+    <p className="font-sans mt-2 text-[length:var(--text-body)] leading-relaxed text-[var(--ink-body)]">{c.caption}</p>
+    <div className="ds-root mt-4 flex-1">
+      <ChatThread
+        className="h-full min-h-[18rem]"
+        contact={{ name: c.contato, status: "online" }}
+        composerPlaceholder="Mensagem"
+      >
+        <Baloes messages={c.messages} />
+      </ChatThread>
     </div>
   </article>
 );
@@ -63,7 +70,7 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
           <h2 className="font-display text-[26px] font-normal tracking-[-0.04em] text-balance text-[var(--text)] sm:text-[36px] lg:text-[42px]">
             Veja como seus pacientes seriam atendidos.
           </h2>
-          <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B4E52] md:text-[19px]">
+          <p className="font-sans mt-4 text-[length:var(--text-body-lg)] leading-[1.6] text-[#4B4E52] md:text-[length:var(--text-body-lg)]">
             Conversas reais. Do primeiro “oi” até o próximo passo.
           </p>
         </div>

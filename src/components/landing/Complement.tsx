@@ -27,10 +27,10 @@ const Complement = () => {
             className="rounded-2xl p-6"
             style={{ background: "#EEFCF7", border: "1px solid #DBF9F1" }}
           >
-            <p className="font-display text-[15px] font-bold uppercase tracking-[0.14em] text-[#00543F]">
+            <p className="font-display text-[length:var(--text-body)] font-bold uppercase tracking-[0.14em] text-[#00543F]">
               Secretária Invisível
             </p>
-            <p className="font-sans text-[17px] text-[#292929] leading-[1.65] mt-3">
+            <p className="font-sans text-[length:var(--text-body-lg)] text-[#292929] leading-[1.65] mt-3">
               Pode responder, organizar, agendar, confirmar e conduzir atendimentos.
             </p>
           </div>
@@ -38,19 +38,19 @@ const Complement = () => {
             className="rounded-2xl p-6"
             style={{ background: "#FFFFFF", border: "1px solid #E8EAF0" }}
           >
-            <p className="font-display text-[15px] font-bold uppercase tracking-[0.14em] text-[#292929]">
+            <p className="font-display text-[length:var(--text-body)] font-bold uppercase tracking-[0.14em] text-[#292929]">
               Sua equipe
             </p>
-            <p className="font-sans text-[17px] text-[#292929] leading-[1.65] mt-3">
+            <p className="font-sans text-[length:var(--text-body-lg)] text-[#292929] leading-[1.65] mt-3">
               Continua responsável pelo que precisa de atenção humana.
             </p>
           </div>
         </div>
 
-        <p className="font-display text-[19px] sm:text-[24px] font-semibold text-[#292929] mt-9" data-reveal>
+        <p className="font-display text-[length:var(--text-body-lg)] sm:text-[24px] font-semibold text-[#292929] mt-9" data-reveal>
           Não é substituição.
         </p>
-        <p className="font-display text-[19px] sm:text-[24px] font-bold text-[#003D2F]" data-reveal>
+        <p className="font-display text-[length:var(--text-body-lg)] sm:text-[24px] font-bold text-[#003D2F]" data-reveal>
           É complemento.
         </p>
       </div>

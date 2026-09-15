@@ -34,7 +34,7 @@ const FinalCTA = ({ variante = "clinica" }: Props) => {
         </h2>
 
         <p
-          className="font-sans mt-5 text-[17px] leading-[1.65] text-[#4B4E52] md:text-[19px]"
+          className="font-sans mt-5 text-[length:var(--text-body-lg)] leading-[1.65] text-[#4B4E52] md:text-[length:var(--text-body-lg)]"
           data-reveal
         >
           {t.lotada
@@ -48,7 +48,7 @@ const FinalCTA = ({ variante = "clinica" }: Props) => {
           <MagneticButton href={CTA_HREF} variant="primary">
             {CTA_LABEL}
           </MagneticButton>
-          <span className="font-sans text-[15px] text-[#4B4E52]">Sem compromisso.</span>
+          <span className="font-sans text-[length:var(--text-body)] text-[#4B4E52]">Sem compromisso.</span>
         </div>
       </div>
     </section>

@@ -2,6 +2,9 @@ import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
+// Tokens do design system do produto. Ficam escopados em `.ds-root`, entao
+// importar aqui nao vaza para o site: so quem opta pela classe consome.
+import "../design-system-2/tokens/index.css";
 
 if (
   import.meta.env.DEV ||

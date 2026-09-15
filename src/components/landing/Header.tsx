@@ -76,7 +76,7 @@ const Header = () => {
             <a
               key={item.href}
               href={item.href}
-              className="font-sans text-[15px] transition-colors"
+              className="font-sans text-[length:var(--text-body)] transition-colors"
               style={{ color: "var(--ink-body)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-800)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--ink-body)")}
@@ -88,7 +88,7 @@ const Header = () => {
 
         <a
           href="#demo"
-          className="flex-none px-4 py-2.5 font-display text-[14px] font-semibold transition-transform duration-base hover:-translate-y-0.5 md:px-5 md:text-[15px]"
+          className="flex-none px-4 py-2.5 font-display text-[length:var(--text-sm)] font-semibold transition-transform duration-base hover:-translate-y-0.5 md:px-5 md:text-[length:var(--text-body)]"
           style={{
             background: "var(--gradient-brand)",
             color: "var(--ink-on-brand)",

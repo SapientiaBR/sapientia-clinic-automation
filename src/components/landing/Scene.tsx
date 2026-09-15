@@ -90,7 +90,7 @@ const Scene = ({ variante = "clinica" }: Props) => {
             21h17. {lugar} fechou.
           </h2>
           <p
-            className="font-display mt-3 text-balance text-[19px] font-semibold sm:text-[24px]"
+            className="font-display mt-3 text-balance text-[length:var(--text-body-lg)] font-semibold sm:text-[24px]"
             style={{ color: "var(--brand-600)" }}
           >
             Um paciente acabou de mandar mensagem.
@@ -115,7 +115,7 @@ const Scene = ({ variante = "clinica" }: Props) => {
           {timeline.map(([time, text]) => (
             <li key={time} data-passo className="relative flex items-start gap-4 pb-6 last:pb-0">
               <span
-                className="font-display absolute left-[-72px] w-[62px] flex-shrink-0 pt-[2px] text-[17px] font-bold sm:left-[-88px] sm:w-[76px] sm:text-[19px]"
+                className="font-display absolute left-[-72px] w-[62px] flex-shrink-0 pt-[2px] text-[length:var(--text-body-lg)] font-bold sm:left-[-88px] sm:w-[76px] sm:text-[length:var(--text-body-lg)]"
                 style={{ color: "var(--brand-600)" }}
               >
                 {time}
@@ -126,7 +126,7 @@ const Scene = ({ variante = "clinica" }: Props) => {
                 style={{ background: "var(--brand-500)", borderRadius: "var(--radius-pill)" }}
               />
               <p
-                className="font-sans pl-1 text-[17px] leading-[1.6] sm:text-[18px]"
+                className="font-sans pl-1 text-[length:var(--text-body-lg)] leading-[1.6] sm:text-[length:var(--text-body-lg)]"
                 style={{ color: "var(--ink-strong)" }}
               >
                 {text}

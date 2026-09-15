@@ -36,7 +36,7 @@ const HowItWorks = () => {
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Como sua recepção ganha um segundo turno.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] mt-4 leading-[1.6]">
+          <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] mt-4 leading-[1.6]">
             Implantação sem trocar o número da clínica.
           </p>
         </div>
@@ -48,19 +48,19 @@ const HowItWorks = () => {
               className="rounded-2xl p-6 bg-white"
               style={{ border: "1px solid #E8EAF0", boxShadow: "0 14px 34px rgba(41, 41, 41,0.05)" }}
             >
-              <span className="font-display text-[15px] font-bold tracking-[0.14em] text-[#00543F]">
+              <span className="font-display text-[length:var(--text-body)] font-bold tracking-[0.14em] text-[#00543F]">
                 {s.n}
               </span>
               <h3 className="font-display text-[20px] font-semibold text-[#292929] mt-2">
                 {s.title}
               </h3>
-              <p className="font-sans text-[17px] text-[#4B4E52] leading-[1.6] mt-2">{s.desc}</p>
+              <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] leading-[1.6] mt-2">{s.desc}</p>
             </li>
           ))}
         </ol>
 
         <p
-          className="font-sans text-[17px] md:text-[19px] text-[#292929] leading-[1.6] mt-6 md:mt-8 rounded-2xl p-6"
+          className="font-sans text-[length:var(--text-body-lg)] text-[#292929] leading-[1.6] mt-6 md:mt-8 rounded-2xl p-6"
           style={{ background: "#DBF9F1" }}
           data-reveal
         >

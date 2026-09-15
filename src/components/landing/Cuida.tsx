@@ -78,7 +78,7 @@ const Cuida = ({ variante = "clinica" }: Props) => {
               >
                 <item.icone size={19} strokeWidth={1.8} />
               </span>
-              <span className="font-sans text-[15px] leading-snug text-[#292929] md:text-[16px]">
+              <span className="font-sans text-[length:var(--text-body)] leading-snug text-[#292929] md:text-[length:var(--text-body)]">
                 {item.texto}
               </span>
             </li>
@@ -86,7 +86,7 @@ const Cuida = ({ variante = "clinica" }: Props) => {
         </ul>
 
         <p
-          className="font-display mt-10 text-balance text-center text-[19px] font-bold text-[#003D2F] md:mt-14 md:text-[23px]"
+          className="font-display mt-10 text-balance text-center text-[length:var(--text-body-lg)] font-bold text-[#003D2F] md:mt-14 md:text-[23px]"
           data-reveal
         >
           {t.fecho}

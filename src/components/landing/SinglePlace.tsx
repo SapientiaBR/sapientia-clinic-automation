@@ -19,7 +19,7 @@ const SinglePlace = () => {
         >
           E quando alguém da recepção sai?
         </h2>
-        <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] leading-[1.65] mt-5" data-reveal>
+        <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] leading-[1.65] mt-5" data-reveal>
           Não é só uma pessoa que vai embora. Pode ir junto:
         </p>
 
@@ -27,7 +27,7 @@ const SinglePlace = () => {
           {items.map((t) => (
             <li
               key={t}
-              className="rounded-2xl px-5 py-4 font-sans text-[17px] text-[#292929]"
+              className="rounded-2xl px-5 py-4 font-sans text-[length:var(--text-body-lg)] text-[#292929]"
               style={{ background: "#EEFCF7", border: "1px solid #DBF9F1" }}
             >
               {t}
@@ -41,7 +41,7 @@ const SinglePlace = () => {
         >
           O atendimento precisa continuar sendo da clínica.
         </p>
-        <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] mt-2" data-reveal>
+        <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] mt-2" data-reveal>
           Não da memória de uma única pessoa.
         </p>
 

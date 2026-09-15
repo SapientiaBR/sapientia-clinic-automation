@@ -40,7 +40,7 @@ const SecurityData = () => {
                 className="flex-shrink-0 text-[#00543F]"
                 aria-hidden
               />
-              <span className="font-sans text-[17px] leading-snug text-[#292929]">{text}</span>
+              <span className="font-sans text-[length:var(--text-body-lg)] leading-snug text-[#292929]">{text}</span>
             </li>
           ))}
         </ul>

@@ -16,7 +16,7 @@ const SinglePoint = () => {
           O problema não é sua recepcionista.
         </h2>
 
-        <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] leading-[1.65] mt-5" data-reveal>
+        <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] leading-[1.65] mt-5" data-reveal>
           É depender de uma única pessoa para manter todo o atendimento funcionando.
         </p>
 
@@ -27,7 +27,7 @@ const SinglePoint = () => {
           ].map((t) => (
             <li
               key={t}
-              className="rounded-2xl px-5 py-4 font-sans text-[17px] md:text-[18px] text-[#292929] leading-[1.6]"
+              className="rounded-2xl px-5 py-4 font-sans text-[length:var(--text-body-lg)] text-[#292929] leading-[1.6]"
               style={{ background: "#EEFCF7", border: "1px solid #DBF9F1" }}
             >
               {t}

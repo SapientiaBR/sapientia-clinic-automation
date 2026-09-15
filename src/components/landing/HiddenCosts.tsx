@@ -47,7 +47,7 @@ const HiddenCosts = () => {
           <h2 className="font-display text-[26px] sm:text-[36px] lg:text-[42px] font-normal text-[#292929] text-balance tracking-[-0.04em]">
             Dinheiro que sua recepção perde sem perceber.
           </h2>
-          <p className="font-sans text-[17px] md:text-[19px] text-[#4B4E52] mt-4 leading-[1.6]">
+          <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] mt-4 leading-[1.6]">
             Não é falta de esforço da equipe. É falta de cobertura.
           </p>
         </div>
@@ -59,10 +59,10 @@ const HiddenCosts = () => {
               className="rounded-2xl p-6 bg-white flex flex-col"
               style={{ border: "1px solid #E8EAF0", boxShadow: "0 14px 34px rgba(41, 41, 41,0.05)" }}
             >
-              <h3 className="font-display text-[19px] font-semibold text-[#292929] leading-snug">
+              <h3 className="font-display text-[length:var(--text-body-lg)] font-semibold text-[#292929] leading-snug">
                 {c.title}
               </h3>
-              <p className="font-sans text-[17px] text-[#4B4E52] leading-[1.6] mt-3 flex-1">
+              <p className="font-sans text-[length:var(--text-body-lg)] text-[#4B4E52] leading-[1.6] mt-3 flex-1">
                 {c.text}
               </p>
               {c.value ? (
@@ -73,7 +73,7 @@ const HiddenCosts = () => {
         </div>
 
         <p
-          className="font-sans text-[17px] md:text-[19px] text-[#292929] mt-8 md:mt-10 leading-[1.6] max-w-2xl"
+          className="font-sans text-[length:var(--text-body-lg)] text-[#292929] mt-8 md:mt-10 leading-[1.6] max-w-2xl"
           data-reveal
         >
           Some tudo isso em 30 dias. Esse é o custo real de uma recepção sem cobertura.

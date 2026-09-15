@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
 import heroReception from "@/assets/hero-reception.jpg";
 import { Baloes, conversas } from "@/components/landing/conversations";
+import { ChatThread } from "../../../design-system-2/components/product/ChatThread";
 
 export const CTA_HREF = "#demo";
 export const CTA_LABEL = "Quero ver a demonstração no meu WhatsApp";
@@ -23,54 +24,26 @@ const copy = {
   },
 };
 
-/** Mockup de celular com a conversa de agendamento — o lado do médico solo. */
+/**
+ * Mockup de celular com a conversa de agendamento — o lado do médico solo.
+ *
+ * A moldura sai do `ChatThread` do design system, a mesma da seção de
+ * conversas. Era um cabeçalho montado à mão aqui, com iniciais no lugar do
+ * avatar e um ponto verde de status; o componente traz isso pronto e, mais
+ * importante, mantém as duas aparições do chat idênticas.
+ *
+ * O `ds-root` é obrigatório — os tokens do sistema são escopados nessa classe
+ * para não vazarem para o resto do site.
+ */
 const MockupCelular = () => (
-  <div className="mx-auto w-full max-w-[19rem]">
-    <div
-      className="overflow-hidden p-3"
-      style={{
-        background: "var(--bg-card)",
-        borderRadius: "var(--radius-xl)",
-        boxShadow: "var(--shadow-lift)",
-      }}
+  <div className="ds-root mx-auto w-full max-w-[19rem]">
+    <ChatThread
+      className="shadow-[var(--shadow-lg)]"
+      contact={{ name: "Secretária Invisível", status: "online" }}
+      composerPlaceholder="Mensagem"
     >
-      <div className="mb-3 flex items-center gap-2.5 px-1">
-        <span
-          className="grid h-9 w-9 place-items-center text-[12px] font-bold"
-          style={{
-            background: "var(--gradient-brand)",
-            borderRadius: "var(--radius-pill)",
-            color: "var(--ink-on-brand)",
-          }}
-        >
-          SI
-        </span>
-        <span className="leading-tight">
-          <span
-            className="block font-display text-[14px] font-semibold"
-            style={{ color: "var(--ink-strong)" }}
-          >
-            Secretária Invisível
-          </span>
-          <span
-            className="font-sans flex items-center gap-1.5 text-[11px]"
-            style={{ color: "var(--ink-body)" }}
-          >
-            <span
-              className="h-1.5 w-1.5"
-              style={{ background: "var(--brand-500)", borderRadius: "var(--radius-pill)" }}
-            />
-            online
-          </span>
-        </span>
-      </div>
-      <div
-        className="space-y-2 p-3"
-        style={{ background: "var(--bg-mist)", borderRadius: "var(--radius-md)" }}
-      >
-        <Baloes messages={conversas[0].messages} />
-      </div>
-    </div>
+      <Baloes messages={conversas[0].messages} />
+    </ChatThread>
   </div>
 );
 
@@ -163,7 +136,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
 
           <p
             data-hero-step
-            className="font-sans mx-auto mt-6 max-w-[620px] text-[17px] leading-[1.6] md:text-[19px]"
+            className="font-sans mx-auto mt-6 max-w-[620px] text-[length:var(--text-body-lg)] leading-[1.6] md:text-[length:var(--text-body-lg)]"
             style={{ color: "rgb(255 255 255 / 0.82)" }}
           >
             {t.texto}
@@ -177,7 +150,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
           >
             <a
               href={CTA_HREF}
-              className="group inline-flex w-full items-center justify-center gap-2.5 px-7 py-4 font-display text-[16px] font-bold transition-transform duration-base hover:-translate-y-0.5 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2.5 px-7 py-4 font-display text-[length:var(--text-body)] font-bold transition-transform duration-base hover:-translate-y-0.5 sm:w-auto"
               style={{
                 background: "var(--bg-page)",
                 color: "var(--ink-strong)",
@@ -195,7 +168,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
 
             <a
               href="#como-funciona"
-              className="inline-flex w-full items-center justify-center px-7 py-4 font-display text-[16px] font-semibold transition-colors duration-base sm:w-auto"
+              className="inline-flex w-full items-center justify-center px-7 py-4 font-display text-[length:var(--text-body)] font-semibold transition-colors duration-base sm:w-auto"
               style={{
                 background: "rgb(255 255 255 / 0.14)",
                 color: "var(--ink-on-brand)",
@@ -209,7 +182,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
 
           <p
             data-hero-step
-            className="font-sans mt-5 text-[15px]"
+            className="font-sans mt-5 text-[length:var(--text-body)]"
             style={{ color: "rgb(255 255 255 / 0.72)" }}
           >
             Ela te chama em segundos · Grátis · Sem ligação

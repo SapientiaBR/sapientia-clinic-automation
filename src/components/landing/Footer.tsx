@@ -31,7 +31,7 @@ const Footer = () => {
               href="https://sapientiabr.cloud"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
+              className="font-sans text-[length:var(--text-sm)] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
             >
               Um produto Sapient.IA
             </a>
@@ -39,7 +39,7 @@ const Footer = () => {
               href="https://wa.me/5511920795583"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
+              className="inline-flex items-center gap-2 font-sans text-[length:var(--text-sm)] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#003D2F] hover:underline"
             >
               <MessageCircle size={15} aria-hidden="true" />
               Falar no WhatsApp
@@ -47,8 +47,8 @@ const Footer = () => {
           </div>
 
           <div className="text-center md:text-right">
-            <p className="font-sans text-[13px] text-[var(--text-muted)]">{linhaJuridica}</p>
-            <p className="font-sans mt-1 text-[13px] text-[var(--text-muted)]">
+            <p className="font-sans text-[length:var(--text-sm)] text-[var(--text-muted)]">{linhaJuridica}</p>
+            <p className="font-sans mt-1 text-[length:var(--text-sm)] text-[var(--text-muted)]">
               © 2026 · São Paulo, SP
             </p>
           </div>
