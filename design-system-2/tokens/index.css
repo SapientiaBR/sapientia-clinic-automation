@@ -1,0 +1,16 @@
+/**
+ * Design System — Secretária Invisível. Token barrel.
+ * Import this ONCE, at the root of anything that opts into the design
+ * system (currently: the /design-system showcase route). Every token below
+ * is scoped to `.ds-root` / `.ds-root.dark` — see colors.css for why, and
+ * design-system/README.md for how to opt a new page in.
+ */
+
+@import "./fonts.css";
+@import "./colors.css";
+@import "./typography.css";
+@import "./spacing.css";
+@import "./radius.css";
+@import "./elevation.css";
+@import "./motion.css";
+@import "./base.css";

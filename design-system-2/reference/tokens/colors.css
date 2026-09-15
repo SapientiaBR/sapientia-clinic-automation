@@ -1,0 +1,84 @@
+:root {
+  /* ---- Core palette (from the brand palette board) ---- */
+  --si-emerald: #006851;      /* Emerald Green — primary */
+  --si-mint: #DBF9F1;         /* Medical Mint — secondary surface */
+  --si-black: #292929;        /* Moody Black — ink */
+  --si-ghost: #F8F9FE;        /* Ghost White — page */
+  --si-white: #FFFFFF;
+
+  /* ---- Emerald ramp (tints/shades used across posters, gradients, UI) ---- */
+  --si-emerald-900: #003D2F;
+  --si-emerald-800: #00543F;
+  --si-emerald-700: #006851;
+  --si-emerald-600: #21806A;
+  --si-emerald-500: #3D9A80;
+  --si-emerald-400: #6BB49F;
+  --si-emerald-300: #9ACCBD;
+  --si-emerald-200: #C0E2D8;
+  --si-emerald-100: #DBF9F1;
+  --si-emerald-050: #EEFCF7;
+
+  /* ---- Logo accent (Secretária Invisível mark) ---- */
+  --si-teal: #1BBFBA;
+  --si-teal-dark: #14918D;
+  --si-teal-soft: #E4F8F7;
+  --si-slate: #3D4A52;
+
+  /* ---- Neutrals ---- */
+  --si-gray-900: #292929;
+  --si-gray-700: #4B4E52;
+  --si-gray-600: #6F7276;
+  --si-gray-500: #8C9095;
+  --si-gray-400: #A9ADB3;
+  --si-gray-300: #D5D8DE;
+  --si-gray-200: #E8EAF0;
+  --si-gray-100: #F1F2F7;
+
+  /* ---- Data / status accents (dashboard metric chips) ---- */
+  --si-status-good: #2E9E6B;
+  --si-status-warn: #E9A23B;
+  --si-status-alert: #E0574F;
+  --si-status-info: #7C6CF0;
+  --si-status-activity: #F0793B;
+
+  --si-tint-alert: #FDEBEA;
+  --si-tint-warn: #FDF4E3;
+  --si-tint-info: #EEECFE;
+  --si-tint-good: var(--si-emerald-100);
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--si-ghost);
+  --surface-card: var(--si-white);
+  --surface-sunken: var(--si-gray-100);
+  --surface-mint: var(--si-mint);
+  --surface-mint-soft: var(--si-emerald-050);
+  --surface-ink: var(--si-emerald-700);
+  --surface-ink-deep: var(--si-emerald-900);
+  --surface-dark: var(--si-black);
+
+  --text-primary: var(--si-black);
+  --text-secondary: var(--si-gray-600);
+  --text-muted: var(--si-gray-500);
+  --text-brand: var(--si-emerald-700);
+  --text-on-ink: #EAF6F1;
+  --text-on-ink-muted: rgba(234, 246, 241, 0.72);
+
+  --border-subtle: var(--si-gray-200);
+  --border-strong: var(--si-gray-300);
+  --border-ink: rgba(0, 104, 81, 0.18);
+
+  --action-primary-bg: var(--si-emerald-700);
+  --action-primary-bg-hover: var(--si-emerald-800);
+  --action-primary-fg: var(--si-white);
+  --action-secondary-bg: var(--si-mint);
+  --action-secondary-fg: var(--si-emerald-700);
+  --action-dark-bg: var(--si-black);
+
+  --focus-ring: rgba(0, 104, 81, 0.28);
+
+  /* ---- Signature gradients ---- */
+  --gradient-emerald: linear-gradient(155deg, #00604A 0%, #3D9A80 58%, #7FC0AC 100%); /* @kind color */
+  --gradient-mint: linear-gradient(160deg, #EEFCF7 0%, #DBF9F1 52%, #C0E2D8 100%); /* @kind color */
+  --gradient-ink: linear-gradient(180deg, #0D2A22 0%, #062F25 100%); /* @kind color */
+  --gradient-chart: linear-gradient(180deg, rgba(0, 104, 81, 0.18) 0%, rgba(0, 104, 81, 0) 100%); /* @kind color */
+}

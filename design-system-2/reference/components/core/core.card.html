@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="700x380" name="Core" subtitle="Botões, badges, tags, cards, avatares e o rótulo de seção" -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Core</title><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:20px;background:var(--surface-page)}.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.col{display:flex;flex-direction:column;gap:12px}.grid{display:grid;gap:12px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, IconButton, Badge, Tag, Card, Avatar, SectionLabel, Logo } = window.SecretRiaInvisVelDesignSystem_fc77d1;
+ReactDOM.createRoot(document.getElementById('root')).render(<div className="col">
+  <div className="row">
+    <Button iconAfter="arrow-right">Agendar demonstração</Button>
+    <Button variant="secondary">Ver conversas</Button>
+    <Button variant="outline" icon="download">Relatório</Button>
+    <Button variant="dark">Começar</Button>
+    <Button variant="ghost">Cancelar</Button>
+    <Button disabled>Indisponível</Button>
+  </div>
+  <div className="row">
+    <Button size="sm">Pequeno</Button><Button size="md">Médio</Button><Button size="lg">Grande</Button>
+    <IconButton icon="bell" label="Notificações" /><IconButton icon="sliders-horizontal" variant="outline" label="Filtros" /><IconButton icon="plus" variant="filled" label="Novo" /><IconButton icon="calendar" label="Agenda" active />
+  </div>
+  <div className="row">
+    <Badge tone="good" dot>Confirmado</Badge><Badge tone="warn" dot>Aguardando</Badge><Badge tone="alert" dot>Cancelado</Badge>
+    <Badge tone="info" dot>Remarcado</Badge><Badge tone="brand" icon="sparkles">IA</Badge><Badge tone="ink">Novo</Badge><Badge>34 conversas</Badge>
+    <Tag selected>Hoje</Tag><Tag>Semana</Tag><Tag onRemove={()=>{}}>Dra. Helena</Tag>
+  </div>
+  <div className="grid" style={{gridTemplateColumns:'repeat(3,1fr)'}}>
+    <Card title="Card padrão" subtitle="branco + sombra">Superfície base do produto.</Card>
+    <Card tone="mint" title="Medical Mint">Superfície secundária.</Card>
+    <Card tone="ink" title="Emerald">Painel de destaque.</Card>
+  </div>
+  <div className="row" style={{gap:24}}>
+    <SectionLabel number="01">Como funciona</SectionLabel>
+    <Avatar name="Mariana Castro" /><Avatar name="Dra. Helena" tone="ink" /><Avatar name="Clínica Vida" tone="gray" size="lg" />
+    <Logo size={28} src="../../assets/logo-si-mark.png" />
+  </div>
+</div>);
+</script></body></html>

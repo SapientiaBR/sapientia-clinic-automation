@@ -1,0 +1,283 @@
+/**
+ * Design tokens — Sapient.IA Brand Guide v2.
+ *
+ * Fonte da verdade da identidade. Todo valor de cor usado no site sai daqui;
+ * nada de hex solto nos componentes.
+ *
+ * Cada cor aparece duas vezes: o triplete de canais (`--x-rgb: 8 13 26`) e o
+ * alias pronto (`--x: rgb(var(--x-rgb))`). O CSS escrito à mão usa o alias; o
+ * Tailwind usa o triplete, porque só assim o modificador de opacidade funciona.
+ *
+ * Isso não é preciosismo: com a cor declarada como `var(--x)` direto, o
+ * Tailwind 3 desiste de gerar a regra quando vê `/85`. As classes
+ * `bg-sapient-deep/85` da navbar e `bg-sapient-purple/20` do contato não
+ * existiam no CSS compilado — a navbar ficou meses sem fundo, deixando o
+ * conteúdo passar por baixo dela na rolagem.
+ *
+ * O tema claro no fim do arquivo redefine só os tripletes.
+ */
+
+:root {
+  /* === BACKGROUNDS === */
+  --bg-deep-rgb: 8 13 26;
+  --bg-deep: rgb(var(--bg-deep-rgb));
+  --bg-primary-rgb: 12 18 34;
+  --bg-primary: rgb(var(--bg-primary-rgb));
+  --bg-secondary-rgb: 17 24 39;
+  --bg-secondary: rgb(var(--bg-secondary-rgb));
+  --bg-surface-rgb: 22 32 50;
+  --bg-surface: rgb(var(--bg-surface-rgb));
+  --bg-card-rgb: 26 37 64;
+  --bg-card: rgb(var(--bg-card-rgb));
+  --bg-elevated-rgb: 31 46 74;
+  --bg-elevated: rgb(var(--bg-elevated-rgb));
+
+  /* === CORE BRAND GRADIENT === */
+  --purple-50-rgb: 240 234 255;
+  --purple-50: rgb(var(--purple-50-rgb));
+  --purple-100-rgb: 221 208 255;
+  --purple-100: rgb(var(--purple-100-rgb));
+  --purple-200-rgb: 196 173 255;
+  --purple-200: rgb(var(--purple-200-rgb));
+  --purple-300-rgb: 167 139 250;
+  --purple-300: rgb(var(--purple-300-rgb));
+  --purple-400-rgb: 139 92 246;
+  --purple-400: rgb(var(--purple-400-rgb));
+  --purple-500-rgb: 124 58 237;
+  --purple-500: rgb(var(--purple-500-rgb));
+  --purple-600-rgb: 109 40 217;
+  --purple-600: rgb(var(--purple-600-rgb));
+  --purple-700-rgb: 91 33 182;
+  --purple-700: rgb(var(--purple-700-rgb));
+  --purple-800-rgb: 76 29 149;
+  --purple-800: rgb(var(--purple-800-rgb));
+  --purple-900-rgb: 59 15 122;
+  --purple-900: rgb(var(--purple-900-rgb));
+
+  --cyan-50-rgb: 232 255 254;
+  --cyan-50: rgb(var(--cyan-50-rgb));
+  --cyan-100-rgb: 184 253 248;
+  --cyan-100: rgb(var(--cyan-100-rgb));
+  --cyan-200-rgb: 125 248 239;
+  --cyan-200: rgb(var(--cyan-200-rgb));
+  --cyan-300-rgb: 77 235 255;
+  --cyan-300: rgb(var(--cyan-300-rgb));
+  --cyan-400-rgb: 34 211 238;
+  --cyan-400: rgb(var(--cyan-400-rgb));
+  --cyan-500-rgb: 6 182 212;
+  --cyan-500: rgb(var(--cyan-500-rgb));
+  --cyan-600-rgb: 8 145 178;
+  --cyan-600: rgb(var(--cyan-600-rgb));
+  --cyan-700-rgb: 14 116 144;
+  --cyan-700: rgb(var(--cyan-700-rgb));
+  --cyan-800-rgb: 21 94 117;
+  --cyan-800: rgb(var(--cyan-800-rgb));
+  --cyan-900-rgb: 19 78 94;
+  --cyan-900: rgb(var(--cyan-900-rgb));
+
+  /* === ACCENTS (border-top dos cards; variedade é intencional) === */
+  --accent-coral-rgb: 248 113 113;
+  --accent-coral: rgb(var(--accent-coral-rgb));
+  --accent-rose-rgb: 251 113 133;
+  --accent-rose: rgb(var(--accent-rose-rgb));
+  --accent-pink-rgb: 244 114 182;
+  --accent-pink: rgb(var(--accent-pink-rgb));
+  --accent-amber-rgb: 251 191 36;
+  --accent-amber: rgb(var(--accent-amber-rgb));
+  --accent-lime-rgb: 163 230 53;
+  --accent-lime: rgb(var(--accent-lime-rgb));
+  --accent-emerald-rgb: 52 211 153;
+  --accent-emerald: rgb(var(--accent-emerald-rgb));
+  --accent-sky-rgb: 56 189 248;
+  --accent-sky: rgb(var(--accent-sky-rgb));
+  --accent-indigo-rgb: 129 140 248;
+  --accent-indigo: rgb(var(--accent-indigo-rgb));
+
+  /* === TEXT === */
+  --text-primary-rgb: 232 236 244;
+  --text-primary: rgb(var(--text-primary-rgb));
+  --text-secondary-rgb: 148 163 184;
+  --text-secondary: rgb(var(--text-secondary-rgb));
+  --text-muted-rgb: 100 116 139;
+  --text-muted: rgb(var(--text-muted-rgb));
+  --text-hint-rgb: 71 85 105;
+  --text-hint: rgb(var(--text-hint-rgb));
+
+  /* === SEMANTIC === */
+  --success-rgb: 16 185 129;
+  --success: rgb(var(--success-rgb));
+  --warning-rgb: 245 158 11;
+  --warning: rgb(var(--warning-rgb));
+  --danger-rgb: 239 68 68;
+  --danger: rgb(var(--danger-rgb));
+
+  /* === SUPERFÍCIES TRANSLÚCIDAS ===
+     Vidro, véu de card e o brilho de topo. Não dá para derivar do triplete de
+     texto: no escuro a superfície é luz sobre o fundo, no claro é papel branco
+     sobre um fundo levemente tingido. São intenções opostas, não a mesma cor
+     invertida. */
+  --surface-veil: rgba(255, 255, 255, 0.04);
+  --surface-veil-strong: rgba(255, 255, 255, 0.05);
+  --surface-line: rgba(255, 255, 255, 0.08);
+  --surface-sheen: rgba(255, 255, 255, 0.05);
+  --surface-shadow: rgba(0, 0, 0, 0.35);
+
+  /* === TONS DE CARD ===
+     Neutro, problema e solução. Valores iguais aos que estavam no componente. */
+  --tone-neutral-bg: hsl(0 0% 60% / 0.12);
+  --tone-neutral-line: hsl(0 0% 60% / 0.12);
+  --tone-danger-bg: rgba(127, 29, 29, 0.16);
+  --tone-danger-line: rgba(251, 113, 133, 0.28);
+  --tone-success-bg: rgba(6, 95, 70, 0.16);
+  --tone-success-line: rgba(52, 211, 153, 0.28);
+
+  /* === BORDERS === */
+  --border-subtle: rgba(148, 163, 184, 0.08);
+  --border-default: rgba(148, 163, 184, 0.12);
+  --border-hover: rgba(148, 163, 184, 0.2);
+  --border-glow-purple: rgba(139, 92, 246, 0.3);
+  --border-glow-cyan: rgba(34, 211, 238, 0.3);
+
+  /* === GRADIENTES ===
+     Regra do guide: gradiente só em CTA, texto de destaque, logo e bordas.
+     Nunca como fundo de seção inteira. */
+  --gradient-brand: linear-gradient(135deg, #7c3aed, #06b6d4);
+  --gradient-brand-hover: linear-gradient(135deg, #8b5cf6, #22d3ee);
+  --gradient-text: linear-gradient(135deg, #a78bfa, #4debff);
+  --gradient-subtle: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.12));
+  --gradient-card-purple: linear-gradient(180deg, rgba(124, 58, 237, 0.15) 0%, transparent 40%);
+  --gradient-card-cyan: linear-gradient(180deg, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+  --gradient-radial-hero: radial-gradient(
+    ellipse 60% 40% at 50% 0%,
+    rgba(124, 58, 237, 0.15),
+    rgba(6, 182, 212, 0.08) 50%,
+    transparent 80%
+  );
+
+  /* === TIPOGRAFIA ===
+     Uma família só no site inteiro, do título do hero ao rodapé. */
+  --font-display: 'Switzer', system-ui, sans-serif;
+  --font-body: 'Switzer', system-ui, sans-serif;
+  /* Rótulo: caixa alta com tracking largo. É estilo, não fonte monoespaçada —
+     todos os usos no site são eyebrow e legenda, nenhum é código ou tabela. */
+  --font-label: 'Switzer', system-ui, sans-serif;
+  /* Mono de verdade fica só para <code>/<pre>. Pilha do sistema: nada a baixar. */
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+
+  /* === MOVIMENTO ===
+     Duração e easing centralizados para o site inteiro ter o mesmo ritmo. */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 0.9s;
+  --duration-mask: 1.8s;
+}
+
+
+/**
+ * Tema claro.
+ *
+ * Aplicado por `data-theme="light"` no <html>. Redefine tripletes, nunca
+ * classes: o site inteiro continua escrito com os mesmos nomes de cor.
+ *
+ * Três decisões que não são óbvias:
+ *
+ * O fundo não é branco puro. #f7f9fd tem o mesmo azul frio da marca e
+ * cansa menos: branco puro ao lado de um roxo saturado vibra na borda.
+ *
+ * Roxo e ciano descem vários degraus. `--purple-300` (#a78bfa) sobre claro dá
+ * 2,3:1 de contraste, abaixo do mínimo de 4,5:1 — e ele é o rótulo de 18
+ * lugares no site. Os degraus são remapeados, não as classes.
+ *
+ * `--text-primary` some para quase preto, e com ele todo `text-ink-primary`,
+ * `border-ink-primary/10` e `bg-ink-primary/5`: os filetes e véus que eram
+ * branco a 10% viram grafite a 10%, que é o que separa superfícies no claro.
+ */
+[data-theme='light'] {
+  /* === BACKGROUNDS === */
+  --bg-deep-rgb: 247 249 253;
+  --bg-primary-rgb: 238 242 249;
+  --bg-secondary-rgb: 232 238 247;
+  --bg-surface-rgb: 255 255 255;
+  --bg-card-rgb: 255 255 255;
+  --bg-elevated-rgb: 255 255 255;
+
+  /* === TEXTO === */
+  --text-primary-rgb: 11 20 36;
+  --text-secondary-rgb: 70 83 107;
+  --text-muted-rgb: 100 116 139;
+  --text-hint-rgb: 148 163 184;
+
+  /* === MARCA ===
+     A escala inverte de sentido: no escuro os degraus baixos são os claros,
+     aqui são os escuros. Quem escreve `text-purple-300` continua pedindo
+     "roxo de rótulo" e recebe o tom que lê no fundo do momento. */
+  --purple-50-rgb: 59 15 122;
+  --purple-100-rgb: 76 29 149;
+  --purple-200-rgb: 91 33 182;
+  --purple-300-rgb: 109 40 217;
+  --purple-400-rgb: 124 58 237;
+  --purple-500-rgb: 124 58 237;
+  --purple-600-rgb: 109 40 217;
+
+  --cyan-50-rgb: 19 78 94;
+  --cyan-100-rgb: 21 94 117;
+  --cyan-200-rgb: 14 116 144;
+  --cyan-300-rgb: 14 116 144;
+  --cyan-400-rgb: 8 145 178;
+  --cyan-500-rgb: 8 145 178;
+  --cyan-600-rgb: 14 116 144;
+
+  /* === ACENTOS ===
+     Mesmas matizes dos cards, escurecidas o bastante para ler sobre claro. */
+  --accent-coral-rgb: 220 38 38;
+  --accent-rose-rgb: 225 29 72;
+  --accent-pink-rgb: 219 39 119;
+  --accent-amber-rgb: 180 83 9;
+  --accent-lime-rgb: 77 124 15;
+  --accent-emerald-rgb: 4 120 87;
+  --accent-sky-rgb: 2 132 199;
+  --accent-indigo-rgb: 67 56 202;
+
+  /* === BORDAS ===
+     Slate no escuro precisa clarear para aparecer; no claro precisa escurecer.
+     A opacidade sobe porque um cinza claro sobre branco some. */
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-default: rgba(15, 23, 42, 0.12);
+  --border-hover: rgba(15, 23, 42, 0.22);
+  --border-glow-purple: rgba(109, 40, 217, 0.3);
+  --border-glow-cyan: rgba(8, 145, 178, 0.35);
+
+  /* === SUPERFÍCIES TRANSLÚCIDAS ===
+     Aqui o vidro é papel: branco quase opaco sobre o fundo tingido. Repetir o
+     véu de 4% do escuro deixaria os cards invisíveis. */
+  --surface-veil: rgba(255, 255, 255, 0.72);
+  --surface-veil-strong: rgba(255, 255, 255, 0.86);
+  --surface-line: rgba(15, 23, 42, 0.1);
+  --surface-sheen: rgba(255, 255, 255, 0.9);
+  --surface-shadow: rgba(15, 23, 42, 0.1);
+
+  /* === TONS DE CARD ===
+     A cor do tom fica, a saturação cai. Sobre branco, 16% de vinho vira um rosa
+     que compete com o texto; 5% de um vermelho já claro só insinua a intenção.
+     A borda, ao contrário, sobe: um fio pálido sobre branco simplesmente some. */
+  --tone-neutral-bg: rgba(255, 255, 255, 0.72);
+  --tone-neutral-line: rgba(15, 23, 42, 0.1);
+  --tone-danger-bg: rgba(254, 226, 226, 0.55);
+  --tone-danger-line: rgba(225, 29, 72, 0.32);
+  --tone-success-bg: rgba(209, 250, 229, 0.5);
+  --tone-success-line: rgba(4, 120, 87, 0.3);
+
+  /* === GRADIENTES ===
+     O gradiente de marca fica: é fundo de botão, com texto branco por cima nos
+     dois temas. O de texto é que precisa descer — #a78bfa sobre #f7f9fd é
+     ilegível, e ele carrega a palavra em itálico de cada heading. */
+  --gradient-text: linear-gradient(135deg, #6d28d9, #0e7490);
+  --gradient-subtle: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.1));
+  --gradient-card-purple: linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, transparent 40%);
+  --gradient-card-cyan: linear-gradient(180deg, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+  --gradient-radial-hero: radial-gradient(
+    ellipse 60% 40% at 50% 0%,
+    rgba(124, 58, 237, 0.12),
+    rgba(6, 182, 212, 0.07) 50%,
+    transparent 80%
+  );
+}

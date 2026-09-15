@@ -1,0 +1,36 @@
+/**
+ * Fontes auto-hospedadas.
+ *
+ * Nenhuma requisição a terceiro no caminho da primeira pintura: os arquivos
+ * saem do próprio domínio.
+ *
+ * Licenças, mantidas junto dos arquivos em src/assets/fonts/:
+ * - Switzer — ITF Free Font License 2.0 (Indian Type Foundry / Fontshare).
+ *             Uso comercial liberado e self-hosting explicitamente permitido.
+ *             A licença trata subsetting e conversão de formato como obra
+ *             derivada, então os .woff2 entram exatamente como distribuídos.
+ */
+
+/**
+ * Switzer — a fonte do site.
+ *
+ * Duas variáveis cobrem a família inteira: 100 a 900 na reta e na itálica.
+ * A itálica é desenhada, não inclinada por software — o que importa aqui,
+ * porque a assinatura da marca é uma palavra em itálico com gradiente em cada
+ * heading, e um itálico sintético deforma o desenho da letra.
+ */
+@font-face {
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('../assets/fonts/Switzer-VariableItalic.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
