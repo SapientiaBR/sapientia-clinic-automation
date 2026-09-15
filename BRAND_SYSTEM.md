@@ -1,5 +1,14 @@
 # Sapient.IA — Brand System v2.0
 
+> **Nota (triagem do design system, ver [`DESIGN.md`](DESIGN.md)).** Este
+> documento descreve o sistema roxo/cyan guarda-chuva da Sapient.IA como
+> agência, não um contrato específico deste produto (Secretária Invisível).
+> A fonte da verdade para os tokens *deste* projeto agora é `DESIGN.md`, que
+> reproduz o histórico completo de identidades visuais que passaram por
+> aqui. Nada abaixo foi alterado.
+
+<!-- -->
+
 > Abril 2026 · [sapientiabr.cloud](https://sapientiabr.cloud)
 
 ---

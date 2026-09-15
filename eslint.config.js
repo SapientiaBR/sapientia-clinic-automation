@@ -23,4 +23,25 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "off",
     },
   },
+  {
+    // Design-system adherence — ported from design-system/lint/adherence.oxlintrc.json
+    // (the Claude Design export's own lint config). `warn`, not `error`: the
+    // ~189 pre-existing hex/px literals across src/components/landing are
+    // tracked debt, not a build-breaking requirement. See DESIGN.md.
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/components/ui/chart.tsx"],
+    rules: {
+      "no-restricted-syntax": [
+        "warn",
+        {
+          selector: "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+          message: "Cor hex solta — use um token do design system (var(--...) ou a classe Tailwind equivalente). Ver DESIGN.md.",
+        },
+        {
+          selector: "Literal[value=/\\b\\d+px\\b/]",
+          message: "Valor px solto — use um token de espaçamento/raio do design system. Ver DESIGN.md.",
+        },
+      ],
+    },
+  },
 );

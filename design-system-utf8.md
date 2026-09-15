@@ -1,4 +1,10 @@
-﻿## Design System: Sapient.IA Clinic
+﻿> **Nota (triagem do design system, ver [`DESIGN.md`](DESIGN.md)).** Brief
+> exploratório inicial (estilo Stitch/Google Labs) que não chegou a ser
+> implementado — nem a paleta "Medical Blue" nem Figtree/Noto Sans aparecem
+> no tema publicado. Conteúdo reproduzido em `DESIGN.md` § "Histórico de
+> identidade visual". Nada abaixo foi alterado.
+
+## Design System: Sapient.IA Clinic
 
 ### Pattern
 - **Name:** Social Proof-Focused
