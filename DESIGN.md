@@ -5,49 +5,47 @@ agentes e humanos antes de qualquer trabalho de UI.
 
 ## Dois design systems neste projeto
 
-São **duas marcas diferentes**, não duas propostas para a mesma marca. Cada
-pasta pertence a uma delas:
+São **duas marcas diferentes**, não duas propostas para a mesma. Cada pasta
+pertence a uma:
 
-| | [`design-system/`](design-system/README.md) | [`design-system-2/`](design-system-2/README.md) |
+| | [`design-system-2/`](design-system-2/README.md) | [`design-system/`](design-system/README.md) |
 | --- | --- | --- |
-| Dono | **Sapient.IA** — a agência | **Secretária Invisível** — o produto |
-| Cor | Roxo `#7c3aed` → ciano `#06b6d4` | Emerald Green `#006851` |
-| Origem | O site da agência, sapientiabr.cloud | Export do Claude Design |
-| Fundo | Escuro por padrão, claro alternável | Claro |
-| Componentes | Nenhum próprio (shadcn tokenizado) | 27 componentes próprios |
-| Ver em | sapientiabr.cloud | Rota `/design-system-showcase` |
+| Dono | **Secretária Invisível** — o produto | **Sapient.IA** — a agência |
+| Cor | Teal `#0FB5A3` | Roxo `#7c3aed` → ciano `#06b6d4` |
+| Origem | Estrutura "docshield" sobre a cor que o produto já tinha | O site da agência, sapientiabr.cloud |
+| Fundo | Claro | Escuro por padrão, claro alternável |
+| Estado | **É o tema do site** | Espelho da marca-mãe |
 
-O mapa prático de cada um está no `README.md` da respectiva pasta — este
-arquivo é o contrato que cobre os dois.
+O mapa prático de cada um está no `README.md` da respectiva pasta.
 
-**O roxo é da agência e não vai no produto.** A Sapient.IA é quem faz a
-Secretária Invisível, mas o produto tem identidade própria (o emerald).
-`design-system/` existe aqui para manter rodapé, assinatura e material
-co-branded coerentes com a marca-mãe — e para deixar explícito o que *não*
-deve vazar. Já houve uma branch (`feat/docshield-redesign`, commit `110322a`)
-que pintou o produto de roxo; não a tome como referência.
+**O roxo é da agência e não vai no produto.** A Sapient.IA faz a Secretária
+Invisível, mas o produto tem identidade própria. `design-system/` existe aqui
+para manter rodapé, assinatura e material co-branded coerentes — e para deixar
+explícito o que *não* deve vazar. Já houve uma branch
+(`feat/docshield-redesign`, commit `110322a`) que pintou o produto de roxo;
+não a tome como referência.
 
-### E o teal `#0FB5A3`?
+### A alternativa Emerald, avaliada e não adotada
 
-Foi a cor do produto até 15/09/2026, e por um tempo esta pasta `design-system-2/`
-documentava esse tema. Ele **não é mais** o sistema do produto — foi
-substituído pelo emerald. Continua preservado, sem se perder:
+[`design-system-emerald/`](design-system-emerald/README.md) guarda o export do
+Claude Design: Emerald `#006851`, 27 componentes próprios, tokens e
+guidelines, escopado em `.ds-root` e demonstrável em `/design-system-showcase`.
 
-- branch e tag **`backup/site-docshield-teal`**, commit `74587ea`
-- os tokens seguem em `src/design/tokens.css` enquanto o site não migrar
-- a estrutura que veio junto com ele (pílula dominante, Switzer, display em
-  peso 400 com tracking negativo, sombra no lugar de borda) **permanece** —
-  o que mudou foi só a cor
+Chegou a ser aplicado num site inteiro para comparação lado a lado — branch
+`feat/site-emerald`, que trocava cor, raio, peso de display, escala de corpo,
+duração e easing. **A decisão foi manter o teal.**
 
-Ele nunca chegou a ser publicado: os commits que o criaram (`07a853b`,
-`77952aa`, `74587ea`) estão em `feat/template-v2`, fora do `main`.
+A biblioteca continua útil: quase toda ela é vocabulário de painel
+(`AgendaDay`, `AppointmentCard`, `MetricCard`, `ScoreDonut`, `TrendChart`,
+`SidebarNav`, `TopBar`), não de landing. É material para o painel da
+Secretária Invisível, não para esta página.
 
 ## Regras (não negociáveis)
 
-1. **Componente novo sai de uma biblioteca, não é escrito solto.** Verifique
-   primeiro `design-system-2/components/` (os 27 do produto) e depois
-   `src/components/ui/` (shadcn/ui) — a maioria do que se precisa já existe e
-   só falta consumir com os tokens certos. Não duplique nos dois lugares.
+1. **Componente novo sai de uma biblioteca, não é escrito solto.** Para a
+   landing, verifique `src/components/ui/` (shadcn/ui) — a maioria do que se
+   precisa já existe e só falta consumir com os tokens certos. Para o futuro
+   painel, `design-system-emerald/components/` tem os 27 do export.
    `design-system/` é da agência: não tire componente de lá para o produto.
 2. **Nenhum valor de cor, fonte, espaçamento ou raio vai hardcoded no
    código.** Use os tokens (`var(--token)` ou a classe Tailwind equivalente).
@@ -57,7 +55,15 @@ Ele nunca chegou a ser publicado: os commits que o criaram (`07a853b`,
    antes de entrar no código.** Este arquivo — não um componente, não um
    comentário — é a fonte da verdade.
 
-## Proveniência
+## O export Emerald em detalhe
+
+As seções abaixo descrevem o **export do Claude Design**, hoje em
+[`design-system-emerald/`](design-system-emerald/README.md) — não o sistema
+do site. O sistema em uso (teal) está documentado em
+[`design-system-2/README.md`](design-system-2/README.md) e vive em
+`src/design/tokens.css`.
+
+### Proveniência
 
 Este design system veio de um export do Claude Design ("Claude Design
 export", pasta `design-system-export/`, já removida após a triagem) para o
@@ -70,9 +76,9 @@ só o sistema visual (cor, tipo, espaçamento, raio, sombra, composição) foi
 aproveitado. A marca em si (`assets/logo-si-mark.png`) é a da Secretária
 Invisível.
 
-## Tokens
+### Tokens
 
-Fonte: `design-system/tokens/*.css`. **Escopados em `.ds-root`, não em
+Fonte: `design-system-emerald/tokens/*.css`. **Escopados em `.ds-root`, não em
 `:root`** — ver "Por que escopado" abaixo antes de promover isso para o site
 inteiro.
 
@@ -86,7 +92,7 @@ inteiro.
 | Movimento | `tokens/motion.css` | Durações, easings, `--transition-control` |
 | Fonte | `tokens/fonts.css` | `@font-face` Switzer + `--font-sans` / `--font-display` / `--font-mono` |
 
-### Paleta (light)
+#### Paleta (light)
 
 | Nome | Hex | Papel |
 |---|---|---|
@@ -97,16 +103,16 @@ inteiro.
 
 Rampa completa, neutros e acentos de status: `tokens/colors.css`.
 
-### Tipografia
+#### Tipografia
 
 Fonte de exibição e corpo: **Switzer** (self-hosted, `ITF Free Font License
 2.0`, self-hosting explicitamente permitido — arquivos em
-`design-system/assets/fonts/`). O export original pedia "Neue Montreal"
+`design-system-emerald/assets/fonts/`). O export original pedia "Neue Montreal"
 (paga, sem binário fornecido) com Schibsted Grotesk como fallback livre;
 Switzer foi escolhida no lugar por já estar em uso nesta mesma família de
 produtos (`sapientiabr.cloud`) — ver `tokens/fonts.css`.
 
-### Tema escuro
+#### Tema escuro
 
 **Não existe no export original** (ele é light-only — ver o antigo
 `readme.md`). O bloco `.ds-root.dark` em `tokens/colors.css` e
@@ -114,7 +120,7 @@ produtos (`sapientiabr.cloud`) — ver `tokens/fonts.css`.
 clareado para contraste). Tratem como ponto de partida, não como decisão de
 marca validada.
 
-### Por que escopado em `.ds-root`, e não em `:root`
+#### Por que escopado em `.ds-root`, e não em `:root`
 
 Enquanto este design system era integrado (a partir do export do Claude
 Design), **outro processo construía `design-system-2/` na mesma branch, ao
@@ -131,11 +137,10 @@ que os consuma) em vez de em `:root` — zero conflito com `design-system-2`,
 que continuou podendo evoluir livremente em `:root`/global, e a biblioteca
 Emerald continua real, testável e completa por conta própria.
 
-**Isso é o estado atual, não a decisão final.** Qual dos dois sistemas — este
-(Emerald, `design-system/`) ou o outro (`design-system-2/`, o que está
-publicado hoje) — deveria virar o padrão definitivo do produto é uma decisão
-de marca que alguém precisa tomar depois de ver os dois lado a lado, não algo
-para resolver silenciosamente em um agente.
+**A decisão foi tomada:** os dois foram vistos lado a lado, em dois sites
+servidos em paralelo, e o teal ficou. O escopo em `.ds-root` continua sendo o
+certo para o Emerald — ele não é o tema do site, e promovê-lo a `:root`
+vazaria para a página inteira.
 
 ## Histórico de identidade visual
 
@@ -157,20 +162,27 @@ feita.
 3. **Tema live "premium healthtech"** (`src/index.css`, sem documento
    próprio até este arquivo) — teal `#0FB5A3`, DM Sans + Manrope via Google
    Fonts. É o que estava publicado antes desta tarefa.
-4. **`design-system/`** (Emerald Green `#006851`, Switzer) — este sistema,
-   vindo do export do Claude Design, específico da Secretária Invisível, com
-   biblioteca de 27 componentes. Integrado como sistema *disponível e
-   documentado* (rota `/design-system-showcase`, ver acima) sem substituir o
-   tema live.
-5. **`design-system-2/`** (commits `07a853b`/`77952aa`/`74587ea`, construído
-   em paralelo ao item 4) — estrutura da referência "docshield" (raio em
-   pílula, família única, display em peso regular com tracking apertado,
-   sombra em vez de borda) aplicada à cor que o site já tinha (`#0FB5A3`,
-   teal/verde), com Switzer self-hosted também. **É o tema publicado hoje.**
-   Não confundir com a tentativa em `feat/docshield-redesign` (commit
-   `110322a`), que aplicou a mesma estrutura docshield com o roxo da
-   Sapient.IA (item 1) em vez do verde do produto — essa branch não é este
-   sistema e o roxo da agência não deveria ter sido aplicado aqui.
+4. **Export Emerald Green `#006851`** (Switzer, 27 componentes, do Claude
+   Design) — chegou como `design-system/`, hoje em `design-system-emerald/`.
+   Integrado como sistema *disponível e documentado* (rota
+   `/design-system-showcase`) sem nunca ter substituído o tema live.
+5. **Estrutura "docshield" sobre o teal** (commits `07a853b`/`77952aa`/
+   `74587ea`, construído em paralelo ao item 4) — raio em pílula, família
+   tipográfica única, display em peso regular com tracking apertado, sombra
+   em vez de borda, aplicado à cor que o site já tinha (`#0FB5A3`), com
+   Switzer self-hosted. Documentado em `design-system-2/`. **É o tema
+   publicado.** Não confundir com a tentativa em `feat/docshield-redesign`
+   (commit `110322a`), que aplicou a mesma estrutura com o roxo da Sapient.IA
+   (item 1) em vez do verde do produto — o roxo da agência não deveria ter
+   sido aplicado aqui.
+6. **Comparação Emerald × teal e decisão** (15/09/2026) — o item 4 foi
+   aplicado ao site inteiro na branch `feat/site-emerald`, servida em
+   paralelo ao teal para julgamento lado a lado: cor, raio (10/14/16px), peso
+   de display (500), escala de corpo (17/15/13/11px), durações (140/220ms) e
+   `ChatBubble`/`ChatThread` nas conversas. **O teal ficou.** As pastas foram
+   então renomeadas para refletir quem é dono do quê: `design-system/` passou
+   a ser a Sapient.IA (agência), `design-system-2/` a Secretária Invisível
+   (teal, o produto) e o export virou `design-system-emerald/`.
 
 ### Conteúdo arquivado — brief Stitch "Medical Blue"
 
@@ -201,17 +213,19 @@ intactos na raiz.)
 
 ## Biblioteca de componentes
 
-27 componentes portados do export (o mesmo número que existiam nele — nenhum
-foi descartado). Ver o mapa completo, estados por componente e como adicionar
-um novo em [`design-system/README.md`](design-system/README.md).
-
-`design-system-2/` (o sistema publicado hoje) não tem biblioteca própria —
-reusa `src/components/ui/` (shadcn/ui) tokenizado. Mapa em
+O site **não tem biblioteca própria**: reusa `src/components/ui/` (shadcn/ui)
+tokenizado pelos valores de `src/design/tokens.css`. Mapa em
 [`design-system-2/README.md`](design-system-2/README.md).
+
+Os 27 componentes do export Emerald (o mesmo número que existiam nele —
+nenhum foi descartado) seguem em
+[`design-system-emerald/`](design-system-emerald/README.md), com mapa, estados
+por componente e instruções de como adicionar um novo. São vocabulário de
+painel, não de landing.
 
 ## Lint de aderência
 
-`design-system/lint/adherence.oxlintrc.json` é a config original do export
+`design-system-emerald/lint/adherence.oxlintrc.json` é a config original do export
 (oxlint), mantida como referência — descreve, por componente, exatamente
 quais props e valores de enum são válidos (ex.: `<Button variant>` só aceita
 `primary | secondary | outline | ghost | dark | inverse`). As regras
@@ -220,7 +234,8 @@ foram portadas para `eslint.config.js`, que é o linter real deste projeto.
 
 ## HTMLs de referência visual
 
-`design-system/reference/` — guidelines, slides, UI kits e demos de
+`design-system-emerald/reference/` — guidelines, slides, UI kits e demos de
 componente do export original, preservados para abrir no navegador. Não são
-componentes (os componentes reais estão em `design-system/components/`).
-Mapa completo em `design-system/README.md`.
+componentes (os componentes reais estão em
+`design-system-emerald/components/`). Mapa completo em
+`design-system-emerald/README.md`.

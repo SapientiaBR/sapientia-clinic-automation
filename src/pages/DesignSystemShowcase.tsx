@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "../../design-system-2/tokens/index.css";
+import "../../design-system-emerald/tokens/index.css";
 import {
   AgendaDay,
   AppointmentCard,
@@ -28,7 +28,7 @@ import {
   Tag,
   TopBar,
   TrendChart,
-} from "../../design-system-2";
+} from "../../design-system-emerald";
 
 const BUTTON_VARIANTS = ["primary", "secondary", "outline", "ghost", "dark", "inverse"] as const;
 const BADGE_TONES = ["neutral", "brand", "good", "warn", "alert", "info", "ink"] as const;
@@ -55,8 +55,8 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 }
 
 /**
- * Renders the whole design-system-2/ library: every component, its states and
- * variants, in both themes. See design-system-2/README.md for the library map.
+ * Renders the whole design-system-emerald/ library: every component, its states and
+ * variants, in both themes. See design-system-emerald/README.md for the library map.
  */
 export default function DesignSystemShowcase() {
   const [dark, setDark] = useState(false);
@@ -83,7 +83,7 @@ export default function DesignSystemShowcase() {
         </h1>
         <p className="mb-12 max-w-[var(--prose-max)] text-[var(--text-body-lg)] text-[var(--text-secondary)]">
           Secretária Invisível · biblioteca completa — componentes, variantes e estados, nos dois temas. Fonte:{" "}
-          <code className="text-[var(--text-sm)]">design-system-2/</code>. Contrato de tokens em{" "}
+          <code className="text-[var(--text-sm)]">design-system-emerald/</code>. Contrato de tokens em{" "}
           <code className="text-[var(--text-sm)]">DESIGN.md</code>.
         </p>
 

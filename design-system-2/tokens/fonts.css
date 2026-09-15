@@ -1,34 +1,32 @@
 /**
- * Design System — Secretária Invisível. Font stack.
+ * Fontes auto-hospedadas.
  *
- * The source export names "Neue Montreal" (paid, no binaries supplied) and
- * flags Schibsted Grotesk as the free fallback. This project already has a
- * self-hosted "Switzer" (ITF Free Font License 2.0, self-hosting explicitly
- * permitted) staged for the same reason — brand consistency with
- * sapientiabr.cloud — so it is used here instead of the export's fallback.
- * Binaries: ../assets/fonts/Switzer-Variable(.Italic).woff2
+ * Nenhuma requisição a terceiro no caminho da primeira pintura: os arquivos
+ * saem do próprio domínio. Antes o site puxava DM Sans e Manrope do Google
+ * Fonts, o que são duas conexões a mais antes do primeiro texto aparecer.
  *
- * Scoped to `.ds-root` — see colors.css for why.
+ * Licença:
+ * - Switzer — ITF Free Font License 2.0 (Indian Type Foundry / Fontshare).
+ *             Uso comercial liberado e self-hosting explicitamente permitido.
+ *             A licença trata subsetting e conversão de formato como obra
+ *             derivada, então os .woff2 entram exatamente como distribuídos.
+ *
+ * É a mesma família do sapientiabr.cloud, de propósito: a Secretária Invisível
+ * é um produto da Sapient.IA e precisa soar como parte da mesma casa.
  */
 
 @font-face {
-  font-family: "Switzer";
-  src: url("../assets/fonts/Switzer-Variable.woff2") format("woff2-variations");
+  font-family: 'Switzer';
+  src: url('./fonts/Switzer-Variable.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Switzer";
-  src: url("../assets/fonts/Switzer-VariableItalic.woff2") format("woff2-variations");
+  font-family: 'Switzer';
+  src: url('./fonts/Switzer-VariableItalic.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-}
-
-.ds-root {
-  --font-sans: "Switzer", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-sans);
-  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 }
