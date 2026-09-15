@@ -1,0 +1,15 @@
+*, *::before, *::after { box-sizing: border-box }
+html { -webkit-text-size-adjust: 100% }
+body { margin: 0; background: var(--surface-page); color: var(--text-primary); font: var(--type-body); letter-spacing: var(--tracking-body); -webkit-font-smoothing: antialiased; text-wrap: pretty }
+h1, h2, h3, h4, h5 { margin: 0; letter-spacing: var(--tracking-heading) }
+h1 { font: var(--type-h1) }
+h2 { font: var(--type-h2) }
+h3 { font: var(--type-h3) }
+h4 { font: var(--type-h4) }
+h5 { font: var(--type-h5) }
+p { margin: 0 }
+a { color: var(--text-brand); text-decoration: none; transition: var(--transition-control) }
+a:hover { color: var(--si-emerald-600); text-decoration: underline; text-underline-offset: 3px }
+button { font: inherit }
+:focus-visible { outline: 2px solid var(--si-emerald-700); outline-offset: 2px }
+img { max-width: 100% }

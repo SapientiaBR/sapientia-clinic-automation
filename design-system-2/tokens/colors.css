@@ -1,0 +1,144 @@
+/**
+ * Design System — Secretária Invisível (Sapient.IA)
+ * Cores. Fonte: design-system-export/readme.md + tokens/colors.css
+ * (18-board brand identity: Emerald Green, Medical Mint, Moody Black, Ghost White).
+ *
+ * Escopado em `.ds-root` em vez de `:root` de propósito: o app já tem uma
+ * paleta própria em src/index.css (e, no momento em que isto foi escrito, um
+ * segundo processo mexendo nela ao vivo). Colocar aqui em `:root` vazaria
+ * para o site inteiro sem ninguém decidir isso. `.ds-root` é o que a rota
+ * /design-system e os componentes novos usam — ver design-system/README.md.
+ */
+
+.ds-root {
+  /* ---- Core palette ---- */
+  --si-emerald: #006851;
+  --si-mint: #DBF9F1;
+  --si-black: #292929;
+  --si-ghost: #F8F9FE;
+  --si-white: #FFFFFF;
+
+  /* ---- Emerald ramp ---- */
+  --si-emerald-900: #003D2F;
+  --si-emerald-800: #00543F;
+  --si-emerald-700: #006851;
+  --si-emerald-600: #21806A;
+  --si-emerald-500: #3D9A80;
+  --si-emerald-400: #6BB49F;
+  --si-emerald-300: #9ACCBD;
+  --si-emerald-200: #C0E2D8;
+  --si-emerald-100: #DBF9F1;
+  --si-emerald-050: #EEFCF7;
+
+  /* ---- Logo accent ---- */
+  --si-teal: #1BBFBA;
+  --si-teal-dark: #14918D;
+  --si-teal-soft: #E4F8F7;
+  --si-slate: #3D4A52;
+
+  /* ---- Neutrals ---- */
+  --si-gray-900: #292929;
+  --si-gray-700: #4B4E52;
+  --si-gray-600: #6F7276;
+  --si-gray-500: #8C9095;
+  --si-gray-400: #A9ADB3;
+  --si-gray-300: #D5D8DE;
+  --si-gray-200: #E8EAF0;
+  --si-gray-100: #F1F2F7;
+
+  /* ---- Status accents ---- */
+  --si-status-good: #2E9E6B;
+  --si-status-warn: #E9A23B;
+  --si-status-alert: #E0574F;
+  --si-status-info: #7C6CF0;
+  --si-status-activity: #F0793B;
+
+  --si-tint-alert: #FDEBEA;
+  --si-tint-warn: #FDF4E3;
+  --si-tint-info: #EEECFE;
+  --si-tint-good: var(--si-emerald-100);
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--si-ghost);
+  --surface-card: var(--si-white);
+  --surface-sunken: var(--si-gray-100);
+  --surface-mint: var(--si-mint);
+  --surface-mint-soft: var(--si-emerald-050);
+  --surface-ink: var(--si-emerald-700);
+  --surface-ink-deep: var(--si-emerald-900);
+  --surface-dark: var(--si-black);
+
+  --text-primary: var(--si-black);
+  --text-secondary: var(--si-gray-600);
+  --text-muted: var(--si-gray-500);
+  --text-brand: var(--si-emerald-700);
+  --text-on-ink: #EAF6F1;
+  --text-on-ink-muted: rgba(234, 246, 241, 0.72);
+
+  --border-subtle: var(--si-gray-200);
+  --border-strong: var(--si-gray-300);
+  --border-ink: rgba(0, 104, 81, 0.18);
+
+  --action-primary-bg: var(--si-emerald-700);
+  --action-primary-bg-hover: var(--si-emerald-800);
+  --action-primary-fg: var(--si-white);
+  --action-secondary-bg: var(--si-mint);
+  --action-secondary-fg: var(--si-emerald-700);
+  --action-dark-bg: var(--si-black);
+
+  --focus-ring: rgba(0, 104, 81, 0.28);
+
+  /* ---- Signature gradients ---- */
+  --gradient-emerald: linear-gradient(155deg, #00604A 0%, #3D9A80 58%, #7FC0AC 100%);
+  --gradient-mint: linear-gradient(160deg, #EEFCF7 0%, #DBF9F1 52%, #C0E2D8 100%);
+  --gradient-ink: linear-gradient(180deg, #0D2A22 0%, #062F25 100%);
+  --gradient-chart: linear-gradient(180deg, rgba(0, 104, 81, 0.18) 0%, rgba(0, 104, 81, 0) 100%);
+}
+
+/**
+ * Dark theme — NOT present in the source export (it ships light-only; see
+ * readme.md). Derived here so the showcase route can render "both themes" as
+ * requested. Same hue family, brightened for contrast on dark grounds.
+ * Flagged as an authored addition in DESIGN.md — treat as a starting point,
+ * not a verified brand decision.
+ */
+.ds-root.dark {
+  --surface-page: #10201B;
+  --surface-card: #16261F;
+  --surface-sunken: #1C2E27;
+  --surface-mint: #1E3A31;
+  --surface-mint-soft: #17281F;
+  --surface-ink: #0FBE95;
+  --surface-ink-deep: #003D2F;
+  --surface-dark: #05100C;
+
+  --text-primary: #EAF6F1;
+  --text-secondary: #9FC9BB;
+  --text-muted: #6C8C81;
+  --text-brand: #4FD6AE;
+  --text-on-ink: #EAF6F1;
+  --text-on-ink-muted: rgba(234, 246, 241, 0.72);
+
+  --border-subtle: rgba(234, 246, 241, 0.1);
+  --border-strong: rgba(234, 246, 241, 0.18);
+  --border-ink: rgba(79, 214, 174, 0.28);
+
+  --action-primary-bg: #16A883;
+  --action-primary-bg-hover: #1CC49B;
+  --action-primary-fg: #06140F;
+  --action-secondary-bg: #1E3A31;
+  --action-secondary-fg: #4FD6AE;
+  --action-dark-bg: #05100C;
+
+  --focus-ring: rgba(79, 214, 174, 0.35);
+
+  --gradient-emerald: linear-gradient(155deg, #003D2F 0%, #16A883 58%, #4FD6AE 100%);
+  --gradient-mint: linear-gradient(160deg, #17281F 0%, #1E3A31 52%, #16261F 100%);
+  --gradient-ink: linear-gradient(180deg, #05100C 0%, #000000 100%);
+  --gradient-chart: linear-gradient(180deg, rgba(79, 214, 174, 0.22) 0%, rgba(79, 214, 174, 0) 100%);
+
+  --si-tint-good: rgba(46, 158, 107, 0.18);
+  --si-tint-warn: rgba(233, 162, 59, 0.16);
+  --si-tint-alert: rgba(224, 87, 79, 0.16);
+  --si-tint-info: rgba(124, 108, 240, 0.18);
+}

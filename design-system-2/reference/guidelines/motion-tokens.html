@@ -1,0 +1,15 @@
+<!-- @dsCard group="Motion" viewport="700x180" name="Movimento" subtitle="140ms em controles, 220ms em superfícies, easing padrão" -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{padding:22px;background:var(--surface-page);font:var(--type-body)}.r{display:flex;gap:10px;align-items:center}.c{display:flex;flex-direction:column}</style>
+</head><body><div class="c" style="gap:16px">
+<div class="r" style="gap:12px">
+<span style="font:var(--type-label);width:150px">hover (140ms)</span>
+<span class="btn" style="display:inline-flex;padding:11px 18px;border-radius:var(--radius-md);background:var(--si-emerald-700);color:#fff;font:var(--type-label);transition:var(--transition-control)">Agendar</span>
+<span class="btn" style="display:inline-flex;padding:11px 18px;border-radius:var(--radius-md);background:var(--si-emerald-800);color:#fff;font:var(--type-label)">Agendar · hover</span>
+<span class="btn" style="display:inline-flex;padding:11px 18px;border-radius:var(--radius-md);background:var(--si-emerald-800);color:#fff;font:var(--type-label);transform:scale(.985)">Agendar · press</span>
+</div>
+<div class="r" style="gap:26px;font:var(--type-caption);color:var(--text-secondary)">
+<span>--duration-fast 140ms</span><span>--duration-base 220ms</span><span>--duration-slow 380ms</span><span>--ease-standard cubic-bezier(.2,0,.2,1)</span>
+</div>
+<p style="font:var(--type-label);color:var(--text-secondary);max-width:560px">Sem bounce, sem elevação no hover: cor e escala mínima. Entradas de conteúdo usam fade + 8px de subida em 220ms.</p>
+</div></body></html>

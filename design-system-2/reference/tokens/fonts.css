@@ -1,0 +1,11 @@
+/* Brand type is Neue Montreal (Pangram Pangram, licensed).
+   No font binaries were supplied. Upload PPNeueMontreal-Regular/Medium/Bold.woff2
+   to assets/fonts/ and declare the @font-face rules here — the token below already
+   points at the family, so the whole system picks it up with no other change.
+   Until then the generic neo-grotesque system stack renders. */
+
+:root {
+  --font-sans: "Neue Montreal", "PP Neue Montreal", system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+}

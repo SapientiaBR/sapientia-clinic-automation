@@ -1,0 +1,21 @@
+/**
+ * Design System — Secretária Invisível. Durations, easings, control transition.
+ * Scoped to `.ds-root` — see colors.css for why.
+ */
+
+.ds-root {
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.5, 0, 0.3, 1);
+
+  --duration-instant: 90ms;
+  --duration-fast: 140ms;
+  --duration-base: 220ms;
+  --duration-slow: 380ms;
+  --duration-ambient: 900ms;
+
+  --transition-control: color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}

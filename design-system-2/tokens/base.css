@@ -1,0 +1,32 @@
+/**
+ * Design System — Secretária Invisível. Element-level defaults for the
+ * `.ds-root` subtree (the showcase route and anything else opted into the
+ * system). Not global resets — Tailwind's own preflight already owns the
+ * rest of the app.
+ */
+
+.ds-root {
+  font: var(--type-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ds-root h1,
+.ds-root h2,
+.ds-root h3,
+.ds-root h4,
+.ds-root h5 {
+  margin: 0;
+  letter-spacing: var(--tracking-heading);
+}
+.ds-root h1 { font: var(--type-h1); }
+.ds-root h2 { font: var(--type-h2); }
+.ds-root h3 { font: var(--type-h3); }
+.ds-root h4 { font: var(--type-h4); }
+.ds-root h5 { font: var(--type-h5); }
+.ds-root p { margin: 0; }
+.ds-root a { color: var(--text-brand); text-decoration: none; transition: var(--transition-control); }
+.ds-root a:hover { color: var(--si-emerald-600); text-decoration: underline; text-underline-offset: 3px; }
+.ds-root :focus-visible { outline: 2px solid var(--si-emerald-700); outline-offset: 2px; }

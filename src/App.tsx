@@ -7,6 +7,7 @@ const ScrollProgress = lazy(() => import("./components/global/ScrollProgress"));
 const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp"));
 
 const Medico = lazy(() => import("./pages/Medico.tsx"));
+const DesignSystemShowcase = lazy(() => import("./pages/DesignSystemShowcase.tsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const DeferredUI = lazy(() => import("./components/DeferredUI.tsx"));
@@ -36,6 +37,14 @@ const App = () => (
           element={
             <Suspense fallback={null}>
               <ThankYou />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/design-system-showcase"
+          element={
+            <Suspense fallback={null}>
+              <DesignSystemShowcase />
             </Suspense>
           }
         />

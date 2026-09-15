@@ -1,0 +1,13 @@
+:root {
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;   /* nav pills, buttons, chips */
+  --radius-lg: 14px;
+  --radius-xl: 16px;   /* standard card */
+  --radius-2xl: 22px;  /* feature card, device canvas */
+  --radius-3xl: 32px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  --border-hairline: 1px;
+}

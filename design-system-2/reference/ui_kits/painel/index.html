@@ -1,0 +1,45 @@
+<!-- @dsCard group="Painel do cliente" viewport="1440x900" name="Painel do cliente" subtitle="Visão geral, conversas, agenda e relatórios — clicável" -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>Painel · Secretária Invisível</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="PanelShell.jsx"></script>
+<script type="text/babel" src="OverviewScreen.jsx"></script>
+<script type="text/babel" src="InboxScreen.jsx"></script>
+<script type="text/babel" src="AgendaScreen.jsx"></script>
+<script type="text/babel" src="ReportsScreen.jsx"></script>
+</head><body><div id="root"></div>
+<script type="text/babel" data-presets="react">
+const HEAD = {
+  visao: ['Bom dia, Clínica Vida', 'Sua secretária atendeu 34 conversas nas últimas 24 horas.'],
+  conversas: ['Conversas', '8 aguardando resposta · 2 assumidas pela equipe'],
+  agenda: ['Agenda', 'Semana de 22 a 26 de junho · 38 consultas confirmadas'],
+  pacientes: ['Pacientes', 'Em breve neste kit'],
+  automacoes: ['Automações', 'Em breve neste kit'],
+  relatorios: ['Relatórios', 'Junho de 2026 · comparado a maio'],
+  ajustes: ['Ajustes', 'Em breve neste kit'],
+};
+
+function Placeholder({ label }) {
+  const { Card } = window.SecretRiaInvisVelDesignSystem_fc77d1;
+  return <Card title={label} subtitle="Tela não presente nas referências fornecidas">
+    <p style={{ font: 'var(--type-body)', color: 'var(--text-secondary)', maxWidth: '62ch' }}>
+      Deixada em branco de propósito: o material de referência não define esta tela. Construa-a a partir dos componentes do sistema antes de apresentá-la a um cliente.
+    </p>
+  </Card>;
+}
+
+function App() {
+  const [view, setView] = React.useState('visao');
+  const [title, subtitle] = HEAD[view];
+  const body = view === 'visao' ? <OverviewScreen />
+    : view === 'conversas' ? <InboxScreen />
+    : view === 'agenda' ? <AgendaScreen />
+    : view === 'relatorios' ? <ReportsScreen />
+    : <Placeholder label={title} />;
+  return <PanelShell view={view} onView={setView} title={title} subtitle={subtitle}>{body}</PanelShell>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script></body></html>
