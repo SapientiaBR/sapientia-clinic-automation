@@ -47,7 +47,7 @@ const MobileCtaBar = () => {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 px-4 py-3 transition-[opacity,transform] duration-300 md:hidden ${
+      className={`fixed bottom-0 left-0 right-0 z-40 px-4 py-3 transition-[opacity,transform] duration-base md:hidden ${
         visivel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
       }`}
       style={{

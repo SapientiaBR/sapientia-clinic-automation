@@ -52,7 +52,9 @@
      da o ar arejado dele. Em 800 sobre fundo claro a pagina fecha. */
   .headline-hero {
     font-family: var(--font-display);
-    font-weight: 400;
+    /* O sistema pede medium (500), nao regular. Com o tracking de -0,03em o
+       titulo fica mais firme do que no tema anterior, que era 400/-0,04em. */
+    font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-display);
     line-height: 1.04;
   }

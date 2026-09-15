@@ -94,7 +94,7 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
               {lista.map((c, i) => (
                 <span
                   key={c.chave}
-                  className="h-2 rounded-full transition-all duration-300"
+                  className="h-2 rounded-full transition-all duration-base"
                   style={{
                     width: i === ativo ? 22 : 8,
                     background: i === ativo ? "#006851" : "#DBF9F1",

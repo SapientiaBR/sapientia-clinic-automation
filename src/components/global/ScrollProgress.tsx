@@ -28,7 +28,7 @@ const ScrollProgress = () => {
         className="h-full origin-left"
         style={{
           transform: `scaleX(${pct / 100})`,
-          transition: "transform 120ms cubic-bezier(0.22, 1, 0.36, 1)",
+          transition: "transform var(--duration-fast) var(--ease-out)",
           background:
             "linear-gradient(90deg, #006851 0%, #006851 55%, #292929 100%)",
         }}

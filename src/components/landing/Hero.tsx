@@ -177,7 +177,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
           >
             <a
               href={CTA_HREF}
-              className="group inline-flex w-full items-center justify-center gap-2.5 px-7 py-4 font-display text-[16px] font-bold transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2.5 px-7 py-4 font-display text-[16px] font-bold transition-transform duration-base hover:-translate-y-0.5 sm:w-auto"
               style={{
                 background: "var(--bg-page)",
                 color: "var(--ink-strong)",
@@ -195,7 +195,7 @@ const Hero = ({ variante = "clinica" }: Props) => {
 
             <a
               href="#como-funciona"
-              className="inline-flex w-full items-center justify-center px-7 py-4 font-display text-[16px] font-semibold transition-colors duration-300 sm:w-auto"
+              className="inline-flex w-full items-center justify-center px-7 py-4 font-display text-[16px] font-semibold transition-colors duration-base sm:w-auto"
               style={{
                 background: "rgb(255 255 255 / 0.14)",
                 color: "var(--ink-on-brand)",

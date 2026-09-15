@@ -27,17 +27,17 @@ export default {
         background: "var(--bg-deep)",
         foreground: "var(--text-primary)",
         teal: {
-          DEFAULT: "#0FB5A3",
-          dark: "#0A8C7E",
-          light: "#D6F3EE",
+          DEFAULT: "#006851",
+          dark: "#00543F",
+          light: "#DBF9F1",
         },
         ink: {
-          DEFAULT: "#1F2937",
-          muted: "#4B5563",
-          line: "#E5E7EB",
+          DEFAULT: "#292929",
+          muted: "#4B4E52",
+          line: "#E8EAF0",
         },
         primary: {
-          DEFAULT: "#0FB5A3",
+          DEFAULT: "#006851",
           foreground: "#ffffff",
         },
         secondary: {
@@ -61,7 +61,7 @@ export default {
           foreground: "var(--text-muted)",
         },
         accent: {
-          DEFAULT: "#0FB5A3",
+          DEFAULT: "#006851",
           foreground: "#ffffff",
         },
         popover: {
@@ -75,22 +75,35 @@ export default {
         sidebar: {
           DEFAULT: "var(--bg-secondary)",
           foreground: "var(--text-primary)",
-          primary: "#0FB5A3",
+          primary: "#006851",
           "primary-foreground": "#FFFFFF",
           accent: "var(--bg-elevated)",
           "accent-foreground": "var(--text-primary)",
           border: "var(--border-default)",
-          ring: "#0FB5A3",
+          ring: "#006851",
         },
       },
       borderRadius: {
-        pill: "100px",
-        "2xl": "20px",
-        xl: "16px",
-        lg: "12px",
-        md: "8px",
-        sm: "6px",
-        xs: "4px",
+        pill: "var(--radius-pill)",
+        "3xl": "var(--radius-3xl)",
+        "2xl": "var(--radius-2xl)",
+        xl: "var(--radius-xl)",
+        lg: "var(--radius-lg)",
+        md: "var(--radius-md)",
+        sm: "var(--radius-sm)",
+        xs: "var(--radius-xs)",
+      },
+      transitionDuration: {
+        instant: "var(--duration-instant)",
+        fast: "var(--duration-fast)",
+        base: "var(--duration-base)",
+        slow: "var(--duration-slow)",
+        ambient: "var(--duration-ambient)",
+      },
+      transitionTimingFunction: {
+        standard: "var(--ease-standard)",
+        out: "var(--ease-out)",
+        "in-out": "var(--ease-in-out)",
       },
       keyframes: {
         "accordion-down": {

@@ -204,7 +204,7 @@ const Card = ({ p }: { p: Plano }) => (
       <a
         href="#demo"
         className={
-          "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-300 " +
+          "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-base " +
           (p.destaque
             ? "gradient-brand text-white shadow-[0_14px_30px_rgba(0, 104, 81,0.32)] hover:-translate-y-0.5"
             : "border border-[#006851] bg-white text-[#003D2F] hover:bg-[#EEFCF7]")

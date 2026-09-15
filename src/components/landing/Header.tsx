@@ -53,7 +53,7 @@ const Header = () => {
       style={{ top: "var(--altura-faixa, 36px)" }}
     >
       <div
-        className="mx-auto flex max-w-5xl items-center justify-between gap-4 py-2 pl-4 pr-2 transition-shadow duration-300 md:backdrop-blur-xl"
+        className="mx-auto flex max-w-5xl items-center justify-between gap-4 py-2 pl-4 pr-2 transition-shadow duration-base md:backdrop-blur-xl"
         style={{
           background: "rgb(255 255 255 / 0.92)",
           borderRadius: "var(--radius-pill)",
@@ -67,7 +67,7 @@ const Header = () => {
             alt="Secretária Invisível"
             width={1264}
             height={843}
-            className="h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02] md:h-14"
+            className="h-11 w-auto transition-transform duration-base group-hover:scale-[1.02] md:h-14"
           />
         </a>
 
@@ -88,7 +88,7 @@ const Header = () => {
 
         <a
           href="#demo"
-          className="flex-none px-4 py-2.5 font-display text-[14px] font-semibold transition-transform duration-300 hover:-translate-y-0.5 md:px-5 md:text-[15px]"
+          className="flex-none px-4 py-2.5 font-display text-[14px] font-semibold transition-transform duration-base hover:-translate-y-0.5 md:px-5 md:text-[15px]"
           style={{
             background: "var(--gradient-brand)",
             color: "var(--ink-on-brand)",

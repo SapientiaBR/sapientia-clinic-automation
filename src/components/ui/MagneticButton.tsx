@@ -11,7 +11,7 @@ type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 const base =
-  "group inline-flex items-center font-sans font-semibold text-[13px] tracking-[0.01em] uppercase transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006851]/50";
+  "group inline-flex items-center font-sans font-semibold text-[13px] tracking-[0.01em] uppercase transition-all duration-base cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006851]/50";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -47,7 +47,7 @@ export const MagneticAnchor = forwardRef<HTMLAnchorElement, Props>(
       >
         <span className={isPrimary ? "py-2" : ""}>{children}</span>
         {isPrimary && !noArrow && (
-          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(41, 41, 41,0.10)] transition-transform duration-300 group-hover:rotate-12">
+          <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-[0_4px_10px_rgba(41, 41, 41,0.10)] transition-transform duration-base group-hover:rotate-12">
             <ArrowRight size={16} className="text-[#003D2F]" />
           </span>
         )}

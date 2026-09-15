@@ -46,7 +46,7 @@ const VideoDemo = () => {
                   src="/video-poster.png"
                   alt="Demonstração ao vivo da Secretária Invisível"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-slow group-hover:scale-105"
                 />
 
                 {/* VSL dark overlay mask */}
@@ -54,7 +54,7 @@ const VideoDemo = () => {
 
                 {/* Play Button and Actions */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10 px-4">
-                  <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-[#006851] to-[#00543F] shadow-[0_0_30px_rgba(0, 104, 81,0.5)] transition-transform duration-300 group-hover:scale-110 active:scale-95 touch-manipulation">
+                  <div className="relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-tr from-[#006851] to-[#00543F] shadow-[0_0_30px_rgba(0, 104, 81,0.5)] transition-transform duration-base group-hover:scale-110 active:scale-95 touch-manipulation">
                     {/* Pulsing ripple effect */}
                     <span className="absolute inset-0 rounded-full bg-[#006851]/40 animate-ping" />
 

@@ -78,7 +78,7 @@ const Turma = ({ unidade = "clínica" }: Props) => {
                   className="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-[#DBF9F1]"
                 >
                   <div
-                    className="h-full rounded-full gradient-brand transition-[width] duration-700"
+                    className="h-full rounded-full gradient-brand transition-[width] duration-slow"
                     style={{ width: `${progresso}%` }}
                   />
                 </div>
