@@ -2,8 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
 import { gsap, EASE, revealOnScroll } from "@/lib/animations";
+import { precoFormatado } from "@/config/planos";
 
-type Entrada = [string, string];
+/** Link opcional exibido depois da resposta. Não entra no JSON-LD. */
+type LinkFAQ = { href: string; texto: string };
+
+type Entrada = [string, string, LinkFAQ?];
 
 /**
  * As perguntas de cada rota.
@@ -24,6 +28,11 @@ export const faqClinica: Entrada[] = [
   [
     "Ela dá orientação médica?",
     "Não. Questões clínicas vão para a equipe, com toda a conversa.",
+  ],
+  [
+    "Quanto custa?",
+    `O que define o plano é o tamanho da operação: número de profissionais, volume de mensagens e integrações necessárias. Consultório ${precoFormatado("Consultório")}, Clínica ${precoFormatado("Clínica")} e Operação ${precoFormatado("Operação")} por mês. Na turma do mês, a implantação fica por nossa conta.`,
+    { href: "/calculadora", texto: "Faça a conta com os números da sua clínica." },
   ],
   [
     "E se não fizer sentido?",
@@ -73,11 +82,12 @@ const FAQ = ({ variante = "clinica" }: { variante?: "clinica" | "medico" }) => {
         </div>
 
         <ul className="space-y-3" data-reveal>
-          {entries.map(([q, a], i) => (
+          {entries.map(([q, a, link], i) => (
             <FAQItem
               key={i}
               q={q}
               a={a}
+              link={link}
               isOpen={open === i}
               onToggle={() => setOpen(open === i ? null : i)}
             />
@@ -89,8 +99,8 @@ const FAQ = ({ variante = "clinica" }: { variante?: "clinica" | "medico" }) => {
 };
 
 const FAQItem = ({
-  q, a, isOpen, onToggle,
-}: { q: string; a: string; isOpen: boolean; onToggle: () => void }) => {
+  q, a, link, isOpen, onToggle,
+}: { q: string; a: string; link?: LinkFAQ; isOpen: boolean; onToggle: () => void }) => {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -131,6 +141,17 @@ const FAQItem = ({
       <div ref={panelRef} className="overflow-hidden" style={{ height: 0, opacity: 0 }}>
         <p className="font-sans text-[17px] text-[#4B5563] leading-[1.7] px-5 sm:px-6 pb-6">
           {a}
+          {link && (
+            <>
+              {" "}
+              <a
+                href={link.href}
+                className="font-semibold text-[var(--brand-800)] underline underline-offset-4"
+              >
+                {link.texto}
+              </a>
+            </>
+          )}
         </p>
       </div>
     </li>

@@ -64,7 +64,7 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
             Veja como seus pacientes seriam atendidos.
           </h2>
           <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B5563] md:text-[19px]">
-            Conversas reais. Do primeiro “oi” até o próximo passo.
+            Recriação de atendimento, com nomes trocados. Do primeiro “oi” até o próximo passo.
           </p>
         </div>
 

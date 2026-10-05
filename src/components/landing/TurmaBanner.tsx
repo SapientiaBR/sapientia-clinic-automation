@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { turmaAtual } from "@/config/turma";
+import { useAncora } from "@/lib/ancora";
 
 /**
  * Faixa fina no topo, acima do header.
@@ -15,6 +16,7 @@ import { turmaAtual } from "@/config/turma";
  */
 const TurmaBanner = () => {
   const t = turmaAtual();
+  const ancora = useAncora();
   const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const TurmaBanner = () => {
   return (
     <a
       ref={ref}
-      href="#demo"
+      href={ancora("demo")}
       className="fixed inset-x-0 top-0 z-[60] block px-4 py-2 text-center transition-colors"
       style={{ background: "var(--brand-800)" }}
       onMouseEnter={(e) => (e.currentTarget.style.background = "var(--brand-700)")}

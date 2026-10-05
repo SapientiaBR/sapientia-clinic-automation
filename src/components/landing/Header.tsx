@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import logoSI from "@/assets/logo-si-v2.png.asset.json";
 import { useLenis } from "@/components/global/LenisProvider";
+import { useAncora } from "@/lib/ancora";
 
+/** `id` é o da seção na landing. O href sai de `useAncora`, que resolve a rota. */
 const navItems = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Segurança", href: "#seguranca" },
-  { label: "Planos", href: "#planos" },
-  { label: "Perguntas", href: "#faq" },
+  { label: "Como funciona", id: "como-funciona" },
+  { label: "Segurança", id: "seguranca" },
+  { label: "Planos", id: "planos" },
+  { label: "Perguntas", id: "faq" },
 ];
 
 /**
@@ -27,6 +29,7 @@ const navItems = [
  */
 const Header = () => {
   const lenis = useLenis();
+  const ancora = useAncora();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -74,8 +77,8 @@ const Header = () => {
         <nav className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={item.id}
+              href={ancora(item.id)}
               className="font-sans text-[15px] transition-colors"
               style={{ color: "var(--ink-body)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--brand-800)")}
@@ -87,7 +90,7 @@ const Header = () => {
         </nav>
 
         <a
-          href="#demo"
+          href={ancora("demo")}
           className="flex-none px-4 py-2.5 font-display text-[14px] font-semibold transition-transform duration-300 hover:-translate-y-0.5 md:px-5 md:text-[15px]"
           style={{
             background: "var(--gradient-brand)",

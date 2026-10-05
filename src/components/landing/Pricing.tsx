@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { Check, ArrowRight } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
 import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { precoFormatado } from "@/config/planos";
 
 type Plano = {
   chave: string;
@@ -27,7 +28,7 @@ const planos: Plano[] = [
   {
     chave: "clinica",
     nome: "Clínica",
-    preco: "R$897",
+    preco: precoFormatado("Clínica"),
     perfil: "2 a 3 profissionais",
     promessa: "Menos cadeira vazia e recepção livre para o balcão.",
     destaque: true,
@@ -45,7 +46,7 @@ const planos: Plano[] = [
   {
     chave: "consultorio",
     nome: "Consultório",
-    preco: "R$597",
+    preco: precoFormatado("Consultório"),
     perfil: "1 médico",
     promessa: "Nenhum paciente sem resposta enquanto você atende.",
     destaque: false,
@@ -61,7 +62,7 @@ const planos: Plano[] = [
   {
     chave: "operacao",
     nome: "Operação",
-    preco: "R$1.547",
+    preco: precoFormatado("Operação"),
     perfil: "4+ profissionais ou rede",
     promessa: "O mesmo padrão em todas as agendas, sem depender de quem está na recepção.",
     destaque: false,
@@ -74,7 +75,7 @@ const planos: Plano[] = [
 const planoSolo: Plano = {
   chave: "consultorio",
   nome: "Consultório",
-  preco: "R$597",
+  preco: precoFormatado("Consultório"),
   perfil: "1 médico",
   promessa: "Nenhum paciente sem resposta enquanto você atende.",
   destaque: true,
@@ -236,7 +237,13 @@ const Pricing = ({ variante = "clinica" }: Props) => {
         >
           {solo
             ? "Com consulta a partir de R$500, 1 consulta recuperada por mês paga o plano."
-            : "Com consulta a partir de R$500, menos de 2 consultas recuperadas por mês pagam o plano."}
+            : "Com consulta a partir de R$500, menos de 2 consultas recuperadas por mês pagam o plano."}{" "}
+          <a
+            href="/calculadora"
+            className="font-semibold text-[var(--brand-800)] underline underline-offset-4"
+          >
+            Faça a conta com os números da sua clínica.
+          </a>
         </p>
 
         {solo ? (
@@ -262,7 +269,7 @@ const Pricing = ({ variante = "clinica" }: Props) => {
               href="/#planos"
               className="font-semibold text-[#055449] underline underline-offset-4"
             >
-              Ver plano Clínica (R$897/mês)
+              Ver plano Clínica ({precoFormatado("Clínica")}/mês)
             </a>
           </p>
         )}

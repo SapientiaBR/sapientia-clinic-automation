@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index.tsx";
 import LenisProvider from "./components/global/LenisProvider";
+import { RolagemDeRota } from "./components/global/RolagemDeRota";
 
 const ScrollProgress = lazy(() => import("./components/global/ScrollProgress"));
 const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp"));
@@ -9,12 +10,14 @@ const FloatingWhatsApp = lazy(() => import("./components/global/FloatingWhatsApp
 const Medico = lazy(() => import("./pages/Medico.tsx"));
 const DesignSystemShowcase = lazy(() => import("./pages/DesignSystemShowcase.tsx"));
 const ThankYou = lazy(() => import("./pages/ThankYou.tsx"));
+const Calculadora = lazy(() => import("./pages/Calculadora.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const DeferredUI = lazy(() => import("./components/DeferredUI.tsx"));
 
 const App = () => (
   <BrowserRouter>
     <LenisProvider>
+      <RolagemDeRota />
       <Suspense fallback={null}>
         <ScrollProgress />
       </Suspense>
@@ -32,6 +35,14 @@ const App = () => (
             `replace` evita que o botão voltar caia no redirecionamento e
             devolva o visitante para cá num laço. */}
         <Route path="/clinica" element={<Navigate to="/" replace />} />
+        <Route
+          path="/calculadora"
+          element={
+            <Suspense fallback={null}>
+              <Calculadora />
+            </Suspense>
+          }
+        />
         <Route
           path="/obrigado"
           element={
