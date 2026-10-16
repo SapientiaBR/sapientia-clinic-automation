@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { MessageSquare, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import logo from "@/assets/logo-si-v2.png.asset.json";
@@ -7,11 +6,6 @@ const WHATSAPP_URL =
   "https://wa.me/5511920795583?text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20e%20quero%20conversar%20com%20a%20IA%20ao%20vivo.";
 
 const ThankYou = () => {
-  useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead");
-    }
-  }, []);
 
   return (
     <main className="min-h-screen bg-[var(--surface)] text-[var(--text)] flex flex-col justify-center items-center relative overflow-hidden py-16 px-4">
