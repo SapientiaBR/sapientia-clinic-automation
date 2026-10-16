@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -85,7 +86,8 @@ type Props = {
 export const LeadForm = ({ origem = "clinica" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [enviado, setEnviado] = useState(false);
+  const [enviado] = useState(false);
+  const navigate = useNavigate();
   const turma = turmaAtual();
   const ehMedico = origem === "medico";
 
@@ -139,7 +141,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
     }
 
     setSubmitting(false);
-    setEnviado(true);
+    navigate("/obrigado");
   };
 
   return (
