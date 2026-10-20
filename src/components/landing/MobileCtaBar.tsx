@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { setBarraVisivel } from "@/lib/barraCelular";
 
 /**
  * Barra fixa de CTA no rodapé, só no celular.
@@ -44,6 +45,9 @@ const MobileCtaBar = () => {
   }, []);
 
   const visivel = passouDoHero && !demoVisivel;
+
+  // Avisa o botão flutuante do WhatsApp: ele sobe para não cobrir a barra.
+  useEffect(() => setBarraVisivel(visivel), [visivel]);
 
   return (
     <div
