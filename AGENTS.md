@@ -47,5 +47,9 @@ pendente; é material para o futuro painel, onde o vocabulário dele —
 - Componentes de seção da landing: `src/components/landing/`. Primitivos de
   UI (shadcn): `src/components/ui/`. Providers/widgets globais:
   `src/components/global/`.
+- Estado de interface compartilhado entre componentes distantes (a barra fixa
+  do celular e o botão flutuante do WhatsApp): `src/lib/barraCelular.ts`, uma
+  loja mínima com `useSyncExternalStore`. Os dois são montados em árvores
+  diferentes (`App` e `Landing`), então um contexto exigiria um pai comum.
 - Alias de import: `@/*` → `./src/*`.
 - Idioma do conteúdo e da documentação deste repositório: português (pt-BR).
