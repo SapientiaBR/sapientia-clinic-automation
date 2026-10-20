@@ -8,17 +8,23 @@ import { useSyncExternalStore } from "react";
  * botão pelo App — então um contexto exigiria um pai comum. Uma loja mínima
  * mantém os dois independentes.
  *
- * Serve para uma coisa só: o botão flutuante precisa subir acima da barra
- * quando ela está na tela, senão os dois se sobrepõem no rodapé.
+ * `barra`: a barra está na tela → o botão do WhatsApp sobe para não cobri-la.
+ * `demo`: a seção do formulário está na tela → o botão do WhatsApp dá lugar a
+ * ela, pelo mesmo motivo da barra: cobrir o botão de enviar é um estorvo.
  */
-let visivel = false;
+type Estado = { barra: boolean; demo: boolean };
+
+let estado: Estado = { barra: false, demo: false };
 const listeners = new Set<() => void>();
 
-export function setBarraVisivel(proximo: boolean) {
-  if (proximo === visivel) return;
-  visivel = proximo;
+function mudar(chave: keyof Estado, valor: boolean) {
+  if (estado[chave] === valor) return;
+  estado = { ...estado, [chave]: valor };
   listeners.forEach((ouvir) => ouvir());
 }
+
+export const setBarraVisivel = (valor: boolean) => mudar("barra", valor);
+export const setDemoVisivel = (valor: boolean) => mudar("demo", valor);
 
 function subscribe(ouvir: () => void) {
   listeners.add(ouvir);
@@ -28,13 +34,21 @@ function subscribe(ouvir: () => void) {
 }
 
 /**
- * `false` no servidor: a barra só existe no celular, e a marcação inicial não
- * deve reservar espaço para ela.
+ * No servidor os dois são `false`: nenhum dos dois existe na marcação inicial,
+ * e o HTML de partida não deve reservar espaço para eles.
  */
 export function useBarraVisivel() {
   return useSyncExternalStore(
     subscribe,
-    () => visivel,
+    () => estado.barra,
+    () => false,
+  );
+}
+
+export function useDemoVisivel() {
+  return useSyncExternalStore(
+    subscribe,
+    () => estado.demo,
     () => false,
   );
 }

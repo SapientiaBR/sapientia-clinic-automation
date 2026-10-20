@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { setBarraVisivel } from "@/lib/barraCelular";
+import { setBarraVisivel, setDemoVisivel } from "@/lib/barraCelular";
 
 /**
  * Barra fixa de CTA no rodapé, só no celular.
