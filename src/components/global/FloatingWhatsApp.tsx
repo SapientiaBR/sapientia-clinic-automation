@@ -27,10 +27,14 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="hidden md:flex fixed bottom-6 right-6 z-50 h-12 pl-3 pr-4 rounded-full items-center gap-2 text-white font-display font-bold text-[15px] gradient-brand shadow-[0_14px_30px_rgba(15, 181, 163,0.32)]"
+      className="hidden md:flex fixed bottom-6 right-6 z-50 h-14 pl-3 pr-5 rounded-full items-center gap-2.5 text-white font-display font-bold text-[16px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)]"
     >
-      <span className="w-8 h-8 rounded-full flex items-center justify-center bg-white/20">
-        <MessageSquare size={16} />
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 rounded-full gradient-brand opacity-60 animate-ping motion-reduce:hidden"
+      />
+      <span className="w-10 h-10 rounded-full flex items-center justify-center bg-white/20">
+        <MessageSquare size={18} />
       </span>
       Falar no WhatsApp
     </a>

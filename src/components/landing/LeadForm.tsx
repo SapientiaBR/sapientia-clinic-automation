@@ -55,7 +55,7 @@ const base = {
 
 const schemaClinica = z.object({
   ...base,
-  profissionais: z.string().min(1, "Escolha uma opção"),
+  profissionais: z.string().optional(),
 });
 
 const schemaMedico = z.object({
@@ -255,29 +255,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
                       </FormItem>
                     )}
                   />
-                ) : (
-                  <FormField
-                    control={form.control}
-                    name="profissionais"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className={ROTULO}>Quantos profissionais atendem?</FormLabel>
-                        <FormControl>
-                          <select
-                            {...field}
-                            className={`${CAMPO} w-full appearance-none px-3`}
-                          >
-                            <option value="">Selecione</option>
-                            <option value="so-eu">Só eu</option>
-                            <option value="2-a-3">2 a 3</option>
-                            <option value="4-ou-mais">4 ou mais</option>
-                          </select>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                )}
+                ) : null}
 
                 <FormField
                   control={form.control}
