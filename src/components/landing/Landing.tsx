@@ -10,7 +10,6 @@ const Scene = lazy(() => import("@/components/landing/Scene"));
 const Cuida = lazy(() => import("@/components/landing/Cuida"));
 const RealConversations = lazy(() => import("@/components/landing/RealConversations"));
 const SocialProof = lazy(() => import("@/components/landing/SocialProof"));
-const SecurityData = lazy(() => import("@/components/landing/SecurityData"));
 const Turma = lazy(() => import("@/components/landing/Turma"));
 const Pricing = lazy(() => import("@/components/landing/Pricing"));
 const FAQ = lazy(() => import("@/components/landing/FAQ"));
@@ -101,11 +100,10 @@ const Landing = ({ variante }: Props) => {
           <Cuida variante={variante} />
           <RealConversations apenasPrimeira={ehMedico} />
           <SocialProof variante={variante} />
-          <SecurityData />
           <Turma unidade={ehMedico ? "consultório" : "clínica"} />
           <Pricing variante={ehMedico ? "solo" : "clinica"} />
-          <FAQ variante={variante} />
           <LeadForm origem={variante} />
+          <FAQ variante={variante} />
           <FinalCTA variante={variante} />
         </Suspense>
       </main>
