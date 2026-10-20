@@ -11,6 +11,13 @@ import logoSI from "@/assets/logo-si-v2.png.asset.json";
 const RAZAO_SOCIAL = "";
 const CNPJ = "24.081.578/0001-88";
 
+// Antes de abrir o WhatsApp, registra o interesse no Pixel. O link segue o
+// clique normal e abre logo em seguida.
+const registrarLead = () => {
+  const w = window as never as { fbq?: (...args: unknown[]) => void };
+  w.fbq && w.fbq("track", "Lead");
+};
+
 const Footer = () => {
   const linhaJuridica = RAZAO_SOCIAL ? `${RAZAO_SOCIAL} · CNPJ ${CNPJ}` : `CNPJ ${CNPJ}`;
 
@@ -37,6 +44,7 @@ const Footer = () => {
             </a>
             <a
               href="https://wa.me/5511920795583"
+              onClick={registrarLead}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline"

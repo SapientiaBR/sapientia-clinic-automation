@@ -10,6 +10,13 @@ const FloatingWhatsApp = () => {
   const barraVisivel = useBarraVisivel();
   const demoVisivel = useDemoVisivel();
 
+  // Antes de abrir o WhatsApp, registra o interesse no Pixel. O link segue o
+  // clique normal e abre logo em seguida.
+  const registrarLead = () => {
+    const w = window as never as { fbq?: (...args: unknown[]) => void };
+    w.fbq && w.fbq("track", "Lead");
+  };
+
   useEffect(() => {
     if (!ref.current) return;
     const tween = gsap
@@ -26,6 +33,7 @@ const FloatingWhatsApp = () => {
   return (
     <a
       ref={ref}
+      onClick={registrarLead}
       href={WA_URL}
       target="_blank"
       rel="noopener noreferrer"
