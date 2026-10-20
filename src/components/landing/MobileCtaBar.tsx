@@ -34,8 +34,11 @@ const MobileCtaBar = () => {
     }
 
     if (demo) {
+      // `threshold: 0`: a seção do formulário é mais alta que a tela, e exigir
+      // 12% dela dentro do recorte não fecha nunca — a barra continuaria sobre
+      // o botão de enviar, que é justamente o que ela não deve cobrir.
       const o = new IntersectionObserver(([e]) => setDemoVisivel(e.isIntersecting), {
-        threshold: 0.12,
+        threshold: 0,
       });
       o.observe(demo);
       observadores.push(o);
@@ -46,8 +49,10 @@ const MobileCtaBar = () => {
 
   const visivel = passouDoHero && !demoVisivel;
 
-  // Avisa o botão flutuante do WhatsApp: ele sobe para não cobrir a barra.
+  // Avisa o botão flutuante do WhatsApp: ele sobe para não cobrir a barra, e
+  // sai de cena sobre o formulário — cobrir o botão de enviar é um estorvo.
   useEffect(() => setBarraVisivel(visivel), [visivel]);
+  useEffect(() => setDemoVisivel(demoVisivel), [demoVisivel]);
 
   return (
     <div

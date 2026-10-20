@@ -1,13 +1,14 @@
 import { useEffect, useRef } from "react";
 import { MessageSquare } from "lucide-react";
 import { gsap } from "@/lib/animations";
-import { useBarraVisivel } from "@/lib/barraCelular";
+import { useBarraVisivel, useDemoVisivel } from "@/lib/barraCelular";
 
 const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
 
 const FloatingWhatsApp = () => {
   const ref = useRef<HTMLAnchorElement>(null);
   const barraVisivel = useBarraVisivel();
+  const demoVisivel = useDemoVisivel();
 
   useEffect(() => {
     if (!ref.current) return;
@@ -29,11 +30,12 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      // No celular o botão é um círculo só com o ícone, e sobe acima da barra
-      // fixa quando ela está na tela — os dois no mesmo canto se cobririam.
+      // No celular o botão é um círculo só com o ícone. Ele sobe acima da barra
+      // fixa quando a barra está na tela — os dois no mesmo canto se cobririam
+      // — e some sobre o formulário, onde o envio é o único botão que importa.
       className={`fixed right-4 md:right-6 bottom-6 z-50 flex h-14 w-14 md:w-auto items-center justify-center md:justify-start gap-2.5 rounded-full pl-0 md:pl-3 pr-0 md:pr-5 text-white font-display font-bold text-[16px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)] ${
         barraVisivel ? "max-md:bottom-[calc(5rem+env(safe-area-inset-bottom))]" : ""
-      }`}
+      } ${demoVisivel ? "max-md:hidden" : ""}`}
     >
       <span
         aria-hidden="true"
