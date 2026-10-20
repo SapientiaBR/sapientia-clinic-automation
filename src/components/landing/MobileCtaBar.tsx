@@ -14,13 +14,12 @@ import { setBarraVisivel, setDemoVisivel } from "@/lib/barraCelular";
  */
 const MobileCtaBar = () => {
   const [passouDoHero, setPassouDoHero] = useState(false);
-  const [demoVisivel, setDemoVisivel] = useState(false);
+  const [demoNaTela, setDemoNaTela] = useState(false);
 
   useEffect(() => {
-    const hero = document.querySelector("[data-hero]");
-    const demo = document.getElementById("demo");
-    const observadores: IntersectionObserver[] = [];
+    const observadores: { disconnect: () => void }[] = [];
 
+    const hero = document.querySelector("[data-hero]");
     if (hero) {
       const o = new IntersectionObserver(
         ([e]) => setPassouDoHero(!e.isIntersecting),
@@ -33,26 +32,39 @@ const MobileCtaBar = () => {
       setPassouDoHero(true);
     }
 
-    if (demo) {
+    const assistirDemo = () => {
+      const alvo = document.getElementById("demo");
+      if (!alvo) return false;
       // `threshold: 0`: a seção do formulário é mais alta que a tela, e exigir
-      // 12% dela dentro do recorte não fecha nunca — a barra continuaria sobre
-      // o botão de enviar, que é justamente o que ela não deve cobrir.
-      const o = new IntersectionObserver(([e]) => setDemoVisivel(e.isIntersecting), {
+      // uma fração dela dentro do recorte não fecha nunca — a barra ficaria
+      // sobre o botão de enviar, que é justamente o que ela não deve cobrir.
+      const o = new IntersectionObserver(([e]) => setDemoNaTela(e.isIntersecting), {
         threshold: 0,
       });
-      o.observe(demo);
+      o.observe(alvo);
       observadores.push(o);
+      return true;
+    };
+
+    if (!assistirDemo()) {
+      // O formulário chega sob demanda e pode montar depois desta barra; sem
+      // esperar por ele, a barra nunca saberia que ele está na tela.
+      const mo = new MutationObserver(() => {
+        if (assistirDemo()) mo.disconnect();
+      });
+      mo.observe(document.body, { childList: true, subtree: true });
+      observadores.push(mo);
     }
 
     return () => observadores.forEach((o) => o.disconnect());
   }, []);
 
-  const visivel = passouDoHero && !demoVisivel;
+  const visivel = passouDoHero && !demoNaTela;
 
   // Avisa o botão flutuante do WhatsApp: ele sobe para não cobrir a barra, e
   // sai de cena sobre o formulário — cobrir o botão de enviar é um estorvo.
   useEffect(() => setBarraVisivel(visivel), [visivel]);
-  useEffect(() => setDemoVisivel(demoVisivel), [demoVisivel]);
+  useEffect(() => setDemoVisivel(demoNaTela), [demoNaTela]);
 
   return (
     <div
