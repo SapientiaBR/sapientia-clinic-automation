@@ -32,7 +32,7 @@ const FloatingWhatsApp = () => {
       // No celular o botão é um círculo só com o ícone, e sobe acima da barra
       // fixa quando ela está na tela — os dois no mesmo canto se cobririam.
       className={`fixed right-4 md:right-6 bottom-6 z-50 flex h-14 w-14 md:w-auto items-center justify-center md:justify-start gap-2.5 rounded-full pl-0 md:pl-3 pr-0 md:pr-5 text-white font-display font-bold text-[16px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)] ${
-        barraVisivel ? "max-md:bottom-[calc(6.5rem+env(safe-area-inset-bottom))]" : ""
+        barraVisivel ? "max-md:bottom-[calc(5rem+env(safe-area-inset-bottom))]" : ""
       }`}
     >
       <span
