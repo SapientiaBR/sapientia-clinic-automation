@@ -18,10 +18,8 @@ const copy = {
   medico: {
     titulo: "Você atende o paciente.",
     reforco: "A Secretária Invisível cuida do resto.",
-    // O Consultório não tem a integração com o Google Agenda: a frase do
-    // médico solo promete o agendamento, não o Google Agenda.
     texto:
-      "Ela atende no WhatsApp, agenda os horários, faz o follow-up de quem sumiu e organiza os pacientes num funil. Você acompanha e assume qualquer conversa num painel único.",
+      "Ela atende no WhatsApp, agenda direto no seu Google Agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil. Você acompanha e assume qualquer conversa num painel único.",
   },
 };
 

@@ -186,21 +186,8 @@ const Pricing = ({ variante = "clinica" }: Props) => {
           className="font-sans mx-auto mb-8 max-w-2xl text-center text-[17px] leading-[1.6] text-[var(--text)] md:mb-10"
           data-reveal
         >
-          {solo
-            ? "Com consulta a partir de R$500, 1 consulta recuperada por mês paga o plano."
-            : "Com consulta a partir de R$500, menos de 2 consultas recuperadas por mês pagam o plano."}
+          Com 2 consultas agendadas pela Secretária Invisível, o plano mensal já está pago!
         </p>
-
-        {!solo && (
-          <p
-            className="font-sans mx-auto mb-8 max-w-3xl text-center text-[15px] leading-[1.6] text-[var(--text-muted)] md:mb-10"
-            data-reveal
-          >
-            Nos três planos: atendimento no WhatsApp, agendamento, follow-up de quem sumiu, funil de
-            pacientes e painel para a sua equipe. A integração com o Google Agenda vem nos planos
-            Clínica e Operação.
-          </p>
-        )}
 
         {solo ? (
           <div className="mx-auto max-w-md">
@@ -221,7 +208,7 @@ const Pricing = ({ variante = "clinica" }: Props) => {
 
         {solo && (
           <p className="font-sans mt-5 text-center text-[15px] text-[var(--text-muted)]">
-            Quer Google Agenda, lembrete anti-falta, remarcação e áudio?{" "}
+            Quer lembrete anti-falta, remarcação e áudio?{" "}
             <a
               href="/#planos"
               className="font-semibold text-[#055449] underline underline-offset-4"

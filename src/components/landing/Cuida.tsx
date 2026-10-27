@@ -8,9 +8,6 @@ type Item = { icone: typeof MessageSquare; titulo: string; linha: string };
 /**
  * As cinco capacidades, na ordem da frase de posicionamento (27/10): atende,
  * agenda, faz o follow-up, organiza num funil e deixa a equipe no comando.
- *
- * A integração com o Google Agenda é dos planos Clínica e Operação, então o
- * card da agenda diz isso na própria linha em vez de deixar a promessa solta.
  */
 const clinica: Item[] = [
   {
@@ -22,7 +19,7 @@ const clinica: Item[] = [
     icone: CalendarCheck,
     titulo: "Agenda direto no Google Agenda",
     linha:
-      "O horário que o paciente escolhe cai direto na agenda da clínica. Nos planos Clínica e Operação, no seu Google Agenda.",
+      "O horário que o paciente escolhe cai direto no Google Agenda da clínica, sem ninguém digitar nada.",
   },
   {
     icone: RefreshCw,
@@ -41,13 +38,13 @@ const clinica: Item[] = [
   },
 ];
 
-/** O médico solo assina o Consultório, que não tem a integração com o Google Agenda. */
+/** O médico solo assina o Consultório: mesma agenda no Google, dita para quem atende sozinho. */
 const medico: Item[] = [
   clinica[0],
   {
     icone: CalendarCheck,
-    titulo: "Agenda na própria conversa",
-    linha: "O paciente escolhe o horário e a consulta fica marcada, sem você parar o atendimento.",
+    titulo: "Agenda direto no Google Agenda",
+    linha: "O paciente escolhe o horário e a consulta cai no seu Google Agenda, sem você parar o atendimento.",
   },
   clinica[2],
   {

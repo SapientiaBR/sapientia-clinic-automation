@@ -18,8 +18,8 @@ O serviço não dá orientação médica, diagnóstico, prescrição nem interpr
 
 | Plano | Para quem | Mensalidade | O que inclui |
 |---|---|---|---|
-| Consultório | 1 profissional | R$ 597 | Atendimento 24h no WhatsApp, agendamento, follow-up de quem sumiu, funil de pacientes, painel para a equipe acompanhar e assumir conversas, dúvidas frequentes, confirmação do agendamento, 1 agenda, 1 ajuste por mês |
-| Clínica | 2 a 3 profissionais | R$ 897 | Tudo do Consultório, mais integração com o Google Agenda, lembrete anti-falta, remarcação pelo WhatsApp, perguntas antes da consulta, entende áudio, até 3 agendas, 2 ajustes por mês |
+| Consultório | 1 profissional | R$ 597 | Atendimento 24h no WhatsApp, agendamento, integração com o Google Agenda, follow-up de quem sumiu, funil de pacientes, painel para a equipe acompanhar e assumir conversas, dúvidas frequentes, confirmação do agendamento, 1 agenda, 1 ajuste por mês |
+| Clínica | 2 a 3 profissionais | R$ 897 | Tudo do Consultório, mais lembrete anti-falta, remarcação pelo WhatsApp, perguntas antes da consulta, entende áudio, até 3 agendas, 2 ajustes por mês |
 | Operação | 4 ou mais profissionais, ou rede | R$ 1.547 | Tudo do Clínica, mais agendas ilimitadas, suporte prioritário com primeira resposta em até 4 horas úteis, 1 ajuste por semana |
 
 Ajuste é uma alteração de configuração pedida por você dentro do que o plano já faz: texto de resposta, pergunta frequente, horário, regra de agendamento. Ajuste não usado no período não acumula [CONFIRMAR]. Funcionalidade nova, integração nova ou mudança estrutural é orçada à parte.
@@ -78,7 +78,7 @@ Ao fim da assinatura, desligamos a Secretária Invisível do WhatsApp da clínic
 
 ## 11. Conexão com o WhatsApp: aviso de risco
 
-Para atender, a Secretária Invisível precisa se conectar a um número de WhatsApp. [CONFIRMAR qual conexão é o padrão da SI.] Quando a conexão é feita por QR code, por método não oficial, ela não tem aprovação da Meta. Isso viola os termos de uso do WhatsApp, e a Meta pode bloquear ou banir o número a qualquer momento, sem aviso e sem canal de recurso. Se acontecer, a Sapient.IA ajuda a reconectar ou a migrar de número, mas não consegue reverter o bloqueio nem garante que o número volte.
+Para atender, a Secretária Invisível precisa se conectar a um número de WhatsApp. Quando a conexão é feita por QR code, por método não oficial, ela não tem aprovação da Meta. Isso viola os termos de uso do WhatsApp, e a Meta pode bloquear ou banir o número a qualquer momento, sem aviso e sem canal de recurso. Se acontecer, a Sapient.IA ajuda a reconectar ou a migrar de número, mas não consegue reverter o bloqueio nem garante que o número volte.
 
 A alternativa é a API oficial do WhatsApp (Meta), direta ou por um provedor homologado. Ela exige verificação da empresa, número dedicado e aprovação de modelos de mensagem, e tem custo por conversa cobrado pela Meta. Você pode pedir a migração para a API oficial a qualquer momento (cláusula 14). Recomendamos usar um número dedicado ao atendimento e não o número pessoal de um profissional. Dado de paciente não deve circular no WhatsApp pessoal de médico ou de funcionário.
 
@@ -98,7 +98,7 @@ O serviço automatiza tarefas de atendimento e agenda. Não prometemos agenda ch
 
 ## 14. Custos de terceiros
 
-A mensalidade inclui o uso da inteligência artificial, a conexão com o WhatsApp feita pela Sapient.IA e as ferramentas da solução. Você não paga esses custos à parte. Se você escolher migrar para a API oficial do WhatsApp, os custos cobrados pela Meta e por eventual provedor oficial são seus e repassados sem taxa administrativa. [CONFIRMAR: o Leo respondeu "sim" a "inclusos ou repassados" em 27/10/2026. Se o "incluso" vale também para o custo por conversa da API oficial da Meta, apagar a última frase; se não vale, manter.]
+A mensalidade inclui o uso da inteligência artificial, a conexão padrão com o WhatsApp feita pela Sapient.IA (por QR code) e as ferramentas da solução. Você não paga esses custos à parte. Se você escolher migrar para a API oficial do WhatsApp Business, as tarifas que a Meta cobra por conversa, e as de eventual provedor oficial, são cobradas à parte, repassadas sem taxa administrativa.
 
 ## 15. Propriedade intelectual e confidencialidade
 

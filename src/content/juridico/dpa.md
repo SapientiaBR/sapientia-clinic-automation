@@ -92,7 +92,7 @@ Fonte da lista: `contexto/02-onboarding-tecnico.md` (levantamento de 2026-08-28,
 |---|---|---|---|
 | Hostinger (servidor virtual VPS) | Hospeda a plataforma de atendimento, a automação e os bancos de dados da Sapient.IA | Todos os dados do serviço, em repouso | [CONFIRMAR localização do datacenter do VPS] |
 | OpenAI | Modelo de linguagem que entende e escreve as respostas, transcrição de áudio, embeddings da base de conhecimento | Texto das conversas, áudios, trechos da base da clínica | Estados Unidos [CONFIRMAR retenção e termos de uso de API contratados] |
-| Google (somente se o plano usar Google Agenda e a clínica conectar a conta) | Agenda da clínica (Google Calendar) | Data, hora, profissional e identificação do paciente na agenda | Conforme contrato da própria clínica com o Google |
+| Google (somente se a clínica conectar a conta do Google Agenda) | Agenda da clínica (Google Calendar) | Data, hora, profissional e identificação do paciente na agenda | Conforme contrato da própria clínica com o Google |
 | Asaas | Cobrança da mensalidade da clínica | Dados do contratante, não de pacientes. Controlador independente | Brasil |
 
 Software que roda no servidor da Sapient.IA e não é subprocessador, porque o dado não sai da infraestrutura dela: plataforma de atendimento e agentes de IA (fazer.ai agents), caixa de atendimento (Chatwoot), automação (n8n), conexão com o WhatsApp (Baileys/Evolution API), registro de funcionamento (Langfuse). [CONFIRMAR com o Goose: se fazer.ai ou algum desses softwares recebe telemetria ou conteúdo de conversa. Nesse caso, passa para a tabela acima.]

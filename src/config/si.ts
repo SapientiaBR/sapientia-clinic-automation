@@ -46,8 +46,8 @@ export interface Plano {
 
 /**
  * Escopo por plano (decisão do Leo em 27/10, sem mudança de preço):
- * atendimento, agendamento, follow-up, funil e painel valem nos três planos;
- * a integração com o Google Agenda vem no Clínica e no Operação.
+ * atendimento, agendamento no Google Agenda, follow-up, funil e painel valem
+ * nos três planos.
  */
 export const PLANOS: Record<ChavePlano, Plano> = {
   consultorio: {
@@ -61,6 +61,7 @@ export const PLANOS: Record<ChavePlano, Plano> = {
     recursos: [
       "Atendimento 24h no WhatsApp",
       "Agendamento",
+      "Integração com Google Agenda",
       "Follow-up de quem sumiu",
       "Funil de pacientes",
       "Painel para a equipe acompanhar e assumir conversas",
@@ -80,7 +81,6 @@ export const PLANOS: Record<ChavePlano, Plano> = {
     promessa: "Menos cadeira vazia e recepção livre para o balcão.",
     herdaDe: "consultorio",
     recursos: [
-      "Integração com Google Agenda",
       "Lembrete para reduzir faltas",
       "Remarcação pelo WhatsApp",
       "Perguntas antes da consulta",

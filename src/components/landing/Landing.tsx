@@ -35,9 +35,9 @@ const meta = {
     url: "https://secretariainvisivel.com.br/medico",
     title: "Secretária Invisível | Você atende o paciente. Ela cuida do resto.",
     description:
-      "Para quem atende sozinho: ela atende no WhatsApp, agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha tudo num painel.",
+      "Para quem atende sozinho: ela atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha tudo num painel.",
     social:
-      "Para quem atende sozinho: ela atende no WhatsApp, agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha e assume qualquer conversa num painel.",
+      "Para quem atende sozinho: ela atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha e assume qualquer conversa num painel.",
   },
 };
 
