@@ -13,7 +13,7 @@ import {
   waSofia,
   type ChavePlano,
 } from "@/config/si";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { implantacaoFormatada } from "@/config/turma";
 import { lerCookie, trackEvent } from "@/lib/consent";
 import {
   documentoValido,
@@ -93,7 +93,6 @@ const Assinar = () => {
   const [trocando, setTrocando] = useState(false);
   const chave: ChavePlano | null = ehChavePlano(bruto) ? bruto : null;
   const plano = chave ? PLANOS[chave] : null;
-  const t = turmaAtual();
 
   const [valores, setValores] = useState<Valores>({
     nome: sessao.ler("si_nome"),
@@ -223,7 +222,7 @@ const Assinar = () => {
     window.location.assign(SI_CONFIG.asaas[chave]);
   };
 
-  const linhaComum = `Implantação de ${implantacaoFormatada} sem cobrança para quem assinar até ${t.fimDoMes}. Cobrança mensal recorrente. Cancelamento com 30 dias de aviso.`;
+  const linhaComum = `Implantação de ${implantacaoFormatada} sem cobrança para quem assinar até o fim do mês. Cobrança mensal recorrente. Cancelamento com 30 dias de aviso.`;
 
   const rotuloCaixa = "font-sans text-[14px] leading-[1.55] text-[#1B2430]";
 

@@ -5,11 +5,11 @@ import { abrirPreferencias } from "@/lib/consent";
 /**
  * Rodapé.
  *
- * A razão social ainda não foi informada, então a linha sai só com o CNPJ.
- * Preencher `RAZAO_SOCIAL` faz o nome aparecer antes do número, separado por
- * ponto médio; deixar vazio não imprime um separador solto.
+ * A linha jurídica mostra razão social e CNPJ, separados por ponto médio.
+ * Endereço e e-mail não entram no site, por decisão do dono. Deixar
+ * `RAZAO_SOCIAL` vazio imprime só o CNPJ, sem separador solto.
  */
-const RAZAO_SOCIAL = "";
+const RAZAO_SOCIAL = "Leonardo Gimenez Figueiredo Comercio e Consultoria Em Ti Ltda";
 const CNPJ = "24.081.578/0001-88";
 
 const linkRodape =

@@ -109,6 +109,9 @@ export function recusar() {
     w.fbq?.("consent", "revoke");
     apagarCookie("_fbp");
     apagarCookie("_fbc");
+    // Cookies do Clarity: sem eles a sessão gravada não continua na próxima página.
+    apagarCookie("_clck");
+    apagarCookie("_clsk");
   }
 }
 

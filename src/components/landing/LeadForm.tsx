@@ -189,7 +189,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
             </div>
           ) : (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} data-clarity-mask="true" className="space-y-4">
                 <FormField
                   control={form.control}
                   name="nome"

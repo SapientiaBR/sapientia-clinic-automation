@@ -2,9 +2,10 @@
  * Oferta do mês da implantação.
  *
  * A implantação custa R$ 2.997. Quem assina até o último dia do mês não paga
- * a implantação, e a oferta se repete todo mês com a data do mês corrente.
- * Não existe contador de vagas: a data é o único limite, e ela sai do
- * calendário, no fuso de São Paulo.
+ * a implantação, e a oferta vale todo mês, sem data de fim. Por isso nenhuma
+ * frase do site mostra data: o texto diz "até o fim do mês" e serve para
+ * qualquer mês. Não existe contador de vagas. O que ainda sai do calendário,
+ * no fuso de São Paulo, são os dias que faltam e a etiqueta do formulário.
  *
  * O nome do arquivo e da função continua "turma" porque o formulário de
  * demonstração já manda a etiqueta do mês nesse campo para o n8n.
@@ -47,8 +48,6 @@ export interface Turma {
   numeroMes: string;
   /** Quantos dias faltam até o fim do mês. Zero no último dia. */
   diasRestantes: number;
-  /** "31/10", a data que aparece em toda frase da oferta. */
-  fimDoMes: string;
   /** "10/2026" — vai no campo oculto do formulário. */
   etiqueta: string;
 }
@@ -67,13 +66,9 @@ export function turmaAtual(): Turma {
     ultimoDia,
     numeroMes,
     diasRestantes: ultimoDia - hoje.getDate(),
-    fimDoMes: `${ultimoDia}/${numeroMes}`,
     etiqueta: `${numeroMes}/${ano}`,
   };
 }
-
-/** Atalho para as frases que só precisam da data: "31/10". */
-export const fimDoMes = () => turmaAtual().fimDoMes;
 
 /** "R$ 2.997" */
 export const implantacaoFormatada = new Intl.NumberFormat("pt-BR", {

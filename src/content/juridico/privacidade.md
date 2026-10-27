@@ -1,14 +1,14 @@
 # Política de Privacidade
 
-Última atualização: [DATA]
+Última atualização: 27 de outubro de 2026
 
 ## 1. Resumo
 
-Coletamos o que você digita nos formulários (nome, WhatsApp, e-mail, dados da clínica e, na assinatura, CPF ou CNPJ), o que você escreve para a Sofia no WhatsApp, dados técnicos do acesso (IP, navegador) e, se você aceitar os cookies, dados de navegação enviados à Meta e à Microsoft (Clarity). Usamos para responder você, executar o contrato, cobrar, provar o aceite dos termos, medir nossos anúncios e entender como o site é usado. O pagamento é feito no Asaas. Alguns fornecedores ficam fora do Brasil. Você pode pedir acesso, correção ou eliminação em [E-MAIL DE PRIVACIDADE].
+Coletamos o que você digita nos formulários (nome, WhatsApp, e-mail, dados da clínica e, na assinatura, CPF ou CNPJ), o que você escreve para a Sofia no WhatsApp, dados técnicos do acesso (IP, navegador) e, se você aceitar os cookies, dados de navegação enviados à Meta e à Microsoft (Clarity). Usamos para responder você, executar o contrato, cobrar, provar o aceite dos termos, medir nossos anúncios e entender como o site é usado. O pagamento é feito no Asaas. Alguns fornecedores ficam fora do Brasil. Você pode pedir acesso, correção ou eliminação pelo [WhatsApp de atendimento](https://wa.me/5511920795583).
 
 ## 2. Quem é o responsável
 
-[RAZÃO SOCIAL], CNPJ [CNPJ], [ENDEREÇO] (a Sapient.IA), responsável pela Secretária Invisível. Somos a controladora dos dados desta política. Encarregado pelo tratamento de dados: [ENCARREGADO], [E-MAIL DE PRIVACIDADE].
+Leonardo Gimenez Figueiredo Comercio e Consultoria Em Ti Ltda, CNPJ 24.081.578/0001-88 (a Sapient.IA), responsável pela Secretária Invisível. Somos a controladora dos dados desta política. Pedidos sobre os seus dados: pelo [WhatsApp de atendimento](https://wa.me/5511920795583).
 
 Dados de pacientes que passam pelo atendimento de uma clínica contratante: a clínica é a controladora e nós somos operadores, conforme o DPA. Para pedidos sobre esses dados, fale com a clínica.
 
@@ -32,11 +32,11 @@ Nome e WhatsApp da recepcionista: quem preenche o formulário declara que a pess
 
 ## 4. Cookies e pixel da Meta
 
-O site usa cookies essenciais para funcionar. O pixel da Meta e o Microsoft Clarity só carregam depois do seu aceite no banner de cookies. Sem aceite, nenhum dos dois é carregado e não enviamos dados de navegação à Meta nem à Microsoft. [CONFIRMAR: a API de Conversões só envia eventos de servidor para quem aceitou os cookies. Se enviar sem o aceite, isso precisa ser revisto.]
+O site guarda no seu navegador a escolha que você fez no banner de cookies. O pixel da Meta e o Microsoft Clarity só carregam depois do seu aceite. Sem aceite, nenhum dos dois é carregado e não enviamos dados de navegação à Meta nem à Microsoft. Quando usamos a API de Conversões da Meta, que envia eventos pelo nosso servidor, vale a mesma regra: só vão eventos de quem aceitou os cookies.
 
-Os eventos enviados são PageView, Contact, Lead, InitiateCheckout e Purchase. E-mail e telefone são enviados em hash (código irreversível para quem vê, mas que a Meta consegue cruzar com os dados de usuários dela). Hash continua sendo dado pessoal. A Meta usa os dados para entregar e medir anúncios e, segundo a política dela, para fins próprios [CONFIRMAR termos da Meta]. Você pode revogar o consentimento a qualquer momento em [LINK DE PREFERÊNCIAS DE COOKIES] e ajustar anúncios nas configurações da sua conta da Meta.
+Os eventos enviados são PageView, Contact, Lead, InitiateCheckout e Purchase. E-mail e telefone são enviados em hash (código irreversível para quem vê, mas que a Meta consegue cruzar com os dados de usuários dela). Hash continua sendo dado pessoal. A Meta usa os dados para entregar e medir anúncios e, segundo a política dela, para fins próprios. Você pode revogar o consentimento a qualquer momento em **Preferências de cookies**, no rodapé do site, e ajustar anúncios nas configurações da sua conta da Meta.
 
-O Clarity registra como as pessoas navegam no site (cliques, rolagem, movimento do mouse) para entendermos o que funciona e o que atrapalha. [CONFIRMAR: o mascaramento de campos de formulário está ativo, para que o Clarity não registre o que você digita.] A Microsoft trata esses dados como fornecedora, conforme a política dela [CONFIRMAR termos da Microsoft]. Você pode revogar o consentimento a qualquer momento em [LINK DE PREFERÊNCIAS DE COOKIES]. Outros cookies ou ferramentas de análise: [CONFIRMAR e listar, ou dizer que não usamos].
+O Clarity registra como as pessoas navegam no site (cliques, rolagem, movimento do mouse) para entendermos o que funciona e o que atrapalha. Ele não carrega nas páginas de assinatura, de implantação e de cadastro da recepcionista, e o que você digita no formulário de demonstração fica mascarado para ele. A Microsoft trata esses dados conforme a política dela. Você pode revogar o consentimento a qualquer momento em **Preferências de cookies**, no rodapé do site.
 
 ## 5. Com quem compartilhamos
 
@@ -44,39 +44,39 @@ O Clarity registra como as pessoas navegam no site (cliques, rolagem, movimento 
 |---|---|---|---|
 | Asaas Gestão Financeira Instituição de Pagamento S.A. | Cobrança. Controlador independente dos dados de pagamento | Dados de pagamento que você digita na página dele | Brasil |
 | Meta Platforms | Pixel, API de Conversões e WhatsApp | Eventos, e-mail e telefone em hash, IP, navegador; mensagens do WhatsApp | Estados Unidos e outros países |
-| Microsoft (Clarity) | Análise de uso do site, só depois do seu aceite | Dados de navegação, IP, tipo de aparelho e navegador | [CONFIRMAR] |
+| Microsoft (Clarity) | Análise de uso do site, só depois do seu aceite | Dados de navegação, IP, tipo de aparelho e navegador | Pode ser fora do Brasil |
 | OpenAI | Modelo de linguagem da Sofia, transcrição de áudio | Texto e áudio da conversa com a Sofia | Estados Unidos |
-| Hostinger | Servidor onde rodam a Sofia, o atendimento e a automação | Dados dos formulários e das conversas | [CONFIRMAR localização] |
-| [Hospedagem do site e dos formulários, ex. Vercel] | Hospedar o site e receber os formulários | Dados dos formulários, IP, navegador | [CONFIRMAR] |
-| [Ferramenta de e-mail ou CRM, se houver] | Responder e guardar contatos | Nome, e-mail, WhatsApp | [CONFIRMAR] |
+| Hostinger | Servidor onde rodam a Sofia, o atendimento e a automação | Dados dos formulários e das conversas | Pode ser fora do Brasil |
+| Lovable | Hospedagem do site. Os formulários vão direto para o nosso servidor | IP, navegador e páginas acessadas | Pode ser fora do Brasil |
+| Google (Gmail e Google Agenda) | Avisos internos de nova assinatura e agenda das conversas com o nosso time | Nome, e-mail, WhatsApp, clínica e plano | Pode ser fora do Brasil |
 
-A plataforma de atendimento (fazer.ai agents), a caixa de conversas (Chatwoot), a automação (n8n) e o registro de funcionamento (Langfuse) rodam no nosso servidor. [CONFIRMAR com o Goose se algum envia dado ao fornecedor.] Não vendemos dados pessoais. Podemos compartilhar com autoridades por obrigação legal, ordem judicial ou para defender nossos direitos.
+A plataforma de atendimento (fazer.ai agents), a caixa de conversas (Chatwoot), a automação (n8n) e o registro de funcionamento (Langfuse) rodam no nosso servidor. Não vendemos dados pessoais. Podemos compartilhar com autoridades por obrigação legal, ordem judicial ou para defender nossos direitos.
 
 ## 6. Transferência internacional
 
-Meta, Microsoft, OpenAI e possivelmente outros fornecedores tratam dados fora do Brasil. A transferência é feita com base no art. 33 da LGPD, com as cláusulas-padrão aprovadas pela ANPD (Resolução CD/ANPD nº 19/2024) ou outro mecanismo válido, ou com o seu consentimento específico, conforme o caso. [CONFIRMAR por fornecedor.] Você pode pedir cópia das garantias usadas em [E-MAIL DE PRIVACIDADE].
+Meta, Microsoft, OpenAI, Google e possivelmente outros fornecedores tratam dados fora do Brasil. A transferência é feita com base no art. 33 da LGPD, com as cláusulas-padrão aprovadas pela ANPD (Resolução CD/ANPD nº 19/2024) ou outro mecanismo válido, ou com o seu consentimento específico, conforme o caso. Você pode pedir informações sobre as garantias usadas pelo [WhatsApp de atendimento](https://wa.me/5511920795583).
 
 ## 7. Por quanto tempo guardamos
 
 | Dado | Prazo |
 |---|---|
-| Pedido de demonstração e conversa com a Sofia sem contratação | [12 meses] depois do último contato, depois eliminado |
-| Dados da assinatura e da cobrança | Duração do contrato e [5 anos] depois, por obrigação fiscal e para defesa em processo [CONFIRMAR com o contador] |
-| Registro de aceite (inclui IP e user agent) | Duração do contrato e [5 anos] depois |
-| Dados do formulário de implantação | Duração do contrato; depois, [30 dias] para devolução e eliminação |
+| Pedido de demonstração e conversa com a Sofia sem contratação | O tempo necessário para responder e acompanhar o seu contato; depois, eliminado |
+| Dados da assinatura e da cobrança | Duração do contrato e, depois, o prazo exigido pela legislação fiscal e o necessário para defesa em processo |
+| Registro de aceite (inclui IP e user agent) | Duração do contrato e, depois, o tempo em que puder ser necessário para defesa em processo |
+| Dados do formulário de implantação | Duração do contrato; depois, devolvidos ou eliminados conforme o DPA |
 | Eventos enviados à Meta | Conforme a Meta; não controlamos a retenção dela |
-| Dados de navegação do Clarity | Conforme a Microsoft [CONFIRMAR o período configurado] |
-| Registros técnicos de acesso | [6 meses] [CONFIRMAR] |
+| Dados de navegação do Clarity | Conforme a Microsoft |
+| Registros técnicos de acesso | O prazo exigido em lei |
 
 Depois, eliminamos ou anonimizamos. Podemos guardar por mais tempo o que a lei exigir.
 
 ## 8. Como protegemos
 
-Conexão criptografada (HTTPS), acesso restrito a quem precisa, chaves e senhas em cofre, e acesso ao servidor por chave. [CONFIRMAR com o Goose os demais itens antes de listar.] Em caso de incidente com risco ou dano relevante, comunicamos a ANPD e as pessoas afetadas na forma da regulamentação.
+Conexão criptografada (HTTPS), acesso restrito a quem precisa, chaves e senhas guardadas em cofre e acesso ao servidor por chave. Em caso de incidente com risco ou dano relevante, comunicamos a ANPD e as pessoas afetadas na forma da regulamentação.
 
 ## 9. Seus direitos
 
-Você pode pedir a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, anonimização, bloqueio ou eliminação do que for desnecessário ou ilícito, portabilidade, informação sobre com quem compartilhamos, revogação do consentimento e oposição ao tratamento por legítimo interesse. Escreva para [E-MAIL DE PRIVACIDADE]. Respondemos em até 15 dias. Para evitar fraude, podemos pedir confirmação de que você é quem diz ser. Se não ficar satisfeito, pode reclamar à ANPD (gov.br/anpd).
+Você pode pedir a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, anonimização, bloqueio ou eliminação do que for desnecessário ou ilícito, portabilidade, informação sobre com quem compartilhamos, revogação do consentimento e oposição ao tratamento por legítimo interesse. Peça pelo [WhatsApp de atendimento](https://wa.me/5511920795583). Respondemos em até 15 dias. Para evitar fraude, podemos pedir confirmação de que você é quem diz ser. Se não ficar satisfeito, pode reclamar à ANPD (gov.br/anpd).
 
 ## 10. Menores
 
@@ -88,5 +88,4 @@ Atualizamos esta política quando algo mudar, com a data no topo. Mudança relev
 
 ## 12. Contato
 
-Encarregado: [ENCARREGADO]. E-mail: [E-MAIL DE PRIVACIDADE]. [RAZÃO SOCIAL], CNPJ [CNPJ], [ENDEREÇO].
-
+Leonardo Gimenez Figueiredo Comercio e Consultoria Em Ti Ltda, CNPJ 24.081.578/0001-88. Pedidos sobre dados pessoais e qualquer outro assunto: pelo [WhatsApp de atendimento](https://wa.me/5511920795583).

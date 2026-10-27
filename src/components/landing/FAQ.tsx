@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
 import { gsap, EASE, revealOnScroll } from "@/lib/animations";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { implantacaoFormatada } from "@/config/turma";
 import { PLANOS, precoTxt } from "@/config/si";
 
 type Entrada = [string, string];
@@ -14,8 +14,7 @@ type Entrada = [string, string];
  * elas ficam exportadas: o dado estruturado e o que esta na tela precisam
  * dizer a mesma coisa, ou o Google marca divergencia.
  */
-const t = turmaAtual();
-const ofertaImplantacao = `A implantação custa ${implantacaoFormatada} e sai sem cobrança para quem assinar até ${t.fimDoMes}.`;
+const ofertaImplantacao = `A implantação custa ${implantacaoFormatada} e sai sem cobrança para quem assinar até o fim do mês.`;
 
 export const faqClinica: Entrada[] = [
   [

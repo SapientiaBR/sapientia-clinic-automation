@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { revealOnScroll } from "@/lib/animations";
 import { CTA_HREF, CTA_LABEL } from "@/components/landing/Hero";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { implantacaoFormatada } from "@/config/turma";
 
 const copy = {
   clinica: "Sua recepção não precisa estar em dois lugares.",
@@ -20,7 +20,6 @@ type Props = { variante?: "clinica" | "medico" };
  */
 const FinalCTA = ({ variante = "clinica" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const t = turmaAtual();
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
@@ -37,7 +36,7 @@ const FinalCTA = ({ variante = "clinica" }: Props) => {
           className="font-sans mt-5 text-[17px] leading-[1.65] text-[#4B5563] md:text-[19px]"
           data-reveal
         >
-          {`Quem assinar até ${t.fimDoMes} não paga a implantação de ${implantacaoFormatada}.`}
+          {`Quem assinar até o fim do mês não paga a implantação de ${implantacaoFormatada}.`}
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3" data-reveal>

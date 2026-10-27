@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { Check, ArrowRight, MessageCircle } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { implantacaoFormatada } from "@/config/turma";
 import { PLANOS, precoTxt, waSofia, type Plano } from "@/config/si";
 
 type CardPlano = Plano & { destaque: boolean };
@@ -36,10 +36,9 @@ const IconeCheck = () => (
  * Linha da implantação, repetida em todo card.
  *
  * A implantação custa R$ 2.997 e sai sem cobrança para quem assina até o
- * último dia do mês. A data é calculada, nunca escrita à mão.
+ * último dia do mês. A oferta vale todo mês, por isso a linha não leva data.
  */
 const LinhaImplantacao = ({ destaque }: { destaque: boolean }) => {
-  const t = turmaAtual();
   const corFraca = destaque ? "rgba(255,255,255,0.75)" : "#6B7280";
   const corForte = destaque ? "#FFFFFF" : "#055449";
 
@@ -49,7 +48,7 @@ const LinhaImplantacao = ({ destaque }: { destaque: boolean }) => {
       <strong className="font-semibold" style={{ color: corForte }}>
         R$0
       </strong>{" "}
-      para quem assinar até {t.fimDoMes}
+      para quem assinar até o fim do mês
     </p>
   );
 };

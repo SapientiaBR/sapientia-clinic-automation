@@ -13,15 +13,32 @@ const DOCS = {
 
 type Doc = keyof typeof DOCS;
 
-/** **negrito** é a única marcação dentro da linha que os textos usam. */
+const linkDoc = "text-[#055449] underline underline-offset-4 hover:text-[#0A8C7E]";
+
+/**
+ * Marcação dentro da linha: **negrito** e [texto](url). O link existe para o
+ * canal de atendimento: os textos apontam para o WhatsApp do rodapé em vez de
+ * imprimir número, endereço ou e-mail.
+ */
 function linha(texto: string): ReactNode {
-  return texto.split(/(\*\*[^*]+\*\*)/g).map((parte, i) =>
-    parte.startsWith("**") && parte.endsWith("**") ? (
-      <strong key={i}>{parte.slice(2, -2)}</strong>
-    ) : (
-      <Fragment key={i}>{parte}</Fragment>
-    ),
-  );
+  return texto.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)\s]+\))/g).map((parte, i) => {
+    if (parte.startsWith("**") && parte.endsWith("**")) return <strong key={i}>{parte.slice(2, -2)}</strong>;
+    const link = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(parte);
+    if (link) {
+      const externo = /^https?:/.test(link[2]);
+      return (
+        <a
+          key={i}
+          href={link[2]}
+          className={linkDoc}
+          {...(externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {link[1]}
+        </a>
+      );
+    }
+    return <Fragment key={i}>{parte}</Fragment>;
+  });
 }
 
 const celulas = (l: string) =>
@@ -34,8 +51,7 @@ const celulas = (l: string) =>
 
 /**
  * Markdown para JSX, no subconjunto que os textos jurídicos usam: títulos,
- * parágrafos, listas, tabelas e negrito. Os textos vêm do jurídico e não são
- * reescritos: os [colchetes] ficam como estão até o dono preencher.
+ * parágrafos, listas, tabelas, negrito e link.
  */
 function renderizar(md: string): ReactNode[] {
   const linhas = md.replace(/\r\n/g, "\n").split("\n");
