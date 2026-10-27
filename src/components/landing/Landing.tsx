@@ -27,13 +27,17 @@ const meta = {
     url: "https://secretariainvisivel.com.br/",
     title: "Secretária Invisível | Sua recepção no balcão. Ela cuida do resto.",
     description:
-      "Responde, agenda, confirma, lembra e remarca pacientes 24h, sem substituir sua recepcionista. Implantação grátis para a turma do mês.",
+      "A Secretária Invisível atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza pacientes num funil. Sua equipe acompanha num painel único.",
+    social:
+      "Atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza pacientes num funil. Sua equipe acompanha e assume qualquer conversa num painel único.",
   },
   medico: {
     url: "https://secretariainvisivel.com.br/medico",
     title: "Secretária Invisível | Você atende o paciente. Ela cuida do resto.",
     description:
-      "Para médicos que atendem sozinhos: responde, agenda e confirma pacientes 24h. Chega de WhatsApp às 23h.",
+      "Para quem atende sozinho: ela atende no WhatsApp, agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha tudo num painel.",
+    social:
+      "Para quem atende sozinho: ela atende no WhatsApp, agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha e assume qualquer conversa num painel.",
   },
 };
 
@@ -78,13 +82,13 @@ const Landing = ({ variante }: Props) => {
         <link rel="canonical" href={m.url} />
         <meta property="og:url" content={m.url} />
         <meta property="og:title" content={m.title} />
-        <meta property="og:description" content={m.description} />
+        <meta property="og:description" content={m.social} />
         {/* O twitter:* acompanha o og:* — as duas famílias saem daqui para não
             reaparecerem duplicadas no HTML estático. A og:image fica no
             index.html: ela é a mesma nas duas rotas. */}
         <meta property="twitter:url" content={m.url} />
         <meta property="twitter:title" content={m.title} />
-        <meta property="twitter:description" content={m.description} />
+        <meta property="twitter:description" content={m.social} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 

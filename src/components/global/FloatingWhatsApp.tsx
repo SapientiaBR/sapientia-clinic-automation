@@ -1,21 +1,18 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { MessageSquare } from "lucide-react";
 import { gsap } from "@/lib/animations";
 import { useBarraVisivel, useDemoVisivel } from "@/lib/barraCelular";
 
 const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
+const ROTAS_SEM_BOTAO = ["/assinar", "/obrigado", "/recepcionista"];
 
 const FloatingWhatsApp = () => {
   const ref = useRef<HTMLAnchorElement>(null);
   const barraVisivel = useBarraVisivel();
   const demoVisivel = useDemoVisivel();
 
-  // Antes de abrir o WhatsApp, registra o interesse no Pixel. O link segue o
-  // clique normal e abre logo em seguida.
-  const registrarLead = () => {
-    const w = window as never as { fbq?: (...args: unknown[]) => void };
-    w.fbq && w.fbq("track", "Lead");
-  };
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!ref.current) return;
@@ -30,10 +27,14 @@ const FloatingWhatsApp = () => {
     };
   }, []);
 
+  // Nas páginas da assinatura o botão fixo de pagamento e os formulários
+  // ocupam o rodapé do celular; elas têm o próprio link para a Sofia. O clique
+  // em qualquer wa.me vira `Contact` em src/lib/consent.ts.
+  if (ROTAS_SEM_BOTAO.includes(pathname)) return null;
+
   return (
     <a
       ref={ref}
-      onClick={registrarLead}
       href={WA_URL}
       target="_blank"
       rel="noopener noreferrer"

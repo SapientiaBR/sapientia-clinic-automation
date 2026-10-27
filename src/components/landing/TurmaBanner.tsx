@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { turmaAtual } from "@/config/turma";
+import { implantacaoFormatada, turmaAtual } from "@/config/turma";
 
 /**
  * Faixa fina no topo, acima do header.
@@ -9,7 +9,7 @@ import { turmaAtual } from "@/config/turma";
  * no celular o texto quebra em duas linhas, a faixa vai a 64px e a navbar
  * subia 18px por cima dela. Altura de texto que quebra não se chuta — se mede.
  *
- * O texto muda com o estado da turma. O último dia tem redação própria:
+ * O texto é a oferta do mês da implantação. O último dia tem redação própria:
  * "encerra em 0 dias" é o tipo de frase que denuncia um número interpolado sem
  * ninguém ler.
  */
@@ -35,16 +35,16 @@ const TurmaBanner = () => {
     return () => ro.disconnect();
   }, []);
 
-  const texto = t.lotada
-    ? `Turma de ${t.mes} lotada · garanta vaga grátis na turma de ${t.proximoMes}`
-    : `Turma de ${t.mes}: restam ${t.restantes} de ${t.total} vagas com implantação grátis · ${
-        t.diasRestantes === 0 ? "encerra hoje" : `encerra em ${t.diasRestantes} dias`
-      }`;
+  const texto = `Quem assinar até ${t.fimDoMes} não paga a implantação de ${implantacaoFormatada} · ${
+    t.diasRestantes === 0
+      ? "encerra hoje"
+      : `encerra em ${t.diasRestantes} ${t.diasRestantes === 1 ? "dia" : "dias"}`
+  }`;
 
   return (
     <a
       ref={ref}
-      href="#demo"
+      href="#planos"
       className="fixed inset-x-0 top-0 z-[60] block px-4 py-2 text-center transition-colors"
       style={{ background: "var(--brand-800)" }}
       onMouseEnter={(e) => (e.currentTarget.style.background = "var(--brand-700)")}

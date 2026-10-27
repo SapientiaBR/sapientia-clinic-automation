@@ -1,92 +1,27 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, MessageCircle } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
 import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { PLANOS, precoTxt, waSofia, type Plano } from "@/config/si";
 
-type Plano = {
-  chave: string;
-  nome: string;
-  preco: string;
-  perfil: string;
-  /** Uma linha dizendo o que o plano resolve, antes da lista de recursos. */
-  promessa: string;
-  destaque: boolean;
-  herdaDe?: string;
-  recursos: string[];
-};
+type CardPlano = Plano & { destaque: boolean };
 
 /**
  * Ordem deliberada: o Clínica vem primeiro.
  *
  * É o plano recomendado, e num celular a ordem da coluna é a ordem de leitura
  * — deixar o mais barato no topo faz o visitante ancorar no menor preço antes
- * de ver o que o do meio entrega.
+ * de ver o que o do meio entrega. Os planos em si vêm de src/config/si.ts.
  */
-const planos: Plano[] = [
-  {
-    chave: "clinica",
-    nome: "Clínica",
-    preco: "R$897",
-    perfil: "2 a 3 profissionais",
-    promessa: "Menos cadeira vazia e recepção livre para o balcão.",
-    destaque: true,
-    herdaDe: "Consultório",
-    recursos: [
-      "Lembrete anti-falta",
-      "Remarcação pelo WhatsApp",
-      "Perguntas antes da consulta",
-      "Google Agenda",
-      "Entende áudio",
-      "Até 3 agendas",
-      "2 ajustes/mês",
-    ],
-  },
-  {
-    chave: "consultorio",
-    nome: "Consultório",
-    preco: "R$597",
-    perfil: "1 médico",
-    promessa: "Nenhum paciente sem resposta enquanto você atende.",
-    destaque: false,
-    recursos: [
-      "Atendimento 24h",
-      "Agendamento",
-      "Dúvidas frequentes",
-      "Confirmação do agendamento",
-      "1 agenda",
-      "1 ajuste/mês",
-    ],
-  },
-  {
-    chave: "operacao",
-    nome: "Operação",
-    preco: "R$1.547",
-    perfil: "4+ profissionais ou rede",
-    promessa: "O mesmo padrão em todas as agendas, sem depender de quem está na recepção.",
-    destaque: false,
-    herdaDe: "Clínica",
-    recursos: ["Agendas ilimitadas", "Suporte prioritário (4h úteis)", "1 ajuste/semana"],
-  },
+const planos: CardPlano[] = [
+  { ...PLANOS.clinica, destaque: true },
+  { ...PLANOS.consultorio, destaque: false },
+  { ...PLANOS.operacao, destaque: false },
 ];
 
 /** O card único da rota do médico solo. */
-const planoSolo: Plano = {
-  chave: "consultorio",
-  nome: "Consultório",
-  preco: "R$597",
-  perfil: "1 médico",
-  promessa: "Nenhum paciente sem resposta enquanto você atende.",
-  destaque: true,
-  recursos: [
-    "Atendimento 24h",
-    "Agendamento",
-    "Dúvidas frequentes",
-    "Confirmação do agendamento",
-    "Histórico no painel",
-    "1 ajuste/mês",
-  ],
-};
+const planoSolo: CardPlano = { ...PLANOS.consultorio, destaque: true };
 
 const IconeCheck = () => (
   <span
@@ -97,31 +32,29 @@ const IconeCheck = () => (
   </span>
 );
 
-/** Linha da implantação, repetida em todo card. */
+/**
+ * Linha da implantação, repetida em todo card.
+ *
+ * A implantação custa R$ 2.997 e sai sem cobrança para quem assina até o
+ * último dia do mês. A data é calculada, nunca escrita à mão.
+ */
 const LinhaImplantacao = ({ destaque }: { destaque: boolean }) => {
   const t = turmaAtual();
   const corFraca = destaque ? "rgba(255,255,255,0.75)" : "#6B7280";
   const corForte = destaque ? "#FFFFFF" : "#055449";
 
-  if (t.lotada) {
-    return (
-      <p className="font-sans mt-3 text-[14px]" style={{ color: corFraca }}>
-        Implantação {implantacaoFormatada}
-      </p>
-    );
-  }
   return (
     <p className="font-sans mt-3 text-[14px]" style={{ color: corFraca }}>
       Implantação <s>{implantacaoFormatada}</s>{" "}
       <strong className="font-semibold" style={{ color: corForte }}>
         R$0
       </strong>{" "}
-      na turma de {t.mes}
+      para quem assinar até {t.fimDoMes}
     </p>
   );
 };
 
-const Card = ({ p }: { p: Plano }) => (
+const Card = ({ p }: { p: CardPlano }) => (
   <div
     data-reveal
     className="relative flex flex-col overflow-hidden rounded-3xl"
@@ -172,7 +105,7 @@ const Card = ({ p }: { p: Plano }) => (
         className="font-display-sans mt-4 text-4xl font-normal tracking-[-0.04em]"
         style={{ color: p.destaque ? "#FFFFFF" : "#1F2937" }}
       >
-        {p.preco}
+        {precoTxt(p).replace(" ", "")}
         <span
           className="font-sans text-sm font-normal"
           style={{ color: p.destaque ? "rgba(255,255,255,0.85)" : "var(--text-muted)" }}
@@ -189,7 +122,7 @@ const Card = ({ p }: { p: Plano }) => (
           className="font-display-sans mb-4 border-b pb-3 text-[13px] font-semibold uppercase tracking-[0.08em]"
           style={{ color: "#0A8C7E", borderColor: "#E5E7EB" }}
         >
-          Tudo do {p.herdaDe} +
+          Tudo do {PLANOS[p.herdaDe].nome} +
         </p>
       )}
       <ul className="flex-1 space-y-3">
@@ -201,18 +134,37 @@ const Card = ({ p }: { p: Plano }) => (
         ))}
       </ul>
 
+      {/* Link comum, não do roteador: a /assinar abre como página nova, e o
+          gravador de sessão que roda na landing não segue para lá. */}
       <a
-        href="#demo"
+        href={`/assinar?plano=${p.chave}`}
         className={
-          "group mt-6 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-300 " +
+          "group mt-6 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3.5 font-display text-[15px] font-bold transition-all duration-300 " +
           (p.destaque
             ? "gradient-brand text-white shadow-[0_14px_30px_rgba(15, 181, 163,0.32)] hover:-translate-y-0.5"
             : "border border-[#0FB5A3] bg-white text-[#055449] hover:bg-[#F1FBF8]")
         }
       >
-        <span>Quero minha vaga</span>
+        <span>Assinar o plano {p.nome}</span>
         <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
       </a>
+      <p className="font-sans mt-3 text-center text-[13px] leading-snug text-[var(--text-muted)]">
+        Cancelamento com 30 dias de aviso.
+      </p>
+      {p.chave === "operacao" && (
+        <p className="font-sans mt-2 text-center text-[13px] leading-snug text-[var(--text-muted)]">
+          Quem prefere conversar fala com a Sofia, nossa assistente virtual, no WhatsApp. Reunião
+          com o Leo, em horário comercial.{" "}
+          <a
+            href={waSofia("Oi! Quero conversar sobre o plano Operação.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#055449] underline underline-offset-4"
+          >
+            Prefiro conversar antes
+          </a>
+        </p>
+      )}
     </div>
   </div>
 );
@@ -239,6 +191,17 @@ const Pricing = ({ variante = "clinica" }: Props) => {
             : "Com consulta a partir de R$500, menos de 2 consultas recuperadas por mês pagam o plano."}
         </p>
 
+        {!solo && (
+          <p
+            className="font-sans mx-auto mb-8 max-w-3xl text-center text-[15px] leading-[1.6] text-[var(--text-muted)] md:mb-10"
+            data-reveal
+          >
+            Nos três planos: atendimento no WhatsApp, agendamento, follow-up de quem sumiu, funil de
+            pacientes e painel para a sua equipe. A integração com o Google Agenda vem nos planos
+            Clínica e Operação.
+          </p>
+        )}
+
         {solo ? (
           <div className="mx-auto max-w-md">
             <Card p={planoSolo} />
@@ -252,20 +215,37 @@ const Pricing = ({ variante = "clinica" }: Props) => {
         )}
 
         <p className="font-sans mt-8 text-center text-[15px] text-[var(--text-muted)]">
-          Diagnóstico grátis antes de qualquer cobrança · Cancele com 30 dias de aviso.
+          Você só entra no ar depois de aprovar a configuração. Se não aprovar, devolvemos a
+          primeira mensalidade.
         </p>
 
         {solo && (
           <p className="font-sans mt-5 text-center text-[15px] text-[var(--text-muted)]">
-            Quer lembrete anti-falta, remarcação e áudio?{" "}
+            Quer Google Agenda, lembrete anti-falta, remarcação e áudio?{" "}
             <a
               href="/#planos"
               className="font-semibold text-[#055449] underline underline-offset-4"
             >
-              Ver plano Clínica (R$897/mês)
+              Ver plano Clínica ({precoTxt(PLANOS.clinica)}/mês)
             </a>
           </p>
         )}
+
+        <div className="mx-auto mt-10 max-w-2xl text-center" data-reveal>
+          <p className="font-sans text-[16px] leading-[1.6] text-[var(--text)]">
+            Prefere conversar antes de assinar? Fale com a Sofia, nossa assistente virtual, no
+            WhatsApp. Se quiser falar com uma pessoa, o Leo atende em horário comercial.
+          </p>
+          <a
+            href={waSofia("Oi! Quero tirar uma dúvida antes de assinar a Secretária Invisível.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#0FB5A3] bg-white px-6 py-3 font-display text-[15px] font-bold text-[#055449] transition-colors hover:bg-[#F1FBF8]"
+          >
+            <MessageCircle size={16} aria-hidden="true" />
+            Falar com a Sofia no WhatsApp
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { Plus, Minus } from "lucide-react";
 import { gsap, EASE, revealOnScroll } from "@/lib/animations";
+import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { PLANOS, precoTxt } from "@/config/si";
 
 type Entrada = [string, string];
 
@@ -12,6 +14,9 @@ type Entrada = [string, string];
  * elas ficam exportadas: o dado estruturado e o que esta na tela precisam
  * dizer a mesma coisa, ou o Google marca divergencia.
  */
+const t = turmaAtual();
+const ofertaImplantacao = `A implantação custa ${implantacaoFormatada} e sai sem cobrança para quem assinar até ${t.fimDoMes}.`;
+
 export const faqClinica: Entrada[] = [
   [
     "Substitui minha recepcionista?",
@@ -19,15 +24,19 @@ export const faqClinica: Entrada[] = [
   ],
   [
     "Preciso trocar meu número?",
-    "Não necessariamente. A implantação se adapta à operação da clínica.",
+    "Não. Usamos o número que seus pacientes já conhecem.",
   ],
   [
     "Ela dá orientação médica?",
     "Não. Questões clínicas vão para a equipe, com toda a conversa.",
   ],
   [
+    "Quanto custa?",
+    `Consultório ${precoTxt(PLANOS.consultorio)}, Clínica ${precoTxt(PLANOS.clinica)} e Operação ${precoTxt(PLANOS.operacao)} por mês, conforme o número de profissionais. ${ofertaImplantacao}`,
+  ],
+  [
     "E se não fizer sentido?",
-    "O diagnóstico é grátis antes de qualquer cobrança, e você cancela com 30 dias de aviso.",
+    "Antes de entrar no ar, sua clínica testa e aprova a configuração. Se não aprovar, devolvemos a primeira mensalidade inteira. Depois, você cancela com 30 dias de aviso.",
   ],
 ];
 
@@ -38,15 +47,19 @@ export const faqMedico: Entrada[] = [
   ],
   [
     "Preciso trocar meu número?",
-    "Não necessariamente. A implantação se adapta a como você atende hoje.",
+    "Não. Usamos o número que seus pacientes já conhecem.",
   ],
   [
     "Ela dá orientação médica?",
     "Não. Questões clínicas vão para você, com toda a conversa.",
   ],
   [
+    "Quanto custa?",
+    `O plano Consultório custa ${precoTxt(PLANOS.consultorio)} por mês. ${ofertaImplantacao}`,
+  ],
+  [
     "E se não fizer sentido?",
-    "O diagnóstico é grátis antes de qualquer cobrança, e você cancela com 30 dias de aviso.",
+    "Antes de entrar no ar, você testa e aprova a configuração. Se não aprovar, devolvemos a primeira mensalidade inteira. Depois, você cancela com 30 dias de aviso.",
   ],
 ];
 

@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
+import { iniciarRastreio } from "./lib/consent";
 import "./index.css";
 
 if (
@@ -17,6 +18,9 @@ if (
     console.info("[perf] monitoring enabled");
   });
 }
+
+// Pixel e Clarity só carregam se o visitante já aceitou cookies antes.
+iniciarRastreio();
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>

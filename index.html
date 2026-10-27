@@ -7,9 +7,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
 
-    <title>Secretária Invisível — IA para agendamento automático no WhatsApp | Sapient.IA</title>
-    <meta name="title" content="Secretária Invisível — IA para agendamento automático no WhatsApp | Sapient.IA" />
-    <meta name="keywords" content="secretária virtual IA, automação WhatsApp clínica, agendamento automático médico, IA para consultório" />
+    <title>Secretária Invisível | Sua recepção no balcão. Ela cuida do resto.</title>
+    <meta name="title" content="Secretária Invisível | Sua recepção no balcão. Ela cuida do resto." />
     <meta name="author" content="Sapient.IA" />
 
     <!-- title, description, og:title, og:description, og:url e os twitter:*
@@ -20,7 +19,7 @@
     <meta property="og:image" content="https://secretariainvisivel.com.br/og-image.jpg?v=5" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Secretária Invisível — IA 24h via WhatsApp" />
+    <meta property="og:image:alt" content="Secretária Invisível: atendimento no WhatsApp da clínica" />
     <meta property="og:site_name" content="Secretária Invisível" />
     <meta property="og:locale" content="pt_BR" />
 
@@ -45,7 +44,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "offers": { "@type": "Offer", "priceCurrency": "BRL" },
-      "description": "IA conversacional para clínicas — atende, qualifica e agenda no WhatsApp 24/7. Por Sapient.IA."
+      "description": "Atende no WhatsApp, agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil, com a equipe acompanhando num painel único. Por Sapient.IA."
     }
     </script>
 
@@ -54,50 +53,11 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@600;700;800&display=swap"></noscript>
 
-    <script>
-      // Stub imediato do Meta Pixel: qualquer fbq('track', ...) chamado antes
-      // do script carregar entra na fila e é enviado assim que ele conectar.
-      (function (f, b, e, n) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
-      })(window, document, 'script');
-
-      (function () {
-        var loaded = false;
-        function loadTracking() {
-          if (loaded) return; loaded = true;
-
-          // Carrega o script real do Meta Pixel; a fila do stub é drenada automaticamente.
-          var t = document.createElement('script');
-          t.async = true;
-          t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(t, s);
-
-          fbq('init', '1150165570508883');
-          fbq('track', 'PageView');
-
-          (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-          })(window, document, "clarity", "script", "wp77kiz728");
-        }
-        var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
-        function once() { events.forEach(function (ev) { window.removeEventListener(ev, once); }); loadTracking(); }
-        events.forEach(function (ev) { window.addEventListener(ev, once, { passive: true, once: true }); });
-        setTimeout(loadTracking, 4000);
-      })();
-    </script>
+    <!-- O pixel da Meta e o Clarity não carregam aqui: só depois do aceite no
+         banner de cookies (src/lib/consent.ts), como diz a Política de
+         Privacidade. -->
 </head>
   <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1150165570508883&ev=PageView&noscript=1"
-    /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

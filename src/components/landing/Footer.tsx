@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import logoSI from "@/assets/logo-si-v2.png.asset.json";
+import { abrirPreferencias } from "@/lib/consent";
 
 /**
  * Rodapé.
@@ -11,12 +12,8 @@ import logoSI from "@/assets/logo-si-v2.png.asset.json";
 const RAZAO_SOCIAL = "";
 const CNPJ = "24.081.578/0001-88";
 
-// Antes de abrir o WhatsApp, registra o interesse no Pixel. O link segue o
-// clique normal e abre logo em seguida.
-const registrarLead = () => {
-  const w = window as never as { fbq?: (...args: unknown[]) => void };
-  w.fbq && w.fbq("track", "Lead");
-};
+const linkRodape =
+  "font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline";
 
 const Footer = () => {
   const linhaJuridica = RAZAO_SOCIAL ? `${RAZAO_SOCIAL} · CNPJ ${CNPJ}` : `CNPJ ${CNPJ}`;
@@ -44,7 +41,6 @@ const Footer = () => {
             </a>
             <a
               href="https://wa.me/5511920795583"
-              onClick={registrarLead}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline"
@@ -53,6 +49,21 @@ const Footer = () => {
               Falar no WhatsApp
             </a>
           </div>
+
+          <nav aria-label="Documentos" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a href="/termos" className={linkRodape}>
+              Termos
+            </a>
+            <a href="/dpa" className={linkRodape}>
+              DPA
+            </a>
+            <a href="/privacidade" className={linkRodape}>
+              Privacidade
+            </a>
+            <button type="button" onClick={abrirPreferencias} className={linkRodape}>
+              Preferências de cookies
+            </button>
+          </nav>
 
           <div className="text-center md:text-right">
             <p className="font-sans text-[13px] text-[var(--text-muted)]">{linhaJuridica}</p>
