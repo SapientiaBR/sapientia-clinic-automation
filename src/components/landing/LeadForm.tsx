@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { turmaAtual } from "@/config/turma";
+import { trackEvent } from "@/lib/consent";
 
 /** Não mexer: é o fluxo de captação em produção. */
 const WEBHOOK_URL =
@@ -136,12 +137,10 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
       /* noop */
     }
 
-    if (typeof window !== "undefined" && (window as never as { fbq?: (...a: unknown[]) => void }).fbq) {
-      (window as never as { fbq: (...a: unknown[]) => void }).fbq("track", "Lead");
-    }
+    trackEvent("Lead");
 
     setSubmitting(false);
-    navigate("/obrigado");
+    navigate("/obrigado-demo");
   };
 
   return (
@@ -190,7 +189,7 @@ export const LeadForm = ({ origem = "clinica" }: Props) => {
             </div>
           ) : (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} data-clarity-mask="true" className="space-y-4">
                 <FormField
                   control={form.control}
                   name="nome"

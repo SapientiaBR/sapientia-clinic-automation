@@ -1,11 +1,15 @@
 /**
- * Turma de implantação.
+ * Oferta do mês da implantação.
  *
- * Os três primeiros valores são os únicos que se mexe à mão. Tudo o mais —
- * nome do mês, último dia, dias restantes — é calculado a partir da data.
+ * A implantação custa R$ 2.997. Quem assina até o último dia do mês não paga
+ * a implantação, e a oferta vale todo mês, sem data de fim. Por isso nenhuma
+ * frase do site mostra data: o texto diz "até o fim do mês" e serve para
+ * qualquer mês. Não existe contador de vagas. O que ainda sai do calendário,
+ * no fuso de São Paulo, são os dias que faltam e a etiqueta do formulário.
+ *
+ * O nome do arquivo e da função continua "turma" porque o formulário de
+ * demonstração já manda a etiqueta do mês nesse campo para o n8n.
  */
-export const VAGAS_POR_TURMA = 5;
-export const VAGAS_PREENCHIDAS = 2; // atualizar manualmente com o número real
 export const VALOR_IMPLANTACAO = 2997;
 
 const FUSO = "America/Sao_Paulo";
@@ -14,8 +18,8 @@ const FUSO = "America/Sao_Paulo";
  * A data de hoje no fuso de São Paulo, não no fuso do visitante.
  *
  * Isso importa mais do que parece: alguém abrindo o site de Lisboa às 00h30
- * já virou o mês lá, e veria "turma de outubro" enquanto a turma de setembro
- * ainda está aberta aqui. `en-CA` é um atalho conhecido para obter AAAA-MM-DD
+ * já virou o mês lá, e veria a data de novembro enquanto a oferta de outubro
+ * ainda está valendo aqui. `en-CA` é um atalho conhecido para obter AAAA-MM-DD
  * do `Intl` sem montar a string peça por peça.
  */
 function hojeEmSaoPaulo(): Date {
@@ -36,21 +40,15 @@ function nomeDoMes(data: Date): string {
 }
 
 export interface Turma {
-  /** "Setembro" */
-  mes: string;
   /** "Outubro" */
-  proximoMes: string;
+  mes: string;
   /** Último dia do mês corrente: 30, 31… */
   ultimoDia: number;
-  /** Número do mês corrente, com zero à esquerda: "09" */
+  /** Número do mês corrente, com zero à esquerda: "10" */
   numeroMes: string;
   /** Quantos dias faltam até o fim do mês. Zero no último dia. */
   diasRestantes: number;
-  total: number;
-  preenchidas: number;
-  restantes: number;
-  lotada: boolean;
-  /** "09/2026" — vai no campo oculto do formulário. */
+  /** "10/2026" — vai no campo oculto do formulário. */
   etiqueta: string;
 }
 
@@ -61,26 +59,18 @@ export function turmaAtual(): Turma {
 
   // Dia 0 do mês seguinte é o último dia deste mês.
   const ultimoDia = new Date(ano, mes + 1, 0).getDate();
-  const diasRestantes = ultimoDia - hoje.getDate();
-
-  const restantes = Math.max(0, VAGAS_POR_TURMA - VAGAS_PREENCHIDAS);
   const numeroMes = String(mes + 1).padStart(2, "0");
 
   return {
     mes: nomeDoMes(hoje),
-    proximoMes: nomeDoMes(new Date(ano, mes + 1, 1)),
     ultimoDia,
     numeroMes,
-    diasRestantes,
-    total: VAGAS_POR_TURMA,
-    preenchidas: Math.min(VAGAS_PREENCHIDAS, VAGAS_POR_TURMA),
-    restantes,
-    lotada: restantes === 0,
+    diasRestantes: ultimoDia - hoje.getDate(),
     etiqueta: `${numeroMes}/${ano}`,
   };
 }
 
-/** "R$2.997" — usado no preço riscado da implantação. */
+/** "R$ 2.997" */
 export const implantacaoFormatada = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",

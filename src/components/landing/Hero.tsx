@@ -13,13 +13,13 @@ const copy = {
     titulo: "Sua recepcionista atende quem está no balcão.",
     reforco: "A Secretária Invisível cuida do resto.",
     texto:
-      "Responde, agenda, confirma, lembra e remarca seus pacientes 24h, e guarda todo o histórico. Sem substituir ninguém.",
+      "Ela atende no WhatsApp, agenda direto no seu Google Agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil. Sua equipe acompanha e assume qualquer conversa num painel único.",
   },
   medico: {
     titulo: "Você atende o paciente.",
     reforco: "A Secretária Invisível cuida do resto.",
     texto:
-      "Responde, agenda e confirma seus pacientes 24h, tira as dúvidas do dia a dia e guarda todo o histórico. Chega de WhatsApp às 23h.",
+      "Ela atende no WhatsApp, agenda direto no seu Google Agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil. Você acompanha e assume qualquer conversa num painel único.",
   },
 };
 

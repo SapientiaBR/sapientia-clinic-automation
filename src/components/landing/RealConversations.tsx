@@ -63,8 +63,14 @@ const RealConversations = ({ apenasPrimeira = false }: Props) => {
           <h2 className="font-display text-[26px] font-normal tracking-[-0.04em] text-balance text-[var(--text)] sm:text-[36px] lg:text-[42px]">
             Veja como seus pacientes seriam atendidos.
           </h2>
-          <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#4B5563] md:text-[19px]">
-            Conversas reais. Do primeiro “oi” até o próximo passo.
+          <span
+            className="font-sans mt-4 inline-block rounded-full px-3 py-1 text-[13px] font-semibold"
+            style={{ background: "#D6F3EE", color: "#055449" }}
+          >
+            Recriação de atendimento. Nomes trocados.
+          </span>
+          <p className="font-sans mt-3 text-[17px] leading-[1.6] text-[#4B5563] md:text-[19px]">
+            Do primeiro “oi” até o próximo passo.
           </p>
         </div>
 

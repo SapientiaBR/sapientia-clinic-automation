@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { revealOnScroll } from "@/lib/animations";
 import { CTA_HREF, CTA_LABEL } from "@/components/landing/Hero";
-import { turmaAtual } from "@/config/turma";
+import { implantacaoFormatada } from "@/config/turma";
 
 const copy = {
   clinica: "Sua recepção não precisa estar em dois lugares.",
@@ -15,12 +15,11 @@ type Props = { variante?: "clinica" | "medico" };
 /**
  * Fechamento.
  *
- * A linha de apoio repete o estado da turma em vez de uma frase genérica: é o
- * último ponto da página onde a escassez ainda pesa, e ela já está calculada.
+ * A linha de apoio repete a oferta do mês em vez de uma frase genérica: é o
+ * último ponto da página antes do rodapé, e a data já está calculada.
  */
 const FinalCTA = ({ variante = "clinica" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const t = turmaAtual();
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   return (
@@ -37,11 +36,7 @@ const FinalCTA = ({ variante = "clinica" }: Props) => {
           className="font-sans mt-5 text-[17px] leading-[1.65] text-[#4B5563] md:text-[19px]"
           data-reveal
         >
-          {t.lotada
-            ? `A turma de ${t.mes} está lotada. Entre na lista da turma de ${t.proximoMes} com implantação grátis.`
-            : `A turma de ${t.mes} tem ${t.restantes} ${
-                t.restantes === 1 ? "vaga" : "vagas"
-              } com implantação grátis.`}
+          {`Quem assinar até o fim do mês não paga a implantação de ${implantacaoFormatada}.`}
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-3" data-reveal>
