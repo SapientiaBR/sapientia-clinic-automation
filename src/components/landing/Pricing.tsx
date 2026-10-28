@@ -148,7 +148,7 @@ const Card = ({ p }: { p: CardPlano }) => (
         <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
       </a>
       <p className="font-sans mt-3 text-center text-[13px] leading-snug text-[var(--text-muted)]">
-        Cancelamento com 30 dias de aviso.
+        Contrato de 12 meses, cobrado mês a mês.
       </p>
       {p.chave === "operacao" && (
         <p className="font-sans mt-2 text-center text-[13px] leading-snug text-[var(--text-muted)]">
@@ -201,8 +201,8 @@ const Pricing = ({ variante = "clinica" }: Props) => {
         )}
 
         <p className="font-sans mt-8 text-center text-[15px] text-[var(--text-muted)]">
-          Você só entra no ar depois de aprovar a configuração. Se não aprovar, devolvemos a
-          primeira mensalidade.
+          Contrato de 12 meses, cobrado mês a mês, porque a implantação sai sem cobrança. Quem
+          cancela antes dos 12 meses paga multa de 30% das mensalidades que faltam.
         </p>
 
         {solo && (
