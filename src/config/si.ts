@@ -7,7 +7,7 @@
  * digitado à mão em outro lugar. Os valores vêm de contexto/03-precificacao.md.
  */
 export const SI_CONFIG = {
-  versaoTermos: "1.0",
+  versaoTermos: "1.1",
   pixelId: "1150165570508883",
   clarityId: "wp77kiz728",
   whatsappSofia: "5511920795583",

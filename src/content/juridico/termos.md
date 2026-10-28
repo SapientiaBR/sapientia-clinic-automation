@@ -1,6 +1,6 @@
 # Termos de Serviço da assinatura
 
-Versão 1.0, em vigor desde 27 de outubro de 2026
+Versão 1.1, em vigor desde 28 de outubro de 2026
 
 ## 1. Quem somos e o que este documento é
 
@@ -34,7 +34,7 @@ Envio de mensagem em massa, campanha, promoção ou reativação de paciente ina
 
 ## 4. Pagamento e recorrência
 
-A assinatura é mensal e recorrente. A primeira mensalidade é cobrada no ato da assinatura, pelo link de pagamento do Asaas (Asaas Gestão Financeira Instituição de Pagamento S.A.), por um dos meios de pagamento oferecidos no link. As seguintes são cobradas a cada mês, no mesmo dia, pelo meio que você escolheu, até o cancelamento. O Asaas trata os dados de pagamento conforme a política dele. Nós recebemos a confirmação do pagamento e o identificador da cobrança.
+A assinatura tem prazo de 12 meses, com cobrança mensal (cláusula 8). A primeira mensalidade é cobrada no ato da assinatura, pelo link de pagamento do Asaas (Asaas Gestão Financeira Instituição de Pagamento S.A.), por um dos meios de pagamento oferecidos no link. As seguintes são cobradas a cada mês, no mesmo dia, pelo meio que você escolheu, enquanto durar a assinatura. O Asaas trata os dados de pagamento conforme a política dele. Nós recebemos a confirmação do pagamento e o identificador da cobrança.
 
 Em caso de atraso, incidem multa e juros de mora nos limites da lei. Se o atraso continuar depois do nosso aviso, podemos suspender o serviço e, se ainda assim não houver pagamento, cancelá-lo. A suspensão por falta de pagamento não interrompe a cobrança dos valores vencidos.
 
@@ -46,33 +46,35 @@ O valor da mensalidade pode ser reajustado uma vez a cada 12 meses, com aviso po
 
 ## 6. Implantação
 
-A implantação é feita pela equipe da Sapient.IA. O valor da implantação é R$ 2.997, e não é cobrado de quem assina até o último dia do mês em que a assinatura é feita, conforme a oferta mostrada na página no momento da contratação. Depois do pagamento, você preenche o formulário de implantação com as informações da clínica (serviços, horários, regras de agenda, perguntas frequentes, equipe). Nós configuramos a Secretária Invisível com base nisso.
+A implantação é feita pela equipe da Sapient.IA. O valor da implantação é R$ 2.997, e não é cobrado de quem assina até o último dia do mês em que a assinatura é feita, conforme a oferta mostrada na página no momento da contratação. A implantação sem cobrança é dada em troca do prazo de 12 meses da assinatura (cláusula 8). Depois do pagamento, você preenche o formulário de implantação com as informações da clínica (serviços, horários, regras de agenda, perguntas frequentes, equipe). Nós configuramos a Secretária Invisível com base nisso.
 
 A data de entrada no ar é combinada com você depois que o formulário estiver completo e as liberações de acesso que dependem de você (agenda, número de WhatsApp, equipe de apoio) estiverem feitas. Se o atraso é seu, a data anda junto. A Sapient.IA pode suspender a implantação até você enviar o que falta.
 
-## 7. Teste de aprovação
+## 7. Revisão antes de entrar no ar
 
-Antes de entrar no ar, a clínica testa a configuração conversando com a Secretária Invisível em ambiente de teste. A clínica confere respostas, preços informados, regras de agenda e a orientação de urgência. A Secretária Invisível só entra no ar depois que você aprova a configuração por escrito, no canal de implantação. A Sapient.IA faz os ajustes de configuração necessários nessa fase. Se o teste ficar parado sem retorno seu, entramos em contato, e a assinatura continua pendente até a sua decisão.
+Antes de entrar no ar, a clínica testa a configuração conversando com a Secretária Invisível em ambiente de teste. A clínica confere respostas, preços informados, regras de agenda e a orientação de urgência, e pede os ajustes, que a Sapient.IA faz nessa fase. Quando a revisão termina, a Secretária Invisível entra no ar. A revisão serve para ajustar a configuração. Ela não dá direito a cancelar sem multa nem a devolução de valores pagos. Se a revisão ficar parada sem retorno seu, entramos em contato, e a cobrança segue normalmente.
 
-O conteúdo que a Secretária Invisível diz (serviços, preços, horários, convênios, regras) vem de você. Ao aprovar, você confirma que esse conteúdo está correto e atualizado.
+O conteúdo que a Secretária Invisível diz (serviços, preços, horários, convênios, regras) vem de você. Ao conferir a configuração, você confirma que esse conteúdo está correto e atualizado.
 
-## 8. Garantia
+## 8. Prazo da assinatura
 
-Se você não aprovar a configuração no teste de aprovação, antes de a Secretária Invisível entrar no ar, a Sapient.IA devolve 100% da primeira mensalidade e a assinatura é cancelada, sem multa.
+A assinatura tem prazo de 12 meses, contados da data do primeiro pagamento, com cobrança mensal. Esse prazo é a contrapartida da implantação sem cobrança: a Sapient.IA deixa de cobrar os R$ 2.997 da implantação, e a clínica se compromete a manter a assinatura por 12 meses.
 
-Como pedir: diga que não aprova, por escrito, no canal de implantação ou pelo [WhatsApp de atendimento](https://wa.me/5511920795583), a qualquer momento antes da entrada no ar. Não precisa explicar o motivo, mas ele nos ajuda a melhorar. A garantia vale até a Sapient.IA confirmar a entrada no ar, que só acontece depois da sua aprovação por escrito.
+O que será configurado é combinado antes da contratação. Depois do pagamento, a implantação começa. Fora do direito de arrependimento previsto em lei (cláusula 9), mensalidade paga não é devolvida.
 
-Devolução: a Sapient.IA inicia a devolução da primeira mensalidade em até 5 dias úteis depois do seu pedido. No cartão, a devolução é feita como estorno pelo Asaas e aparece na fatura em até 5 dias úteis depois do estorno, dependendo do fechamento da fatura e do banco. No Pix, voltamos o valor para a conta de origem. No boleto, não há estorno automático: você nos informa uma conta em seu nome ou da sua empresa, e devolvemos por Pix ou TED. O tempo para o valor aparecer na sua conta ou fatura depende do banco.
-
-Depois que a Secretária Invisível entra no ar, a garantia termina e valem o arrependimento (cláusula 9) e o cancelamento (cláusula 10).
+Depois dos 12 meses, a assinatura continua mês a mês, nas mesmas condições, até ser cancelada (cláusula 10).
 
 ## 9. Direito de arrependimento
 
-Mesmo que a lei de consumo não se aplique ao seu caso, damos a todos os contratantes o direito de desistir em até 7 dias corridos, contados da data do pagamento ou da entrada no ar, o que acontecer por último. Basta pedir, sem justificar, pelo [WhatsApp de atendimento](https://wa.me/5511920795583) ou pelo canal de implantação. Devolvemos 100% do valor pago, pelo mesmo meio e na mesma forma da cláusula 8, e a assinatura é cancelada sem multa. Fechamos a integração com o WhatsApp e os dados seguem a cláusula de eliminação do DPA.
+Se a lei de consumo se aplicar ao seu caso, vale o direito de arrependimento do art. 49 do Código de Defesa do Consumidor: você pode desistir da contratação no prazo e nas condições que a lei prevê, pedindo pelo [WhatsApp de atendimento](https://wa.me/5511920795583), e os valores pagos são devolvidos como a lei determina.
 
 ## 10. Cancelamento
 
-Você pode cancelar a qualquer momento, sem multa e sem fidelidade, com 30 dias de aviso. Peça pelo [WhatsApp de atendimento](https://wa.me/5511920795583). O serviço e a cobrança continuam normalmente durante os 30 dias, e as mensalidades que vencerem nesse período são devidas por inteiro. Depois que o aviso terminar, não há nova cobrança. Se a última mensalidade paga cobrir um período que vai além dos 30 dias, o serviço segue até o fim desse período.
+Peça o cancelamento pelo [WhatsApp de atendimento](https://wa.me/5511920795583).
+
+Antes de completar 12 meses, o cancelamento tem multa de 30% da soma das mensalidades que faltariam até o 12º mês, contadas a partir do mês seguinte ao pedido. Exemplo: no plano Clínica (R$ 897), quem pede o cancelamento depois de pagar 4 mensalidades tem 8 pela frente, e a multa é 30% de 8 × R$ 897, ou seja, R$ 2.152,80. O serviço segue até o fim do período já pago, e a multa é cobrada no encerramento.
+
+Depois dos 12 meses, você pode cancelar a qualquer momento, sem multa, com 30 dias de aviso. O serviço e a cobrança continuam normalmente durante os 30 dias, e as mensalidades que vencerem nesse período são devidas por inteiro. Depois que o aviso terminar, não há nova cobrança.
 
 Ao fim da assinatura, desligamos a Secretária Invisível do WhatsApp da clínica, e você pode pedir uma cópia dos dados nos termos do DPA.
 
@@ -82,7 +84,7 @@ Para atender, a Secretária Invisível precisa se conectar a um número de Whats
 
 A alternativa é a API oficial do WhatsApp (Meta), direta ou por um provedor homologado. Ela exige verificação da empresa, número dedicado e aprovação de modelos de mensagem, e tem custo por conversa cobrado pela Meta. Você pode pedir a migração para a API oficial a qualquer momento (cláusula 14). Recomendamos usar um número dedicado ao atendimento e não o número pessoal de um profissional. Dado de paciente não deve circular no WhatsApp pessoal de médico ou de funcionário.
 
-Bloqueio de número, queda do WhatsApp ou mudança de regra da Meta não geram reembolso nem indenização, e não alteram o prazo do aviso de cancelamento.
+Bloqueio de número, queda do WhatsApp ou mudança de regra da Meta não geram reembolso nem indenização, e não alteram o prazo da assinatura nem as regras de cancelamento (cláusula 10).
 
 ## 12. Responsabilidades da clínica
 
@@ -92,7 +94,7 @@ A Sapient.IA não responde pela falta de retorno da equipe da clínica a uma con
 
 ## 13. Limites do serviço e inteligência artificial
 
-A Secretária Invisível usa inteligência artificial para entender e responder mensagens. Ela pode errar, interpretar mal uma mensagem ou responder de forma imprecisa. Por isso a clínica aprova a configuração antes do início e acompanha o atendimento. Fazemos o possível para manter o serviço no ar, mas ele depende de WhatsApp, Google, provedores de IA e internet, e pode ficar indisponível ou lento. Não prometemos disponibilidade ininterrupta.
+A Secretária Invisível usa inteligência artificial para entender e responder mensagens. Ela pode errar, interpretar mal uma mensagem ou responder de forma imprecisa. Por isso a clínica confere a configuração antes do início (cláusula 7) e acompanha o atendimento. Fazemos o possível para manter o serviço no ar, mas ele depende de WhatsApp, Google, provedores de IA e internet, e pode ficar indisponível ou lento. Não prometemos disponibilidade ininterrupta.
 
 O serviço automatiza tarefas de atendimento e agenda. Não prometemos agenda cheia, redução de faltas, aumento de faturamento ou qualquer resultado de negócio. O resultado depende da clínica, dos pacientes e da forma de uso.
 
@@ -116,7 +118,7 @@ Dados do contratante (nome, documento, e-mail, WhatsApp, plano, dados de cobran�
 
 ## 17. Limitação de responsabilidade
 
-Nos limites da lei, a Sapient.IA não responde por: decisão clínica ou administrativa da clínica; informação errada que veio do conteúdo fornecido pela clínica e aprovado por ela; falta de retorno humano a conversa transferida; bloqueio de número pelo WhatsApp; falha de terceiros; e lucros cessantes ou perda de oportunidade.
+Nos limites da lei, a Sapient.IA não responde por: decisão clínica ou administrativa da clínica; informação errada que veio do conteúdo fornecido pela clínica e conferido por ela; falta de retorno humano a conversa transferida; bloqueio de número pelo WhatsApp; falha de terceiros; e lucros cessantes ou perda de oportunidade.
 
 Quando formos responsáveis por um dano, a indenização se limita ao valor pago pela clínica nos 12 meses anteriores ao fato. Esse limite não vale quando a lei não permite, em especial nas relações de consumo, em caso de dolo ou culpa grave, e nas responsabilidades que a LGPD atribui diretamente às partes perante o titular.
 

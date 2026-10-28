@@ -16,6 +16,8 @@ type Entrada = [string, string];
  */
 const ofertaImplantacao = `A implantação custa ${implantacaoFormatada} e sai sem cobrança para quem assinar até o fim do mês.`;
 
+const fidelidade = `Tem. A assinatura é de 12 meses, cobrada mês a mês, porque a implantação de ${implantacaoFormatada} sai sem cobrança. Se cancelar antes dos 12 meses, a multa é de 30% das mensalidades que faltam. Depois dos 12 meses, a assinatura segue mês a mês e pode ser cancelada com 30 dias de aviso, sem multa.`;
+
 export const faqClinica: Entrada[] = [
   [
     "Substitui minha recepcionista?",
@@ -34,8 +36,8 @@ export const faqClinica: Entrada[] = [
     `Consultório ${precoTxt(PLANOS.consultorio)}, Clínica ${precoTxt(PLANOS.clinica)} e Operação ${precoTxt(PLANOS.operacao)} por mês, conforme o número de profissionais. ${ofertaImplantacao}`,
   ],
   [
-    "E se não fizer sentido?",
-    "Antes de entrar no ar, sua clínica testa e aprova a configuração. Se não aprovar, devolvemos a primeira mensalidade inteira. Depois, você cancela com 30 dias de aviso.",
+    "Tem fidelidade?",
+    fidelidade,
   ],
 ];
 
@@ -57,8 +59,8 @@ export const faqMedico: Entrada[] = [
     `O plano Consultório custa ${precoTxt(PLANOS.consultorio)} por mês. ${ofertaImplantacao}`,
   ],
   [
-    "E se não fizer sentido?",
-    "Antes de entrar no ar, você testa e aprova a configuração. Se não aprovar, devolvemos a primeira mensalidade inteira. Depois, você cancela com 30 dias de aviso.",
+    "Tem fidelidade?",
+    fidelidade,
   ],
 ];
 

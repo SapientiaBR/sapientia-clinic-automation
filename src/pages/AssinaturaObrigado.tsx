@@ -272,7 +272,7 @@ const AssinaturaObrigado = () => {
         <ol className="mt-6 list-decimal space-y-1.5 pl-5 font-sans text-[16px] leading-[1.55]">
           <li>Preencha o formulário de implantação.</li>
           <li>Convide sua recepcionista para completar a parte dela.</li>
-          <li>Nossa equipe configura. Você e sua recepcionista testam e aprovam.</li>
+          <li>Nossa equipe configura. Você e sua recepcionista testam e pedem os ajustes.</li>
           <li>Entra no ar.</li>
         </ol>
         <p className="font-sans mt-4 text-[15px] text-[#5A6570]">

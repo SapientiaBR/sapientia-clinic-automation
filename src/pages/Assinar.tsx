@@ -46,22 +46,21 @@ function validar(id: Campo, v: string): string {
   return "";
 }
 
-const TEXTO_ACEITE_TERMOS = `Li e aceito os Termos de Serviço e o Acordo de Tratamento de Dados (DPA), versão ${SI_CONFIG.versaoTermos}, e declaro que tenho poderes para contratar em nome da clínica.`;
+const TEXTO_ACEITE_TERMOS = `Li e aceito os Termos de Serviço e o Acordo de Tratamento de Dados (DPA), versão ${SI_CONFIG.versaoTermos}, incluindo o prazo de 12 meses e a multa de 30% das mensalidades que faltam se eu cancelar antes, e declaro que tenho poderes para contratar em nome da clínica.`;
 const TEXTO_CIENCIA_WHATSAPP =
   "Entendo que a Secretária Invisível se conecta ao WhatsApp por um método não oficial, que a Meta pode bloquear o número a qualquer momento, e que posso migrar para a API oficial.";
 
 const PASSOS = [
   ["Você conta como a clínica funciona.", "Preenche o formulário de implantação e convida sua recepcionista para completar a parte dela."],
   ["Nós configuramos.", "Nossa equipe monta o atendimento com as regras e o jeito de falar da sua clínica."],
-  ["Sua clínica testa e aprova.", "Você e sua recepcionista conversam com a Secretária Invisível antes de qualquer paciente. Algo não ficou como a clínica responde? Ajustamos."],
-  ["Entra no ar.", "Só depois da sua aprovação, no número que seus pacientes já conhecem."],
+  ["Sua clínica testa.", "Você e sua recepcionista conversam com a Secretária Invisível antes de qualquer paciente. Algo não ficou como a clínica responde? Ajustamos."],
+  ["Entra no ar.", "No número que seus pacientes já conhecem."],
 ];
 
 const FAQ: [string, string][] = [
-  ["Posso cancelar?", "Pode. O cancelamento exige 30 dias de aviso. Você fala com a nossa equipe e a assinatura termina depois desse prazo."],
+  ["Tem fidelidade?", `Tem. A assinatura é de 12 meses, cobrada mês a mês, porque a implantação de ${implantacaoFormatada} sai sem cobrança. Se cancelar antes dos 12 meses, você paga multa de 30% das mensalidades que faltam. Depois dos 12 meses, a assinatura segue mês a mês e você cancela quando quiser, com 30 dias de aviso e sem multa.`],
   ["Preciso trocar o número de WhatsApp da clínica?", "Não. Usamos o número que seus pacientes já conhecem. Você informa qual é no formulário de implantação. Se a clínica trocar de número no futuro, avise nossa equipe."],
   ["E a minha recepcionista, qual é o papel dela?", "Central. Ela conhece a clínica melhor que qualquer sistema. Participa da configuração, diz como a clínica responde hoje e acompanha o teste antes de entrar no ar. Continua sendo o rosto da clínica. A Secretária Invisível cuida do WhatsApp quando ela está com um paciente na frente e depois que ela vai embora."],
-  ["E se eu não aprovar a configuração?", "Você não entra no ar. Devolvemos a primeira mensalidade inteira e a assinatura é cancelada."],
   ["Como posso pagar?", "Pix, boleto ou cartão, você escolhe no pagamento. A primeira mensalidade é cobrada na assinatura. As seguintes são cobradas todo mês."],
   ["É inteligência artificial?", "É. A Secretária Invisível usa inteligência artificial configurada com as regras da sua clínica. Se o paciente perguntar, o sistema diz que é atendimento automatizado. Quando a situação pede uma pessoa, a conversa vai para a sua equipe."],
 ];
@@ -222,7 +221,7 @@ const Assinar = () => {
     window.location.assign(SI_CONFIG.asaas[chave]);
   };
 
-  const linhaComum = `Implantação de ${implantacaoFormatada} sem cobrança para quem assinar até o fim do mês. Cobrança mensal recorrente. Cancelamento com 30 dias de aviso.`;
+  const linhaComum = `Implantação de ${implantacaoFormatada} sem cobrança para quem assinar até o fim do mês. Contrato de 12 meses, cobrado mês a mês. Quem cancela antes paga multa de 30% das mensalidades que faltam.`;
 
   const rotuloCaixa = "font-sans text-[14px] leading-[1.55] text-[#1B2430]";
 
@@ -242,7 +241,7 @@ const Assinar = () => {
             </h1>
             <p className="font-sans mt-4 text-[17px] leading-[1.6] text-[#5A6570]">
               Você paga a primeira mensalidade agora. Nossa equipe configura, sua clínica testa e
-              aprova, e só então a Secretária Invisível entra no ar.
+              a Secretária Invisível entra no ar.
             </p>
           </div>
 
@@ -328,11 +327,11 @@ const Assinar = () => {
 
               {plano && (
                 <p className="font-sans mt-6 text-[13px] leading-[1.55] text-[#5A6570]">
-                  Você contrata o plano {plano.nome} por R$ {plano.valorTxt} por mês. Cobramos a
-                  primeira mensalidade agora e as próximas todo mês, no mesmo dia, até você
-                  cancelar. Cancelamento com 30 dias de aviso, sem multa. Se você não aprovar a
-                  configuração antes de ir ao ar, devolvemos a primeira mensalidade inteira. Você
-                  também pode desistir em até 7 dias, sem dar motivo.
+                  Você contrata o plano {plano.nome} por R$ {plano.valorTxt} por mês, com prazo de
+                  12 meses. Cobramos a primeira mensalidade agora e as próximas todo mês, no mesmo
+                  dia. Se cancelar antes de completar 12 meses, você paga multa de 30% das
+                  mensalidades que faltam. Depois dos 12 meses, a assinatura segue mês a mês e pode
+                  ser cancelada com 30 dias de aviso, sem multa.
                 </p>
               )}
 
@@ -356,8 +355,9 @@ const Assinar = () => {
                     <a href="/dpa" target="_blank" rel="noopener" className="font-semibold text-[#0A7A68] underline underline-offset-2">
                       DPA
                     </a>
-                    ), versão {SI_CONFIG.versaoTermos}, e declaro que tenho poderes para contratar em
-                    nome da clínica.
+                    ), versão {SI_CONFIG.versaoTermos}, incluindo o prazo de 12 meses e a multa de
+                    30% das mensalidades que faltam se eu cancelar antes, e declaro que tenho poderes
+                    para contratar em nome da clínica.
                   </span>
                 </label>
                 {SI_CONFIG.exigirCienciaWhatsApp && (
@@ -438,29 +438,11 @@ const Assinar = () => {
               ))}
             </ol>
             <p className="font-sans mt-4 text-[14px] text-[#5A6570]">
-              O ritmo depende de quanto a clínica responde e aprova em cada etapa. Você acompanha
+              O ritmo depende de quanto a clínica responde em cada etapa. Você acompanha
               tudo com a nossa equipe.
             </p>
             <p className="font-sans mt-3 text-[15px] font-semibold">
               A configuração é feita uma clínica por vez, na ordem de assinatura.
-            </p>
-          </section>
-
-          {/* Garantia */}
-          <section
-            aria-labelledby="h-garantia"
-            className="order-5 rounded-3xl p-6 min-[992px]:col-start-1"
-            style={{ background: "#FFFFFF", border: "1px solid #A7E6DD" }}
-          >
-            <h2 id="h-garantia" className="font-display text-[22px] font-semibold">
-              Se você não aprovar, a gente devolve
-            </h2>
-            <p className="font-sans mt-3 text-[16px] leading-[1.6]">
-              Antes de entrar no ar, sua clínica faz um teste de aprovação da configuração. Se não
-              aprovar, devolvemos a primeira mensalidade inteira e a assinatura é cancelada.
-            </p>
-            <p className="font-sans mt-2 text-[16px] font-semibold text-[#0A7A68]">
-              Você só entra no ar depois de aprovar.
             </p>
           </section>
 
