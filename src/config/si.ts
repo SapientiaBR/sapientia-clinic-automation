@@ -14,9 +14,9 @@ export const SI_CONFIG = {
   /** Caixa de ciência do WhatsApp não oficial na /assinar. */
   exigirCienciaWhatsApp: true,
   asaas: {
-    consultorio: "{{ASAAS_LINK_CONSULTORIO}}",
-    clinica: "{{ASAAS_LINK_CLINICA}}",
-    operacao: "{{ASAAS_LINK_OPERACAO}}",
+    consultorio: "https://www.asaas.com/000/c/2fb8npvabjmekn7t",
+    clinica: "https://www.asaas.com/000/c/uazvgeaudyvyd88t",
+    operacao: "https://www.asaas.com/000/c/r9sbt7ly96wkeg4x",
   },
   webhooks: {
     aceite: "https://n8n.sapientiabr.cloud/webhook/si-assinatura-aceite-4d8e2b71",
