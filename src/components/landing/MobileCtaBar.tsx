@@ -72,6 +72,8 @@ const MobileCtaBar = () => {
         visivel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
       }`}
       style={{
+        // Fica acima do banner de cookies enquanto ele está aberto.
+        bottom: "var(--cookie-h, 0px)",
         background: "rgba(255,255,255,0.96)",
         borderTop: "1px solid #E5E7EB",
         paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))",

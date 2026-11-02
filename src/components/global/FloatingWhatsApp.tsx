@@ -42,8 +42,9 @@ const FloatingWhatsApp = () => {
       // No celular o botão é um círculo só com o ícone. Ele sobe acima da barra
       // fixa quando a barra está na tela — os dois no mesmo canto se cobririam
       // — e some sobre o formulário, onde o envio é o único botão que importa.
-      className={`fixed right-4 md:right-6 bottom-6 z-50 flex h-14 w-14 md:w-auto items-center justify-center md:justify-start gap-2.5 rounded-full pl-0 md:pl-3 pr-0 md:pr-5 text-white font-display font-bold text-[16px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)] ${
-        barraVisivel ? "max-md:bottom-[calc(6rem+env(safe-area-inset-bottom))]" : ""
+      // `--cookie-h` é a altura do banner de cookies aberto (0 quando fechado).
+      className={`fixed right-4 md:right-6 bottom-[calc(1.5rem+var(--cookie-h,0px))] z-50 flex h-14 w-14 md:w-auto items-center justify-center md:justify-start gap-2.5 rounded-full pl-0 md:pl-3 pr-0 md:pr-5 text-white font-display font-bold text-[16px] gradient-brand shadow-[0_14px_30px_rgba(15,181,163,0.32)] ${
+        barraVisivel ? "max-md:bottom-[calc(6rem+env(safe-area-inset-bottom)+var(--cookie-h,0px))]" : ""
       } ${demoVisivel ? "max-md:hidden" : ""}`}
     >
       <span
