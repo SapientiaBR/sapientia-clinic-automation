@@ -12,6 +12,7 @@ import { EVENTO_ABRIR_BANNER, aceitar, lerEscolha, recusar } from "@/lib/consent
 const CookieBanner = () => {
   const [aberto, setAberto] = useState(false);
   const primeiroBotao = useRef<HTMLButtonElement>(null);
+  const caixa = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (lerEscolha() === null) setAberto(true);
@@ -22,6 +23,26 @@ const CookieBanner = () => {
 
   useEffect(() => {
     if (aberto) primeiroBotao.current?.focus({ preventScroll: true });
+  }, [aberto]);
+
+  // Enquanto o banner está aberto, a altura dele vai para `--cookie-h`. O botão
+  // do WhatsApp e a barra de CTA do celular sobem esse tanto: sem isso o banner
+  // cobre os dois, e quem ignora o banner nunca vê o botão do WhatsApp.
+  useEffect(() => {
+    const raiz = document.documentElement;
+    const el = caixa.current;
+    if (!aberto || !el) {
+      raiz.style.removeProperty("--cookie-h");
+      return;
+    }
+    const medir = () => raiz.style.setProperty("--cookie-h", `${el.offsetHeight}px`);
+    medir();
+    const ro = new ResizeObserver(medir);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      raiz.style.removeProperty("--cookie-h");
+    };
   }, [aberto]);
 
   if (!aberto) return null;
@@ -36,16 +57,17 @@ const CookieBanner = () => {
 
   return (
     <div
+      ref={caixa}
       role="dialog"
       aria-modal="false"
       aria-labelledby="cookies-titulo"
       className="fixed inset-x-0 bottom-0 z-[80] px-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] sm:px-6"
     >
       <div
-        className="mx-auto flex max-w-4xl flex-col gap-4 rounded-2xl p-5 sm:flex-row sm:items-center sm:gap-6"
+        className="mx-auto flex max-w-4xl flex-col gap-3 rounded-2xl p-4 sm:gap-4 sm:p-5 sm:flex-row sm:items-center sm:gap-6"
         style={{ background: "#1B2430", color: "#FFFFFF", boxShadow: "0 18px 48px rgba(15,23,42,0.35)" }}
       >
-        <p id="cookies-titulo" className="font-sans text-[14px] leading-[1.55] sm:text-[15px]">
+        <p id="cookies-titulo" className="font-sans text-[13px] leading-[1.5] sm:text-[15px] sm:leading-[1.55]">
           Usamos cookies essenciais para o site funcionar. Se você aceitar, também usamos o pixel da
           Meta para medir os nossos anúncios. Sem o seu aceite, o pixel não carrega. Veja a{" "}
           <a href="/privacidade" className="font-semibold underline underline-offset-4">
