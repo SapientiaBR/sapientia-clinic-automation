@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { MessageSquare } from "lucide-react";
 import { gsap } from "@/lib/animations";
+import { waSofia } from "@/config/si";
 import { useBarraVisivel, useDemoVisivel } from "@/lib/barraCelular";
 
-const WA_URL = "https://wa.me/5511920795583?text=Oi%21%20Quero%20conhecer%20a%20Secret%C3%A1ria%20Invis%C3%ADvel";
+const WA_URL = waSofia("Quero conhecer a Secretária Invisível.");
 const ROTAS_SEM_BOTAO = ["/assinar", "/obrigado", "/recepcionista"];
 
 const FloatingWhatsApp = () => {

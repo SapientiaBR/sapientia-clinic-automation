@@ -1,9 +1,9 @@
 import { MessageSquare, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { waSofia } from "@/config/si";
 import logo from "@/assets/logo-si-v2.png.asset.json";
 
-const WHATSAPP_URL =
-  "https://wa.me/5511920795583?text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20e%20quero%20conversar%20com%20a%20IA%20ao%20vivo.";
+const WHATSAPP_URL = waSofia("Acabei de preencher o formulário e quero conversar com a IA ao vivo.");
 
 const ThankYou = () => {
 

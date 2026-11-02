@@ -129,8 +129,15 @@ export const ehChavePlano = (v: string | null): v is ChavePlano =>
 export const linkAsaasConfigurado = (chave: ChavePlano) =>
   !/^\{\{.*\}\}$/.test(SI_CONFIG.asaas[chave]) && /^https:\/\//.test(SI_CONFIG.asaas[chave]);
 
-export const waSofia = (texto?: string) =>
-  `https://wa.me/${SI_CONFIG.whatsappSofia}${texto ? `?text=${encodeURIComponent(texto)}` : ""}`;
+/** Frase-gatilho: a Sofia atende vários projetos no mesmo número e reconhece
+ *  o assunto pela primeira mensagem. Toda mensagem pronta começa com ela. */
+export const FRASE_GATILHO_SI = "Oi! Vim pela página da Secretária Invisível";
+
+export const waSofia = (texto?: string) => {
+  const resto = texto ? texto.replace(/^Oi!\s*/, "").trim() : "";
+  const msg = resto ? `${FRASE_GATILHO_SI}. ${resto}` : FRASE_GATILHO_SI;
+  return `https://wa.me/${SI_CONFIG.whatsappSofia}?text=${encodeURIComponent(msg)}`;
+};
 
 /** "R$ 1.547" */
 export const precoTxt = (p: Plano) => `R$ ${p.valorTxt}`;

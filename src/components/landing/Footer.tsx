@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import logoSI from "@/assets/logo-si-v2.png.asset.json";
 import { abrirPreferencias } from "@/lib/consent";
+import { waSofia } from "@/config/si";
 
 /**
  * Rodapé.
@@ -40,7 +41,7 @@ const Footer = () => {
               Um produto Sapient.IA
             </a>
             <a
-              href="https://wa.me/5511920795583"
+              href={waSofia()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-sans text-[13px] text-[var(--text-muted)] underline-offset-4 transition-colors hover:text-[#055449] hover:underline"
