@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { gsap, EASE_PREMIUM, prefersReducedMotion } from "@/lib/animations";
 import heroReception from "@/assets/hero-reception.jpg";
 import { Baloes, conversas } from "@/components/landing/conversations";
+import { conteudoJaVisivel } from "@/lib/prerender";
 
 export const CTA_HREF = "#demo";
 export const CTA_LABEL = "Quero ver a demonstração no meu WhatsApp";
@@ -102,19 +103,24 @@ const Hero = ({ variante = "clinica" }: Props) => {
   useGSAP(
     () => {
       const root = ref.current!;
+      // Na primeira carga o HTML pré-renderizado já mostra o hero: animar a
+      // entrada a partir de opacity 0 o faria piscar (ver lib/prerender).
+      const jaVisivel = conteudoJaVisivel();
       if (prefersReducedMotion()) return;
 
       // A entrada é em cascata de cima para baixo, com um respiro entre os
       // blocos — é o que faz o hero "montar" em vez de simplesmente aparecer.
-      gsap.from(root.querySelectorAll("[data-hero-step]"), {
-        y: 22,
-        opacity: 0,
-        filter: "blur(8px)",
-        duration: 0.9,
-        ease: EASE_PREMIUM,
-        stagger: 0.09,
-        delay: 0.15,
-      });
+      if (!jaVisivel) {
+        gsap.from(root.querySelectorAll("[data-hero-step]"), {
+          y: 22,
+          opacity: 0,
+          filter: "blur(8px)",
+          duration: 0.9,
+          ease: EASE_PREMIUM,
+          stagger: 0.09,
+          delay: 0.15,
+        });
+      }
 
       // A imagem sobe um pouco enquanto a página rola. É sutil de propósito:
       // 40px de deslocamento ao longo de uma tela inteira dá profundidade sem

@@ -51,7 +51,13 @@ const Footer = () => {
             </a>
           </div>
 
-          <nav aria-label="Documentos" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <nav aria-label="Rodapé" className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a href="/" className={linkRodape}>
+              Para clínicas
+            </a>
+            <a href="/medico" className={linkRodape}>
+              Para quem atende sozinho
+            </a>
             <a href="/termos" className={linkRodape}>
               Termos
             </a>
