@@ -1,13 +1,93 @@
-# Secretaria Invisível
+# Secretária Invisível
 
-> Secretária com IA que atende, qualifica e agenda pacientes pelo WhatsApp 24h por dia, para clínicas e consultórios médicos no Brasil. Um produto Sapient.IA.
+> Atendimento no WhatsApp para clínicas e consultórios de saúde e estética, feito com IA. Atende o paciente, agenda direto no Google Agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil. A equipe da clínica acompanha e assume qualquer conversa num painel único. É um produto da Sapient.IA, de São Paulo.
 
-A Secretaria Invisível é uma implementação personalizada de IA (não um SaaS) que reduz a perda de pacientes que ficam sem resposta, alivia a equipe atual da clínica e automatiza o agendamento via WhatsApp. Modelo: setup único + mensalidade. Foco em médicos de São Paulo.
+A Secretária Invisível trabalha junto com a recepcionista, não no lugar dela. Ela cuida do volume do WhatsApp: a mensagem fora do horário, a dúvida repetida, quem perguntou o valor e sumiu. A equipe cuida do que pede atenção humana. Funciona no número de WhatsApp que a clínica já usa.
 
-## Pages
+## O que ela faz
 
-- [Home](/): Apresentação da Secretaria Invisível, dores, solução, calculadora de perdas, formulário de diagnóstico gratuito, prova social, como funciona, fundador e FAQ.
+- Atende no WhatsApp: Responde seus pacientes no número que eles já conhecem, de dia, de noite e no fim de semana.
+- Agenda direto no Google Agenda: O horário que o paciente escolhe cai direto no Google Agenda da clínica, sem ninguém digitar nada.
+- Faz o follow-up de quem sumiu: Quem perguntou e não voltou recebe uma nova mensagem, em vez de ficar sem resposta.
+- Organiza os pacientes num funil: Cada paciente fica na etapa em que está, e a equipe vê onde cada conversa parou.
+- Sua equipe no comando, num painel único: Sua equipe acompanha todas as conversas num só lugar e assume qualquer uma quando quiser.
 
-## Optional
+## Para quem é
 
-- [Contato via WhatsApp](https://wa.me/5511920795583): Fale diretamente com a equipe.
+Clínicas e consultórios de saúde e estética que marcam consulta pelo WhatsApp, do profissional que atende sozinho até a operação com 4 ou mais profissionais ou rede. Há uma página para clínicas e outra para quem atende sozinho (plano Consultório).
+
+## Planos e preços
+
+### Plano Consultório: R$ 597 por mês
+
+Para 1 profissional. Inclui:
+
+- Atendimento 24h no WhatsApp
+- Agendamento
+- Integração com Google Agenda
+- Follow-up de quem sumiu
+- Funil de pacientes
+- Painel para a equipe acompanhar e assumir conversas
+- Respostas às dúvidas frequentes
+- Confirmação do agendamento
+- 1 agenda
+- 1 ajuste por mês
+
+### Plano Clínica: R$ 897 por mês
+
+Para 2 a 3 profissionais. Tudo do plano Consultório, mais:
+
+- Lembrete para reduzir faltas
+- Remarcação pelo WhatsApp
+- Perguntas antes da consulta
+- Entende mensagens de áudio
+- Até 3 agendas
+- 2 ajustes por mês
+
+### Plano Operação: R$ 1.547 por mês
+
+Para 4 ou mais profissionais, ou rede. Tudo do plano Clínica, mais:
+
+- Agendas ilimitadas
+- Suporte prioritário (4h úteis)
+- 1 ajuste por semana
+
+Implantação: R$ 2.997. Quem assina até o fim do mês não paga a implantação, e a oferta se repete todo mês.
+
+Contrato de 12 meses, cobrado mês a mês. Cancelar antes dos 12 meses tem multa de 30% das mensalidades que faltam. Depois dos 12 meses, a assinatura segue mês a mês e pode ser cancelada com 30 dias de aviso, sem multa.
+
+A assinatura é feita online em https://secretariainvisivel.com.br/assinar. Quem prefere conversar antes fala com a Sofia, assistente virtual da Sapient.IA, no WhatsApp: https://wa.me/5511920795583. Reunião com uma pessoa, em horário comercial, sob pedido.
+
+## Perguntas frequentes
+
+**Substitui minha recepcionista?**
+Não. Ela assume o volume. Sua equipe cuida do que precisa de atenção humana.
+
+**Preciso trocar meu número?**
+Não. Usamos o número que seus pacientes já conhecem.
+
+**Ela dá orientação médica?**
+Não. Questões clínicas vão para a equipe, com toda a conversa.
+
+**Quanto custa?**
+Consultório R$ 597, Clínica R$ 897 e Operação R$ 1.547 por mês, conforme o número de profissionais. A implantação custa R$ 2.997 e sai sem cobrança para quem assinar até o fim do mês.
+
+**Tem fidelidade?**
+Tem. A assinatura é de 12 meses, cobrada mês a mês, porque a implantação de R$ 2.997 sai sem cobrança. Se cancelar antes dos 12 meses, a multa é de 30% das mensalidades que faltam. Depois dos 12 meses, a assinatura segue mês a mês e pode ser cancelada com 30 dias de aviso, sem multa.
+
+## Limites
+
+- Não dá orientação médica. Questões clínicas vão para a equipe, com a conversa inteira.
+- Não substitui a recepcionista.
+- Não exige trocar o número de WhatsApp da clínica.
+- A integração de agenda em produção é o Google Agenda. Outros sistemas de agenda ou prontuário são avaliados caso a caso na implantação e não são integração pronta.
+- Não há estudo de caso nem número de resultado publicado. Percentuais de redução de faltas ou de ganho em agendamento que apareçam em outras fontes não vêm da Secretária Invisível.
+
+## Páginas
+
+- [Para clínicas](https://secretariainvisivel.com.br/): o que ela faz, como funciona, planos e perguntas frequentes.
+- [Para quem atende sozinho](https://secretariainvisivel.com.br/medico): a mesma proposta para consultório com um profissional, com o plano Consultório.
+
+## Quem faz
+
+Sapient.IA, agência de automação com IA de São Paulo, SP (Leonardo Gimenez Figueiredo Comercio e Consultoria Em Ti Ltda, CNPJ 24.081.578/0001-88). Site da agência: https://sapientiabr.cloud/

@@ -1,9 +1,25 @@
-User-agent: Googlebot
-Allow: /
-Disallow: /obrigado
-Disallow: /design-system-showcase
+# Buscadores e rastreadores de IA liberados de forma explícita.
+# A regra de um grupo substitui a do "*", por isso cada grupo repete os Disallow.
+#
+# Busca (aparecem como resposta com link): Googlebot, Bingbot, OAI-SearchBot,
+# Claude-SearchBot, PerplexityBot, Applebot.
+# Pedido do usuário (abrem a página quando alguém pede): ChatGPT-User, Claude-User,
+# Perplexity-User.
+# Treinamento/grounding: GPTBot, ClaudeBot, Google-Extended, Applebot-Extended.
 
+User-agent: Googlebot
 User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
 Allow: /
 Disallow: /obrigado
 Disallow: /design-system-showcase

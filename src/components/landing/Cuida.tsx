@@ -2,62 +2,18 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { CalendarCheck, Filter, LayoutDashboard, MessageSquare, RefreshCw } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
+import { capacidadesClinica, capacidadesMedico, type Capacidade } from "@/content/capacidades";
 
 type Item = { icone: typeof MessageSquare; titulo: string; linha: string };
 
-/**
- * As cinco capacidades, na ordem da frase de posicionamento (27/10): atende,
- * agenda, faz o follow-up, organiza num funil e deixa a equipe no comando.
- */
-const clinica: Item[] = [
-  {
-    icone: MessageSquare,
-    titulo: "Atende no WhatsApp",
-    linha: "Responde seus pacientes no número que eles já conhecem, de dia, de noite e no fim de semana.",
-  },
-  {
-    icone: CalendarCheck,
-    titulo: "Agenda direto no Google Agenda",
-    linha:
-      "O horário que o paciente escolhe cai direto no Google Agenda da clínica, sem ninguém digitar nada.",
-  },
-  {
-    icone: RefreshCw,
-    titulo: "Faz o follow-up de quem sumiu",
-    linha: "Quem perguntou e não voltou recebe uma nova mensagem, em vez de ficar sem resposta.",
-  },
-  {
-    icone: Filter,
-    titulo: "Organiza os pacientes num funil",
-    linha: "Cada paciente fica na etapa em que está, e a equipe vê onde cada conversa parou.",
-  },
-  {
-    icone: LayoutDashboard,
-    titulo: "Sua equipe no comando, num painel único",
-    linha: "Sua equipe acompanha todas as conversas num só lugar e assume qualquer uma quando quiser.",
-  },
-];
+/** Um ícone por capacidade, na ordem de content/capacidades.ts. */
+const ICONES = [MessageSquare, CalendarCheck, RefreshCw, Filter, LayoutDashboard];
 
-/** O médico solo assina o Consultório: mesma agenda no Google, dita para quem atende sozinho. */
-const medico: Item[] = [
-  clinica[0],
-  {
-    icone: CalendarCheck,
-    titulo: "Agenda direto no Google Agenda",
-    linha: "O paciente escolhe o horário e a consulta cai no seu Google Agenda, sem você parar o atendimento.",
-  },
-  clinica[2],
-  {
-    icone: Filter,
-    titulo: "Organiza os pacientes num funil",
-    linha: "Cada paciente fica na etapa em que está, e você vê onde cada conversa parou.",
-  },
-  {
-    icone: LayoutDashboard,
-    titulo: "Você no comando, num painel único",
-    linha: "Você acompanha todas as conversas num só lugar e assume qualquer uma quando quiser.",
-  },
-];
+const comIcone = (lista: Capacidade[]): Item[] =>
+  lista.map((c, i) => ({ icone: ICONES[i], ...c }));
+
+const clinica: Item[] = comIcone(capacidadesClinica);
+const medico: Item[] = comIcone(capacidadesMedico);
 
 const copy = {
   clinica: {

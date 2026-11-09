@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { lovableAssets } from "./vite-plugin-lovable-assets";
+import { prerender } from "./vite-plugin-prerender";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -19,6 +20,9 @@ export default defineConfig(({ mode }) => ({
     // So no dev: em producao o Lovable serve esses caminhos sozinho.
     lovableAssets(path.resolve(__dirname, "./src/assets")),
     mode === "development" && componentTagger(),
+    // Grava dist/<rota>/index.html com o conteúdo de cada página, para SEO e para
+    // rastreadores que não executam JavaScript. Só no build de produção.
+    mode !== "development" && prerender(),
   ].filter(Boolean),
   resolve: {
     alias: {

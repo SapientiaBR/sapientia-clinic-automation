@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { useEffect, useRef, useState } from "react";
+import { implantacaoFormatada, turmaAtual, type Turma } from "@/config/turma";
 
 /**
  * Faixa fina no topo, acima do header.
@@ -12,9 +12,13 @@ import { implantacaoFormatada, turmaAtual } from "@/config/turma";
  * O texto é a oferta da implantação, sem data: ela vale todo mês. O último dia
  * tem redação própria: "faltam 0 dias" é o tipo de frase que denuncia um número
  * interpolado sem ninguém ler.
+ *
+ * A contagem de dias depende do relógio de quem lê. No HTML pré-renderizado
+ * do build ela fica de fora (seria o dia em que o site foi publicado, e ficaria
+ * errada no dia seguinte); o navegador a acrescenta ao montar.
  */
 const TurmaBanner = () => {
-  const t = turmaAtual();
+  const [t] = useState<Turma | null>(() => (typeof window === "undefined" ? null : turmaAtual()));
   const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
@@ -35,11 +39,14 @@ const TurmaBanner = () => {
     return () => ro.disconnect();
   }, []);
 
-  const texto = `Quem assinar até o fim do mês não paga a implantação de ${implantacaoFormatada} · ${
-    t.diasRestantes === 0
-      ? "último dia"
-      : `faltam ${t.diasRestantes} ${t.diasRestantes === 1 ? "dia" : "dias"}`
-  }`;
+  const base = `Quem assinar até o fim do mês não paga a implantação de ${implantacaoFormatada}`;
+  const texto = !t
+    ? base
+    : `${base} · ${
+        t.diasRestantes === 0
+          ? "último dia"
+          : `faltam ${t.diasRestantes} ${t.diasRestantes === 1 ? "dia" : "dias"}`
+      }`;
 
   return (
     <a

@@ -8,14 +8,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=no" />
 
-    <title>Secretária Invisível | Sua recepção no balcão. Ela cuida do resto.</title>
-    <meta name="title" content="Secretária Invisível | Sua recepção no balcão. Ela cuida do resto." />
+    <!-- Título de reserva, para o caso de o pré-render não rodar. O build troca
+         esta linha pelo título de cada rota (vite-plugin-prerender). Mantenha
+         igual ao title da home em src/seo/site.ts. -->
+    <title>Secretária virtual para clínicas | Secretária Invisível</title>
     <meta name="author" content="Sapient.IA" />
 
-    <!-- title, description, og:title, og:description, og:url e os twitter:*
-         equivalentes sao emitidos por rota no Helmet (components/landing/Landing).
-         Declarados tambem aqui, virariam tags duplicadas: o Helmet nao
-         substitui o que ja esta no HTML estatico. -->
+    <!-- title, description, canonical, robots, og:title, og:description,
+         og:url, os twitter:* equivalentes e o JSON-LD sao emitidos por rota no
+         Helmet (components/landing/Landing). Nao declare nada disso aqui: o
+         Helmet nao substitui o que ja esta no HTML estatico, e a tag viraria
+         duplicada. No build, vite-plugin-prerender grava as mesmas tags,
+         marcadas com data-rh, em dist/<rota>/index.html; o cliente as troca
+         ao montar. -->
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://secretariainvisivel.com.br/og-image.jpg?v=5" />
     <meta property="og:image:width" content="1200" />
@@ -36,18 +41,6 @@
 
     <link rel="preload" as="image" href="/__l5e/assets-v1/44362061-3143-4c28-a46e-dfb36293d1e1/hero-doctor-mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
     <link rel="preload" as="image" href="/__l5e/assets-v1/1770d414-d69c-400d-9681-747bc52562fb/hero-doctor-desktop.webp" media="(min-width: 768px)" fetchpriority="high" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Secretária Invisível",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "priceCurrency": "BRL" },
-      "description": "Atende no WhatsApp, agenda, faz o follow-up de quem sumiu e organiza os pacientes num funil, com a equipe acompanhando num painel único. Por Sapient.IA."
-    }
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Cópia de reserva. No build, vite-plugin-prerender grava o sitemap.xml de
+     dist/ a partir da lista de rotas indexáveis, com lastmod da última mudança
+     de conteúdo no git. Só entram aqui páginas que podem ser indexadas. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://secretariainvisivel.com.br/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://secretariainvisivel.com.br/medico</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-09</lastmod>
   </url>
 </urlset>

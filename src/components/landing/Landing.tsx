@@ -4,7 +4,8 @@ import TurmaBanner from "@/components/landing/TurmaBanner";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import Reframe from "@/components/landing/Reframe";
-import { faqClinica, faqMedico } from "@/components/landing/FAQ";
+import { META_LANDING } from "@/seo/site";
+import { schemaLanding } from "@/seo/schema";
 
 const Scene = lazy(() => import("@/components/landing/Scene"));
 const Cuida = lazy(() => import("@/components/landing/Cuida"));
@@ -22,25 +23,6 @@ const MobileCtaBar = lazy(() => import("@/components/landing/MobileCtaBar"));
 
 const Fallback = ({ h = "h-32" }: { h?: string }) => <div className={h} aria-hidden="true" />;
 
-const meta = {
-  clinica: {
-    url: "https://secretariainvisivel.com.br/",
-    title: "Secretária Invisível | Sua recepção no balcão. Ela cuida do resto.",
-    description:
-      "A Secretária Invisível atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza pacientes num funil. Sua equipe acompanha num painel único.",
-    social:
-      "Atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza pacientes num funil. Sua equipe acompanha e assume qualquer conversa num painel único.",
-  },
-  medico: {
-    url: "https://secretariainvisivel.com.br/medico",
-    title: "Secretária Invisível | Você atende o paciente. Ela cuida do resto.",
-    description:
-      "Para quem atende sozinho: ela atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha tudo num painel.",
-    social:
-      "Para quem atende sozinho: ela atende no WhatsApp, agenda no Google Agenda, retoma quem sumiu e organiza seus pacientes num funil. Você acompanha e assume qualquer conversa num painel.",
-  },
-};
-
 type Props = { variante: "clinica" | "medico" };
 
 /**
@@ -56,29 +38,15 @@ type Props = { variante: "clinica" | "medico" };
  * dependia de qual o crawler lia por último.
  */
 const Landing = ({ variante }: Props) => {
-  const m = meta[variante];
-  const perguntas = variante === "medico" ? faqMedico : faqClinica;
+  const m = META_LANDING[variante];
   const ehMedico = variante === "medico";
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: perguntas.map(([q, a]) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
-    })),
-  };
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--navy-0)] text-[var(--text)]">
       <Helmet>
         <title>{m.title}</title>
         <meta name="description" content={m.description} />
-        <meta
-          name="keywords"
-          content="atendimento whatsapp clínica, agendamento automático consultório, recepção clínica São Paulo, confirmação de consulta"
-        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
         <link rel="canonical" href={m.url} />
         <meta property="og:url" content={m.url} />
         <meta property="og:title" content={m.title} />
@@ -89,7 +57,7 @@ const Landing = ({ variante }: Props) => {
         <meta property="twitter:url" content={m.url} />
         <meta property="twitter:title" content={m.title} />
         <meta property="twitter:description" content={m.social} />
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaLanding(variante))}</script>
       </Helmet>
 
       <TurmaBanner />

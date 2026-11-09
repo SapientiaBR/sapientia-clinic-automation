@@ -1,8 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "lucide-react";
 import { revealOnScroll } from "@/lib/animations";
-import { implantacaoFormatada, turmaAtual } from "@/config/turma";
+import { implantacaoFormatada, turmaAtual, type Turma as TurmaDoMes } from "@/config/turma";
 
 type Props = {
   /** "clínica" na rota principal, "consultório" na rota do médico solo. */
@@ -18,7 +18,8 @@ type Props = {
  */
 const Turma = ({ unidade = "clínica" }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
-  const t = turmaAtual();
+  // Sem a contagem no HTML pré-renderizado: ver TurmaBanner.
+  const [t] = useState<TurmaDoMes | null>(() => (typeof window === "undefined" ? null : turmaAtual()));
   useGSAP(() => revealOnScroll(ref.current), { scope: ref });
 
   const umaPorVez =
@@ -51,11 +52,13 @@ const Turma = ({ unidade = "clínica" }: Props) => {
             Implantação <s className="font-normal text-[#6B7280]">{implantacaoFormatada}</s>{" "}
             <span className="text-[#055449]">R$0</span> até o fim do mês.
           </p>
-          <p className="font-sans mt-1.5 text-[15px] text-[#4B5563]">
-            {t.diasRestantes === 0
-              ? "Último dia: a oferta deste mês encerra hoje."
-              : `Faltam ${t.diasRestantes} ${t.diasRestantes === 1 ? "dia" : "dias"} para o fim do mês.`}
-          </p>
+          {t && (
+            <p className="font-sans mt-1.5 text-[15px] text-[#4B5563]">
+              {t.diasRestantes === 0
+                ? "Último dia: a oferta deste mês encerra hoje."
+                : `Faltam ${t.diasRestantes} ${t.diasRestantes === 1 ? "dia" : "dias"} para o fim do mês.`}
+            </p>
+          )}
 
           <a href="#planos" className="btn-turma mt-7">
             Escolher meu plano
